@@ -1,3 +1,7 @@
+.styleImage{
+  border-radius: 100px;
+}
+
 body {
     background: url('background.jpg') fixed no-repeat;
     background-size:cover;
