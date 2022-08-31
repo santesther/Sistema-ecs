@@ -1,0 +1,48 @@
+<% if user_signed_in? %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+  <%= link_to "Página Inicial", root_path, class: "navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        <%= link_to "Histórico", welcome_historico_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Instituição", welcome_instituicao_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'nav-link' %> 
+        </li>
+        <li class="nav-item">
+        <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'nav-link'%>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<% else %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+  <%= link_to "ECS", root_path, class: "navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/"></a>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Histórico", welcome_historico_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<% end %>

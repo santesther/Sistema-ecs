@@ -1,0 +1,61 @@
+<% if user_signed_in? %>
+    <div class="d-flex align-items-center justify-content-center">
+    <h1>Estágio Curricular Supervisionado</h1>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+    </div>
+
+    <br><br>
+    
+    <% if current_user.role == "normal_user" %>
+      <div class="alert alert-primary">
+        <p><b>Ola! Preencha os dados correspondentes a sua Instituição Concedente na aba "Instituição"</b></p>
+      </div>
+    <% end %>
+
+    <% else %>
+
+    <div class="d-flex align-items-center justify-content-center">
+    <h1>Estágio Curricular Supervisionado</h1>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+    </div>
+
+    <div class="text-box">
+            <div class="text-box-heading">
+            <div class="d-flex align-items-center justify-content-center">
+            <div class="arrow-down"><span style="color: #f00;">Licenciando(a)!</span></div>
+            </div>
+            <p><br>
+            <div class="text-box">
+            <div class="text-box-heading">
+                <div class="form">
+                <form>
+                Bem vindo(a) ao <b>Sistema ECS</b> destinado ao Estágio Curricular Supervisionado, obrigatório e não remunerado, nos cursos de Licenciatura do <i>Campus</i> Campos Centro do IFFluminense.<br>
+                
+                Este Sistema foi criado para fins de emissões de documentos obrigatórios ao Licenciando(a) e ao campo de estágio oportunizado por Instituições parceiras, sejam Formais ou Não Formais.</p>
+            </form>
+            </div>
+            </div>
+            </div>
+            </div>
+        </header>
+    </div>
+</div>
+
+    <div class="d-flex align-items-center justify-content-center">
+    <div id="main" class="main">
+    <div id ="texto-home" class="texto-home">
+    <h2>Crie sua conta ou faça login!</h2>
+    <br><br>
+    <div class="text-center">
+        <%= link_to "Acessar", new_user_session_path, :class => "btn btn-primary" %><br><br>
+        <%= link_to "Criar Conta", new_user_registration_path, :class => "btn btn-success direita"  %>
+        </div>
+    <% end %>
+
+    </div>
+    </div> 
+</div>
