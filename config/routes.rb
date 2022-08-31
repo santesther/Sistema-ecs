@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'welcome/historico', to: "welcome#historico"
 
   get 'welcome/instituicao', to: "welcome#instituicao"
-
     
 
   
