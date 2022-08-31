@@ -22,6 +22,8 @@ gem 'material_icons', '~> 2.2'
 
 gem 'mini_magick';
 
+gem 'will_paginate';
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
