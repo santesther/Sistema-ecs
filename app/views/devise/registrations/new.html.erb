@@ -22,61 +22,61 @@
   </div>
   <br>
 
-        <label class="col-sm-2 col-form-label">Nome civil*</label>
+        <label class="col-sm-2 col-form-label">Nome social*</label>
         <div class="col-sm-4">
-        <%= f.text_field :nome_social, autofocus: true, autocomplete: "off" %>
+        <%= f.text_field :nome_social, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   </div>
 
   <div class="form-group row">
         <label class="col-sm-2 col-form-label">Email*</label>
         <div class="col-sm-4">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, required: true, autocomplete: "email" %>
   </div>
   <br>
 
   <label class="col-sm-2 col-form-label">Endereço*</label>
         <div class="col-sm-4">
-    <%= f.text_field :endereco, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :endereco, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   </div>
 
   <div class="form-group row">
         <label class="col-sm-2 col-form-label">Complemento*</label>
         <div class="col-sm-4">
-    <%= f.text_field :complemento, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :complemento, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   <br>
 
   <label class="col-sm-2 col-form-label">Número*</label>
         <div class="col-sm-4">
-    <%= f.text_field :numero, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :numero, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   <div>
 
   <div class="form-group row">
         <label class="col-sm-2 col-form-label">Bairro*</label>
         <div class="col-sm-4">
-    <%= f.text_field :bairro, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :bairro, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   <br>
 
   <label class="col-sm-2 col-form-label">Município*</label>
         <div class="col-sm-4">
-    <%= f.text_field :municipio, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :municipio, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   </div>
 
   <div class="form-group row">
         <label class="col-sm-2 col-form-label">CEP*</label>
         <div class="col-sm-4">
-    <%= f.text_field :cep, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :cep, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   <br>
 
   <label class="col-sm-2 col-form-label">Matrícula*</label>
         <div class="col-sm-4">
-    <%= f.text_field :matricula, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :matricula, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   </div>
 
@@ -90,14 +90,14 @@
 
   <label class="col-sm-2 col-form-label">Período*</label>
         <div class="col-sm-4">
-        <%= f.select :periodo, options_for_select(['1.º','2.º','3.º','4.º','5.º', '6.º', '7.º', '8.º', 'Pedagoga/TAE'], f.object.periodo), include_blank: "Selecione", required: false, class: "form-control" %>
+        <%= f.select :periodo, options_for_select(['1.º','2.º','3.º','4.º','5.º', '6.º', '7.º', '8.º', 'Pedagoga/TAE'], f.object.periodo), include_blank: "Selecione", required: true, class: "form-control" %>
   </div>
   </div>
 
   <div class="form-group row">
         <label class="col-sm-2 col-form-label">Telefone*</label>
         <div class="col-sm-4">
-    <%= f.text_field :telefone, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :telefone, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   <br>
 

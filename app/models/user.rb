@@ -7,5 +7,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
      
-         enum role: [:normal_user, :admin]       
+  enum role: [:normal_user, :admin]       
 end
