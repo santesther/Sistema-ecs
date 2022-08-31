@@ -105,7 +105,7 @@
         <label class="col-sm-2 col-form-label">Nova Senha*</label>
         <div class="col-sm-4">
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
