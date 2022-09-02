@@ -1,0 +1,26 @@
+<div class="d-flex align-items-center justify-content-center">
+<h1>Estágio Curricular Supervisionado</h1>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+<%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+</div>
+<br>
+
+<div class="card">
+
+  <div class="card-header"> <h3>Listagem dos assegurados</h3></div>
+
+  <% if current_user.role == "normal_user" %>
+
+  <div class="alert alert-danger" role="alert">
+  Você só pode acessar o documento de compromisso de Estágio Curricular Supervisionado se o seu nome estiver na lista dos assegurados!
+    </div>
+
+  <div class="alert alert-primary" role="alert">
+  Clique para ser redirecionado para o site da Dirlic que contém a lista dos assegurados! <a href="http://licenciaturas.centro.iff.edu.br/nucleo-de-apoio-a-pratica-profissional/ecs-estagio-curricular-supervisionado" class="alert-link">Listagem dos assegurados</a>
+  </div>
+
+  <% end %>
+  
+
+  </div>
