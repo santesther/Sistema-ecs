@@ -22,15 +22,14 @@
         <%= select_tag :licenciatura, options_for_select([["Ciências da Natureza", "Ciências da Natureza"],  ["Educação Física", "Educação Física"], ["Geografia", "Geografia"], ["Letras: Português e Literaturas", "Letras: Português e Literaturas"], ["Matemática", "Matemática"], ["Teatro", "Teatro"]], params[:licenciatura]), :prompt => "Selecione o curso", class: "form-control "  %>
       </div>
 
-      <div class="col-md-2">
-        <%= select_tag :periodo, options_for_select([["1.º", "1.º"],  ["2.º", "2.º"], ["3.º", "3.º"], ["4.º", "4.º"], ["5.º", "5.º"], ["6.º", "6.º"], ["7.º", "7.º"], ["8.º", "8.º"]], params[:periodo]), :prompt => "Selecione o período", class: "form-control "  %>
-      </div>
     </div>
+    <br>
     <div class="form-group row">
       <div class="col-md-6">
         <%= text_field_tag :matricula, params[:matricula], class: "form-control ", placeholder: 'Matrícula do aluno' %>
       </div>
 
+    <br>
       <div class="col-md-2">
         <%= submit_tag ("Procurar"), class: "form-control btn-info"%>
       </div>
