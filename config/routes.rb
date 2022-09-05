@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   get 'welcome/instituicao', to: "welcome#instituicao"
 
-  get 'welcome/usuarios', to: "welcome#usuarios"
-
   get 'welcome/listagem', to: "welcome#listagem"
 
   

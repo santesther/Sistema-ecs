@@ -4,9 +4,9 @@
   
   
     def index
-      @users = User.all.order(nome: :ASC).paginate(page: params[:page], per_page: 30)
+      @users = User.all.order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
       if params[:nome_social].present?
-        @users = @users.where("lower(nome) LIKE ?", "%#{params[:nome_social].downcase}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+        @users = @users.where("lower(nome_social) LIKE ?", "%#{params[:nome_social].downcase}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
       end
       if params[:licenciatura].present?
         @users = @users.where("lower(licenciatura) LIKE ?", "%#{params[:licenciatura].downcase}%").order(nome: :ASC).paginate(page: params[:page], per_page: 30)
