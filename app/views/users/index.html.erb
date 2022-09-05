@@ -1,0 +1,87 @@
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Estágio Curricular Supervisionado</h1>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+</div>
+<br>
+
+<div class="card">
+
+  <div class="card-header"> <h3>Usuários</h3></div>
+
+    <br>
+
+  <%= form_tag(users_index_path, method: :get, class: "form-group")  do %>
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= text_field_tag :nome_social, params[:nome_social], class: "form-control ", placeholder: 'Nome do aluno' %>
+      </div>
+
+      <div class="col-md-4">
+        <%= select_tag :licenciatura, options_for_select([["Ciências da Natureza", "Ciências da Natureza"],  ["Educação Física", "Educação Física"], ["Geografia", "Geografia"], ["Letras: Português e Literaturas", "Letras: Português e Literaturas"], ["Matemática", "Matemática"], ["Teatro", "Teatro"]], params[:licenciatura]), :prompt => "Selecione o curso", class: "form-control "  %>
+      </div>
+
+      <div class="col-md-2">
+        <%= select_tag :periodo, options_for_select([["1.º", "1.º"],  ["2.º", "2.º"], ["3.º", "3.º"], ["4.º", "4.º"], ["5.º", "5.º"], ["6.º", "6.º"], ["7.º", "7.º"], ["8.º", "8.º"]], params[:periodo]), :prompt => "Selecione o período", class: "form-control "  %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= text_field_tag :matricula, params[:matricula], class: "form-control ", placeholder: 'Matrícula do aluno' %>
+      </div>
+
+      <div class="col-md-2">
+        <%= submit_tag ("Procurar"), class: "form-control btn-info"%>
+      </div>
+    </div>
+  <% end %>
+  
+  <%= form_with model: @user do |form| %>
+    <div class="table-responsive">
+      <table class="table table-striped text-center">
+        <thead class="thead-dark">
+          <tr>
+            <th>#</th>
+            <th>Perfil</th>
+            <th>Nome</th>
+            <th>Período</th>
+            <th>Matrícula</th>
+            <th>Licenciatura</th>
+            <th>E-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @users.each_with_index do |user, index| %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td>
+                  <% if user.avatar.url.present? %>
+                    <%= image_tag(user.avatar.url, size:"100x100", class: "styleImage") %>
+                    <% else %>
+                    <%= image_tag("DirlicOficial.png", size: "100x100", :alt => "logo estágio curricular supervisonado") -%>  
+                  <% end %>
+                </td>
+                <td><%= %> 
+                    <% if not user.nome_social.blank? %>
+                      <p><%= user.nome_social %></p>
+                      <%= link_to "Acessar perfil", users_show_path(id: user.id), :class => "btn btn-primary" %>
+                    <% end %>
+                </td>
+                <td><%= user.periodo %></td>
+                <td><%= user.matricula %></td>
+                <td><%= user.licenciatura %></td>
+                <td><%= user.email %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+      
+      <div class="pagination">
+        <%= will_paginate @users %>
+      </div>
+
+</div>
+<% end %>
+

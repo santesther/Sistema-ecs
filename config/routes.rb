@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
+  get 'users/set_user'
   devise_for :users, :controllers => { registrations: 'registrations'}
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "welcome#index"
@@ -13,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'welcome/listagem', to: "welcome#listagem"
 
-    
+  
 
   
   # Defines the root path route ("/")
