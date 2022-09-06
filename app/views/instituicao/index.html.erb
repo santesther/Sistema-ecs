@@ -17,7 +17,7 @@
   <div class="form-group row">
         <label class="col-sm-2 col-form-label">Nome*</label>
         <div class="col-sm-4">
-        <%= f.text_field :nome_da_instituicao, autofocus: true, autocomplete: "off" %>
+        <%= f.text_field :nome_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
   </div>
   <br>
 
@@ -73,7 +73,7 @@
   </div>
   <br>
 
-  <label class="col-sm-2 col-form-label">Representante*</label>
+  <label class="col-sm-2 col-form-label">Representada por*</label>
         <div class="col-sm-4">
     <%= f.text_field :representante, autofocus: true, required: true, autocomplete: "off" %>
   </div>
