@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'instituicao/def'
+  get 'instituicao/index'
   get 'users/index'
   get 'users/show'
   get 'users/set_user'
