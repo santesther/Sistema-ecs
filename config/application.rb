@@ -9,7 +9,12 @@ Bundler.require(*Rails.groups)
 module Porfavor
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.2
+    config.i18n.default_locale = :'pt-BR'
     config.load_defaults 7.0
+    config.assets.initialize_on_precompile = false
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = :utc
 
     # Configuration for the application, engines, and railties goes here.
     #
