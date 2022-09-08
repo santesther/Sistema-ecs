@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations'}
+  resources :instituicao
   
-  get 'instituicao/def'
   get 'instituicao/index'
   get 'users/index'
   get 'users/show'
-  get 'users/set_user'
   
   #resources :users /tenho q tentar assim dps
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
