@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'welcome/listagem', to: "welcome#listagem"
 
+  # get 'instituicao/create', to: "instituicao#create"
+
   
 
   

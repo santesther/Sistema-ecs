@@ -2,7 +2,7 @@ class InstituicaoController < ApplicationController
   before_action :authenticate_user!
   
   def show
-    @instituicao = Instituicao.find(params[:id])
+     @instituicao = Instituicao.find(params[:id])
   end
 
   def new
@@ -12,10 +12,9 @@ class InstituicaoController < ApplicationController
   def create
     @instituicao = Instituicao.new(params[:instituicao_params])
     if @instituicao.save
-      flash[:success] = "Você cadastrou sua instituição!"
-      redirect_to welcome_path #pretendo redirecionar para a visualização do documento de estágio, aí pra acessar o usuario tem que ser validado pela dirlic.
-    # else
-    #   redirect_to welcome_path
+      redirect_to welcome_path
+    else
+      puts "algo deu errado"
     end
   end
 
