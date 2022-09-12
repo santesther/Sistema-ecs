@@ -1,8 +1,12 @@
 class InstituicaoController < ApplicationController
   before_action :authenticate_user!
   
+  def index
+    @instituicao = Instituicao.new
+  end
+  
   def show
-     @instituicao = Instituicao.find(params[:id])
+     @instituicao = Instituicao.find.where(user_id: current_user.id)
   end
 
   def new

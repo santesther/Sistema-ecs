@@ -11,7 +11,7 @@
   <div class="card-header"> <h3>Preencha os dados da instituição Concedente: </h3></div>
   <br>
 
- <%= form_with model: @instituicao do |f| %>
+ <%= form_for @instituicao, url: instituicao_index_path do |f| %>
 
 
   <div class="form-group row">

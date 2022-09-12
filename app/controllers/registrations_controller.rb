@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     def new
         super { |resource| resource.build_instituicao}
-      end
+    end
 
     private
 
