@@ -16,7 +16,7 @@ class InstituicaoController < ApplicationController
   def create
     @instituicao = Instituicao.new(params[:instituicao_params])
     if @instituicao.save
-      redirect_to welcome_path
+      redirect_to instituicao_show_path
     else
       puts "algo deu errado"
     end
