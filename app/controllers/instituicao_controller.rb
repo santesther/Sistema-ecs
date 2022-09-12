@@ -14,12 +14,13 @@ class InstituicaoController < ApplicationController
   end # Here what you missing
 
   def create
-    @instituicao = Instituicao.new(params[:instituicao_params])
-    if @instituicao.save
-      redirect_to instituicao_show_path
-    else
-      puts "algo deu errado"
-    end
+    render plain: params.require(:instituicao).inspect
+    # @instituicao = Instituicao.new(params[:instituicao_params])
+    # if @instituicao.save
+    #   redirect_to welcome_path
+    # else
+    #   puts "algo deu errado"
+    # end
   end
 
     def instituicao_params
