@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'instituicao/index'
+  get '/instituicao', to: "instituicao#index"
   get 'instituicao/new'
   get 'instituicao/show'
   get 'instituicao/create'
@@ -19,16 +19,7 @@ Rails.application.routes.draw do
 
   get 'welcome/listagem', to: "welcome#listagem"
 
-  get 'instituicao/index'
   get 'users/index'
   get 'users/show'
   
-
-  # get 'instituicao/create', to: "instituicao#create"
-
-  
-
-  
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

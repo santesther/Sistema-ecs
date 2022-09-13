@@ -1,2 +1,43 @@
-<h1>Instituicao#show</h1>
-<p>Find me in app/views/instituicao/show.html.erb</p>
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Estágio Curricular Supervisionado</h1>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+</div>
+<br>
+
+
+<div class="card">
+
+	<div class="card-header"> <h3>Dados da Instituição Concedente</h3></div>
+
+  	<div class="row">
+    	<div class="col-md-12 ">
+			<ul class="list-group">
+            <% @instituicao.each do |instituicao| %>
+				<li class="list-group-item"><b>Nome da Instituição:</b> <%= instituicao.nome_da_instituicao %></li>
+				<li class="list-group-item"><b>CNPJ:</b> <%=  %></li>
+				<li class="list-group-item"><b>Endereço da Instituição:</b> <%=  %></li>
+				<li class="list-group-item"><b>Número da Instituição:</b> <%=  %></li>
+				<li class="list-group-item"><b>Complemento da Instituição:</b> <%=  %></li>
+				<li class="list-group-item"><b>Bairro da Instituição:</b> <%=  %></li>
+				<li class="list-group-item"><b>Complemento da Instituição:</b> <%= %></li>
+				<li class="list-group-item"><b>Município da Instituição:</b> <%=  %></li>	
+				<li class="list-group-item"><b>CEP da Instituição:</b> <%=  %></li>
+				<li class="list-group-item"><b>Telefone da Instituição:</b> <%=  %></li>
+				<li class="list-group-item"><b>Representante da Instituição:</b> <%=  %></li>
+			</ul>
+            <% end %>
+		</div>
+	</div>
+
+
+	<div class="card-footer text-muted">
+        <div class="col-sm-12">
+        	<div class="text-center">
+          		
+          		<%= link_to "Voltar", users_index_path, :class => "btn btn-primary"  %>
+        	</div>
+        </div>
+  	</div>  
+</div>
