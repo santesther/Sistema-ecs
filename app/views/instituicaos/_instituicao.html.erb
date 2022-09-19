@@ -1,0 +1,32 @@
+
+<div id="<%= dom_id instituicao %>">
+ <div class="card">
+
+  	<div class="row">
+    	<div class="col-md-12 ">
+			<ul class="list-group">
+				<li class="list-group-item"><b>Nome da Instituição:</b> <%= instituicao.nome_da_instituicao %></li>
+				<li class="list-group-item"><b>Endereço da Instituição:</b> <%= instituicao.endereco_da_instituicao %></li>
+				<li class="list-group-item"><b>Número da Instituição:</b> <%= instituicao.numero_da_instituicao %></li>
+				<li class="list-group-item"><b>Complemento da Instituição:</b> <%= instituicao.complemento_da_instituicao %></li>
+				<li class="list-group-item"><b>Bairro da Instituição:</b> <%= instituicao.bairro_da_instituicao %></li>
+				<li class="list-group-item"><b>Munícipio da Instituição:</b> <%= instituicao.municipio_da_instituicao %></li>
+				<li class="list-group-item"><b>CEP da Instituição:</b> <%= instituicao.cep_da_instituicao %></li>
+				<li class="list-group-item"><b>Telefone da Instituição:</b> <%= instituicao.telefone_da_instituicao %></li>
+				<li class="list-group-item"><b>Representada por:</b> <%= instituicao.representante %></li>
+				<li class="list-group-item"><b>Cadastrado em:</b> <%= instituicao.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
+				<li class="list-group-item"><b>Atualizado em:</b> <%= instituicao.updated_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>	
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="card-footer text-muted">
+        <div class="col-sm-12">
+        	<div class="text-center">
+              <%= link_to "Acessar", instituicao, :class => "btn btn-primary" %>
+        	</div>
+        </div>
+  	</div>  
+</div>
+</div>

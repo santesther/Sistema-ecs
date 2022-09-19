@@ -1,6 +1,7 @@
   class UsersController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user, only: [:show]
+    
   
   
     def index
@@ -19,6 +20,12 @@
       end
     end
   
+    def new
+      @user = User.new
+      @user.build_instituicao
+    end
+
+
     def show
     #   @atividades_deferidas = Activity.where(user_id: params[:id], status: "Deferido") 
     #   @atividades_indeferidas = Activity.where(user_id: params[:id], status: "Indeferido") 
@@ -34,6 +41,10 @@
 
     def current_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
+    def user_params
+      params.require(:user).permit(:nome_civil, :nome_social, :email, :endereco, :complemento, :numero, :bairro, :municipio, :cep, :matricula, :licenciatura, :periodo, :telefone, :avatar, :instituicao_attributes => [:nome_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :complemento_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante, :user_id])
     end
     
     end

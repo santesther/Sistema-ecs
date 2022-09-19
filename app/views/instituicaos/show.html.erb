@@ -1,0 +1,22 @@
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Estágio Curricular Supervisionado</h1>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+</div>
+<br>
+
+
+<div class="card">
+
+  <div class="card-header"><h1>Visualize sua Instituição!</h1></div>
+  
+
+<%= render @instituicao %>
+
+<div class="d-flex align-items-center justify-content-center"> 
+  <%= link_to "Editar Instituição", edit_instituicao_path(@instituicao), :class => "btn btn-primary"  %> &nbsp
+  <%= link_to "Voltar", instituicaos_path, :class => "btn btn-primary"  %> &nbsp
+  <%= link_to "Apagar Instituição",  @instituicao, method: :delete, :class => "btn btn-primary"  %>
+  
+</div>

@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Estágio Curricular Supervisionado</h1>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+</div>
+<br>
+
+
+<div class="card">
+
+  <div class="card-header"><h1>Visualize sua Instituição!</h1></div>
+  
+
+<div id="instituicaos">
+  <% @instituicaos.each do |instituicao| %>
+    <%= render instituicao %>
+  <% end %>
+</div>

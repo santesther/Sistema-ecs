@@ -1,0 +1,84 @@
+<%= form_with(model: instituicao) do |form| %>
+  <% if instituicao.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(instituicao.errors.count, "error") %> prohibited this instituicao from being saved:</h2>
+
+      <ul>
+        <% instituicao.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Nome da instituição*</label>
+        <div class="col-sm-4">
+        <%= form.text_field :nome_da_instituicao, autofocus: true, autocomplete: "off" %>
+  </div>
+  <br>
+
+        <label class="col-sm-2 col-form-label">CNPJ*</label>
+        <div class="col-sm-4">
+        <%= form.text_field :cnpj, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  </div>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Endereço da instituição*</label>
+        <div class="col-sm-4">
+    <%= form.text_field :endereco_da_instituicao, autofocus: true, required: true, autocomplete: "email" %>
+  </div>
+  <br>
+
+  <label class="col-sm-2 col-form-label">Número da instituição*</label>
+        <div class="col-sm-4">
+    <%= form.text_field :numero_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  </div>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Complemento da instituição*</label>
+        <div class="col-sm-4">
+    <%= form.text_field :complemento_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  <br>
+
+  <label class="col-sm-2 col-form-label">Bairro da instituição*</label>
+        <div class="col-sm-4">
+    <%= form.text_field :bairro_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  <div>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Município da instituição*</label>
+        <div class="col-sm-4">
+    <%= form.text_field :municipio_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  <br>
+
+  <label class="col-sm-2 col-form-label">CEP da instituição*</label>
+        <div class="col-sm-4">
+    <%= form.text_field :cep_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  </div>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Telefone da instituição*</label>
+        <div class="col-sm-4">
+    <%= form.text_field :telefone_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  <br>
+
+  <label class="col-sm-2 col-form-label">Representada por*</label>
+        <div class="col-sm-4">
+    <%= form.text_field :representante, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  </div>
+
+<br>
+  <div class="d-flex align-items-center justify-content-center">
+    <%= form.submit "Atualizar", class: 'btn btn-success btn-block' %> &nbsp
+    <%= link_to "Voltar", instituicao, :class => "btn btn-primary btn-block" %>
+  </div>
+<% end %>

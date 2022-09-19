@@ -90,7 +90,7 @@
 
   <label class="col-sm-2 col-form-label">Período*</label>
         <div class="col-sm-4">
-        <%= f.select :periodo, options_for_select(['1.º','2.º','3.º','4.º','5.º', '6.º', '7.º', '8.º', 'Pedagoga/TAE'], f.object.periodo), include_blank: "Selecione", required: true, class: "form-control" %>
+        <%= f.select :periodo, options_for_select(['5.º', '6.º', '7.º', '8.º', 'Pedagoga/TAE'], f.object.periodo), include_blank: "Selecione", required: true, class: "form-control" %>
   </div>
   </div>
 
@@ -124,6 +124,83 @@
   </div>
   </div>
 
+  <br>
+  <div class="card">
+
+  <div class="card-header"><h1>Registre os dados da instituição concedente!</h1></div>
+  <br>
+
+<%= f.fields_for :instituicao do |ff| %>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Nome da instituição*</label>
+        <div class="col-sm-4">
+        <%= ff.text_field :nome_da_instituicao, autofocus: true, autocomplete: "off" %>
+  </div>
+  <br>
+
+        <label class="col-sm-2 col-form-label">CNPJ*</label>
+        <div class="col-sm-4">
+        <%= ff.text_field :cnpj, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  </div>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Endereço da instituição*</label>
+        <div class="col-sm-4">
+    <%= ff.text_field :endereco_da_instituicao, autofocus: true, required: true, autocomplete: "email" %>
+  </div>
+  <br>
+
+  <label class="col-sm-2 col-form-label">Número da instituição*</label>
+        <div class="col-sm-4">
+    <%= ff.text_field :numero_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  </div>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Complemento da instituição*</label>
+        <div class="col-sm-4">
+    <%= ff.text_field :complemento_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  <br>
+
+  <label class="col-sm-2 col-form-label">Bairro da instituição*</label>
+        <div class="col-sm-4">
+    <%= ff.text_field :bairro_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  <div>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Município da instituição*</label>
+        <div class="col-sm-4">
+    <%= ff.text_field :municipio_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  <br>
+
+  <label class="col-sm-2 col-form-label">CEP da instituição*</label>
+        <div class="col-sm-4">
+    <%= ff.text_field :cep_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  </div>
+
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Telefone da instituição*</label>
+        <div class="col-sm-4">
+    <%= ff.text_field :telefone_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  <br>
+
+  <label class="col-sm-2 col-form-label">Representada por*</label>
+        <div class="col-sm-4">
+    <%= ff.text_field :representante, autofocus: true, required: true, autocomplete: "off" %>
+  </div>
+  </div>
+  
+  <% end %>
+
+  <br>
+
+
   <div class="d-flex align-items-center justify-content-center">
 <div id="button-submit" class="button-submit">
   <div class="actions">
@@ -132,4 +209,6 @@
               <%= link_to "Voltar", welcome_path, :class => "btn btn-primary btn-block" %>
   </div>
 <% end %>
+
+
 
