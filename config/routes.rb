@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :instituicaos
   get '/instituicao', to: "instituicao#index"
   get 'instituicao/new'
   get 'instituicao/show'
