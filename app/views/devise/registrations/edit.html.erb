@@ -135,6 +135,74 @@
 
 <br>
 
+<div class="card-header"> <h3>Edite os dados da sua instituição concedente </h3></div>
+<br>
+
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Nome da Instituição*</label>
+  <div class="col-sm-4">
+<%= f.text_field :nome_da_instituicao, autofocus: true, autocomplete: "off" %>
+</div>
+<br>
+
+<label class="col-sm-2 col-form-label">CNPJ*</label>
+  <div class="col-sm-4">
+<%= f.text_field :cnpj, autofocus: true, autocomplete: "off" %>
+</div>
+<div>
+
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Endereço da Instituição*</label>
+  <div class="col-sm-4">
+<%= f.text_field :endereco_da_instituicao, autofocus: true, autocomplete: "off" %>
+</div>
+<br>
+
+<label class="col-sm-2 col-form-label">Número da Instituição*</label>
+  <div class="col-sm-4">
+<%= f.text_field :numero_da_instituicao, autofocus: true, autocomplete: "off" %>
+</div>
+<div>
+
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Complemento da Instituição*</label>
+  <div class="col-sm-4">
+<%= f.text_field :complemento_da_instituicao, autofocus: true, autocomplete: "off" %>
+</div>
+<br>
+
+<label class="col-sm-2 col-form-label">Bairro da Instituição*</label>
+  <div class="col-sm-4">
+<%= f.text_field :bairro_da_instituicao, autofocus: true, autocomplete: "off" %>
+</div>
+<div>
+
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Município da Instituição*</label>
+  <div class="col-sm-4">
+<%= f.text_field :municipio_da_instituicao, autofocus: true, autocomplete: "off" %>
+</div>
+<br>
+
+<label class="col-sm-2 col-form-label">CEP da Instituição*</label>
+  <div class="col-sm-4">
+<%= f.text_field :cep_da_instituicao, autofocus: true, autocomplete: "off" %>
+</div>
+<div>
+
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Telefone da Instituição*</label>
+  <div class="col-sm-4">
+<%= f.text_field :telefone_da_instituicao, autofocus: true, autocomplete: "off" %>
+</div>
+<br>
+
+<label class="col-sm-2 col-form-label">Representada por*</label>
+  <div class="col-sm-4">
+<%= f.text_field :representante, autofocus: true, autocomplete: "off" %>
+</div>
+<div>
+<br>
 
 <div class="form-group row">
 <label class="col-sm-2 col-form-label text-danger">Senha atual*</label>
@@ -143,12 +211,14 @@
 </div>
 
 </div>
+</div>
 
 <br>
 
 <div class="card-footer text-muted">
 <div class="col-sm-12">
   <div class="text-center">
+  <br>
     <%= f.submit "Salvar", :class => "btn btn-success direita" %>
     <%= link_to "Voltar", welcome_path, :class => "btn btn-primary"  %>
   </div>

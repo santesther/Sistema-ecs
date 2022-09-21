@@ -65,7 +65,6 @@
                     <% if not user.nome_social.blank? %>
                       <p><%= user.nome_social %></p>
                       <%= link_to "Acessar perfil", users_show_path(id: user.id), :class => "btn btn-primary" %>
-                      <%= link_to "Acessar instituição", instituicao_path(id: user.id), :class => "btn btn-primary" %>
                     <% end %>
                 </td>
                 <td><%= user.periodo %></td>

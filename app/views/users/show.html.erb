@@ -9,7 +9,7 @@
 
 <div class="card">
 
-	<div class="card-header"> <h3><%= @user.nome_social %></h3></div>
+	<div class="card-header"> <h3>Dados da conta de <%= @user.nome_social %></h3></div>
 
   	<div class="row">
     	<div class="col-md-12 ">
@@ -23,7 +23,18 @@
 				<li class="list-group-item"><b>Período:</b> <%= @user.periodo %></li>
 				<li class="list-group-item"><b>Matrícula:</b> <%= @user.matricula %></li>
 				<li class="list-group-item"><b>Cadastrado em:</b> <%= @user.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
-				<li class="list-group-item"><b>Atualizado em:</b> <%= @user.updated_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>	
+				<li class="list-group-item"><b>Atualizado em:</b> <%= @user.updated_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
+				<div class="card-header"> <h3>Dados da Instituição Concedente de <%= @user.nome_social %></h3></div>
+				<li class="list-group-item"><b>Nome da Instituição:</b> <%= @user.nome_da_instituicao %></li>
+				<li class="list-group-item"><b>CNPJ:</b> <%= @user.cnpj %></li>
+				<li class="list-group-item"><b>Endereço da Instituição:</b> <%= @user.endereco_da_instituicao %></li>
+				<li class="list-group-item"><b>Número da Instituição:</b> <%= @user.numero_da_instituicao %></li>
+				<li class="list-group-item"><b>Complemento da Instituição:</b> <%= @user.complemento_da_instituicao %></li>
+				<li class="list-group-item"><b>Bairro da Instituição:</b> <%= @user.bairro_da_instituicao %></li>
+				<li class="list-group-item"><b>Município da Instituição:</b> <%= @user.municipio_da_instituicao %></li>
+				<li class="list-group-item"><b>CEP da Instituição:</b> <%= @user.cep_da_instituicao %></li>
+				<li class="list-group-item"><b>Telefone da Instituição:</b> <%= @user.telefone_da_instituicao %></li>
+				<li class="list-group-item"><b>Representada por:</b> <%= @user.representante %></li>
 			</ul>
 		</div>
 	</div>
