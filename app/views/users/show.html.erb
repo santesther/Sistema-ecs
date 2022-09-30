@@ -22,10 +22,12 @@
 				<li class="list-group-item"><b>Licenciatura:</b> <%= @user.licenciatura %></li>
 				<li class="list-group-item"><b>Período:</b> <%= @user.periodo %></li>
 				<li class="list-group-item"><b>Matrícula:</b> <%= @user.matricula %></li>
+				<li class="list-group-item"><b>Status:</b> <%= @user.status %></li>
 				<li class="list-group-item"><b>Cadastrado em:</b> <%= @user.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
 				<li class="list-group-item"><b>Atualizado em:</b> <%= @user.updated_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
 				<div class="card-header"> <h3>Dados da Instituição Concedente de <%= @user.nome_social %></h3></div>
 				<li class="list-group-item"><b>Nome da Instituição:</b> <%= @user.nome_da_instituicao %></li>
+				<li class="list-group-item"><b>Tipo da Instituição:</b> <%= @user.tipo_da_instituicao %></li>
 				<li class="list-group-item"><b>CNPJ:</b> <%= @user.cnpj %></li>
 				<li class="list-group-item"><b>Endereço da Instituição:</b> <%= @user.endereco_da_instituicao %></li>
 				<li class="list-group-item"><b>Número da Instituição:</b> <%= @user.numero_da_instituicao %></li>
@@ -44,7 +46,7 @@
         <div class="col-sm-12">
         	<div class="text-center">
           		
-          		<%= link_to "Voltar", users_index_path, :class => "btn btn-primary"  %>
+          		<%= link_to "Voltar", users_path, :class => "btn btn-primary"  %>
         	</div>
         </div>
   	</div>  

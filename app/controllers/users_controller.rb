@@ -25,6 +25,12 @@
       @user.build_instituicao
     end
 
+    def update
+      @user = User.find(params[:id])
+      @user.update_attributes(params[:user])
+      redirect_to @user
+    end
+
 
     def show
     #   @atividades_deferidas = Activity.where(user_id: params[:id], status: "Deferido") 
