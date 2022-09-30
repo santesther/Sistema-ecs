@@ -12,7 +12,7 @@
 
     <br>
 
-  <%= form_tag(users_index_path, method: :get, class: "form-group")  do %>
+  <%= form_tag(users_path, method: :get, class: "form-group")  do %>
     <div class="form-group row">
       <div class="col-md-6">
         <%= text_field_tag :nome_social, params[:nome_social], class: "form-control ", placeholder: 'Nome do aluno' %>
@@ -48,6 +48,7 @@
             <th>Matrícula</th>
             <th>Licenciatura</th>
             <th>E-mail</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -64,18 +65,21 @@
                 <td><%= %> 
                     <% if not user.nome_social.blank? %>
                       <p><%= user.nome_social %></p>
-                      <%= link_to "Acessar perfil", users_path(id: user.id), :class => "btn btn-primary" %>
+                      <%= link_to "Acessar perfil", user_path(id: user.id), :class => "btn btn-primary" %>
                     <% end %>
                 </td>
                 <td><%= user.periodo %></td>
                 <td><%= user.matricula %></td>
                 <td><%= user.licenciatura %></td>
                 <td><%= user.email %></td>
+                <td><%= check_box_tag "user_ids[]", user.id, nil, { multiple: true, form: :bulk_actions_form } %></td>
               </tr>
             <% end %>
         </tbody>
       </table>
     </div>
+
+  
       
       <div class="pagination">
         <%= will_paginate @users %>

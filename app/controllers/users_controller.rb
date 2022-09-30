@@ -25,6 +25,10 @@
       @user.build_instituicao
     end
 
+    def bulk_update
+      
+    end
+
 
     def show
     #   @atividades_deferidas = Activity.where(user_id: params[:id], status: "Deferido") 
