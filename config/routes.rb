@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   get 'welcome/listagem', to: "welcome#listagem"
 
   get 'users/index'
-  get 'users/show'
+  get 'users', to: "users#show"
   
 end
