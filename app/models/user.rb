@@ -1,7 +1,5 @@
 class User < ApplicationRecord
   has_one_attached :avatar
-  has_one :instituicao
-  accepts_nested_attributes_for :instituicao
 
   scope :search, ->(query) { where("name like ?", "%#{query}%")}
   
@@ -11,5 +9,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
      
-  enum role: [:normal_user, :admin]       
+  enum role: [:normal_user, :admin]    
+  enum validacao: { pendente: 'Pendente', assegurado: 'Assegurado' } 
 end

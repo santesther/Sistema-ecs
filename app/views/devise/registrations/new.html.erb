@@ -150,6 +150,10 @@
   </div>
   <br>
 
+   <label class="col-sm-2 col-form-label">Tipo da instituição*</label>
+        <div class="col-sm-4">
+      <%= f.select :tipo_da_instituicao, options_for_select(['Estadual', 'Pública', 'Não Formal'], f.object.tipo_da_instituicao), include_blank: "Selecione", required: false, class: "form-control" %>  </div>
+
   <label class="col-sm-2 col-form-label">Número da instituição*</label>
         <div class="col-sm-4">
     <%= f.text_field :numero_da_instituicao, autofocus: true, required: true, autocomplete: "off" %>
