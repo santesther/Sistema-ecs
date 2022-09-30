@@ -25,12 +25,6 @@
       @user.build_instituicao
     end
 
-    def update
-      @user = User.find(params[:id])
-      @user.update_attributes(params[:user])
-      redirect_to @user
-    end
-
 
     def show
     #   @atividades_deferidas = Activity.where(user_id: params[:id], status: "Deferido") 
@@ -50,7 +44,7 @@
     end
 
     def user_params
-      params.require(:user).permit(:nome_civil, :nome_social, :email, :endereco, :complemento, :numero, :bairro, :municipio, :cep, :matricula, :licenciatura, :periodo, :telefone, :avatar, :instituicao_attributes => [:nome_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :complemento_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante, :user_id])
+      params.require(:user).permit(:nome_civil, :nome_social, :email, :endereco, :complemento, :numero, :bairro, :municipio, :cep, :matricula, :licenciatura, :periodo, :telefone, :avatar, :nome_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :complemento_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante)
     end
     
     end
