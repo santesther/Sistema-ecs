@@ -72,7 +72,10 @@
                 <td><%= user.matricula %></td>
                 <td><%= user.licenciatura %></td>
                 <td><%= user.email %></td>
-                <td><%= check_box_tag "user_ids[]", user.id, nil, { multiple: true, form: :bulk_actions_form } %></td>
+                <td><% User::STATUS.each do |status| %>
+                <%= link_to_unless user.status.eql?(status.to_s), status, user_update_status_path(user.id, status: status), method: :patch %>
+                <% end %>
+                </td>
               </tr>
             <% end %>
         </tbody>

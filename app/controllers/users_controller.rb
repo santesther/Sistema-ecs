@@ -22,11 +22,16 @@
   
     def new
       @user = User.new
-      @user.build_instituicao
     end
 
-    def bulk_update
-      
+    def update_status
+      @user = User.find(params[:id])
+      if params[:status].present? && User::STATUS.include?(params[:status].to_sym)
+      @user.update(status: params[:status])
+      redirect_to users_path
+      else
+        redirect_to users_path, alert: "Nao foi possível trocar o status" 	
+      end
     end
 
 

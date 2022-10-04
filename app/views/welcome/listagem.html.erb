@@ -15,11 +15,12 @@
   <div class="alert alert-danger" role="alert">
   Você só pode acessar o documento de compromisso de Estágio Curricular Supervisionado se o seu nome estiver na lista dos assegurados!
   </div>
+<% end %>
 
-  <div class="alert alert-primary" role="alert">
-  Clique para ser redirecionado para o site da Dirlic que contém a lista dos assegurados! <a href="http://licenciaturas.centro.iff.edu.br/nucleo-de-apoio-a-pratica-profissional/ecs-estagio-curricular-supervisionado" class="alert-link">Listagem dos assegurados</a>
-  </div>
+  <% if current_user.status == "Assegurado" %>
 
+  <%= link_to "Acessar Documento de Estágio", welcome_path, :class => "btn btn-primary" %>
+  
   <% end %>
   
 
