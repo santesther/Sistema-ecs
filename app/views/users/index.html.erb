@@ -49,6 +49,7 @@
             <th>Licenciatura</th>
             <th>E-mail</th>
             <th>Status</th>
+            <th>Pdf</th>
           </tr>
         </thead>
         <tbody>
@@ -73,9 +74,10 @@
                 <td><%= user.licenciatura %></td>
                 <td><%= user.email %></td>
                 <td><% User::STATUS.each do |status| %>
-                <%= link_to_unless user.status.eql?(status.to_s), status, user_update_status_path(user.id, status: status), method: :patch %>
+                <%= link_to_unless user.status.eql?(status.to_s), status, user_update_status_path(user.id, status: status), method: :patch, :class => "btn btn-outline-primary" %>
                 <% end %>
                 </td>
+                <td><%= link_to "PDF", welcome_path, :class => "btn btn-outline-primary" %></td>
               </tr>
             <% end %>
         </tbody>

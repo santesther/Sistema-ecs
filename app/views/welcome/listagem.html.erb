@@ -19,8 +19,10 @@
 
   <% if current_user.status == "Assegurado" %>
 
-  <%= link_to "Acessar Documento de Estágio", welcome_path, :class => "btn btn-primary" %>
-  
+  <div class="d-flex align-items-center justify-content-center">
+  <%= link_to "Visualizar Documento de Estágio", welcome_path, :class => "btn btn-success" %>
+  </div>
+
   <% end %>
   
 

@@ -15,3 +15,36 @@
  */
 @import 'bootstrap';
 
+.row{
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+
+.formulario_login {
+    border: 1px solid rgba(200,200,200,0.6);
+    box-shadow: -2px 2px 15px rgba(200,200,300,0.9);
+    padding:15px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .inicio{
+    border: 1px solid rgba(200,200,200,0.6);
+    box-shadow: -2px 2px 15px rgba(200,200,300,0.9);
+    padding:15px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+  }
+  
+  
+  .imagem_topo img {
+    margin-top: -30px;
+  }
+
+  .container {
+    border-left:none!important;
+  }
