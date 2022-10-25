@@ -1,0 +1,325 @@
+ <% if user_signed_in? %>
+    <div class="container container_estagio">
+      <h1 class="titulo">Bem vindo(a) à tela de cadastro de Estágios!</h1>
+      <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
+
+      <hr />
+
+      <% if current_user.role == "admin" %>
+
+        <%= form_tag(estagio_welcome_index_path, method: :get, class: "form-group")  do %>
+          <%= text_field_tag :search, params[:search], class: "form-control text_form", placeholder: 'Busque por algum aluno!'%>
+          <%= submit_tag ("Procurar"), class: "form-control button_form" %>
+        <% end %>
+
+        <%= form_with model: @user do |form| %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Matricula</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Período</th>
+              <th scope="col">Email</th>
+              <th scope="col">Situação</th>
+              <th scope="col">Role</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.nome_social %></td>
+                  <td><%= user.matricula %></td>
+                  <td><%= user.licenciatura %></td>
+                  <td><%= user.periodo %></td>
+                  <td><p><%= user.email %></p></td>
+
+                  <% if user.situacao == "Revisar" %>
+                    <td style="color:blue;font-weight:bold;"><%= user.situacao %></td>
+                  <% else %>
+                    <% if user.situacao == "Reprovado" %>
+                      <td style="color:red;font-weight:bold;"><%= user.situacao %></td>
+                    <% else %>
+                      <td style="color:green;font-weight:bold;"><%= user.situacao %></td>
+                    <% end %>
+                  <% end %>
+
+                  <td><%= user.role %></td>
+                  <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :class => 'btn btn-info revisar_btn' %></td>
+
+                  <% if user.pdf_centro != false %>
+                    <td><%= link_to 'PDF', relatorio_centro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+
+                  <% if user.pdf_guarus != false %>
+                    <td><%= link_to 'PDF', relatorio_guarus_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_guarus_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+
+                  <% if user.pdf_publico != false %>
+                    <td><%= link_to 'PDF', relatorio_publico_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_publico_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+
+                  <% if user.pdf_particular != false %>
+                    <td><%= link_to 'PDF', relatorio_particular_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_particular_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+
+                  <% if user.pdf_naoformal != false %>
+                    <td><%= link_to 'PDF', relatorio_naoformal_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_naoformal_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          <%= will_paginate @will_paginate %>
+        <% end %>
+
+      <% else %>
+        <% if current_user.situacao == "Revisar" %>
+          <p>Sua solicitação foi encaminhada para aprovação.</p>
+          <p>Seu pedido será avaliado e notificado por e-mail em qualquer mudança no status do pedido!</p>
+
+          <%= image_tag("loader.gif", :alt => "gif aguarde") %>
+        <% else %>
+          <% if current_user.situacao == "0" %>
+            <div class="btn_aprovacao">
+              <p>Atualize seu período antes de solicitar o acesso ao sistema de cadastro de estágio.</p> <br/>
+              <p>Clique no botão abaixo para solicitar o acesso!</p>
+
+              <%= button_to 'Solicitar Acesso', action: 'pendente', :id => current_user.id %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if current_user.situacao == "Reprovado" %>
+          <h5>Parece que a administração está com dificuldades na validação do seu perfil!</h5>
+
+          <br />
+
+          <p>Mas não se preocupe.</p>
+          <p>Contate um administrador para normalizar seu cadastro e prosseguir com o registro do estágio.</p>
+
+          <div class="col-md-12 imagem_reprovado">
+            <%= image_tag("reprovado.jpg", :alt => "ícone estudantes") %>
+          </div>
+        <% end %>
+
+        <% if current_user.situacao == "Aprovado"%>
+          <h5>Parabéns, seu perfil foi aprovado com sucesso!</h5>
+          <h6>Agora você já pode prosseguir com o cadastro para o estágio.</h6>
+
+          <hr />
+
+          <% if current_user.pdf_centro == false && current_user.pdf_guarus == false && current_user.pdf_publico == false && current_user.pdf_particular == false && current_user.pdf_naoformal == false  %>
+            <p class="escolha_um_formulario">Escolha um formulário, mas lembre-se que só é possível fazer o <u>preenchimento uma única vez.</u></p>
+
+            <div class="botoes">
+              <div class="col btn1">
+                <%= button_tag 'Instituição de Ensino Federal', :class => 'btn btn-outline-primary' %>
+              </div>
+              <br>
+              <div class="col btn2">
+                <%= button_tag "Instituição de Ensino Estadual, Municipal ou Particular", :class => 'btn btn-outline-primary' %>
+              </div>
+
+              <% if current_user.licenciatura == 'Educação Física' && current_user.periodo == '5.º' %>
+                <div class="col btn3">
+                  <%= link_to "Instituição de Ensino não formal", relatorio_naoformal_index_path, :class => 'btn btn-primary' %>
+                </div>
+              <% end %>
+            </div>
+            <style type='text/css'>
+              <% if current_user.licenciatura == 'Educação Física' && current_user.periodo == '5.º' %>
+                .div_federal {
+                  margin-left: 55px!important;
+                }
+                .div_federal2 {
+                  margin-left: 410px;
+                }
+                .voltar {
+                  margin-top:120px;
+                }
+              <% else %>
+                .div_federal {
+                  margin-left: 200px!important;
+                }
+                .div_federal2 {
+                  margin-left: 540px;
+                }
+                .voltar {
+                  margin-top:120px;
+                }
+              <% end %>
+            </style>
+
+            <div class="div_federal" style="display:none">
+              <%= link_to "Campus Campos Centro", relatorio_centro_index_path, :class => 'btn btn-success centro' %>
+              <%= link_to "Campus Campos Guarus", relatorio_guarus_index_path, :class => 'btn btn-success guarus' %>
+            </div>
+
+            <div class="div_federal2" style="display:none">
+              <%= link_to "Rede Pública", relatorio_publico_index_path, :class => 'btn btn-light publica' %>
+              <%= link_to "Rede Particular", relatorio_particular_index_path, :class => 'btn btn-light particular' %>
+            </div>
+          <% end %>
+
+          <% if current_user.pdf_centro != false || current_user.pdf_guarus != false || current_user.pdf_publico != false || current_user.pdf_particular != false || current_user.pdf_naoformal != false %>
+            <div class="pdf_btn">
+              <span>Clique aqui e imprima o formulário!</span><br />
+
+              <div class="aviso_impressao">
+                <span style="font-size:1.2em;"><b><u>Aviso!</u></b></span> <br />
+                <span>Lembre-se que o formulário só poderá ser acessado uma vez para impressão! <b>3 cópias, impressão dos dois lados da folha (anverso e verso)</b></span><br />
+                <span>Caso não seja possível, o documento somente será impresso no NAPP/DIRLIC, localizado no IFF <i>campus</i> Campos Centro.</span><br />
+              </div>
+              <% if current_user.pdf_centro != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+
+              <% if current_user.pdf_guarus != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_guarus_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+
+              <% if current_user.pdf_publico != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_publico_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+
+              <% if current_user.pdf_particular != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_particular_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+
+              <% if current_user.pdf_naoformal != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_naoformal_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+
+              <% if current_user.status_impressao == true %>
+                <div class="contato_napp border p-1 mt-4">
+                    Para nova impressão, entre em contato com a DIRLIC/NAPP
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+        <% end %>
+      <% end %>
+
+      <br />
+      <%= link_to "Voltar ao Menu", welcome_path, :class => 'btn btn-warning voltar'  %>
+      </div>
+    <% end %>
+
+  <div class='contato_dirlic_pdf border mt-4 pt-3 col-md-12'>
+    <p><b>CONTATO: IFFluminense <i>campus</i> Campos Centro/DIRLIC/NAPP: <u>(22) 2726-2897 // (22) 2726-2923</u></b></p>
+  </div>
+
+  <style type="text/css">
+    .titulo {
+      text-align: center;
+      padding-top: 10px;
+    }
+    td p {
+      white-space: nowrap;
+      width: 150px;
+      overflow: hidden;
+      text-overflow:  ellipsis;
+      text-align:center;
+    }
+    .revisar_btn {
+      color: white!important;
+    }
+    .desaparece_botao {
+      margin-top:10px;
+    }
+    .div_federal a, .div_federal2 a{
+      display:block;
+      margin-top:5px;
+    }
+    .div_federal {
+      width:270px;
+      margin-top:-10px;
+      position: absolute;
+    }
+    .div_federal2 {
+      width:270px;
+      margin-top:-10px;
+      position: absolute;
+    }
+    .btn-light {
+      border:1px solid rgba(10,10,200,0.9);
+    }
+    .btn-light:hover {
+      border:1px solid rgba(10,10,200,0.9);
+    }
+    .pdf_btn {
+      text-align:center;
+      margin-top:20px;
+    }
+    .div_federal, .div_federal2 {
+      padding:20px;
+    }
+    .texto_branco {
+      color: white!important;
+    }
+    .col > .btn-primary {
+      color: blue!important;
+    }
+    .div_federal2 > .btn-light {
+      color: black!important;
+    }
+    .btn-danger {
+      margin-left: 40px;
+    }
+    .btn-success {
+      color: white!important;
+    }
+    .text_form {
+      width:83%;
+    }
+    .button_form {
+      width:15%;
+    }
+    .text_form, .button_form {
+      display: inline-block;
+      margin-top:20px;
+    }
+    .pagination a, .pagination span{
+      padding: 0px 10px;
+    }
+    .aviso_impressao {
+      box-shadow: -2px 2px 10px rgba(200,200,200,0.9);
+      margin:10px 0px;
+    }
+    .aviso_impressao span {
+      color: red;
+      font-size:0.9em;
+    }
+    .imagem_reprovado img {
+      border-radius: 100%;
+      box-shadow: -2px 2px 30px rgba(10,10,10,0.6);
+    }
+    .pagination a, .pagination span{
+      padding: 0px 10px;
+    }
+    .pagination a:hover {
+      background: none;
+    }
+    .escolha_um_formulario {
+      color: red;
+      text-transform:uppercase;
+      font-weight: bold;
+    }
+    @media (max-width: 991.98px) {
+      .voltar {
+        margin-left: -1px;
+      }
+    }
+  </style>
