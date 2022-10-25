@@ -1,0 +1,2 @@
+class Relatnaoformal < ApplicationRecord
+end
