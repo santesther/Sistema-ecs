@@ -138,7 +138,7 @@
     <div class="card-header"> <h3>Edite os dados da sua instituição concedente</h3></div>
 <br>
 
-<div class="form-group row">
+ <div class="form-group row">
           <label class="col-sm-2 col-form-label">Nome da instituição*</label>
           <div class="col-sm-4">
             <%= f.text_field :nome_da_instituicao, required: true, class: "form-control" %> 
@@ -151,10 +151,10 @@
 
         </div>
 
-        <div class="form-group row">
+      <div class="form-group row">
           <label class="col-sm-2 col-form-label">Tipo da instituição*</label>
           <div class="col-sm-4">
-        <%= f.select :tipo_da_instituicao, options_for_select(['Publica','Estadual','Privada','Não formal'], f.object.tipo_da_instituicao), include_blank: "Selecione", class: "form-control" %>
+        <%= f.select :tipo_da_instituicao, options_for_select(['Pública','Particular', 'Centro', 'Guarus', 'NãoFormal', 'Outros'], f.object.tipo_da_instituicao), include_blank: "Selecione", class: "form-control" %>
           </div>
           </div>
        
@@ -177,13 +177,12 @@
             <%= f.text_field :complemento_da_instituicao, required: true, class: "form-control" %>
           </div>
 
-      <label class="col-sm-2 col-form-label">Tipo da instituição*</label>
-        <div class="col-sm-4">
-        <%= f.select :tipo_da_instituicao, options_for_select(['Publica','Estadual','Privada','Não formal'], f.object.tipo_da_instituicao), include_blank: "Selecione", class: "form-control" %>
-        </div>
+          <label class="col-sm-2 col-form-label">Bairro da instituição*</label>
+          <div class="col-sm-4">
+            <%= f.text_field :bairro_da_instituicao, require: true, class: "form-control" %>
+          </div>
         </div>
 
-       
         <div class="form-group row">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Município da instituição*</label>
           <div class="col-sm-4">

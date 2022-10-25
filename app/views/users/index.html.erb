@@ -29,6 +29,11 @@
         <%= text_field_tag :matricula, params[:matricula], class: "form-control ", placeholder: 'Matrícula do aluno' %>
       </div>
 
+       <div class="col-md-4">
+        <%= select_tag :status, options_for_select([["Pendente", "Pendente"],  ["Assegurado", "Assegurado"]], params[:licenciatura]), :prompt => "Selecione o status", class: "form-control "  %>
+      </div>
+
+
     <br>
       <div class="col-md-2">
         <%= submit_tag ("Procurar"), class: "form-control btn-info"%>
@@ -49,7 +54,7 @@
             <th>Licenciatura</th>
             <th>E-mail</th>
             <th>Status</th>
-            <th>Pdf</th>
+            <th>PDF</th>
           </tr>
         </thead>
         <tbody>
@@ -73,11 +78,8 @@
                 <td><%= user.matricula %></td>
                 <td><%= user.licenciatura %></td>
                 <td><%= user.email %></td>
-                <td><% User::STATUS.each do |status| %>
-                <%= link_to_unless user.status.eql?(status.to_s), status, user_update_status_path(user.id, status: status), method: :patch, :class => "btn btn-outline-primary" %>
-                <% end %>
-                </td>
-                <td><%= link_to "PDF", welcome_path, :class => "btn btn-outline-primary" %></td>
+                <td><%= link_to "Status", estagio_welcome_edit_path, :class => "btn btn-outline-primary" %></td>
+                <td><%= link_to "PDF", estagio_welcome_pdf_visualiza_path,	:class => "btn btn-outline-primary"%></td>
               </tr>
             <% end %>
         </tbody>

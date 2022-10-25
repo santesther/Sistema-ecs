@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_06_183542) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_24_175354) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -40,7 +40,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_183542) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatnaoformals", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatorios", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatoutros", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatparticulars", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatpublicos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,9 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_183542) do
     t.integer "cep"
     t.integer "matricula"
     t.string "licenciatura"
-    t.integer "periodo"
     t.integer "telefone"
-    t.string "status", default: "Pendente"
+    t.string "status", default: "Pendente", null: false
     t.string "nome_da_instituicao"
     t.integer "cnpj"
     t.string "endereco_da_instituicao"
@@ -78,9 +101,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_183542) do
     t.integer "telefone_da_instituicao"
     t.string "representante"
     t.string "tipo_da_instituicao"
-    t.boolean "validacao", default: false
-    t.string "title"
-    t.string "text"
+    t.boolean "validacao"
+    t.integer "periodo"
+    t.string "situacao", default: "0"
+    t.boolean "pdf_centro", default: false
+    t.boolean "pdf_guarus", default: false
+    t.boolean "pdf_publico", default: false
+    t.boolean "pdf_particular", default: false
+    t.boolean "pdf_naoformal", default: false
+    t.boolean "status_impressao", default: false
+    t.integer "periodo_de"
+    t.integer "periodo_a"
+    t.string "estado"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

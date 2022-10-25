@@ -13,7 +13,7 @@
         <%= link_to "Histórico", welcome_historico_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-        <%= link_to 'Listagem', welcome_listagem_path, :class => 'nav-link' %> 
+        <%= link_to 'Listagem', estagio_welcome_index_path	, :class => 'nav-link' %> 
         </li>
         <li class="nav-item">
         <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'nav-link' %> 
@@ -26,7 +26,7 @@
   </div>
 </nav>
 
-<% elsif current_user.role == "admin" %>
+<% elsif current_user.role != "normal_user" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
   <%= link_to "Página Inicial", root_path, class: "navbar-brand"%>

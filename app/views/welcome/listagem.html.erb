@@ -17,10 +17,50 @@
   </div>
 <% end %>
 
-  <% if current_user.status == "Assegurado" %>
+  <% if current_user.status == "Assegurado" && current_user.tipo_da_instituicao == "Pública" %>
 
   <div class="d-flex align-items-center justify-content-center">
-  <%= link_to "Visualizar Documento de Estágio", welcome_path, :class => "btn btn-success" %>
+  <%= link_to "Documento de compromisso de Estágio - Pública", relatorio_publico_index_path, :class => "btn btn-success" %> &nbsp
+  </div>
+
+  <% end %>
+
+  <% if current_user.status == "Assegurado" && current_user.tipo_da_instituicao == "Particular" %>
+
+  <div class="d-flex align-items-center justify-content-center">
+  <%= link_to "Documento de compromisso de Estágio - Particular", relatorio_particular_index_path, :class => "btn btn-success" %> &nbsp
+  </div>
+
+  <% end %>
+
+  <% if current_user.status == "Assegurado" && current_user.tipo_da_instituicao == "Centro" %>
+
+  <div class="d-flex align-items-center justify-content-center">
+  <%= link_to "Documento de compromisso de Estágio - Centro", relatorio_centro_index_path, :class => "btn btn-success" %> &nbsp
+  </div>
+
+  <% end %>
+
+  <% if current_user.status == "Assegurado" && current_user.tipo_da_instituicao == "Guarus" %>
+
+  <div class="d-flex align-items-center justify-content-center">
+  <%= link_to "Documento de compromisso de Estágio - Guarus", relatorio_guarus_index_path, :class => "btn btn-success" %> &nbsp
+  </div>
+
+  <% end %>
+
+  <% if current_user.status == "Assegurado" && current_user.tipo_da_instituicao == "NãoFormal" %>
+
+  <div class="d-flex align-items-center justify-content-center">
+  <%= link_to "Documento de compromisso de Estágio - Não Formal", relatorio_naoformal_index_path, :class => "btn btn-success" %> &nbsp
+  </div>
+
+  <% end %>
+
+  <% if current_user.status == "Assegurado" && current_user.tipo_da_instituicao == "Outros" %>
+
+  <div class="d-flex align-items-center justify-content-center">
+  <%= link_to "Documento de compromisso de Estágio - Outros", relatorio_publico_index_path, :class => "btn btn-success" %> &nbsp
   </div>
 
   <% end %>
