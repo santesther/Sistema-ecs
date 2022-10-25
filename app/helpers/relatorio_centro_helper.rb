@@ -1,0 +1,2 @@
+module RelatorioCentroHelper
+end
