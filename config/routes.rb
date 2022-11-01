@@ -104,6 +104,19 @@ Rails.application.routes.draw do
   get 'relatorio_publico/update'
   post 'relatorio_publico/update'
 
+  get 'carta_apresentacao/index'
+  get 'carta_apresentacao/edit'
+
+  get 'carta_apresentacao/create'
+  post 'carta_apresentacao/create'
+
+  get 'carta_apresentacao/edit'
+  post 'carta_apresentacao/edit'
+
+  get 'carta_apresentacao/update'
+  post 'carta_apresentacao/update'
+
+  get 'pdf_geral/carta_apresentacao'
   get 'pdf_geral/particular'
   get 'pdf_geral/publico'
   get 'pdf_geral/centro'
