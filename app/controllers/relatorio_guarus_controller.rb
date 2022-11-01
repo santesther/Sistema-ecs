@@ -59,6 +59,6 @@ class RelatorioGuarusController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:representado_por, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
+    params.permit(:representante, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
   end
 end
