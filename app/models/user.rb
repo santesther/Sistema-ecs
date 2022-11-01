@@ -10,5 +10,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
      
   enum role: [:normal_user, :admin]    
-  STATUS = [:Pendente, :Assegurado]
 end

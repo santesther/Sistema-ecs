@@ -53,7 +53,6 @@
             <th>Matrícula</th>
             <th>Licenciatura</th>
             <th>E-mail</th>
-            <th>Status</th>
             <th>PDF</th>
           </tr>
         </thead>
@@ -78,7 +77,6 @@
                 <td><%= user.matricula %></td>
                 <td><%= user.licenciatura %></td>
                 <td><%= user.email %></td>
-                <td><%= link_to "Status", estagio_welcome_edit_path, :class => "btn btn-outline-primary" %></td>
                 <td><%= link_to "PDF", estagio_welcome_pdf_visualiza_path,	:class => "btn btn-outline-primary"%></td>
               </tr>
             <% end %>

@@ -13,7 +13,10 @@
         <%= link_to "Histórico", welcome_historico_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-        <%= link_to 'Listagem', estagio_welcome_index_path	, :class => 'nav-link' %> 
+        <%= link_to 'Listagem', estagio_welcome_index_path, :class => 'nav-link' %> 
+        </li>
+        <li class="nav-item">
+        <%= link_to 'PDF', estagio_welcome_pdf_visualiza_path	, :class => 'nav-link' %> 
         </li>
         <li class="nav-item">
         <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'nav-link' %> 
@@ -43,6 +46,9 @@
         </li>
         <li class="nav-item">
         <%= link_to 'Usuários', users_path, :class => 'nav-link' %> 
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Listagem', estagio_welcome_index_path, :class => 'nav-link' %> 
         </li>
         <li class="nav-item">
         <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'nav-link'%>
