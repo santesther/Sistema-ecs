@@ -68,3 +68,4 @@ class RelatorioParticularController < ApplicationController
     params.permit(:denominada_estagio, :CNPJ_estagio, :rua_estagio, :numero_estagio, :bairro_estagio, :municipio_estagio, :estado_estagio, :cep_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :numero, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
   end
 end
+end
