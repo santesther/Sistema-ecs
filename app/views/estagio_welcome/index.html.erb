@@ -1,11 +1,7 @@
  <% if user_signed_in? %>
   <div class="d-flex align-items-center justify-content-center">
-    <h1>Estágio Curricular Supervisionado</h1>
-  </div>
-  <div class="d-flex align-items-center justify-content-center">
     <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
-  </div>
-
+    </div>
     <div class="container container_estagio">
       <h1 class="titulo">Bem vindo(a) à tela de cadastro de Estágios!</h1>
       <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
@@ -56,7 +52,7 @@
                   <% end %>
 
                   <td><%= user.role %></td>
-                  <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :class => 'btn btn-info revisar_btn' %></td>
+                  <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome_social => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :class => 'btn btn-info revisar_btn' %></td>
 
                   <% if user.pdf_centro != false %>
                     <td><%= link_to 'PDF', relatorio_centro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
@@ -131,21 +127,18 @@
 
             <div class="botoes">
               <div class="col btn1">
-               <%= link_to "Carta de Apresentação", carta_apresentacao_index_path, :class => 'btn btn-outline-primary' %>
-                <%= link_to 'Instituição de Ensino Federal Campus Campos Centro', relatorio_centro_index_path, :class => 'btn btn-outline-primary' %>
-                <%= link_to 'Instituição de Ensino Federal Campi', relatorio_particular_index_path, :class => 'btn btn-outline-primary' %>
-                </div>  
-              
-              <br>
-               <div class="col btn1">
-                 <%= link_to "Instituição de Ensino Municipal ou Particular", relatorio_particular_index_path, :class => 'btn btn-outline-primary' %>
-                <%= link_to "Instituição de Ensino Estadual", relatorio_publico_index_path, :class => 'btn btn-outline-primary' %>
-                <% if current_user.licenciatura == 'Educação Física'%>
-                  <%= link_to "Instituição de Ensino não formal", relatorio_naoformal_index_path, :class => 'btn btn-outline-primary' %>
-              <% end %>
+                <%= button_tag 'Instituição de Ensino Federal', :class => 'btn btn-outline-primary' %>
               </div>
-              
-              
+              <br>
+              <div class="col btn2">
+                <%= button_tag "Instituição de Ensino Estadual, Municipal ou Particular", :class => 'btn btn-outline-primary' %>
+              </div>
+
+              <% if current_user.licenciatura == 'Educação Física' && current_user.periodo == '5.º' %>
+                <div class="col btn3">
+                  <%= link_to "Instituição de Ensino não formal", relatorio_naoformal_index_path, :class => 'btn btn-primary' %>
+                </div>
+              <% end %>
             </div>
             <style type='text/css'>
               <% if current_user.licenciatura == 'Educação Física' && current_user.periodo == '5.º' %>
@@ -222,7 +215,7 @@
         <% end %>
       <% end %>
 
-      
+      <br />
       <%= link_to "Voltar ao Menu", welcome_path, :class => 'btn btn-warning voltar'  %>
       </div>
     <% end %>
