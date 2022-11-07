@@ -28,7 +28,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'prawn'
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem 'jquery-rails'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
