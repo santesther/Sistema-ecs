@@ -1,10 +1,9 @@
 class CreateRelatparticulares < ActiveRecord::Migration[7.0]
   def change
-    create_table :relatparticulars do |t|
+    create_table :relatparticulares do |t|
       t.string :denominada_estagio
       t.string :CNPJ_estagio
       t.string :rua_estagio
-      t.string :numero_estagio
       t.string :bairro_estagio
       t.string :municipio_estagio
       t.string :estado_estagio
@@ -18,13 +17,13 @@ class CreateRelatparticulares < ActiveRecord::Migration[7.0]
       t.string :bairro
       t.string :municipio
       t.string :estado
-      t.string :CEP
       t.string :periodo_de
       t.string :periodo_a
-      t.string :nome_social
+      t.string :nome
       t.string :matricula_aluno
       t.string :periodo
       t.string :licenciatura
+
       t.timestamps
     end
   end

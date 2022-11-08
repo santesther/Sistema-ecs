@@ -1,6 +1,7 @@
-class CreateRelatnaoformais < ActiveRecord::Migration[7.0]
+class CreateRelatpublicos < ActiveRecord::Migration[7.0]
   def change
-    create_table :relatnaoformals do |t|
+    create_table :relatpublicos do |t|
+      t.string :parceria_firmada_com
       t.string :denominada_estagio
       t.string :CNPJ_estagio
       t.string :rua_estagio
@@ -19,10 +20,11 @@ class CreateRelatnaoformais < ActiveRecord::Migration[7.0]
       t.string :estado
       t.string :periodo_de
       t.string :periodo_a
-      t.string :nome_social
+      t.string :nome
       t.string :matricula_aluno
       t.string :periodo
       t.string :licenciatura
+
       t.timestamps
     end
   end
