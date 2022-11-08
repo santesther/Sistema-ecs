@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-gem 'jquery-rails'
-
 gem 'devise'
 gem 'cancancan'
 
@@ -27,6 +25,8 @@ gem 'will_paginate';
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'prawn'
+
+gem 'rails-i18n'
 
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

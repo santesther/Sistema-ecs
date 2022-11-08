@@ -20,7 +20,7 @@ class RelatorioCentroController < ApplicationController
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
 
        if current_user.role != "admin"
-         ContactMailer.confirmacao_impressao(current_user).deliver
+         #ContactMailer.confirmacao_impressao(current_user).deliver
        end
 
      end
@@ -43,7 +43,7 @@ class RelatorioCentroController < ApplicationController
     @relatorios.licenciatura = current_user.licenciatura
     @relatorios.periodo = current_user.periodo
 
-    ContactMailer.contact_message(current_user).deliver
+    #ContactMailer.contact_message(current_user).deliver
 
     flash[:notice] = 'Mensagem enviada com sucesso'
 
@@ -59,7 +59,7 @@ class RelatorioCentroController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:representante, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
+    params.permit(:denominada_estagio, :CNPJ_estagio, :rua_estagio, :bairro_estagio, :municipio_estagio, :estado_estagio, :cep_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :numero, :bairro, :municipio, :estado, :periodo_de, :periodo_a)
   end
 end
 
