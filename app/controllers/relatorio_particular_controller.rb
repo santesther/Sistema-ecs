@@ -1,6 +1,4 @@
 class RelatorioParticularController < ApplicationController
-  
-class RelatorioParticularController < ApplicationController
   def index
     @relatorios = Relatparticular.all
 
@@ -22,7 +20,7 @@ class RelatorioParticularController < ApplicationController
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
 
        if current_user.role != "admin"
-         ContactMailer.confirmacao_impressao(current_user).deliver
+        # ContactMailer.confirmacao_impressao(current_user).deliver
        end
      end
     end
@@ -47,7 +45,7 @@ class RelatorioParticularController < ApplicationController
     if @relatorios.save
       @relatoutro = Relatparticular.last
 
-      ContactMailer.contact_message(current_user).deliver
+      #ContactMailer.contact_message(current_user).deliver
 
       flash[:notice] = 'Mensagem enviada com sucesso'
       redirect_to estagio_welcome_index_path, id: @relatorios.id,  notice: 'Relatório salvo com sucesso!'
@@ -67,5 +65,4 @@ class RelatorioParticularController < ApplicationController
   def relatorio_params
     params.permit(:denominada_estagio, :CNPJ_estagio, :rua_estagio, :numero_estagio, :bairro_estagio, :municipio_estagio, :estado_estagio, :cep_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :numero, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
   end
-end
 end

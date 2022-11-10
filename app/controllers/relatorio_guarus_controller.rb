@@ -19,7 +19,7 @@ class RelatorioGuarusController < ApplicationController
        pdf = GuarusPdf.new(@relatorio, current_user, @usuario_matricula)
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
        if current_user.role != "admin"
-         ContactMailer.confirmacao_impressao(current_user).deliver
+         #ContactMailer.confirmacao_impressao(current_user).deliver
        end
      end
     end
@@ -42,7 +42,7 @@ class RelatorioGuarusController < ApplicationController
     @relatorios.periodo = current_user.periodo
 
 
-    ContactMailer.contact_message(current_user).deliver
+    #ContactMailer.contact_message(current_user).deliver
 
 
     flash[:notice] = 'Mensagem enviada com sucesso'
@@ -59,6 +59,6 @@ class RelatorioGuarusController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:representante, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
+    params.permit(:representado_por, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :cep, :periodo_de, :periodo_a)
   end
 end

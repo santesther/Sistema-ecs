@@ -1,13 +1,23 @@
 <div class="container">
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+    </div>
+
+  <div class="d-flex align-items-center justify-content-center">
   <h1>Bem vindo(a) à tela de cadastro de Estágios!</h1>
   <p></p>
+    </div>
 
+  <div class="d-flex align-items-center justify-content-center">
   <%= form_with(model: @users, url: {action: "update"}, local: true) do |f| %>
     <%= f.label 'Para prosseguir, escolha a área de formação' %>
     <%= f.select :licenciatura, ['Ciências da Natureza: Ciências e Biologia', 'Ciências da Natureza: Ciências e Física',
     'Ciências da Natureza: Ciências e Química'], {include_blank:"Selecione"} %>
-
+  </div>
     <br />
+  <div class="d-flex align-items-center justify-content-center">
     <%= f.submit 'Prosseguir', :class => 'btn btn-success' %>
   <% end %>
 </div>
+</div>
+

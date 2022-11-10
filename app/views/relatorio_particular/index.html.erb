@@ -22,18 +22,18 @@
           do Estágio Curricular Supervisionado,
           <br />
 
-          <%= f.text_field :nome_da_instituicao, required: true, :class => 'estagio' %><span class="div_concedente" style="font-size:0.9em;">Nesse campo é preenchido o nome <br /> da Instituição Concedente!</span>
+          <%= f.text_field :denominada_estagio, required: true, :class => 'estagio' %><span class="div_concedente" style="font-size:0.9em;">Nesse campo é preenchido o nome <br /> da Instituição Concedente!</span>
                                                                  <span class="rotate_info"></span>
                                                                  <span class="info_concedente">i</span>
 
           <br />
 
-          inscrita no CNPJ/MF sob o Nº <%= f.text_field :cnpj, required: true %>, situada na
-          Rua <%= f.text_field :endereco_da_instituicao, required: true %>, Nº <%= f.text_field :numero_da_instituicao, required: true %>, bairro <%= f.text_field :bairro_da_instituicao, required: true %>,
-          município <%= f.text_field :municipio_da_instituicao, required: true %>, UF <%= f.text_field :estado_estagio, required: true %>,
-          CEP <%= f.text_field :cep_da_instituicao, required: true %>, telefone <%= f.text_field :telefone_da_instituicao, required: true %>,
+          inscrita no CNPJ/MF sob o Nº <%= f.text_field :CNPJ_estagio, required: true %>, situada na
+          Rua <%= f.text_field :rua_estagio, required: true %>, Nº <%= f.text_field :numero_estagio, required: true %>, bairro <%= f.text_field :bairro_estagio, required: true %>,
+          município <%= f.text_field :municipio_estagio, required: true %>, UF <%= f.text_field :estado_estagio, required: true %>,
+          CEP <%= f.text_field :cep_estagio, required: true %>, telefone <%= f.text_field :telefone_estagio, required: true %>,
 
-          representada por <%= f.text_field :representante, required: true %>, para fins
+          representada por <%= f.text_field :representado_por, required: true %>, para fins
           de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u><%= current_user.nome_social %></u>, matriculado sob o nº <u><%= current_user.matricula %></u>,
           no <u><%= current_user.periodo %></u> período do ano letivo de 20<%= f.number_field :ano, min:22, value: 22, required:true %>, no <%= f.select :semestre, ['1.º', '2.º'], {include_blank:"Selecione"}, required: true %> semestre, no Curso Superior de Licenciatura
           em <u><%= current_user.licenciatura %></u>, residente na Rua <%= f.text_field :endereco, required:true %>, Nº <%= f.text_field :numero, required: true %>, bairro
@@ -315,6 +315,9 @@
       top:0;
       left:0;
       display:none;
+    }
+    .confirmacao_preenchimento{
+       color: white;
     }
     select {
       font-size:0.9em;

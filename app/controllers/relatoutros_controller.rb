@@ -18,7 +18,7 @@ class RelatoutrosController < ApplicationController
        @users = current_user.update(:status_impressao => true)
        pdf = ParticularPdf.new(@relatorio, current_user, @usuario_matricula)
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
-       ContactMailer.confirmacao_impressao(current_user).deliver
+       #ContactMailer.confirmacao_impressao(current_user).deliver
      end
     end
   end
@@ -43,7 +43,7 @@ class RelatoutrosController < ApplicationController
       @relatoutro = Relatoutro.last
 
       if current_user.role != "admin"
-        RelatorioOutrosMailer.contact_message(@relatoutro, current_user).deliver
+        #RelatorioOutrosMailer.contact_message(@relatoutro, current_user).deliver
       end
 
       flash[:notice] = 'Mensagem enviada com sucesso'

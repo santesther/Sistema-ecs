@@ -14,8 +14,14 @@
 
         <br />
 
-        <p>
-          <b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07
+        <p><b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profssional(NAPP) do IFFluminense <i>campus</i> Campos Centro.<br>
+            <b>À:</b>Direção da Instituição de Ensino: </b> <u><%= current_user.nome_da_instituicao %></u><br>
+            <b>Assunto: <i>Apresentação de discente-estagiário</i></b><br>
+            Prezado Gestor.<br>
+            O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= current_user.nome_social %></u>, matriculado(a), neste instituto, no </b> <u><%= current_user.periodo %></u> º período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1', '2'], {include_blank:"Selecione"} %>º semestre letivo de 20<%= f.number_field :ano_apresentacao, min:22, value: 22, required:true %>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores.
+            Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP.<br> (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu.
+          <br>
+          O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07
           Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130,
           neste Ato representando a Insituição de Ensino <b>PROMOTORA</b>, na pessoa do Sr. Reitor
           JEFFERSON MANHÃES DE AZEVEDO firma parceria com a Instituição de Ensino <b>CONCEDENTE</b>
@@ -44,9 +50,16 @@
           Avançar
         </div>
         <br />
-        <%= link_to 'Página Inicial', estagio_welcome_index_path, :class => 'btn btn-light' %>
+        <%= link_to 'Página inicial', estagio_welcome_index_path, :class => 'btn btn-light' %>
 
       </div>
+
+      <div class="clausulas_conteudo">
+        <div class="confirmacao_preenchimento">
+          <p><b>Atenção</b> ao preenchimento dos dados!</p>
+          <p>Em caso de dúvida ou erro no preenchimento, entre em contato com o NAPP/DIRLIC.</p>
+          <div class="btn btn-info confirma_preenchimento">Entendi!</div>
+        </div>
 
         <div class="clausulas">
           <%= image_tag("cabecalho.png", :alt => "cabeçalho IFF") %>

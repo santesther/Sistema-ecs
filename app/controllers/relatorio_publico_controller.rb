@@ -21,7 +21,7 @@ class RelatorioPublicoController < ApplicationController
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
 
        if current_user.role != "admin"
-         ContactMailer.confirmacao_impressao(current_user).deliver
+         #ContactMailer.confirmacao_impressao(current_user).deliver
        end
      end
     end
@@ -47,7 +47,7 @@ class RelatorioPublicoController < ApplicationController
     if @relatorios.save
       @relatoutro = Relatpublico.last
 
-      RelatorioOutrosMailer.contact_message(@relatoutro, current_user).deliver
+      #RelatorioOutrosMailer.contact_message(@relatoutro, current_user).deliver
       flash[:notice] = 'Mensagem enviada com sucesso'
       redirect_to estagio_welcome_index_path, id: @relatorios.id,  notice: 'Relatório salvo com sucesso!'
     else
@@ -64,6 +64,6 @@ class RelatorioPublicoController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:parceria_firmada_com, :nome_da_instituicao, :cnpj, :rua_da_instituicao, :numero_da_instituicao, :periodo_letivo, :bairro_da_instituicao, :municipio_estagio, :telefone_da_instituicao, :representante, :ano, :semestre, :endereco, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
+    params.permit(:parceria_firmada_com, :denominada_estagio, :CNPJ_estagio, :rua_estagio, :numero_estagio, :periodo_letivo, :bairro_estagio, :municipio_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
   end
 end

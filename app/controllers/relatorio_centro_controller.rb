@@ -55,7 +55,7 @@ class RelatorioCentroController < ApplicationController
   end
 
   def user_params
-    params.permit(:licenciatura)
+    params.permit(:nome_da_instituicao, :nome_social, :licenciatura, :periodo, :semestre, :ano)
   end
 
   def relatorio_params
