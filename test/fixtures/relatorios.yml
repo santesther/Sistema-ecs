@@ -3,39 +3,43 @@
 one:
   instituicao_apresentacao: MyString
   aluno_apresentacao: MyString
+  aluno_apresentacao_dois: MyString
+  periodo: MyString
+  licenciatura: MyString
   semestre_apresentacao: MyString
   ano_apresentacao: MyString
-  representado_por: MyString
-  semestre: MyString
+  matricula_aluno: MyString
+  aluno_semestre: MyString
   ano: MyString
   endereco: MyString
+  numero: MyString
+  complemento: MyString
   bairro: MyString
   municipio: MyString
   estado: MyString
-  CEP: MyString
+  cep: MyString
+  telefone: MyString
   periodo_de: MyString
   periodo_a: MyString
-  matricula_aluno: MyString
-  nome: MyString
-  periodo: MyString
-  licenciatura: MyString
 
 two:
   instituicao_apresentacao: MyString
   aluno_apresentacao: MyString
+  aluno_apresentacao_dois: MyString
+  periodo: MyString
+  licenciatura: MyString
   semestre_apresentacao: MyString
   ano_apresentacao: MyString
-  representado_por: MyString
-  semestre: MyString
+  matricula_aluno: MyString
+  aluno_semestre: MyString
   ano: MyString
   endereco: MyString
+  numero: MyString
+  complemento: MyString
   bairro: MyString
   municipio: MyString
   estado: MyString
-  CEP: MyString
+  cep: MyString
+  telefone: MyString
   periodo_de: MyString
   periodo_a: MyString
-  matricula_aluno: MyString
-  nome: MyString
-  periodo: MyString
-  licenciatura: MyString

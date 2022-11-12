@@ -6,41 +6,42 @@ class CentroPdf < Prawn::Document
         fill_color "40464e"
         font_size 9
   
-        image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
-        move_down 20
-        text "Campos dos Goytavazes, RJ, ... de ............. de 20.....",align: :right
-        move_down 50
-        text "CARTA DE APRESENTAÇÃO", align: :center, size: 20
-        move_down 20
-        text "<b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profssional(NAPP) do IFFluminense <i>campus</i> Campos Centro.", align: :center, :inline_format => true, :leading => 10
-        move_down 30
-        text "<b>À:</b>Direção da Instituição de Ensino: #{current_user.nome_da_instituicao}", align: :left, size: 15, :inline_format => true, :leading => 10
-        move_down 20
-        text "<b>Assunto: <i>Apresentação de discente-estagiário</i></b>",align: :left, :inline_format => true, :leading => 10
-        move_down 30
 
+        image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
+        move_down 10
+        text "Campos dos Goytacazes, RJ, <u>#{I18n.l(DateTime.now.to_date, format: :long)}</u>", align: :right, :inline_format => true
+        move_down 50
+
+        text "<b>CARTA DE APRESENTAÇÃO</b>", align: :center, size: 20, :inline_format => true, :leading => 10
+        move_down 30
+        
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
-        text "Prezado Gestor", align: :justify, :inline_format => true, :leading => 10
-            text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) #{current_user.nome_social}, matriculado(a), neste instituto, no #{current_user.periodo} período do Curso Superior de Licenciatura em #{current_user.licenciatura}, no #{current_user.semestre_apresentacao }semestre letivo de #{current_user.ano_apresentacao}, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores.", align: :justify, :inline_format => true, :leading => 10
-            
-            text "Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP. (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu.", align: :justify, :inline_format => true, :leading => 10
-
-            move_down 300
-          end
-        end
-            
-        image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
-        move_down 50
-        text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
-        move_down 20
-        text "Apólice de seguro nº 060982.001.2427, de 13/12/2016",align: :center
-        text "Seguradora: Empresa MBM SEGURADORA S.A",align: :center
-  
-        @relatorio.each do |relatorio|
-          if(relatorio.matricula_aluno == @usuario_matricula)
+            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> #{relatorio.instituicao_apresentacao}", align: :left, size: 15, :inline_format => true, :leading => 10
+            move_down 20
+            text "<b>Assunto: Apresentação de discente-estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
             move_down 30
-            text "<b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07, Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130, neste Ato representando a Insituição de Ensino <b>PROMOTORA</b> na pessoa do Sr. Reitor JEFFERSON MANHÃES DE AZEVEDO firma parceria com a Instituição de Ensino <b>CONCEDENTE</b> do Estágio Curricular Supervisionado no IFFluminense <i>campus</i> Campos Centro, inscrito no CNPJ/MF sob o nº 10779511/0001-07, situado na Rua Doutor Siqueira, nº 273, Parque Dom Bosco, no município de Campos dos Goytacazes, estado do Rio de Janeiro, CEP: 28.030-130, telefone (22) 2726-2897, representado por <u>#{relatorio.representado_por}</u>, para fins de abertura de campo de Estágio ao <b>LICENCIANDO</b> <u>#{relatorio.nome}</u>, matriculado sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.periodo}</u> período do <u>#{relatorio.semestre}</u>º semestre do ano de <u>#{relatorio.ano}</u>, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, residente na <u>#{relatorio.endereco}</u>, bairro u>#{relatorio.bairro}</u>, município <u>#{relatorio.municipio}</u>, Estado do <u>#{relatorio.estado}</u>, CEP.: <u>#{relatorio.CEP}</u>, nos termos da Lei Nº 11.788 de 25/09/2008, cujas cláusulas constam e regem o presente contrato:", align: :justify, :inline_format => true, :leading => 10
+            text "Prezado Gestor", align: :justify, :inline_format => true, :leading => 10
+            move_down 10
+            text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u>#{relatorio.aluno_apresentacao_dois}</u>, matriculado(a), neste instituto, no <u>#{relatorio.periodo}</u>º semestre do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, no <u>#{relatorio.semestre_apresentacao}</u>º semestre letivo de 20#{relatorio.ano_apresentacao}, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, :inline_format => true, :leading => 10
+            move_down 30
+            text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, :inline_format => true, :leading => 10
+            move_down 300
+
+            image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
+            move_down 50
+
+            text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
+            move_down 20
+            text "Apólice de seguro nº 060982.001.2427, de 13/12/2016",align: :center
+            text "Seguradora: Empresa MBM SEGURADORA S.A",align: :center
+            move_down 30
+
+            text "<b>O INSTITUTO FEDERAL FLUMINENSE, CNPJ/MF nº 10.779.511/0001-07, situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E CONCEDENTE<b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
+            move_down 10
+            text "<b><u>#{relatorio.aluno_apresentacao}</u></b>", align: :center, size: 20, :inline_format => true, :leading => 10
+            move_down 10
+            text "matriculado(a) no Campus Campos Centro do IFFluminense, sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_semestre}º</u> semestre do ano letivo de <u>20#{relatorio.ano}</u>, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, <u>#{relatorio.periodo}</u>º período. Residente no(a) <u>#{relatorio.endereco}</u>, nº <u>#{relatorio.numero}</u>, Complemento: <u>#{relatorio.complemento}</u>, Bairro: <u>#{relatorio.bairro}</u>, município: <u>#{relatorio.municipio}</u>, UF: <u>#{relatorio.estado}</u>, CEP: <u>#{relatorio.cep}<u>, telefone/contato: nº <u>#{relatorio.telefone}</u>", align: :center, :inline_format => true, :leading => 10
             move_down 30
             text "Período de <u>#{relatorio.periodo_de}</u> a <u>#{relatorio.periodo_a}</u>", align: :justify, :inline_format => true
   

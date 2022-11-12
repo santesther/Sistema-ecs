@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_10_221619) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_12_232652) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -58,8 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_221619) do
     t.string "estado"
     t.string "periodo_de"
     t.string "periodo_a"
-    t.string "nome"
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
     t.string "matricula_aluno"
+    t.string "nome"
     t.string "periodo"
     t.string "licenciatura"
     t.datetime "created_at", null: false
@@ -67,86 +72,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_221619) do
   end
 
   create_table "relatorios", force: :cascade do |t|
-    t.string "denominada_estagio"
-    t.string "CNPJ_estagio"
-    t.string "rua_estagio"
-    t.string "bairro_estagio"
-    t.string "municipio_estagio"
-    t.string "estado_estagio"
-    t.string "cep_estagio"
-    t.string "telefone_estagio"
-    t.string "representado_por"
-    t.string "ano"
-    t.string "semestre"
-    t.string "endereco"
-    t.string "numero"
-    t.string "bairro"
-    t.string "municipio"
-    t.string "estado"
-    t.string "periodo_de"
-    t.string "periodo_a"
-    t.string "matricula_aluno"
-    t.string "nome"
-    t.string "licenciatura"
-    t.string "periodo"
-    t.string "CEP"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "relatoutros", force: :cascade do |t|
-    t.string "parceria_firmada_com"
-    t.string "denominada_estagio"
-    t.string "CNPJ_estagio"
-    t.string "rua_estagio"
-    t.string "bairro_estagio"
-    t.string "municipio_estagio"
-    t.string "estado_estagio"
-    t.string "cep_estagio"
-    t.string "telefone_estagio"
-    t.string "representado_por"
-    t.string "ano"
-    t.string "semestre"
-    t.string "endereco"
-    t.string "numero"
-    t.string "bairro"
-    t.string "municipio"
-    t.string "estado"
-    t.string "periodo_de"
-    t.string "periodo_a"
-    t.string "nome"
-    t.string "matricula_aluno"
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
     t.string "periodo"
     t.string "licenciatura"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "relatparticulares", force: :cascade do |t|
-    t.string "denominada_estagio"
-    t.string "CNPJ_estagio"
-    t.string "rua_estagio"
-    t.string "numero_estagio"
-    t.string "bairro_estagio"
-    t.string "municipio_estagio"
-    t.string "estado_estagio"
-    t.string "cep_estagio"
-    t.string "telefone_estagio"
-    t.string "representado_por"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
+    t.string "matricula_aluno"
+    t.string "aluno_semestre"
     t.string "ano"
-    t.string "semestre"
     t.string "endereco"
     t.string "numero"
+    t.string "complemento"
     t.string "bairro"
     t.string "municipio"
     t.string "estado"
     t.string "cep"
+    t.string "telefone"
     t.string "periodo_de"
     t.string "periodo_a"
-    t.string "nome"
-    t.string "matricula_aluno"
-    t.string "periodo"
-    t.string "licenciatura"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -169,9 +114,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_221619) do
     t.string "bairro"
     t.string "municipio"
     t.string "estado"
-    t.string "CEP"
+    t.string "cep"
     t.string "periodo_de"
     t.string "periodo_a"
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
     t.string "matricula_aluno"
     t.string "nome"
     t.string "periodo"
@@ -186,24 +136,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_221619) do
     t.string "CNPJ_estagio"
     t.string "rua_estagio"
     t.string "numero_estagio"
-    t.string "periodo_letivo"
     t.string "bairro_estagio"
     t.string "municipio_estagio"
+    t.string "estado_estagio"
+    t.string "cep_estagio"
     t.string "telefone_estagio"
     t.string "representado_por"
     t.string "ano"
     t.string "semestre"
     t.string "endereco"
+    t.string "numero"
     t.string "bairro"
     t.string "municipio"
     t.string "estado"
-    t.string "CEP"
+    t.string "cep"
     t.string "periodo_de"
     t.string "periodo_a"
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
     t.string "matricula_aluno"
     t.string "nome"
     t.string "periodo"
     t.string "licenciatura"
+    t.string "periodo_letivo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -251,6 +209,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_221619) do
     t.string "nome_civil"
     t.string "semestre_apresentacao"
     t.string "ano_apresentacao"
+    t.string "aluno_semestre"
+    t.string "aluno_ano"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

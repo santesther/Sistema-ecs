@@ -37,11 +37,18 @@ class RelatorioCentroController < ApplicationController
 
     @users = current_user.update(:pdf_centro => true)
 
-    @relatorios.ano = '20'+@relatorios.ano
+    @relatorios.ano = @relatorios.ano
     @relatorios.matricula_aluno = current_user.matricula
-    @relatorios.nome = current_user.nome
+    #@relatorios.nome = current_user.nome_social
     @relatorios.licenciatura = current_user.licenciatura
     @relatorios.periodo = current_user.periodo
+    @relatorios.endereco = current_user.endereco
+    @relatorios.numero = current_user.numero
+    @relatorios.complemento = current_user.complemento
+    @relatorios.bairro = current_user.bairro
+    @relatorios.municipio = current_user.municipio
+    @relatorios.cep = current_user.cep
+    @relatorios.telefone = current_user.telefone
 
     #ContactMailer.contact_message(current_user).deliver
 
@@ -55,11 +62,10 @@ class RelatorioCentroController < ApplicationController
   end
 
   def user_params
-    params.permit(:nome_da_instituicao, :nome_social, :licenciatura, :periodo, :semestre, :ano)
+    params.permit(:licenciatura)
   end
 
   def relatorio_params
-    params.permit(:denominada_estagio, :CNPJ_estagio, :rua_estagio, :bairro_estagio, :municipio_estagio, :estado_estagio, :cep_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :numero, :bairro, :municipio, :estado, :periodo_de, :periodo_a)
+    params.permit(:representado_por, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :cep, :periodo_de, :periodo_a, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre)
   end
 end
-
