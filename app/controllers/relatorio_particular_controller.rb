@@ -36,11 +36,27 @@ class RelatorioParticularController < ApplicationController
 
     @users = current_user.update(:pdf_particular => true)
 
-    @relatorios.ano = '20'+@relatorios.ano
+    @relatorios.ano = @relatorios.ano
     @relatorios.matricula_aluno = current_user.matricula
-    @relatorios.nome = current_user.nome
+    #@relatorios.nome = current_user.nome
     @relatorios.licenciatura = current_user.licenciatura
     @relatorios.periodo = current_user.periodo
+    @relatorios.endereco = current_user.endereco
+    @relatorios.numero = current_user.numero
+    @relatorios.complemento = current_user.complemento
+    @relatorios.bairro = current_user.bairro
+    @relatorios.municipio = current_user.municipio
+    @relatorios.cep = current_user.cep
+    @relatorios.telefone = current_user.telefone
+    @relatorios.cnpj = current_user.cnpj
+    @relatorios.endereco_da_instituicao = current_user.endereco_da_instituicao
+    @relatorios.numero_da_instituicao = current_user.numero_da_instituicao
+    @relatorios.bairro_da_instituicao = current_user.bairro_da_instituicao
+    @relatorios.municipio_da_instituicao = current_user.municipio_da_instituicao
+    @relatorios.cep_da_instituicao = current_user.cep_da_instituicao
+    @relatorios.telefone_da_instituicao = current_user.telefone_da_instituicao
+    @relatorios.representante = current_user.representante
+
 
     if @relatorios.save
       @relatoutro = Relatparticular.last
@@ -63,6 +79,6 @@ class RelatorioParticularController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:denominada_estagio, :CNPJ_estagio, :rua_estagio, :numero_estagio, :bairro_estagio, :municipio_estagio, :estado_estagio, :cep_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :numero, :bairro, :municipio, :estado, :CEP, :periodo_de, :periodo_a)
+    params.permit(:representado_por, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :cep, :cnpj,:periodo_de, :periodo_a, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :estado_da_instituicao)
   end
 end

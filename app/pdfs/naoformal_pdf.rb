@@ -5,20 +5,42 @@ class NaoformalPdf < Prawn::Document
       @usuario_matricula = usuario_matricula
         fill_color "40464e"
         font_size 9
-  
+
+
         image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
+        move_down 10
+        text "Campos dos Goytacazes, RJ, <u>#{I18n.l(DateTime.now.to_date, format: :long)}</u>", align: :center, :inline_format => true
         move_down 50
+
+        text "<b>CARTA DE APRESENTAÇÃO</b>", align: :center, size: 20, :inline_format => true, :leading => 10
+        move_down 30
   
-        text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
-        move_down 20
-        text "Apólice de seguro nº 060982.001.2427, de 13/12/2016",align: :center
-        text "Seguradora: Empresa MBM SEGURADORA S.A",align: :center
-  
+        
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
             move_down 30
-            text "<b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07 Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130, neste Ato representando a Insituição de Ensino <b>PROMOTORA</b>, neste Ato representado por seu Reitor JEFFERSON MANHÃES DE AZEVEDO, firma parceria com a instituição de ensino <b>CONCEDENTE</b> do Estágio Curricular Supervisionado, ", align: :justify, :inline_format => true, :leading => 10
+            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> #{relatorio.instituicao_apresentacao}", align: :left, size: 15, :inline_format => true, :leading => 10
+            move_down 20
+            text "<b>Assunto: Apresentação de discente-estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
+            move_down 30
+            text "Prezado Gestor", align: :justify, :inline_format => true, :leading => 10
+            move_down 10
+            text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u>#{relatorio.aluno_apresentacao_dois}</u>, matriculado(a), neste instituto, no <u>#{relatorio.periodo}</u>º do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, no <u>#{relatorio.semestre_apresentacao}</u>º semestre letivo de 20#{relatorio.ano_apresentacao}, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, :inline_format => true, :leading => 10
+            move_down 30
+            text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, :inline_format => true, :leading => 10
+            move_down 300
+
+
+            image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
+            move_down 50
   
+            text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
+            move_down 20
+            text "Apólice de seguro nº 060982.001.2427, de 13/12/2016",align: :center
+            text "Seguradora: Empresa MBM SEGURADORA S.A",align: :center
+            move_down 30
+  
+            text "<b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07 Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130, neste Ato representando a Insituição de Ensino <b>PROMOTORA</b>, neste Ato representado por seu Reitor JEFFERSON MANHÃES DE AZEVEDO, firma parceria com a instituição de ensino <b>CONCEDENTE</b> do Estágio Curricular Supervisionado, ", align: :justify, :inline_format => true, :leading => 10
             move_down 10
             text "<b><u>#{relatorio.denominada_estagio}</u></b>", align: :center, :inline_format => true, size:12
             move_down 25

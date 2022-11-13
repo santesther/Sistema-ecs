@@ -21,6 +21,15 @@ one:
   telefone: MyString
   periodo_de: MyString
   periodo_a: MyString
+  estado_da_instituicao: MyString
+  cnpj: MyString
+  endereco_da_instituicao: MyString
+  numero_da_instituicao: MyString
+  bairro_da_instituicao: MyString
+  municipio_da_instituicao: MyString
+  cep_da_instituicao: MyString
+  telefone_da_instituicao: MyString
+  representante: MyString
 
 two:
   instituicao_apresentacao: MyString
@@ -43,3 +52,12 @@ two:
   telefone: MyString
   periodo_de: MyString
   periodo_a: MyString
+  estado_da_instituicao: MyString
+  cnpj: MyString
+  endereco_da_instituicao: MyString
+  numero_da_instituicao: MyString
+  bairro_da_instituicao: MyString
+  municipio_da_instituicao: MyString
+  cep_da_instituicao: MyString
+  telefone_da_instituicao: MyString
+  representante: MyString

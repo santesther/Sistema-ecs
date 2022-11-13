@@ -20,7 +20,7 @@ class RelatorioNaoformalController < ApplicationController
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
 
        if current_user.role != "admin"
-         ContactMailer.confirmacao_impressao(current_user).deliver
+         #ContactMailer.confirmacao_impressao(current_user).deliver
        end
      end
     end
@@ -45,7 +45,7 @@ class RelatorioNaoformalController < ApplicationController
     if @relatorios.save
       @relatoutro = Relatnaoformal.last
 
-      ContactMailer.contact_message(current_user).deliver
+      #ContactMailer.contact_message(current_user).deliver
 
       flash[:notice] = 'Mensagem enviada com sucesso'
       redirect_to estagio_welcome_index_path, id: @relatorios.id,  notice: 'Relatório salvo com sucesso!'
@@ -63,6 +63,6 @@ class RelatorioNaoformalController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:denominada_estagio, :CNPJ_estagio, :rua_estagio, :bairro_estagio, :municipio_estagio, :estado_estagio, :cep_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :numero, :bairro, :municipio, :estado, :periodo_de, :periodo_a)
+    params.permit(:denominada_estagio, :CNPJ_estagio, :rua_estagio, :bairro_estagio, :municipio_estagio, :estado_estagio, :cep_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :numero, :bairro, :municipio, :estado, :periodo_de, :periodo_a, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao)
   end
 end

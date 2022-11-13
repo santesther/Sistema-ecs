@@ -6,7 +6,7 @@
       <div class="conteudo">
         <% @relatorios.each do |relatorio| %>
           <% if (@users.matricula == relatorio.matricula_aluno) %>
-            <span>Usuário(a): <strong><%= @users.nome %></strong></span>
+            <span>Usuário(a): <strong><%= @users.nome_social %></strong></span>
 
             <hr />
 
@@ -27,7 +27,7 @@
               telefone (22) 2737-2405, representado por <%= f.text_field :representado_por, value: relatorio.representado_por, required: true %><span class="div_concedente" style="font-size:0.9em;">Nesse campo é preenchido o nome <br /> da Instituição Concedente!</span>
                <span class="rotate_info"></span>
                <span class="info_concedente">i</span>, para fins
-              de abertura de campo de Estágio ao <b>LICENCIANDO</b> <u><%= @users.nome %></u>,
+              de abertura de campo de Estágio ao <b>LICENCIANDO</b> <u><%= @users.nome_social %></u>,
               matriculado sob o nº <u><%= @users.matricula %></u>, no <u><%= @users.periodo %></u> período do <%= f.select :semestre,['1', '2'], {include_blank:"Selecione"}, required: true %>º
               semestre do ano de <br /> 20<%= f.number_field :ano, min:18, value: 18, required:true %>, no Curso Superior de Licenciatura
               em <u><%= @users.licenciatura %></u>, residente na <%= f.text_field :endereco, value: relatorio.endereco, required:true %>, bairro

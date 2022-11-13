@@ -1,11 +1,59 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  denominada_estagio: MyString
+  CNPJ_estagio: MyString
+  rua_estagio: MyString
+  bairro_estagio: MyString
+  municipio_estagio: MyString
+  estado_estagio: MyString
+  cep_estagio: MyString
+  telefone_estagio: MyString
+  representado_por: MyString
+  ano: MyString
+  semestre: MyString
+  endereco: MyString
+  numero: MyString
+  bairro: MyString
+  municipio: MyString
+  estado: MyString
+  periodo_de: MyString
+  periodo_a: MyString
+  instituicao_apresentacao: MyString
+  aluno_apresentacao: MyString
+  aluno_apresentacao_dois: MyString
+  semestre_apresentacao: MyString
+  ano_apresentacao: MyString
+  matricula_aluno: MyString
+  nome: MyString
+  periodo: MyString
+  licenciatura: MyString
+
+two:
+  denominada_estagio: MyString
+  CNPJ_estagio: MyString
+  rua_estagio: MyString
+  bairro_estagio: MyString
+  municipio_estagio: MyString
+  estado_estagio: MyString
+  cep_estagio: MyString
+  telefone_estagio: MyString
+  representado_por: MyString
+  ano: MyString
+  semestre: MyString
+  endereco: MyString
+  numero: MyString
+  bairro: MyString
+  municipio: MyString
+  estado: MyString
+  periodo_de: MyString
+  periodo_a: MyString
+  instituicao_apresentacao: MyString
+  aluno_apresentacao: MyString
+  aluno_apresentacao_dois: MyString
+  semestre_apresentacao: MyString
+  ano_apresentacao: MyString
+  matricula_aluno: MyString
+  nome: MyString
+  periodo: MyString
+  licenciatura: MyString
