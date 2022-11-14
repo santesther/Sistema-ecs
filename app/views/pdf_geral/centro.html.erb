@@ -1,50 +1,52 @@
 <div class="container">
   <h1>Bem vindo(a) à tela de cadastro de Estágios!</h1>
   <p></p>
-  <%= form_with(model: @relatorio, url: {action: "create"}, local: true) do |f| %>
+  <%= form_with(model: @relatorio, url: {action: "update_guarus"}, local: true) do |f| %>
     <% if user_signed_in? %>
       <div class="conteudo">
-        <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
+        <% @relatorios.each do |relatorio| %>
+          <% if (@users.matricula == relatorio.matricula_aluno) %>
+            <span>Usuário(a): <strong><%= @users.nome_social %></strong></span>
 
-        <hr />
+            <hr />
 
-        <h2>Termo de Compromisso de Estágio - TCE</h2>
-        <h5>Apólice de seguro nº 060982.001.2427, de 13/12/2016</h5>
-        <h4>Seguradora: Empresa MBM SEGURADORA S.A</h4>
+            <h2>Termo de Compromisso de Estágio - TCE</h2>
+            <h5>Apólice de seguro nº 060982.001.2427, de 13/12/2016</h5>
+            <h4>Seguradora: Empresa MBM SEGURADORA S.A</h4>
 
-        <br />
+            <br />
 
-        <p>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profssional(NAPP) do IFFluminense <i>campus</i> Campos Centro.<br>
-          <b>À:</b>Direção da Instituição de Ensino: </b> <u><%= f.text_field :instituicao_apresentacao, required: true  %></u><br>
-          <b>Assunto: <i>Apresentação de discente-estagiário:</i></b><%= f.text_field :aluno_apresentacao, required: true %><br>
-          Prezado Gestor.<br>
-          O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste instituto, no </b> <u><%= current_user.periodo %></u> º período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1', '2'], {include_blank:"Selecione"} %>º semestre letivo de 20<%= f.number_field :ano_apresentacao, min:22, value: 22, required:true %>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores.
-          Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP.<br> (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu.
+            <p><b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profssional(NAPP) do IFFluminense <i>campus</i> Campos Centro.<br>
+            <b>À:</b>Direção da Instituição de Ensino: </b> <u><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required:true %></u><br>
+            <b>Assunto: <i>Apresentação de discente-estagiário:</i></b><%= f.text_field :aluno_apresentacao, value: relatorio.aluno_apresentacao, required:true %><br>
+            Prezado Gestor.<br>
+            O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, value: relatorio.aluno_apresentacao_dois, required:true %></u>, matriculado(a), neste instituto, no </b> <u><%= @users.periodo %></u> º período do Curso Superior de Licenciatura em </b> <u><%= @users.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1', '2'], {include_blank:"Selecione"}, value: relatorio.semestre_apresentacao, required:true %>º semestre letivo de 20<%= f.number_field :ano_apresentacao, min:22, value: relatorio.ano_apresentacao, required:true %>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores.
+            Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP.<br> (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu.
           <br>
-          O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua 
-          Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos
-          Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos
-          Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>,
-          inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor
-          Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP:
-          28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de
-          25/09/2008, com a Instituição de Ensino <%= f.text_field :instituicao_apresentacao, required:true %>
-          <b>- CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº <%= current_user.cnpj %>,
-          situada no(a) <%= current_user.endereco_da_instituicao %>, nº <%= current_user.numero_da_instituicao %>, Bairro: <%= current_user.bairro_da_instituicao%>,
-          no municipio de <%= current_user.municipio_da_instituicao %>, estado do <%= f.text_field :estado_da_instituicao, required:true %>,
-          CEP: <%= current_user.cep_da_instituicao %>, telefone <%= current_user.telefone_da_instituicao %>,
-          representada por <b><%= current_user.representante%>, para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
-          ao(à) <b>LICENCIANDO(A) <% current_user.nome_social %></b>  matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= current_user.matricula %>, no 
-          <%= f.select :aluno_semestre,['1', '2'], {include_blank:"Selecione"} %>º semestre do ano letivo de 20<%= f.number_field :ano, min:22, value: 22, required:true %>
-          no curso Superior de Licenciatura em <%= current_user.licenciatura %>, <%= current_user.periodo %>º periodo.
-          Residente no(a) <%= current_user.endereco %>, nº <%= current_user.numero %>, Complemento: <%= current_user.complemento %>
-          Bairro: <%= current_user.bairro %>, município: <%= current_user.municipio %>, UF: <%= f.text_field :estado, required: true %>,
-          CEP: <%= current_user.cep %>, telefone/contato nº <%= current_user.telefone %>.
-        </p>
+            O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua 
+            Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos
+            Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos
+            Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E
+            CONCEDENTE -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor
+            Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP:
+            28.030-130, telefone (22) 27262897, firma parceria, em atendimento à Lei Nº 11.788, de
+            25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de
+            abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em
+            atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>
+            <b><%= @users.nome_social%></b>
+            matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.matricula %>, no 
+            <%= f.select :aluno_semestre,['1', '2'], {include_blank:"Selecione"}, value: relatorio.aluno_semestre, required:true %>º semestre do ano letivo de 20<%= f.number_field :ano, min:22, value: relatorio.ano, required:true %>
+            no curso Superior de Licenciatura em <%= @users.licenciatura %>, <%= @users.periodo %>º periodo.
+            Residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
+            Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= f.text_field :estado, value: relatorio.estado, required:true %>,
+            CEP: <%= @users.cep %>, telefone/contato nº <%= @users.telefone %>. 
+            </p>
 
-        <div class="periodo_div">
-        PERÍODO: de <%= f.text_field :periodo_de, required:true %> a <%= f.text_field :periodo_a, required: true %>
-        </div>
+            <div class="periodo_div">
+              PERÍODO: de <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true %> a <%= f.text_field :periodo_a, value: relatorio.periodo_a, required: true %>
+            </div>
+          <% end %>
+        <% end %>
 
         <br />
         <br />
@@ -268,15 +270,6 @@
       border:none;
       border-bottom:2px dashed black;
     }
-    .estagio {
-      width: 90%;
-    }
-    .div_concedente  {
-      margin-left: -140px;
-    }
-    .rotate_info, .info_concedente  {
-      margin-left: 20px;
-    }
     .btn-success, .btn-warning {
       height:40px;
       margin-left:30px;
@@ -295,6 +288,12 @@
       margin-left:20%;
       width:800px;
     }
+    .clausulas img {
+      width:90%;
+      opacity:0.7;
+      margin-bottom:10px;
+      border-radius:10px;
+    }
     .clausulas_texto {
       text-align: left;
     }
@@ -302,25 +301,16 @@
       max-height:400px;
       overflow-y:auto;
     }
-    .clausulas img {
-      width:90%;
-      opacity:0.7;
-      margin-bottom:10px;
-      border-radius:10px;
-    }
     .clausulas_conteudo {
-      height:160%;
+      height:150%;
       width:100%;
       position:absolute;
       top:0;
       left:0;
       display:none;
     }
-    .confirmacao_preenchimento{
-       color: white;
-    }
-    select {
-      font-size:0.9em;
+    .btn-primary {
+      color: white!important;
     }
   </style>
 </div>

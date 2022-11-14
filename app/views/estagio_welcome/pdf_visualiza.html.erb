@@ -11,7 +11,7 @@
 
       <hr />
 
-      <% if current_user.pdf_centro != false || current_user.pdf_guarus != false %>
+      <% if current_user.pdf_centro != false || current_user.pdf_guarus != false || current_user.pdf_outros != false  %>
         <div class="pdf_btn">
           <span>Clique aqui e imprima o formulário!</span><br />
           <% if current_user.pdf_centro != false %>
