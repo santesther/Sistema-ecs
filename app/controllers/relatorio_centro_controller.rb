@@ -39,7 +39,6 @@ class RelatorioCentroController < ApplicationController
 
     @relatorios.ano = @relatorios.ano
     @relatorios.matricula_aluno = current_user.matricula
-    #@relatorios.nome = current_user.nome_social
     @relatorios.licenciatura = current_user.licenciatura
     @relatorios.periodo = current_user.periodo
     @relatorios.endereco = current_user.endereco

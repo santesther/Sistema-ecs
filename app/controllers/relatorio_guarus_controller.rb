@@ -18,6 +18,7 @@ class RelatorioGuarusController < ApplicationController
        @users = current_user.update(:status_impressao => true)
        pdf = GuarusPdf.new(@relatorio, current_user, @usuario_matricula)
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
+
        if current_user.role != "admin"
          #ContactMailer.confirmacao_impressao(current_user).deliver
        end
@@ -37,7 +38,6 @@ class RelatorioGuarusController < ApplicationController
 
     @relatorios.ano = @relatorios.ano
     @relatorios.matricula_aluno = current_user.matricula
-    #@relatorios.nome = current_user.nome
     @relatorios.licenciatura = current_user.licenciatura
     @relatorios.periodo = current_user.periodo
     @relatorios.endereco = current_user.endereco

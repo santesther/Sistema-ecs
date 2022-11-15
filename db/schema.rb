@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_13_174049) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_15_024411) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -260,7 +260,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_174049) do
     t.string "bairro"
     t.string "municipio"
     t.integer "cep"
-    t.integer "matricula"
     t.string "licenciatura"
     t.integer "telefone"
     t.string "status", default: "Pendente", null: false
@@ -290,6 +289,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_174049) do
     t.string "ano_apresentacao"
     t.string "aluno_semestre"
     t.string "aluno_ano"
+    t.string "matricula"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

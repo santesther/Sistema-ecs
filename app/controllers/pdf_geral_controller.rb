@@ -46,27 +46,27 @@ class PdfGeralController < ApplicationController
     end
   
     def update_particular
-      @relatorios = Relatparticular.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND nome_social = '"+ session[:nome_aluno]+"'").update(relatorio_particular_params)
+      @relatorios = Relatparticular.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND aluno_apresentacao = '"+ session[:nome_aluno]+"'").update(relatorio_particular_params)
       redirect_to estagio_welcome_index_path, notice: 'Dados Atualizados com sucesso!'
     end
   
     def update_publico
-      @relatorios = Relatpublico.where("matricula_aluno = '"+session[:matricula_aluno]+"' AND nome_social = '"+ session[:nome_aluno]+"'").update(relatorio_publico_params)
+      @relatorios = Relatpublico.where("matricula_aluno = '"+session[:matricula_aluno]+"' AND aluno_apresentacao = '"+ session[:nome_aluno]+"'").update(relatorio_publico_params)
       redirect_to estagio_welcome_index_path, notice: 'Dados Atualizados com sucesso!'
     end
   
     def update_centro
-      @relatorios = Relatorio.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND nome_social = '"+ session[:nome_aluno]+"'").update(relatorio_centro_params)
+      @relatorios = Relatorio.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND aluno_apresentacao = '"+ session[:nome_aluno]+"'").update(relatorio_centro_params)
       redirect_to estagio_welcome_index_path, notice: 'Dados Atualizados com sucesso!'
     end
   
     def update_guarus
-      @relatorios = Relatorio.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND nome_social = '"+ session[:nome_aluno]+"'").update(relatorio_guarus_params)
+      @relatorios = Relatorio.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND aluno_apresentacao = '"+ session[:nome_aluno]+"'").update(relatorio_guarus_params)
       redirect_to estagio_welcome_index_path, notice: 'Dados Atualizados com sucesso!'
     end
   
     def update_naoformal
-      @relatorios = Relatnaoformal.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND nome_social = '"+ session[:nome_aluno]+"'").update(relatorio_naoformal_params)
+      @relatorios = Relatnaoformal.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND aluno_apresentacao = '"+ session[:nome_aluno]+"'").update(relatorio_naoformal_params)
       redirect_to estagio_welcome_index_path, notice: 'Dados Atualizados com sucesso!'
     end
   
