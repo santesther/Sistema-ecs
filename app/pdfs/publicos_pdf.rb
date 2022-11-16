@@ -18,7 +18,7 @@ class PublicosPdf < Prawn::Document
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
             move_down 30
-            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> #{relatorio.instituicao_apresentacao}", align: :left, size: 15, :inline_format => true, :leading => 10
+            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u>#{relatorio.instituicao_apresentacao}</u>", align: :left, size: 15, :inline_format => true, :leading => 10
             move_down 20
             text "<b>Assunto: Apresentação de discente-estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
             move_down 30
@@ -42,7 +42,7 @@ class PublicosPdf < Prawn::Document
             move_down 10
             text "<b><u>#{relatorio.aluno_apresentacao}</u></b>", align: :center, size: 20, :inline_format => true, :leading => 10
             move_down 10 
-            text "matriculado(a) no Campus Campos Centro do IFFluminense, sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_semestre}º</u> semestre do ano letivo de <u>20#{relatorio.ano}</u>, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, <u>#{relatorio.periodo}</u>º período. Residente no(a) <u>#{relatorio.endereco}</u>, nº <u>#{relatorio.numero}</u>, Complemento: <u>#{relatorio.complemento}</u>, Bairro: <u>#{relatorio.bairro}</u>, município: <u>#{relatorio.municipio}</u>, UF: <u>#{relatorio.estado}</u>, CEP: <u>#{relatorio.cep}<u>, telefone/contato: nº <u>#{relatorio.telefone}</u>", align: :justify, :inline_format => true, :leading => 10
+            text "matriculado(a) no Campus Campos Centro do IFFluminense, sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_semestre}º</u> semestre do ano letivo de <u>20#{relatorio.ano}</u>, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, <u>#{relatorio.periodo}</u>º período. Residente no(a) <u>#{relatorio.endereco}</u>, nº <u>#{relatorio.numero}</u>, Complemento: <u>#{relatorio.complemento}</u>, Bairro: <u>#{relatorio.bairro}</u>, município: <u>#{relatorio.municipio}</u>, UF: <u>#{relatorio.estado}</u>, CEP: <u>#{relatorio.cep}</u>, telefone/contato: nº <u>#{relatorio.telefone}</u>", align: :justify, :inline_format => true, :leading => 10
             move_down 30
   
             text "Período de <u>#{relatorio.periodo_de}</u> a <u>#{relatorio.periodo_a}</u>", align: :justify, :inline_format => true

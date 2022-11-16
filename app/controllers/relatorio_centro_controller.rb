@@ -20,7 +20,7 @@ class RelatorioCentroController < ApplicationController
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
 
        if current_user.role != "admin"
-         #ContactMailer.confirmacao_impressao(current_user).deliver
+         ContactMailer.confirmacao_impressao(current_user).deliver
        end
 
      end
@@ -49,7 +49,7 @@ class RelatorioCentroController < ApplicationController
     @relatorios.cep = current_user.cep
     @relatorios.telefone = current_user.telefone
 
-    #ContactMailer.contact_message(current_user).deliver
+    ContactMailer.contact_message(current_user).deliver
 
     flash[:notice] = 'Mensagem enviada com sucesso'
 

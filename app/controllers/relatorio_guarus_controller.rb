@@ -20,7 +20,7 @@ class RelatorioGuarusController < ApplicationController
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
 
        if current_user.role != "admin"
-         #ContactMailer.confirmacao_impressao(current_user).deliver
+         ContactMailer.confirmacao_impressao(current_user).deliver
        end
      end
     end
@@ -57,7 +57,7 @@ class RelatorioGuarusController < ApplicationController
     @relatorios.representante = current_user.representante
 
 
-    #ContactMailer.contact_message(current_user).deliver
+    ContactMailer.contact_message(current_user).deliver
 
 
     flash[:notice] = 'Mensagem enviada com sucesso'

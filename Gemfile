@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem 'mailcatcher'
+
 gem 'devise'
 gem 'cancancan'
 

@@ -176,7 +176,7 @@ pt-BR:
     failure:
       already_authenticated: Você já está autenticado.
       inactive: A sua conta ainda não foi ativada.
-      invalid: Invalido %{authentication_keys} ou senha.
+      invalid: 'Email ou senha inválidos.'
       last_attempt: Você tem mais uma única tentativa antes de sua conta ser bloqueada.
       locked: A sua conta está bloqueada.
       not_found_in_database: Invalido %{authentication_keys} ou senha.
