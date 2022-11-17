@@ -9,7 +9,7 @@ class NaoformalPdf < Prawn::Document
 
         image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
         move_down 10
-        text "Campos dos Goytacazes, RJ, <u>#{I18n.l(DateTime.now.to_date, format: :long)}</u>", align: :center, :inline_format => true
+        text "Campos dos Goytacazes, RJ, <u>#{I18n.l(DateTime.now.to_date, format: :long)}</u>", align: :right, :inline_format => true
         move_down 50
 
         text "<b>CARTA DE APRESENTAÇÃO</b>", align: :center, size: 20, :inline_format => true, :leading => 10
@@ -19,13 +19,14 @@ class NaoformalPdf < Prawn::Document
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
             move_down 30
-            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> #{relatorio.instituicao_apresentacao}", align: :left, size: 15, :inline_format => true, :leading => 10
-            move_down 20
+            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u>#{relatorio.instituicao_apresentacao}</u>", align: :left, size: 15, :inline_format => true, :leading => 10
+            move_down 10
+            text "<b>Ao: Representante do Instituição Não Formal Concedente:</b> <u>#{relatorio.representante}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
             text "<b>Assunto: Apresentação de discente-estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
             move_down 30
             text "Prezado Gestor", align: :justify, :inline_format => true, :leading => 10
             move_down 10
-            text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u>#{relatorio.aluno_apresentacao_dois}</u>, matriculado(a), neste instituto, no <u>#{relatorio.periodo}</u>º do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, no <u>#{relatorio.semestre_apresentacao}</u>º semestre letivo de 20#{relatorio.ano_apresentacao}, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, :inline_format => true, :leading => 10
+            text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u>#{relatorio.aluno_apresentacao_dois}</u>, matriculado(a), neste instituto, no <u>#{relatorio.periodo}</u>º do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, no <u>#{relatorio.semestre_apresentacao}</u>º semestre letivo de <u>20#{relatorio.ano_apresentacao}</u>, <b>para fins de cumprimento de Estágio Curricular Supervisionado com atividade NÃO FORMAL no campo de estágio desse Estabelecimento Concedente</b>, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, :inline_format => true, :leading => 10
             move_down 30
             text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, :inline_format => true, :leading => 10
             move_down 300
@@ -36,16 +37,16 @@ class NaoformalPdf < Prawn::Document
   
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 20
-            text "Apólice de seguro nº 060982.001.2427, de 13/12/2016",align: :center
-            text "Seguradora: Empresa MBM SEGURADORA S.A",align: :center
+            text "Apólice de Seguro nº 01.82.0002015.000000",align: :center
+            text "SEGURADORA: GENTE SEGURADORA S/A",align: :center
             move_down 30
   
-            text "<b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07 Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130, neste Ato representando a Insituição de Ensino <b>PROMOTORA</b>, neste Ato representado por seu Reitor JEFFERSON MANHÃES DE AZEVEDO, firma parceria com a instituição de ensino <b>CONCEDENTE</b> do Estágio Curricular Supervisionado, ", align: :justify, :inline_format => true, :leading => 10
+            text "<b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07 Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130, neste Ato representado pelo <b><i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>,  inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>INSTITUIÇÃO NÃO FORMAL CONCEDENTE</b>", align: :justify, :inline_format => true, :leading => 10
             move_down 10
-            text "<b><u>#{relatorio.denominada_estagio}</u></b>", align: :center, :inline_format => true, size:12
+            text "<b><u>#{relatorio.instituicao_apresentacao}</u></b>", align: :center, :inline_format => true, size:12
             move_down 25
   
-            text "inscrita no CNPJ/MF sob o Nº <u>#{relatorio.CNPJ_estagio}</u>, situada na Rua <u>#{relatorio.rua_estagio}</u>, bairro <u>#{relatorio.bairro_estagio}</u>, município <u>#{relatorio.municipio_estagio}</u>, UF <u>#{relatorio.estado_estagio}</u>, CEP <u>#{relatorio.cep_estagio}</u>, telefone <u>#{relatorio.telefone_estagio}</u>, representada por <u>#{relatorio.representado_por}</u>, para fins de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u>#{relatorio.nome}</u>, matriculado sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.periodo}</u> período do ano letivo de <u>#{relatorio.ano}</u>, no <u>#{relatorio.semestre}</u> semestre, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, residente na Rua <u>#{relatorio.endereco}</u>, Nº <u>#{relatorio.numero}</u>, bairro <u>#{relatorio.bairro}</u>, município <u>#{relatorio.municipio}</u>, Estado do <u>#{relatorio.estado}</u>, nos termos da Lei Nº 11.788 de 25/09/2008, cujas cláusulas constam e regem o presente contrato:", align: :justify, :inline_format => true, :leading => 10
+            text "inscrita no CNPJ/MF sob o Nº <u>#{relatorio.cnpj}</u>, situada na Rua <u>#{relatorio.endereco_da_instituicao}</u>, bairro <u>#{relatorio.bairro_da_instituicao}</u>, município <u>#{relatorio.municipio_da_instituicao}</u>, UF <u>#{relatorio.estado_da_instituicao}</u>, CEP <u>#{relatorio.cep_da_instituicao}</u>, telefone <u>#{relatorio.telefone_da_instituicao}</u>, representada por <u>#{relatorio.representante}</u>, para fins de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u>#{relatorio.aluno_apresentacao}</u>, matriculado sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_periodo}</u> período do ano letivo de <u>20#{relatorio.ano}</u>, no <u>#{relatorio.aluno_semestre}</u> semestre, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, residente na Rua <u>#{relatorio.endereco}</u>, Nº <u>#{relatorio.numero}</u>, bairro <u>#{relatorio.bairro}</u>, município <u>#{relatorio.municipio}</u>, Estado do <u>#{relatorio.estado}</u>, nos termos da Lei Nº 11.788 de 25/09/2008, cujas cláusulas constam e regem o presente contrato:", align: :justify, :inline_format => true, :leading => 10
             move_down 30
             text "Período de <u>#{relatorio.periodo_de}</u> a <u>#{relatorio.periodo_a}</u>", align: :justify, :inline_format => true
   

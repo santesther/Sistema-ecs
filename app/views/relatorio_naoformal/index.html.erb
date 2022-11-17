@@ -9,13 +9,14 @@
         <hr />
 
         <h2>Termo de Compromisso de Estágio - TCE</h2>
-        <h5>Apólice de seguro nº 060982.001.2427, de 13/12/2016</h5>
-        <h4>Seguradora: Empresa MBM SEGURADORA S.A</h4>
+        <h5>Apólice de Seguro nº 01.82.0002015.000000</h5>
+        <h4>SEGURADORA: GENTE SEGURADORA S/A</h4>
 
         <br />
 
         <p><b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profssional(NAPP) do IFFluminense <i>campus</i> Campos Centro.<br>
           <b>À:</b>Direção da Instituição de Ensino: </b> <u><%= f.text_field :instituicao_apresentacao, required: true  %></u><br>
+          <b>Ao:</b> Representante do Instituição Não Formal Concedente: <%= f.text_field :representante_da_instituicao, required: true %><br>
           <b>Assunto: <i>Apresentação de discente-estagiário:</i></b><%= f.text_field :aluno_apresentacao, required: true %><br>
           Prezado Gestor.<br>
           O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste instituto, no </b> <u><%= current_user.periodo %></u> º período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1', '2'], {include_blank:"Selecione"} %>º semestre letivo de 20<%= f.number_field :ano_apresentacao, min:22, value: 22, required:true %>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores.
@@ -23,28 +24,24 @@
             <br>
           <b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07
           Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130,
-          neste Ato representando a Insituição de Ensino <b>PROMOTORA</b>, neste Ato representado por
-          seu Reitor JEFFERSON MANHÃES DE AZEVEDO, firma parceria com o <b>ESTABELECIMENTO CONCEDENTE</b>
-          de Estágio Curricular Supervisionado com atividade não formal,
+          neste Ato representado pelo <b><i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, 
+          inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, 
+          Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, 
+          telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, 
+          com a <b>INSTITUIÇÃO NÃO FORMAL CONCEDENTE</b>
           <br />
 
-          <%= f.text_field :nome_da_instituicao, required: true, :class => 'estagio' %>
-          <span class="div_concedente" style="font-size:0.9em;">Nesse campo é preenchido o nome <br /> da Instituição Concedente!</span>
-          <span class="rotate_info"></span>
-          <span class="info_concedente">i</span>
-
+          <%= f.text_field :instituicao_apresentacao, required: true %>
           <br />
-
-          inscrita no CNPJ/MF sob o Nº <%= f.text_field :cnpj, required: true %>, situada na
-          Rua <%= f.text_field :endereco_da_instituicao, required: true %>, bairro <%= f.text_field :bairro_da_instituicao, required: true %>,
-          município <%= f.text_field :municipio_da_instituicao, required: true %>, UF <%= f.text_field :estado_estagio, required: true %>,
-          CEP <%= f.text_field :cep_da_instituicao, required: true %>, telefone <%= f.text_field :telefone_da_instituicao, required: true %>,
-
-          representada por <%= f.text_field :representante, required: true %>, para fins
-          de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u><%= current_user.nome_social %></u>, matriculado sob o nº <u><%= current_user.matricula %></u>,
-          no <u><%= current_user.periodo %></u> período do ano letivo de 20<%= f.number_field :ano, min:22, value: 22, required:true %>, no <%= f.select :semestre, ['1.º', '2.º'], {include_blank:"Selecione"}, required: true %> semestre, no Curso Superior de Licenciatura
-          em <u><%= current_user.licenciatura %></u>, residente na Rua <%= f.text_field :endereco, required:true %>, Nº <%= f.text_field :numero, required: true %>, bairro
-          <%= f.text_field :bairro, required:true %>, município <%= f.text_field :municipio, required:true %>, Estado do
+          inscrita no CNPJ/MF sob o Nº <%= current_user.cnpj %>, situada na
+          Rua <%= current_user.endereco_da_instituicao %>, bairro <%= current_user.bairro_da_instituicao %>,
+          município <%= current_user.municipio_da_instituicao %>, UF <%= f.text_field :estado_instituicao %>,
+          CEP <%= current_user.cep_da_instituicao %>, telefone <%= current_user.telefone_da_instituicao %>,
+          representada por <%= current_user.representante %>, para fins
+          de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u><%= f.text_field :aluno_apresentacao, required: true %></u>, matriculado sob o nº <u><%= current_user.matricula %></u>,
+          no <u><%= f.select :aluno_periodo, ['1', '2'], {include_blank:"Selecione"}, required: true %></u> período do ano letivo de 20<%= f.number_field :ano, min:22, value: 22, required:true %>, no <%= f.select :aluno_semestre, ['1.º', '2.º'], {include_blank:"Selecione"}, required: true %> semestre, no Curso Superior de Licenciatura
+          em <u><%= current_user.licenciatura %></u>, residente na Rua <%= current_user.endereco %>, Nº <%= current_user.numero %>, bairro
+          <%= current_user.bairro %>, município <%= current_user.municipio %>, Estado do
           <%= f.text_field :estado, required:true %>, nos termos da Lei Nº 11.788 de 25/09/2008, cujas cláusulas constam e regem o presente contrato:
         </p>
 

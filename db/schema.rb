@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_15_024411) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_17_232727) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -40,33 +40,73 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_024411) do
   end
 
   create_table "relatnaoformais", force: :cascade do |t|
-    t.string "denominada_estagio"
-    t.string "CNPJ_estagio"
-    t.string "rua_estagio"
-    t.string "bairro_estagio"
-    t.string "municipio_estagio"
-    t.string "estado_estagio"
-    t.string "cep_estagio"
-    t.string "telefone_estagio"
-    t.string "representado_por"
-    t.string "ano"
-    t.string "semestre"
-    t.string "endereco"
-    t.string "numero"
-    t.string "bairro"
-    t.string "municipio"
-    t.string "estado"
-    t.string "periodo_de"
-    t.string "periodo_a"
     t.string "instituicao_apresentacao"
     t.string "aluno_apresentacao"
     t.string "aluno_apresentacao_dois"
-    t.string "semestre_apresentacao"
-    t.string "ano_apresentacao"
-    t.string "matricula_aluno"
-    t.string "nome"
     t.string "periodo"
     t.string "licenciatura"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
+    t.string "reitor"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "estado_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "numero"
+    t.string "aluno_semestre"
+    t.string "ano"
+    t.string "endereco"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "municipio"
+    t.string "estado"
+    t.string "cep"
+    t.string "telefone"
+    t.string "periodo_de"
+    t.string "periodo_a"
+    t.string "matricula_aluno"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatnaoformals", force: :cascade do |t|
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "periodo"
+    t.string "licenciatura"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
+    t.string "reitor"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "estado_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "numero"
+    t.string "aluno_semestre"
+    t.string "ano"
+    t.string "endereco"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "municipio"
+    t.string "estado"
+    t.string "cep"
+    t.string "telefone"
+    t.string "periodo_de"
+    t.string "periodo_a"
+    t.string "matricula_aluno"
+    t.string "aluno_periodo"
+    t.string "representante_da_instituicao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -287,7 +327,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_024411) do
     t.string "nome_civil"
     t.string "semestre_apresentacao"
     t.string "ano_apresentacao"
-    t.string "aluno_semestre"
     t.string "aluno_ano"
     t.string "matricula"
     t.index ["email"], name: "index_users_on_email", unique: true
