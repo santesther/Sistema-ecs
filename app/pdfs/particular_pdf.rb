@@ -33,8 +33,8 @@ class ParticularPdf < Prawn::Document
       
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 20
-            text "Apólice de seguro nº 060982.001.2427, de 13/12/2016",align: :center
-            text "Seguradora: Empresa MBM SEGURADORA S.A",align: :center
+            text "<b>Seguradora: </b>#{relatorio.seguradora}", align: :center, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro: </b>#{relatorio.apolice} ",align: :center, :inline_format => true, :leading => 10
             move_down 30
 
             text "<b>O INSTITUTO FEDERAL FLUMINENSE, CNPJ/MF nº 10.779.511/0001-07, situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA<b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a Instituição de Ensino <u>#{relatorio.instituicao_apresentacao}</u> - <b> CONCEDENTE -</b> inscrita no CNPJ/MF sob o nº <u>#{relatorio.cnpj}</u>, situada no(a) <u>#{relatorio.endereco_da_instituicao}</u>, nº <u>#{relatorio.numero_da_instituicao}</u>, Bairro <u>#{relatorio.bairro_da_instituicao}</u>, no munícipio de <u>#{relatorio.municipio_da_instituicao}</u>, Estado do <u>#{relatorio.estado_da_instituicao}</u>, CEP: <u>#{relatorio.cep_da_instituicao}<u>, telefone <u>#{relatorio.telefone_da_instituicao}</u>, representada por <u><b>#{relatorio.representante}</u>, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIAnDO(A)</b>", align: :center, :inline_format => true, :leading => 10

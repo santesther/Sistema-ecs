@@ -37,8 +37,8 @@ class NaoformalPdf < Prawn::Document
   
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 20
-            text "Apólice de Seguro nº 01.82.0002015.000000",align: :center
-            text "SEGURADORA: GENTE SEGURADORA S/A",align: :center
+            text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro: </b>#{relatorio.apolice} ",align: :center, :inline_format => true, :leading => 10
             move_down 30
   
             text "<b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07 Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130, neste Ato representado pelo <b><i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>,  inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>INSTITUIÇÃO NÃO FORMAL CONCEDENTE</b>", align: :justify, :inline_format => true, :leading => 10
@@ -46,7 +46,7 @@ class NaoformalPdf < Prawn::Document
             text "<b><u>#{relatorio.instituicao_apresentacao}</u></b>", align: :center, :inline_format => true, size:12
             move_down 25
   
-            text "inscrita no CNPJ/MF sob o Nº <u>#{relatorio.cnpj}</u>, situada na Rua <u>#{relatorio.endereco_da_instituicao}</u>, bairro <u>#{relatorio.bairro_da_instituicao}</u>, município <u>#{relatorio.municipio_da_instituicao}</u>, UF <u>#{relatorio.estado_da_instituicao}</u>, CEP <u>#{relatorio.cep_da_instituicao}</u>, telefone <u>#{relatorio.telefone_da_instituicao}</u>, representada por <u>#{relatorio.representante}</u>, para fins de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u>#{relatorio.aluno_apresentacao}</u>, matriculado sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_periodo}</u> período do ano letivo de <u>20#{relatorio.ano}</u>, no <u>#{relatorio.aluno_semestre}</u> semestre, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, residente na Rua <u>#{relatorio.endereco}</u>, Nº <u>#{relatorio.numero}</u>, bairro <u>#{relatorio.bairro}</u>, município <u>#{relatorio.municipio}</u>, Estado do <u>#{relatorio.estado}</u>, nos termos da Lei Nº 11.788 de 25/09/2008, cujas cláusulas constam e regem o presente contrato:", align: :justify, :inline_format => true, :leading => 10
+            text "inscrita no CNPJ/MF sob o Nº <u>#{relatorio.cnpj}</u>, situada na Rua <u>#{relatorio.endereco_da_instituicao}</u>, bairro <u>#{relatorio.bairro_da_instituicao}</u>, município <u>#{relatorio.municipio_da_instituicao}</u>, UF <u>#{relatorio.estado_da_instituicao}</u>, CEP <u>#{relatorio.cep_da_instituicao}</u>, telefone <u>#{relatorio.telefone_da_instituicao}</u>, representada por <u>#{relatorio.representante}</u>, para fins de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u>#{relatorio.aluno_apresentacao}</u>, matriculado sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_periodo}º</u> período do ano letivo de <u>20#{relatorio.ano}</u>, no <u>#{relatorio.aluno_semestre}</u> semestre, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, residente na Rua <u>#{relatorio.endereco}</u>, Nº <u>#{relatorio.numero}</u>, bairro <u>#{relatorio.bairro}</u>, município <u>#{relatorio.municipio}</u>, Estado do <u>#{relatorio.estado}</u>, nos termos da Lei Nº 11.788 de 25/09/2008, cujas cláusulas constam e regem o presente contrato:", align: :justify, :inline_format => true, :leading => 10
             move_down 30
             text "Período de <u>#{relatorio.periodo_de}</u> a <u>#{relatorio.periodo_a}</u>", align: :justify, :inline_format => true
   

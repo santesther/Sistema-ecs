@@ -9,8 +9,8 @@
         <hr />
 
         <h2>Termo de Compromisso de Estágio - TCE</h2>
-        <h5>Apólice de Seguro nº 01.82.0002015.000000</h5>
-        <h4>SEGURADORA: GENTE SEGURADORA S/A</h4>
+        <h5><b>Seguradora:</b> <%= f.text_field :seguradora, required:true %></h5>
+        <h4><b>Apólice de seguro:</b> <%= f.text_field :apolice, required:true %></h4>
 
         <br />
 
@@ -35,7 +35,7 @@
           <br />
           inscrita no CNPJ/MF sob o Nº <%= current_user.cnpj %>, situada na
           Rua <%= current_user.endereco_da_instituicao %>, bairro <%= current_user.bairro_da_instituicao %>,
-          município <%= current_user.municipio_da_instituicao %>, UF <%= f.text_field :estado_instituicao %>,
+          município <%= current_user.municipio_da_instituicao %>, UF <%= f.text_field :estado_da_instituicao %>,
           CEP <%= current_user.cep_da_instituicao %>, telefone <%= current_user.telefone_da_instituicao %>,
           representada por <%= current_user.representante %>, para fins
           de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u><%= f.text_field :aluno_apresentacao, required: true %></u>, matriculado sob o nº <u><%= current_user.matricula %></u>,

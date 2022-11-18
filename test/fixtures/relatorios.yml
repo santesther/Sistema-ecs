@@ -30,6 +30,8 @@ one:
   cep_da_instituicao: MyString
   telefone_da_instituicao: MyString
   representante: MyString
+  apolice: MyString
+  seguradora: MyString
 
 two:
   instituicao_apresentacao: MyString
@@ -61,3 +63,5 @@ two:
   cep_da_instituicao: MyString
   telefone_da_instituicao: MyString
   representante: MyString
+  apolice: MyString
+  seguradora: MyString

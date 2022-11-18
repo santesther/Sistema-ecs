@@ -6,13 +6,13 @@
       <div class="conteudo">
         <% @relatorios.each do |relatorio| %>
           <% if (@users.matricula == relatorio.matricula_aluno ) %>
-            <span>Usuário(a): <strong><%= @users.nome %></strong></span>
+            <span>Usuário(a): <strong><%= @users.nome_social %></strong></span>
 
             <hr />
 
             <h2>Termo de Compromisso de Estágio - TCE</h2>
-            <h5>Apólice de seguro nº 060982.001.2427, de 13/12/2016</h5>
-            <h4>Seguradora: Empresa MBM SEGURADORA S.A</h4>
+            <h5><b>Seguradora:</b> <%= f.text_field :seguradora, value: relatorio.seguradora, required:true %></h5>
+            <h4><b>Apólice de seguro:</b> <%= f.text_field :apolice, value: relatorio.apolice, required:true %></h4>
 
             <br />
 

@@ -31,6 +31,8 @@ one:
   periodo_de: MyString
   periodo_a: MyString
   matricula_aluno: MyString
+  apolice: MyString
+  seguradora: MyString
 
 two:
   instituicao_apresentacao: MyString
@@ -63,3 +65,5 @@ two:
   periodo_de: MyString
   periodo_a: MyString
   matricula_aluno: MyString
+  apolice: MyString
+  seguradora: MyString

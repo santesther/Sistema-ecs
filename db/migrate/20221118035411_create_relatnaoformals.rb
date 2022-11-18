@@ -31,8 +31,8 @@ class CreateRelatnaoformals < ActiveRecord::Migration[7.0]
       t.string :periodo_de
       t.string :periodo_a
       t.string :matricula_aluno
-      t.string :aluno_periodo
-      t.string :representante_da_instituicao
+      t.string :apolice
+      t.string :seguradora
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
-class CreateRelatparticulars < ActiveRecord::Migration[7.0]
+class CreateRelatoutros < ActiveRecord::Migration[7.0]
   def change
-    create_table :relatparticulars do |t|
+    create_table :relatoutros do |t|
       t.string :instituicao_apresentacao
       t.string :aluno_apresentacao
       t.string :aluno_apresentacao_dois
@@ -31,6 +31,8 @@ class CreateRelatparticulars < ActiveRecord::Migration[7.0]
       t.string :periodo_de
       t.string :periodo_a
       t.string :matricula_aluno
+      t.string :apolice
+      t.string :seguradora
 
       t.timestamps
     end
