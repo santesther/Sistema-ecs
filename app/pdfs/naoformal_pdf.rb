@@ -37,8 +37,8 @@ class NaoformalPdf < Prawn::Document
   
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 20
-            text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, :leading => 10
-            text "<b>Apólice de seguro: </b>#{relatorio.apolice} ",align: :center, :inline_format => true, :leading => 10
+            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro: </b><u>#{relatorio.apolice}</u>",align: :center, :inline_format => true, :leading => 10
             move_down 30
   
             text "<b>O INSTITUTO FEDERAL FLUMINENSE</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0001-07 Rua Dr Siqueira nº 273 - Parque Dom Bosco - Campos dos Goytacazes/RJ CEP: 28.030-130, neste Ato representado pelo <b><i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>,  inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>INSTITUIÇÃO NÃO FORMAL CONCEDENTE</b>", align: :justify, :inline_format => true, :leading => 10
