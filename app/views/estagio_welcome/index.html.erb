@@ -59,9 +59,9 @@
                     <td><%= link_to 'Modificar', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                   <% end %>
 
-                  <% if user.pdf_guarus != false %>
-                    <td><%= link_to 'PDF', relatorio_guarus_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
-                    <td><%= link_to 'Modificar', pdf_geral_guarus_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% if user.pdf_campi != false %>
+                    <td><%= link_to 'PDF', relatorio_campi_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_campi_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                   <% end %>
 
                   <% if user.pdf_publico != false %>
@@ -122,7 +122,7 @@
 
           <hr />
 
-          <% if current_user.pdf_centro == false && current_user.pdf_guarus == false && current_user.pdf_publico == false && current_user.pdf_particular == false && current_user.pdf_naoformal == false  %>
+          <% if current_user.pdf_centro == false && current_user.pdf_campi == false && current_user.pdf_publico == false && current_user.pdf_particular == false && current_user.pdf_naoformal == false  %>
             <p class="escolha_um_formulario">Escolha um formulário, mas lembre-se que só é possível fazer o <u>preenchimento uma única vez.</u></p>
 
             <div class="botoes">
@@ -166,7 +166,7 @@
 
             <div class="div_federal" style="display:none">
               <%= link_to "Campus Campos Centro", relatorio_centro_index_path, :class => 'btn btn-success centro' %>
-              <%= link_to "Campus Campos Campi", relatorio_guarus_index_path, :class => 'btn btn-success guarus' %>
+              <%= link_to "Campus Campos Campi", relatorio_campi_index_path, :class => 'btn btn-success guarus' %>
             </div>
 
             <div class="div_federal2" style="display:none">
@@ -175,7 +175,7 @@
             </div>
           <% end %>
 
-          <% if current_user.pdf_centro != false || current_user.pdf_guarus != false || current_user.pdf_publico != false || current_user.pdf_particular != false || current_user.pdf_naoformal != false %>
+          <% if current_user.pdf_centro != false || current_user.pdf_campi != false || current_user.pdf_publico != false || current_user.pdf_particular != false || current_user.pdf_naoformal != false %>
             <div class="pdf_btn">
               <span>Clique aqui e imprima o formulário!</span><br />
 
@@ -188,8 +188,8 @@
                 <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
 
-              <% if current_user.pdf_guarus != false && current_user.status_impressao == false %>
-                <%= link_to 'Gerar PDF', relatorio_guarus_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+              <% if current_user.pdf_campi != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_campi_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
 
               <% if current_user.pdf_publico != false && current_user.status_impressao == false %>

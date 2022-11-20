@@ -1,4 +1,4 @@
-class RelatorioGuarusController < ApplicationController
+class RelatorioCampiController < ApplicationController
   def index
     @relatorios = Relatorio.all
 
@@ -16,7 +16,7 @@ class RelatorioGuarusController < ApplicationController
          @usuario_matricula = current_user.matricula
        end
        @users = current_user.update(:status_impressao => true)
-       pdf = GuarusPdf.new(@relatorio, current_user, @usuario_matricula)
+       pdf = CampiPdf.new(@relatorio, current_user, @usuario_matricula)
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
 
        if current_user.role != "admin"
@@ -28,13 +28,13 @@ class RelatorioGuarusController < ApplicationController
 
   def update
     @relatorios = current_user.update(user_params)
-    redirect_to relatorio_guarus_index_path, notice: 'Dados Atualizados com sucesso!'
+    redirect_to relatorio_campi_index_path, notice: 'Dados Atualizados com sucesso!'
   end
 
   def create
     @relatorios = Relatorio.new(relatorio_params)
 
-    @users = current_user.update(:pdf_guarus => true)
+    @users = current_user.update(:pdf_campi => true)
 
     @relatorios.ano = @relatorios.ano
     @relatorios.matricula_aluno = current_user.matricula

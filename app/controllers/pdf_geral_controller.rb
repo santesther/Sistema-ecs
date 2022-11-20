@@ -27,7 +27,7 @@ class PdfGeralController < ApplicationController
       session[:nome_aluno] = @users.nome_social
     end
   
-    def guarus
+    def campi
       @relatorios = Relatorio.all
   
       @users = User.find(params[:id])
@@ -60,7 +60,7 @@ class PdfGeralController < ApplicationController
       redirect_to estagio_welcome_index_path, notice: 'Dados Atualizados com sucesso!'
     end
   
-    def update_guarus
+    def update_campi
       @relatorios = Relatorio.where("matricula_aluno = '"+ session[:matricula_aluno]+"' AND aluno_apresentacao = '"+ session[:nome_aluno]+"'").update(relatorio_guarus_params)
       redirect_to estagio_welcome_index_path, notice: 'Dados Atualizados com sucesso!'
     end
@@ -82,7 +82,7 @@ class PdfGeralController < ApplicationController
       params.permit(:representado_por, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :cep, :periodo_de, :periodo_a, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :apolice, :seguradora)
     end
   
-    def relatorio_guarus_params
+    def relatorio_campi_params
       params.permit(:representado_por, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :cep, :cnpj,:periodo_de, :periodo_a, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :estado_da_instituicao)
     end
   

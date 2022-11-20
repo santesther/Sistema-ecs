@@ -22,7 +22,7 @@ class RelatorioPdf < Prawn::Document
              if(users.nome == @user_nome)
   
                text "Dados do Aluno
-                        Nome civil: #{users.nome}
+                        Nome civil: #{users.nome_civil}
                         Nome social: #{users.nome_social}
                         Matrícula: #{users.matricula}
                         Curso: #{users.licenciatura}\n
