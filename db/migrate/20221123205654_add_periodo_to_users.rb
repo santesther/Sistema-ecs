@@ -1,5 +1,5 @@
 class AddPeriodoToUsers < ActiveRecord::Migration[7.0]
   def change
-    add_column :users, :periodo, :integer
+    add_column :users, :periodo, :string
   end
 end

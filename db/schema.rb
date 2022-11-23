@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_20_042850) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_205654) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -302,27 +302,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_042850) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0
-    t.string "endereco"
-    t.string "complemento"
-    t.integer "numero"
-    t.string "bairro"
-    t.string "municipio"
-    t.integer "cep"
     t.string "licenciatura"
-    t.integer "telefone"
     t.string "status", default: "Pendente", null: false
-    t.string "nome_da_instituicao"
-    t.integer "cnpj"
-    t.string "endereco_da_instituicao"
-    t.integer "numero_da_instituicao"
-    t.string "complemento_da_instituicao"
-    t.string "bairro_da_instituicao"
-    t.string "municipio_da_instituicao"
-    t.integer "cep_da_instituicao"
-    t.integer "telefone_da_instituicao"
-    t.string "representante"
-    t.string "tipo_da_instituicao"
-    t.integer "periodo"
     t.string "nome"
     t.string "nome_social"
     t.string "nome_civil"
@@ -340,6 +321,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_042850) do
     t.boolean "pdf_naoformal", default: false
     t.boolean "status_impressao", default: false
     t.boolean "status_finalizado", default: false
+    t.string "nome_da_instituicao"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "complemento_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "tipo_da_instituicao"
+    t.string "endereco"
+    t.string "complemento"
+    t.string "numero"
+    t.string "bairro"
+    t.string "municipio"
+    t.string "cep"
+    t.string "telefone"
+    t.string "periodo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
