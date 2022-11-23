@@ -57,7 +57,7 @@
        <div class="form-group row">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Telefone*</label>
           <div class="col-sm-4">
-            <%= f.text_field :telefone, required: true, class: "form-control" %>
+            <%= f.text_field :telefone, required: true, class: "form-control", onkeypress:"$(this).mask('(00) 00000-0000')" %>
           </div>
 
       <label class="col-sm-2 col-form-label">Foto de perfil*</label>
@@ -100,7 +100,7 @@
 
           <label class="col-sm-2 col-form-label">CEP*</label>
           <div class="col-sm-4">
-            <%= f.text_field :cep, class: "form-control" %> 
+            <%= f.text_field :cep, class: "form-control", onkeypress:"$(this).mask('00000-000')" %> 
           </div>
 
         </div>
@@ -132,7 +132,7 @@
 
           <label class="col-sm-2 col-form-label">CNPJ*</label>
           <div class="col-sm-4">
-            <%= f.text_field :cnpj, class: "form-control" %> 
+            <%= f.text_field :cnpj, class: "form-control", onkeypress:"$(this).mask('00.000.000/0000-00')" %> 
           </div>
 
         </div>
@@ -177,14 +177,14 @@
 
           <label class="col-sm-2 col-form-label">CEP da instituição*</label>
           <div class="col-sm-4">
-            <%= f.text_field :cep_da_instituicao, require: true, class: "form-control" %>
+            <%= f.text_field :cep_da_instituicao, require: true, class: "form-control", onkeypress:"$(this).mask('00000-000')" %>
           </div>
         </div>
 
       <div class="form-group row">
           <label class="col-sm-2 col-form-label">Telefone da instituição*</label>
           <div class="col-sm-4">
-            <%= f.text_field :telefone_da_instituicao, required: true, class: "form-control" %> 
+            <%= f.text_field :telefone_da_instituicao, required: true, class: "form-control", onkeypress:"$(this).mask('(00) 00000-0000')" %> 
           </div>
 
           <label class="col-sm-2 col-form-label">Representada por*</label>
