@@ -9,8 +9,6 @@
         <hr />
 
         <h2>Termo de Compromisso de Estágio - TCE</h2>
-        <h5><b>Seguradora:</b> <%= f.text_field :seguradora, required:true %></h5>
-        <h4><b>Apólice de seguro:</b> <%= f.text_field :apolice, required:true %></h4>
 
         <br />
 
@@ -42,9 +40,6 @@
           CEP: <%= current_user.cep %>, telefone/contato nº <%= current_user.telefone %>.
         </p>
 
-        <div class="periodo_div">
-        PERÍODO: de <%= f.text_field :periodo_de, required:true %> a <%= f.text_field :periodo_a, required: true %>
-        </div>
 
         <br />
         <br />

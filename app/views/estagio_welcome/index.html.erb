@@ -175,6 +175,7 @@
             </div>
           <% end %>
 
+         
           <% if current_user.pdf_centro != false || current_user.pdf_campi != false || current_user.pdf_publico != false || current_user.pdf_particular != false || current_user.pdf_naoformal != false %>
             <div class="pdf_btn">
               <span>Clique aqui e imprima o formulário!</span><br />
@@ -203,6 +204,7 @@
               <% if current_user.pdf_naoformal != false && current_user.status_impressao == false %>
                 <%= link_to 'Gerar PDF', relatorio_naoformal_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
+           
 
               <% if current_user.status_impressao == true %>
                 <div class="contato_napp border p-1 mt-4">

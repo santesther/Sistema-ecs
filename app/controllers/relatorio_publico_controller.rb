@@ -78,6 +78,7 @@ class RelatorioPublicoController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:parceria_firmada_com, :denominada_estagio, :CNPJ_estagio, :rua_estagio, :numero_estagio, :periodo_letivo, :bairro_estagio, :municipio_estagio, :telefone_estagio, :representado_por, :ano, :semestre, :endereco, :bairro, :municipio, :estado, :cep, :periodo_de, :periodo_a, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :reitor, :aluno_semestre, :estado_da_instituicao, :seguradora, :apolice)
+    params.permit(:instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :periodo, :licenciatura, :semestre_apresentacao, :ano_apresentacao, :reitor, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :estado_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante, :numero, :aluno_semestre, :ano, :endereco, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :periodo_de, :periodo_a, :matricula_aluno, :apolice, :seguradora)
   end
 end
+

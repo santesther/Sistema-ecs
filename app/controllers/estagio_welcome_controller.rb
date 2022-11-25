@@ -27,7 +27,7 @@ class EstagioWelcomeController < ApplicationController
   def update
     @id_user = session[:id_user]
 
-    #ContactMailer.confirmacao_impressao(current_user).deliver
+    ContactMailer.confirmacao_impressao(current_user).deliver
 
     User.where(id: @id_user).update(situacao_params)
 
