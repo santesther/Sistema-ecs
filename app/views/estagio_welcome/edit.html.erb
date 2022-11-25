@@ -32,10 +32,19 @@
         </table>
 
         <div class="field">
+        <h3>Aprovação do pedido para acesso ao Documento de Estágio </h3>
           <%= f.label :situação_do_usuário %><br />
           <%= f.select :situacao, @values_situacao, selected: "Revisar" %>
         </div>
+        <br>
+      
 
+        <h3>Finalização do Documento de Estágio </h3>
+        <div class="field">
+          <%= f.label :finalizacao_do_usuário %><br />
+          <%= f.select :finalizacao, @values_finalizacao, selected: "Revisando" %>
+        </div>
+        <br>
         <%= f.submit "Salvar", :class => 'btn btn-success' %>
 
         <hr />

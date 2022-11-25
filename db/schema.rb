@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_205654) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -313,14 +313,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_205654) do
     t.string "matricula"
     t.string "estado_da_instituicao"
     t.string "seguradora"
-    t.string "situacao", default: "0"
-    t.boolean "pdf_centro", default: false
-    t.boolean "pdf_campi", default: false
-    t.boolean "pdf_publico", default: false
-    t.boolean "pdf_particular", default: false
-    t.boolean "pdf_naoformal", default: false
-    t.boolean "status_impressao", default: false
-    t.boolean "status_finalizado", default: false
     t.string "nome_da_instituicao"
     t.string "cnpj"
     t.string "endereco_da_instituicao"
@@ -340,6 +332,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_205654) do
     t.string "cep"
     t.string "telefone"
     t.string "periodo"
+    t.string "situacao", default: "0"
+    t.boolean "pdf_centro", default: false
+    t.boolean "pdf_campi", default: false
+    t.boolean "pdf_publico", default: false
+    t.boolean "pdf_particular", default: false
+    t.boolean "pdf_naoformal", default: false
+    t.boolean "status_impressao", default: false
+    t.string "finalizacao", default: "0"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

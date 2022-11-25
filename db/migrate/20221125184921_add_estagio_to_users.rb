@@ -7,6 +7,6 @@ class AddEstagioToUsers < ActiveRecord::Migration[7.0]
     add_column :users, :pdf_particular, :boolean, :default => false
     add_column :users, :pdf_naoformal, :boolean, :default => false
     add_column :users, :status_impressao, :boolean, :default => false
-    add_column :users, :status_finalizado, :boolean, :default => false
+    add_column :users, :finalizacao, :string, :default => '0'
   end
 end

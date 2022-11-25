@@ -25,6 +25,7 @@
               <th scope="col">Período</th>
               <th scope="col">Email</th>
               <th scope="col">Situação</th>
+              <th scope="col">Finalização</th>
               <th scope="col">Role</th>
               <th></th>
               <th></th>
@@ -48,6 +49,16 @@
                       <td style="color:red;font-weight:bold;"><%= user.situacao %></td>
                     <% else %>
                       <td style="color:green;font-weight:bold;"><%= user.situacao %></td>
+                    <% end %>
+                  <% end %>
+
+                  <% if user.finalizacao == "Revisando" %>
+                    <td style="color:blue;font-weight:bold;"><%= user.finalizacao %></td>
+                  <% else %>
+                    <% if user.finalizacao == "Negado" %>
+                      <td style="color:red;font-weight:bold;"><%= user.finalizacao %></td>
+                    <% else %>
+                      <td style="color:green;font-weight:bold;"><%= user.finalizacao %></td>
                     <% end %>
                   <% end %>
 
@@ -102,6 +113,7 @@
             </div>
           <% end %>
         <% end %>
+        
 
         <% if current_user.situacao == "Reprovado" %>
           <h5>Parece que a administração está com dificuldades na validação do seu perfil!</h5>
@@ -119,6 +131,7 @@
         <% if current_user.situacao == "Aprovado"%>
           <h5>Parabéns, seu perfil foi aprovado com sucesso!</h5>
           <h6>Agora você já pode prosseguir com o cadastro para o estágio.</h6>
+          <h6 style="color:blue;font-weight:bold;">Assim que preenchido seu Documento de Estágio será avaliado pela Dirlic e disponibilizado para impressão!</h6>
 
           <hr />
 
@@ -175,6 +188,25 @@
             </div>
           <% end %>
 
+        <% if current_user.finalizacao == "Negado" %>
+          <h5>Parece que a administração está com dificuldades na validação do seu Documento de Estágio!</h5>
+
+          <br />
+
+          <p>Mas não se preocupe.</p>
+          <p>Contate um administrador para normalizar sua situação e prosseguir com o estágio.</p>
+
+          <div class="col-md-12 imagem_reprovado">
+            <%= image_tag("reprovado.jpg", :alt => "ícone estudantes") %>
+          </div>
+        <% end %>
+
+        <% if current_user.finalizacao == "Finalizado"%>
+
+          <h5 style="color:green;font-weight:bold;" >Parabéns, seu Documento de Estágio foi aprovado com sucesso!</h5>
+          <h6 style="color:green;font-weight:bold;" >Agora você já pode prosseguir com a impressão do seu Documento.</h6>
+
+          <hr />
          
           <% if current_user.pdf_centro != false || current_user.pdf_campi != false || current_user.pdf_publico != false || current_user.pdf_particular != false || current_user.pdf_naoformal != false %>
             <div class="pdf_btn">
@@ -213,7 +245,7 @@
               <% end %>
             </div>
           <% end %>
-
+          <% end %>
         <% end %>
       <% end %>
 

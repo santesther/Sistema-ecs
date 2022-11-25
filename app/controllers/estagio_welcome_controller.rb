@@ -22,12 +22,14 @@ class EstagioWelcomeController < ApplicationController
     session[:email_user] = params['email']
 
     @values_situacao = ["Revisar", "Aprovado", "Reprovado"]
+
+    @values_finalizacao = ["Revisando", "Finalizado", "Negado"]
   end
 
   def update
     @id_user = session[:id_user]
 
-    ContactMailer.confirmacao_impressao(current_user).deliver
+    #ContactMailer.confirmacao_impressao(current_user).deliver
 
     User.where(id: @id_user).update(situacao_params)
 
@@ -39,15 +41,21 @@ class EstagioWelcomeController < ApplicationController
 
     @user = current_user.update(:situacao => "Revisar")
 
+    @user = current_user.update(:finalizacao => "Revisando")
+
     redirect_to estagio_welcome_index_path, notice: 'Solicitação enviada com sucesso!'
   end
 
   def situacao_params
-    params.permit(:situacao)
+    params.permit(:situacao, :finalizacao)
   end
 
   def situacao_revisar
     params.permit(:situacao => "Revisar")
+  end
+
+  def finalizacao_revisar
+    params.permit(:finalizacao => "Revisando")
   end
 
 end
