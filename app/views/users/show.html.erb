@@ -23,6 +23,7 @@
 				<li class="list-group-item"><b>Período:</b> <%= @user.periodo %></li>
 				<li class="list-group-item"><b>Matrícula:</b> <%= @user.matricula %></li>
 				<li class="list-group-item"><b>Status:</b> <%= @user.situacao %></li>
+				<li class="list-group-item"><b>Status do Documento de Estágio:</b> <%= @user.finalizacao %></li>
 				<li class="list-group-item"><b>Cadastrado em:</b> <%= @user.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
 				<li class="list-group-item"><b>Atualizado em:</b> <%= @user.updated_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
 				<div class="card-header"> <h3>Dados da Instituição Concedente de <%= @user.nome_social %></h3></div>

@@ -11,15 +11,15 @@
 
       <hr />
 
-      <% if current_user.pdf_centro != false || current_user.pdf_guarus != false || current_user.pdf_outros != false  %>
+      <% if current_user.pdf_centro != false || current_user.pdf_campi != false || current_user.pdf_outros != false  %>
         <div class="pdf_btn">
           <span>Clique aqui e imprima o formulário!</span><br />
           <% if current_user.pdf_centro != false %>
             <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark' %>
           <% end %>
 
-          <% if current_user.pdf_guarus != false %>
-            <%= link_to 'Gerar PDF', relatorio_guarus_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark' %>
+          <% if current_user.pdf_campi != false %>
+            <%= link_to 'Gerar PDF', relatorio_campi_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark' %>
           <% end %>
 
           <% if current_user.pdf_outros != false %>

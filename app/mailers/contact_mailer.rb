@@ -18,5 +18,11 @@ class ContactMailer < ActionMailer::Base
     # mail(:to => current_user.email, :subject => 'Mensagem de Contato')
     mail(:to => 'nappdirlic.centro@gmail.com', :subject => 'Formulário de Estágio')
   end
+
+  def mudanca_status(current_user)
+    @current_user = current_user
+    # mail(:to => current_user.email, :subject => 'Mensagem de Contato')
+    mail(:to => 'nappdirlic.centro@gmail.com', :subject => 'Formulário de Estágio')
+  end
 end
 

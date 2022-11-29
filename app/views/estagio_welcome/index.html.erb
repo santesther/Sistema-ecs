@@ -20,7 +20,7 @@
           <thead>
             <tr>
               <th scope="col">Nome</th>
-              <th scope="col">Matricula</th>
+              <th scope="col">Matrícula</th>
               <th scope="col">Curso</th>
               <th scope="col">Período</th>
               <th scope="col">Email</th>
@@ -124,14 +124,14 @@
           <p>Contate um administrador para normalizar seu cadastro e prosseguir com o registro do estágio.</p>
 
           <div class="col-md-12 imagem_reprovado">
-            <%= image_tag("reprovado.jpg", :alt => "ícone estudantes") %>
+            <%= image_tag("reprovado.jpg", size: "250x250", :alt => "ícone estudantes") %>
           </div>
         <% end %>
 
         <% if current_user.situacao == "Aprovado"%>
           <h5>Parabéns, seu perfil foi aprovado com sucesso!</h5>
           <h6>Agora você já pode prosseguir com o cadastro para o estágio.</h6>
-          <h6 style="color:blue;font-weight:bold;">Assim que preenchido seu Documento de Estágio será avaliado pela Dirlic e disponibilizado para impressão!</h6>
+          <h5 style="color:blue;">Assim que preenchido seu Documento de Estágio será avaliado pela Dirlic e disponibilizado para impressão!</h5>
 
           <hr />
 
@@ -204,7 +204,7 @@
         <% if current_user.finalizacao == "Finalizado"%>
 
           <h5 style="color:green;font-weight:bold;" >Parabéns, seu Documento de Estágio foi aprovado com sucesso!</h5>
-          <h6 style="color:green;font-weight:bold;" >Agora você já pode prosseguir com a impressão do seu Documento.</h6>
+          <h6 style="color:green;" >Agora você já pode prosseguir com a impressão do seu Documento.</h6>
 
           <hr />
          
@@ -250,7 +250,7 @@
       <% end %>
 
       <br />
-      <%= link_to "Voltar ao Menu", welcome_path, :class => 'btn btn-warning voltar'  %>
+      <%= link_to "Voltar ao início", welcome_path, :class => 'btn btn-warning voltar'  %>
       </div>
     <% end %>
 
