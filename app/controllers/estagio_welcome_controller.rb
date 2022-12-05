@@ -14,11 +14,6 @@ class EstagioWelcomeController < ApplicationController
   end
 
   def edit
-    @relatorios = Relatparticular.all
-    @relatorios = Relatorio.all
-    @relatorios = Relatpublico.all
-    @relatorios = Relatnaoformal.all
-
     session[:id_user] = params['id']
     session[:nome_user] = params['nome_social']
     session[:matricula_user] = params['matricula']
