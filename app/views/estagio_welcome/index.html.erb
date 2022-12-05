@@ -8,7 +8,7 @@
 
       <hr />
 
-      <% if current_user.role == "admin" %>
+      <% if current_user.role != "normal_user" %>
 
         <%= form_tag(estagio_welcome_index_path, method: :get, class: "form-group")  do %>
           <%= text_field_tag :search, params[:search], class: "form-control text_form", placeholder: 'Busque por algum aluno!'%>

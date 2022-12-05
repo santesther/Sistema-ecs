@@ -10,7 +10,7 @@ class RelatoutrosController < ApplicationController
      format.html
      format.pdf do
        @relatorio = Relatoutro.all
-       if current_user.role == "admin"
+       if current_user.role != "normal_user"
          @usuario_matricula = params['matricula']
        else
          @usuario_matricula = current_user.matricula
@@ -57,7 +57,7 @@ class RelatoutrosController < ApplicationController
     if @relatorios.save
       @relatoutro = Relatoutro.last
 
-      if current_user.role != "admin"
+      if current_user.role == "normal_user"
         RelatorioOutrosMailer.contact_message(@relatoutro, current_user).deliver
       end
 

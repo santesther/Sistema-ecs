@@ -10,7 +10,7 @@ class RelatorioNaoformalController < ApplicationController
      format.html
      format.pdf do
        @relatorio = Relatnaoformal.all
-       if current_user.role == "admin"
+       if current_user.role != "normal_user"
          @usuario_matricula = params['matricula']
        else
          @usuario_matricula = current_user.matricula
@@ -19,7 +19,7 @@ class RelatorioNaoformalController < ApplicationController
        pdf = NaoformalPdf.new(@relatorio, current_user, @usuario_matricula)
        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
 
-       if current_user.role != "admin"
+       if current_user.role == "normal_user"
          ContactMailer.confirmacao_impressao(current_user).deliver
        end
      end

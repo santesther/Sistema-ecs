@@ -24,7 +24,7 @@
             </div>
             </div>
             </div>
-      <% elsif current_user.role == "admin" %>
+      <% elsif current_user.role != "normal_user" %>
        <div class="text-box">
             <div class="text-box-heading">
             <div class="d-flex align-items-center justify-content-center">

@@ -14,12 +14,20 @@ class EstagioWelcomeController < ApplicationController
   end
 
   def edit
+    @users = User.find(params[:id])
+
+    @relatorios = Relatparticular.all
+    @relatorios = Relatorio.all
+    @relatorios = Relatpublico.all
+    @relatorios = Relatnaoformal.all
+
     session[:id_user] = params['id']
     session[:nome_user] = params['nome_social']
     session[:matricula_user] = params['matricula']
     session[:curso_user] = params['curso']
     session[:periodo_user] = params['periodo']
     session[:email_user] = params['email']
+
 
     @values_situacao = ["Revisar", "Aprovado", "Reprovado"]
 

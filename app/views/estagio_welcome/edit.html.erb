@@ -1,11 +1,10 @@
 <div class="container">
   <h1>Bem vindo(a) à tela de cadastro de Estágios!</h1>
-
   <%= form_with(model: @users, url: {action: "update"}, local: true) do |f| %>
     <p class="navbar-text pull-right">
     <% if user_signed_in? %>
       <div class="conteudo">
-        <% if current_user.role == "admin" %>
+        <% if current_user.role != "normal_user" %>
         <table class="table table-bordered">
             <tbody>
               <tr>
@@ -31,23 +30,37 @@
             </tbody>
         </table>
 
-        <div class="field">
-        <h3>Aprovação do pedido para acesso ao Documento de Estágio </h3>
+          <% if @users.pdf_centro != false || @users.pdf_campi != false || @users.pdf_publico != false || @users.pdf_particular != false || @users.pdf_naoformal != false %>
+
+          <div class="field">
+          <h3>Aprovação para acesso ao Documento de Estágio </h3>
           <%= f.label :situação_do_usuário %><br />
           <%= f.select :situacao, @values_situacao, selected: "Revisar" %>
-        </div>
-        <br>
+          </div>
+          <br>
       
-      <hr />
+         <hr />
 
-        <h3>Finalização do Documento de Estágio </h3>
-        <div class="field">
+          <h3>Finalização do Documento de Estágio </h3>
+          <div class="field">
           <%= f.label :finalizacao_do_usuário %><br />
           <%= f.select :finalizacao, @values_finalizacao, selected: "Revisando" %>
-        </div>
-        <br>
-        <%= f.submit "Salvar", :class => 'btn btn-success' %>
+          </div>
+          <br>
+          <%= f.submit "Salvar", :class => 'btn btn-success' %>
+        
+        <% else %>
 
+          <div class="field">
+          <h3>Aprovação para acesso ao Documento de Estágio </h3>
+          <%= f.label :situação_do_usuário %><br />
+          <%= f.select :situacao, @values_situacao, selected: "Revisar" %>
+          </div>
+          <br>
+          <%= f.submit "Salvar", :class => 'btn btn-success' %>
+
+        <% end %>
+      
         <hr />
         <% else %>
           <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>

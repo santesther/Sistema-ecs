@@ -5,6 +5,13 @@
     <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
 </div>
 <br>
+      <div class="clausulas_conteudo">
+        <div class="confirmacao_preenchimento">
+          <p><b>Atenção</b> ao preenchimento dos dados!</p>
+          <p>Essas informações serão utilizadas no seu Documento de Estágio, portanto preencha corretamente!</p>
+          <div class="btn btn-info confirma_preenchimento">Entendi!</div>
+        </div>
+      </div>
 
 <div class="container">
   <div class="card">
@@ -202,4 +209,17 @@
         </div>  
     <% end %>
   </div>
+  <style type="text/css">
+    .clausulas_conteudo {
+      height:145%;
+      width:100%;
+      position:absolute;
+      top:0;
+      left:0;
+    }
+    .confirmacao_preenchimento{
+      color: white;
+      text-align:center;
+    }
+  </style>
 </div>
