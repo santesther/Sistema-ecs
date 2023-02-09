@@ -2,7 +2,11 @@
     <h1>Estágio Curricular Supervisionado</h1>
 </div>
 <div class="d-flex align-items-center justify-content-center">
-    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+<% if @user.avatar.url.present? %>
+<%= image_tag(@user.avatar.url, size:"220x200", class: "styleImage") %>
+	<% else %>
+<%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>  
+	<% end %>
 </div>
 <br>
 
