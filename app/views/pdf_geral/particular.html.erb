@@ -15,6 +15,7 @@
             <hr />
 
             <h2>Termo de Compromisso de Estágio - TCE</h2>
+            <h5><b>Data:</b><%=f.text_field :data, required: true, onkeypress:"$(this).mask('00/00/0000')" %></h5>
             <h5><b>Seguradora:</b> <%= f.text_field :seguradora, required:true %></h5>
             <h4><b>Apólice de seguro:</b> <%= f.text_field :apolice, required:true %></h4>
 
@@ -24,7 +25,7 @@
             <b>À:</b>Direção da Instituição de Ensino: </b> <u><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required:true  %></u><br>
             <b>Assunto: <i>Apresentação de discente-estagiário:</i></b><%= f.text_field :aluno_apresentacao, value: relatorio.aluno_apresentacao, required:true %><br>
             Prezado Gestor.<br>
-            O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, value: relatorio.aluno_apresentacao_dois, required:true %></u>, matriculado(a), neste instituto, no </b> <u><%= @users.periodo %></u> º período do Curso Superior de Licenciatura em </b> <u><%= @users.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1', '2'], {include_blank:"Selecione"}, value: relatorio.semestre_apresentacao, required:true %>º semestre letivo de 20<%= f.number_field :ano_apresentacao, min:22, value: relatorio.instituicao_apresentacao, required:true %>  para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores.
+            O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, value: relatorio.aluno_apresentacao_dois, required:true %></u>, matriculado(a), neste instituto, no </b> <u><%= @users.periodo %></u> º período do Curso Superior de Licenciatura em </b> <u><%= @users.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1', '2'], value: relatorio.semestre_apresentacao, required:true %>º semestre letivo de 20<%= f.number_field :ano_apresentacao, min:23, value: relatorio.instituicao_apresentacao, required:true %>  para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores.
             Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP.<br> (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu.
             <br>
             O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua 
@@ -41,7 +42,7 @@
             CEP: <%= @users.cep_da_instituicao %>, telefone <%= @users.telefone_da_instituicao %>,
             representada por <b><%= @users.representante%>, para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
             ao(à) <b>LICENCIANDO(A) <% @users.nome_social %></b>  matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.matricula %>, no 
-            <%= f.select :aluno_semestre,['1', '2'], {include_blank:"Selecione"}, value: relatorio.aluno_semestre, required:true %>º semestre do ano letivo de 20<%= f.number_field :ano, min:22, value: relatorio.ano, required:true %>
+            <%= f.select :aluno_semestre,['1', '2'], value: relatorio.aluno_semestre, required:true %>º semestre do ano letivo de 20<%= f.number_field :ano, min:23, value: relatorio.ano, required:true %>
             no curso Superior de Licenciatura em <%= @users.licenciatura %>, <%= @users.periodo %>º periodo.
             Residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
             Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= f.text_field :estado, value: relatorio.estado, required:true %>,
@@ -49,7 +50,7 @@
           </p>
 
             <div class="periodo_div">
-            PERÍODO: de <%= f.text_field :periodo_de, required:true %> a <%= f.text_field :periodo_a, required: true %>
+            PERÍODO: de <%= f.text_field :periodo_de, required:true, onkeypress:"$(this).mask('00/00/0000')" %> a <%= f.text_field :periodo_a, required: true, onkeypress:"$(this).mask('00/00/0000')" %>
             </div>
 
             <br />
