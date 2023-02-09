@@ -37,7 +37,7 @@
           representada por <%= f.text_field :representante, required: true %>, para fins
           de abertura de campo de Estágio, no período letivo de <%= f.text_field :periodo_letivo, required: true %>
           com o <b>LICENCIANDO</b> <u><%= current_user.nome_social %></u>, matriculado sob o nº <u><%= current_user.matricula %></u>,
-          no <u><%= current_user.periodo %></u> período do ano letivo de <br /> 20<%= f.number_field :ano, min:22, value: 22, required:true %>, no Curso Superior de Licenciatura
+          no <u><%= current_user.periodo %></u> período do ano letivo de <br /> 20<%= f.number_field :ano, min:23, value: 23, required:true %>, no Curso Superior de Licenciatura
           em <u><%= current_user.licenciatura %></u>, residente na <%= f.text_field :endereco, required:true %>, bairro
           <%= f.text_field :bairro, required:true %>, município <%= f.text_field :municipio, required:true %>, Estado do
           <%= f.text_field :estado, required:true %>, CEP.: <%= f.text_field :CEP, required:true %>, nos termos da Lei Nº
