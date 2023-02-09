@@ -8,15 +8,15 @@ class CentroPdf < Prawn::Document
   
 
         image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
-        move_down 10
-        text "Campos dos Goytacazes, RJ, <u>#{I18n.l(DateTime.now.to_date, format: :long)}</u>", align: :right, :inline_format => true
         move_down 50
 
         text "<b>CARTA DE APRESENTAÇÃO</b>", align: :center, size: 20, :inline_format => true, :leading => 10
-        move_down 30
+        
         
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
+            text "Campos dos Goytacazes, RJ, <u>#{relatorio.data}</u>", align: :center, :inline_format => true
+            move_down 40
             text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u>#{relatorio.instituicao_apresentacao}</u>", align: :left, size: 15, :inline_format => true, :leading => 10
             move_down 20
             text "<b>Assunto: Apresentação de discente-estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
