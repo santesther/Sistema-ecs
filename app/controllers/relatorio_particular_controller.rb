@@ -78,6 +78,6 @@ class RelatorioParticularController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:representado_por, :periodo, :semestre, :ano, :endereco, :bairro, :municipio, :estado, :cep, :cnpj,:periodo_de, :periodo_a, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :estado_da_instituicao, :seguradora, :apolice, :data)
+    params.permit(:instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :periodo, :licenciatura, :semestre_apresentacao, :ano_apresentacao, :matricula_aluno, :aluno_semestre, :ano, :endereco, :numero, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :periodo_de, :periodo_a, :estado_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante, :apolice, :seguradora, :data)
   end
 end
