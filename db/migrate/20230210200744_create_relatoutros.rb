@@ -1,6 +1,6 @@
-class CreateRelatnaoformals < ActiveRecord::Migration[7.0]
+class CreateRelatoutros < ActiveRecord::Migration[7.0]
   def change
-    create_table :relatnaoformals do |t|
+    create_table :relatoutros do |t|
       t.string :instituicao_apresentacao
       t.string :aluno_apresentacao
       t.string :aluno_apresentacao_dois
@@ -18,8 +18,10 @@ class CreateRelatnaoformals < ActiveRecord::Migration[7.0]
       t.string :cep_da_instituicao
       t.string :telefone_da_instituicao
       t.string :representante
+      t.string :representante_da_instituicao
       t.string :numero
       t.string :aluno_semestre
+      t.string :aluno_periodo
       t.string :ano
       t.string :endereco
       t.string :complemento
@@ -33,6 +35,7 @@ class CreateRelatnaoformals < ActiveRecord::Migration[7.0]
       t.string :matricula_aluno
       t.string :apolice
       t.string :seguradora
+      t.string :data
 
       t.timestamps
     end

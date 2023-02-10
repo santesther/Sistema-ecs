@@ -33,6 +33,7 @@ class CreateRelatpublicos < ActiveRecord::Migration[7.0]
       t.string :matricula_aluno
       t.string :apolice
       t.string :seguradora
+      t.string :data
 
       t.timestamps
     end
