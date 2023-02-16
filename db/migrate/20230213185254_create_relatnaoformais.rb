@@ -1,6 +1,6 @@
-class CreateRelatparticulares < ActiveRecord::Migration[7.0]
+class CreateRelatnaoformais < ActiveRecord::Migration[7.0]
   def change
-    create_table :relatparticulares do |t|
+    create_table :relatnaoformais do |t|
       t.string :instituicao_apresentacao
       t.string :aluno_apresentacao
       t.string :aluno_apresentacao_dois
@@ -18,8 +18,10 @@ class CreateRelatparticulares < ActiveRecord::Migration[7.0]
       t.string :cep_da_instituicao
       t.string :telefone_da_instituicao
       t.string :representante
+      t.string :representante_da_instituicao
       t.string :numero
       t.string :aluno_semestre
+      t.string :aluno_periodo
       t.string :ano
       t.string :endereco
       t.string :complemento
@@ -31,6 +33,9 @@ class CreateRelatparticulares < ActiveRecord::Migration[7.0]
       t.string :periodo_de
       t.string :periodo_a
       t.string :matricula_aluno
+      t.string :apolice
+      t.string :seguradora
+      t.string :data
 
       t.timestamps
     end
