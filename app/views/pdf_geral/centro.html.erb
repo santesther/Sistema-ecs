@@ -11,9 +11,9 @@
             <hr />
 
             <h2><b>Termo de Compromisso de Estágio - TCE</b></h2>
-            <h5><b>Data:</b><%=f.text_field :data, required: true, onkeypress:"$(this).mask('00/00/0000')" %></h5>
-            <h5><b>Seguradora:</b> <%= f.text_field :seguradora, required:true %></h5>
-            <h4><b>Apólice de seguro:</b> <%= f.text_field :apolice, required:true %></h4>
+            <h5><b>Data:</b><%=f.text_field :data, required: true, value: relatorio.data, onkeypress:"$(this).mask('00/00/0000')" %></h5>
+            <h5><b>Seguradora:</b> <%= f.text_field :seguradora, value: relatorio.seguradora, required:true %></h5>
+            <h4><b>Apólice de seguro:</b> <%= f.text_field :apolice, value: relatorio.apolice, required:true %></h4>
 
             <br />
 
@@ -44,7 +44,7 @@
             </p>
 
             <div class="periodo_div">
-              PERÍODO: de <%= f.text_field :periodo_de, required:true, onkeypress:"$(this).mask('00/00/0000')" %> a <%= f.text_field :periodo_a, required: true, onkeypress:"$(this).mask('00/00/0000')" %>
+              PERÍODO: de <%= f.text_field :periodo_de, required:true, value: relatorio.periodo_de, onkeypress:"$(this).mask('00/00/0000')" %> a <%= f.text_field :periodo_a, required: true, value: relatorio.periodo_a, onkeypress:"$(this).mask('00/00/0000')" %>
             </div>
           <% end %>
         <% end %>

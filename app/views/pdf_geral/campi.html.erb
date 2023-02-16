@@ -11,7 +11,7 @@
             <hr />
 
             <h2>Termo de Compromisso de Estágio - TCE</h2>
-            <h5><b>Data:</b><%=f.text_field :data, required: true, onkeypress:"$(this).mask('00/00/0000')" %></h5>
+            <h5><b>Data:</b><%=f.text_field :data, required: true, value: relatorio.data, onkeypress:"$(this).mask('00/00/0000')" %></h5>
             <h5>Apólice de seguro nº 060982.001.2427, de 13/12/2016</h5>
             <h4>Seguradora: Empresa MBM SEGURADORA S.A</h4>
 
@@ -46,7 +46,7 @@
           </p>
 
             <div class="periodo_div">
-              PERÍODO: de <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, onkeypress:"$(this).mask('00/00/0000')" %> a <%= f.text_field :periodo_a, value: relatorio.periodo_a, required: true, onkeypress:"$(this).mask('00/00/0000')" %>
+              PERÍODO: de <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de, onkeypress:"$(this).mask('00/00/0000')" %> a <%= f.text_field :periodo_a, required: true, value: relatorio.periodo_a, onkeypress:"$(this).mask('00/00/0000')" %>
             </div>
           <% end %>
         <% end %>
