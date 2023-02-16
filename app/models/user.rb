@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :matricula, :email
 
-  validates :pdf_centro, :pdf_guarus, :pdf_outros, :status_impressao, presence: false
+  validates :pdf_centro, :pdf_campi, :pdf_outros, :status_impressao, presence: false
 
   validates :status, presence: true
 
