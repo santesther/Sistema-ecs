@@ -33,6 +33,9 @@ gem 'rails-i18n'
 gem 'rest_pki', '~> 1.0.0'
 gem 'pki_express', '~> 1.0.0'
 
+gem 'origami', '~> 2.1'
+
+
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
