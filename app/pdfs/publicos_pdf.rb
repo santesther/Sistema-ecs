@@ -26,9 +26,17 @@ class PublicosPdf < Prawn::Document
             text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u>#{relatorio.aluno_apresentacao_dois}</u>, matriculado(a), neste instituto, no <u>#{relatorio.periodo}</u>º do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, no <u>#{relatorio.semestre_apresentacao}</u>º semestre letivo de <u>20#{relatorio.ano_apresentacao}</u>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, :inline_format => true, :leading => 10
             move_down 30
             text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, :inline_format => true, :leading => 10
-            move_down 300
+            move_down 70 
 
+           
+            %i[center].each do |position|
+              image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
+              end
+
+           
+            move_down 30
             image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550
+
             move_down 50
       
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
