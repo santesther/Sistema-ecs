@@ -1,16 +1,16 @@
 class EstagioWelcomeController < ApplicationController
   def index
-    @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%").paginate(page: params[:page], per_page: 10)
+    @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%").paginate(page: params[:page], per_page: 30)
     if @users.exists?
     else
-      @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 10)
+      @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
       if @users.exists?
       else
-        @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 10)
+        @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
       end
     end
 
-    @will_paginate = User.where("situacao != '0'").order(nome_social: :ASC).paginate(page: params[:page], per_page: 10)
+    @will_paginate = User.where("situacao != '0'").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
   end
 
   def edit
