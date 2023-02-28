@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'estagio_welcome/edit'
+  get 'estagio_welcome/index'
+  get 'estagio_welcome/pdf_visualiza'
+  get 'estagio_welcome/historico'
+  get 'users/index'
+  get 'users/show'
+  get 'signature/index'
   get 'relatorio_centro/edit'
   get 'relatorio_centro/index'
   get 'relatoutros/index'
@@ -22,18 +29,21 @@ Rails.application.routes.draw do
   
   get "/welcome", to: "welcome#index"
 
-  get 'welcome/historico', to: "welcome#historico"
+  #get 'welcome/historico', to: "welcome#historico"
+  
+  #get 'welcome/users', to: 'welcome#users'
 
   get 'welcome/listagem', to: "welcome#listagem"
 
-  get '/users', to: "users#index"
-  get 'users/:id', to: "users#show"
+  #get '/users', to: "users#index"
+  #get '/users/:id', to: "users#show"
 
-  get 'users/:id/update_status', to: "users#update_status"
+  #get 'users/:id/update_status', to: "users#update_status"
 
   get 'download', to: "documents#download"
   get 'preview', to: "documents#preview"
 
+  #Routes do Sistema de Estágio
   get 'estagio_welcome/index'
   post 'estagio_welcome/index'
 
@@ -45,6 +55,9 @@ Rails.application.routes.draw do
 
   get 'estagio_welcome/update'
   post 'estagio_welcome/update'
+
+  get 'estagio_welcome/historico'
+  post 'estagio_welcome/historico'
 
   get 'estagio_welcome/status_impressao'
   post 'estagio_welcome/status_impressao'

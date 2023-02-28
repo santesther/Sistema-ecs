@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_27_172339) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -57,8 +57,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "cep_da_instituicao"
     t.string "telefone_da_instituicao"
     t.string "representante"
+    t.string "representante_da_instituicao"
     t.string "numero"
     t.string "aluno_semestre"
+    t.string "aluno_periodo"
     t.string "ano"
     t.string "endereco"
     t.string "complemento"
@@ -70,6 +72,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "periodo_de"
     t.string "periodo_a"
     t.string "matricula_aluno"
+    t.string "apolice"
+    t.string "seguradora"
+    t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,8 +97,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "cep_da_instituicao"
     t.string "telefone_da_instituicao"
     t.string "representante"
+    t.string "representante_da_instituicao"
     t.string "numero"
     t.string "aluno_semestre"
+    t.string "aluno_periodo"
     t.string "ano"
     t.string "endereco"
     t.string "complemento"
@@ -107,6 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "matricula_aluno"
     t.string "apolice"
     t.string "seguradora"
+    t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -143,6 +151,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "representante"
     t.string "apolice"
     t.string "seguradora"
+    t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -165,8 +174,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "cep_da_instituicao"
     t.string "telefone_da_instituicao"
     t.string "representante"
+    t.string "representante_da_instituicao"
     t.string "numero"
     t.string "aluno_semestre"
+    t.string "aluno_periodo"
     t.string "ano"
     t.string "endereco"
     t.string "complemento"
@@ -180,6 +191,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "matricula_aluno"
     t.string "apolice"
     t.string "seguradora"
+    t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -202,8 +214,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "cep_da_instituicao"
     t.string "telefone_da_instituicao"
     t.string "representante"
+    t.string "representante_da_instituicao"
     t.string "numero"
     t.string "aluno_semestre"
+    t.string "aluno_periodo"
     t.string "ano"
     t.string "endereco"
     t.string "complemento"
@@ -215,6 +229,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "periodo_de"
     t.string "periodo_a"
     t.string "matricula_aluno"
+    t.string "apolice"
+    t.string "seguradora"
+    t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -237,8 +254,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "cep_da_instituicao"
     t.string "telefone_da_instituicao"
     t.string "representante"
+    t.string "representante_da_instituicao"
     t.string "numero"
     t.string "aluno_semestre"
+    t.string "aluno_periodo"
     t.string "ano"
     t.string "endereco"
     t.string "complemento"
@@ -252,6 +271,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "matricula_aluno"
     t.string "apolice"
     t.string "seguradora"
+    t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -289,6 +309,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.string "matricula_aluno"
     t.string "apolice"
     t.string "seguradora"
+    t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -340,6 +361,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_184921) do
     t.boolean "pdf_naoformal", default: false
     t.boolean "status_impressao", default: false
     t.string "finalizacao", default: "0"
+    t.string "data"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
