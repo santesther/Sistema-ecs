@@ -18,8 +18,10 @@ one:
   cep_da_instituicao: MyString
   telefone_da_instituicao: MyString
   representante: MyString
+  representante_da_instituicao: MyString
   numero: MyString
   aluno_semestre: MyString
+  aluno_periodo: MyString
   ano: MyString
   endereco: MyString
   complemento: MyString
@@ -33,6 +35,7 @@ one:
   matricula_aluno: MyString
   apolice: MyString
   seguradora: MyString
+  data: MyString
 
 two:
   instituicao_apresentacao: MyString
@@ -52,8 +55,10 @@ two:
   cep_da_instituicao: MyString
   telefone_da_instituicao: MyString
   representante: MyString
+  representante_da_instituicao: MyString
   numero: MyString
   aluno_semestre: MyString
+  aluno_periodo: MyString
   ano: MyString
   endereco: MyString
   complemento: MyString
@@ -67,3 +72,4 @@ two:
   matricula_aluno: MyString
   apolice: MyString
   seguradora: MyString
+  data: MyString

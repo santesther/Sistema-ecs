@@ -33,6 +33,7 @@ one:
   matricula_aluno: MyString
   apolice: MyString
   seguradora: MyString
+  data: MyString
 
 two:
   instituicao_apresentacao: MyString
@@ -67,3 +68,4 @@ two:
   matricula_aluno: MyString
   apolice: MyString
   seguradora: MyString
+  data: MyString
