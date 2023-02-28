@@ -30,7 +30,7 @@
       </div>
 
        <div class="col-md-4">
-        <%= select_tag :status, options_for_select([["Pendente", "Pendente"],  ["Assegurado", "Assegurado"]], params[:licenciatura]), :prompt => "Selecione o status", class: "form-control "  %>
+        <%= select_tag :situacao, options_for_select([["Aprovado", "Aprovado"],  ["Reprovado", "Reprovado"]], params[:situacao]), :prompt => "Selecione o status", class: "form-control "  %>
       </div>
 
 
@@ -94,4 +94,3 @@
 <%= link_to "Voltar", welcome_path, :class => "btn btn-primary"  %> 
 </div>
 <% end %>
-
