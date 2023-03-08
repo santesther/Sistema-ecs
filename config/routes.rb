@@ -1,26 +1,9 @@
 Rails.application.routes.draw do
-  get 'estagio_welcome/edit'
-  get 'estagio_welcome/index'
-  get 'estagio_welcome/pdf_visualiza'
-  get 'estagio_welcome/historico'
-  get 'users/index'
-  get 'users/show'
-  get 'signature/index'
-  get 'relatorio_centro/edit'
-  get 'relatorio_centro/index'
-  get 'relatoutros/index'
-  get 'relatoutros/edit'
-  get 'relatorio_campi/index'
-  get 'relatorio_campi/edit'
-  get 'relatorio_publico/index'
-  get 'relatorio_publico/edit'
-  get 'documents/index'
+  
   devise_for :users, :controllers => { registrations: 'registrations'} 
   
-  resources :users do
-    patch :update_status
-  end
-  
+  get 'users/index', to: "users#index"
+  get 'users/show'
   
   #resources :users /tenho q tentar assim dps
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

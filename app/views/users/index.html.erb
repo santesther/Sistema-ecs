@@ -12,7 +12,7 @@
 
     <br>
 
-  <%= form_tag(users_path, method: :get, class: "form-group")  do %>
+  <%= form_tag(users_index_path, method: :get, class: "form-group")  do %>
     <div class="form-group row">
       <div class="col-md-6">
         <%= text_field_tag :nome_social, params[:nome_social], class: "form-control ", placeholder: 'Nome do aluno' %>
@@ -29,12 +29,14 @@
         <%= text_field_tag :matricula, params[:matricula], class: "form-control ", placeholder: 'Matrícula do aluno' %>
       </div>
 
-       <div class="col-md-4">
-        <%= select_tag :situacao, options_for_select([["Aprovado", "Aprovado"],  ["Reprovado", "Reprovado"]], params[:situacao]), :prompt => "Selecione o status", class: "form-control "  %>
+        <div class="col-md-2">
+        <%= select_tag :periodo, options_for_select([["1.º", "1.º"],  ["2.º", "2.º"], ["3.º", "3.º"], ["4.º", "4.º"], ["5.º", "5.º"], ["6.º", "6.º"], ["7.º", "7.º"], ["8.º", "8.º"]], params[:periodo]), :prompt => "Selecione o período", class: "form-control "  %>
       </div>
 
+        <div class="col-md-2">
+        <%= select_tag :status, options_for_select([["Pendente", "Pendente"],  ["Finalizado", "Finalizado"]], params[:licenciatura]), :prompt => "Selecione o status", class: "form-control "  %>
+      </div>
 
-    <br>
       <div class="col-md-2">
         <%= submit_tag ("Procurar"), class: "form-control btn-info"%>
       </div>
@@ -69,7 +71,7 @@
                 <td><%= %> 
                     <% if not user.nome_social.blank? %>
                       <p><%= user.nome_social %></p>
-                      <%= link_to "Acessar perfil", user_path(id: user.id), :class => "btn btn-primary" %>
+                      <%= link_to "Acessar perfil", users_show_path(id: user.id), :class => "btn btn-primary" %>
                     <% end %>
                 </td>
                 <td><%= user.periodo %></td>
