@@ -4,8 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 #heroku
-gem 'rails_12factor', group: :production
-gem 'pg', group: :production
+gem 'rails_12factor'
+gem 'pg'
 
 #gem 'mailcatcher'
 
