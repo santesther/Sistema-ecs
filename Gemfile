@@ -1,7 +1,11 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+
+
+#heroku
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
 
 gem 'mailcatcher'
 
@@ -44,7 +48,7 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+gem "sqlite3", "~> 1.4", group: :development
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -104,3 +108,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+ruby '3.1.2'
