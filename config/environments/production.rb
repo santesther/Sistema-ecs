@@ -105,4 +105,8 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
+
+  #heroku
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
 end
