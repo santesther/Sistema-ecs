@@ -367,7 +367,7 @@ DEPENDENCIES
   materialize-sass (~> 0.100.2)
   mini_magick
   origami (~> 2.1)
-  pg
+  pg (~> 1.4, >= 1.4.6)
   pki_express (~> 1.0.0)
   prawn
   puma (~> 5.0)
