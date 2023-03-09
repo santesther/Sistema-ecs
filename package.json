@@ -2,27 +2,5 @@
   "dependencies": {
     "jquery": "^3.6.1",
     "jquery-mask-plugin": "^1.14.16"
-  },
-  "name": "sistemaecs",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EstherSantAnaGomes/ecs-porfavor.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/EstherSantAnaGomes/ecs-porfavor/issues"
-  },
-  "homepage": "https://github.com/EstherSantAnaGomes/ecs-porfavor#readme"
+  }
 }
