@@ -38,6 +38,8 @@ gem 'pki_express', '~> 1.0.0'
 
 gem 'origami', '~> 2.1'
 
+gem 'matrix'
+
 
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

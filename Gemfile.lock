@@ -365,6 +365,7 @@ DEPENDENCIES
   mailcatcher
   material_icons (~> 2.2)
   materialize-sass (~> 0.100.2)
+  matrix
   mini_magick
   origami (~> 2.1)
   pg (~> 1.4, >= 1.4.6)
