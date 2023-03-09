@@ -351,7 +351,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap
-  bundler (~> 1.17, >= 1.17.3)
   cancancan
   capybara (~> 3.38)
   carrierwave (~> 1.0)
@@ -391,4 +390,5 @@ DEPENDENCIES
 RUBY VERSION
    ruby 3.1.2p20
 
-
+BUNDLED WITH
+   2.4.8
