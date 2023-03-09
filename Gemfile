@@ -41,10 +41,11 @@ gem 'origami', '~> 2.1'
 gem 'matrix'
 gem 'rexml'
 
+gem 'bundler', '~> 2.4', '>= 2.4.8'
 
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 7.0.3", ">= 7.0.3.1"
+gem "rails"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
