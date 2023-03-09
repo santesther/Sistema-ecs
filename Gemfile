@@ -41,7 +41,7 @@ gem 'origami', '~> 2.1'
 gem 'matrix'
 gem 'rexml'
 
-gem 'bundler', '~> 2.4', '>= 2.4.8'
+gem 'bundler', '~> 1.17', '>= 1.17.3'
 
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
