@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_172339) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_140316) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -40,6 +37,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_172339) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "instituicaos", force: :cascade do |t|
+    t.string "nome_da_instituicao"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "complemento_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "tipo_da_instituicao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "relatnaoformais", force: :cascade do |t|
@@ -337,17 +350,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_172339) do
     t.string "matricula"
     t.string "estado_da_instituicao"
     t.string "seguradora"
-    t.string "nome_da_instituicao"
-    t.string "cnpj"
-    t.string "endereco_da_instituicao"
-    t.string "numero_da_instituicao"
-    t.string "complemento_da_instituicao"
-    t.string "bairro_da_instituicao"
-    t.string "municipio_da_instituicao"
-    t.string "cep_da_instituicao"
-    t.string "telefone_da_instituicao"
-    t.string "representante"
-    t.string "tipo_da_instituicao"
     t.string "endereco"
     t.string "complemento"
     t.string "numero"
@@ -365,6 +367,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_172339) do
     t.boolean "status_impressao", default: false
     t.string "finalizacao", default: "0"
     t.string "data"
+    t.string "nome_da_instituicao"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "complemento_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "tipo_da_instituicao"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

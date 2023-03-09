@@ -2,26 +2,26 @@
 
 one:
   nome_da_instituicao: MyString
-  cnpj: 1
+  cnpj: MyString
   endereco_da_instituicao: MyString
-  numero_da_instituicao: 1
+  numero_da_instituicao: MyString
   complemento_da_instituicao: MyString
   bairro_da_instituicao: MyString
   municipio_da_instituicao: MyString
-  cep_da_instituicao: 1
-  telefone_da_instituicao: 1
+  cep_da_instituicao: MyString
+  telefone_da_instituicao: MyString
   representante: MyString
-  user: one
+  tipo_da_instituicao: MyString
 
 two:
   nome_da_instituicao: MyString
-  cnpj: 1
+  cnpj: MyString
   endereco_da_instituicao: MyString
-  numero_da_instituicao: 1
+  numero_da_instituicao: MyString
   complemento_da_instituicao: MyString
   bairro_da_instituicao: MyString
   municipio_da_instituicao: MyString
-  cep_da_instituicao: 1
-  telefone_da_instituicao: 1
+  cep_da_instituicao: MyString
+  telefone_da_instituicao: MyString
   representante: MyString
-  user: two
+  tipo_da_instituicao: MyString
