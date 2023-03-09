@@ -376,6 +376,7 @@ DEPENDENCIES
   rails-i18n
   rails_12factor
   rest_pki (~> 1.0.0)
+  rexml
   sass-rails
   selenium-webdriver
   sprockets-rails

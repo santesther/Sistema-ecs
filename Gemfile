@@ -39,6 +39,7 @@ gem 'pki_express', '~> 1.0.0'
 gem 'origami', '~> 2.1'
 
 gem 'matrix'
+gem 'rexml'
 
 
 gem 'jquery-rails'
