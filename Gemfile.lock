@@ -354,7 +354,7 @@ DEPENDENCIES
   bootsnap
   bootstrap
   cancancan
-  capybara
+  capybara (~> 3.38)
   carrierwave (~> 1.0)
   debug
   devise
