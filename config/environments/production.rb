@@ -94,17 +94,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #email
-  config.action_mailer.default_url_options = { host: 'sistemaecs.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    user_name: Rails.application.credentials.gmail[:user_name].to_s,
-    password: Rails.application.credentials[:password],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  #config.action_mailer.default_url_options = { host: 'sistemaecs.herokuapp.com' }
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = {
+   # address: 'smtp.gmail.com',
+   # port: 587,
+   # domain: 'gmail.com',
+    #user_name: Rails.application.credentials.gmail[:user_name].to_s,
+    #password: Rails.application.credentials[:password],
+   # authentication: 'plain',
+  #  enable_starttls_auto: true
+ # }
 
   #heroku
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
