@@ -1,7 +1,5 @@
-import { Controller } from "@hotwired/stimulus"
 
-export default class extends Controller {
-  connect() {
-    this.element.textContent = "Hello World!"
-  }
-}
+//import { application } from "./application"
+
+//import HelloController from "./hello_controller"
+//application.register("hello", HelloController)

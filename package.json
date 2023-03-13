@@ -1,16 +1,19 @@
 {
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "type": "module",
     "jquery": "^3.6.1",
     "jquery-mask-plugin": "^1.14.16",
     "serve": "^14.2.0"
   },
   "engines": {
     "node": "16.19.1"
-  }, 
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "type": "module",
     "eject": "react-scripts eject"
-    }
+  }
 }

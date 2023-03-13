@@ -9,17 +9,17 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-import "@hotwired/turbo-rails"
 
-$(document).ready(function() {
 
+$(document).ready('turbolinks:load', function() {
+    //Logica
     $('#form_senha').hide();
     $('#form_principal').show();
     $('#senha_button').show();
     $('#cancelar_button').show();
     $('#voltar').hide();
   
-    $('.senha_button button').click( function() {
+    $('.senha_button button').click('turbolinks:load', function() {
       $('#form_senha').show();
       $('#form_principal').hide();
       $('#senha_button').hide();
@@ -27,12 +27,12 @@ $(document).ready(function() {
       $('#voltar').show();
     });
   
-    $('#voltar').click( function() {
+    $('#voltar').click('turbolinks:load', function() {
       $('#form_senha').hide();
       $('#form_principal').show();
       $('#senha_button').show();
       $('#cancelar_button').show();
       $('#voltar').hide();
     });
-  });
+});
   
