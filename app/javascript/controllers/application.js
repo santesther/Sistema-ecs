@@ -17,6 +17,7 @@ export { application }
 //= require bootstrap
 //= require_tree .
 
+
 $(document).on('turbolinks:load', function() {
     //Logica
 });
