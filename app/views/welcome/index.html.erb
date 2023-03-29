@@ -14,6 +14,10 @@
   </div>
 
 <% if current_user.role == "normal_user" %>
+      <div class="alert alert-primary">
+        <p>Olá <%= current_user.nome_social %>!</p>
+        <p><b>No início de cada semestre letivo, lembre-se de atualizar seu período no curso e e-mail!</b></p>
+      </div>
   <p>
   <h5> Verifique a disponibilidade do Documento de estágio na aba "listagem"!</h5>
     É <span style="color: #f00;"><b>muito importante</b></span> que você preencha o 

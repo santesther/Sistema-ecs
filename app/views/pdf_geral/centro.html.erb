@@ -52,13 +52,12 @@
         <br />
         <br />
 
+        <%= link_to 'Assinar', estagio_welcome_index_path, :class => 'btn btn-dark'%>&nbsp
         <%= link_to "Voltar", :back, :class => 'btn btn-primary' %>
         <div class="btn btn-success avancar">
           Avançar
         </div>
-        <br />
-        <%= link_to 'Voltar ao menu', estagio_welcome_index_path, :class => 'btn btn-light' %>
-
+        &nbsp<%= link_to 'Voltar ao menu', estagio_welcome_index_path, :class => 'btn btn-secondary' %>
       </div>
 
       <div class="clausulas_conteudo">
@@ -67,6 +66,7 @@
           <p>Em caso de dúvida ou erro no preenchimento, entre em contato com o NAPP/DIRLIC.</p>
           <div class="btn btn-info confirma_preenchimento">Entendi!</div>
         </div>
+
 
         <div class="clausulas">
           <%= image_tag("cabecalho.png", :alt => "cabeçalho IFF") %>

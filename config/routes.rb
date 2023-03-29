@@ -12,16 +12,7 @@ Rails.application.routes.draw do
   
   get "/welcome", to: "welcome#index"
 
-  #get 'welcome/historico', to: "welcome#historico"
-  
-  #get 'welcome/users', to: 'welcome#users'
-
   get 'welcome/listagem', to: "welcome#listagem"
-
-  #get '/users', to: "users#index"
-  #get '/users/:id', to: "users#show"
-
-  #get 'users/:id/update_status', to: "users#update_status"
 
   get 'download', to: "documents#download"
   get 'preview', to: "documents#preview"

@@ -1,5 +1,7 @@
 <div class="container">
-  <h1>Bem vindo(a) à tela de cadastro de Estágios!</h1>
+ <div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+    </div>
   <%= form_with(model: @users, url: {action: "update"}, local: true) do |f| %>
     <p class="navbar-text pull-right">
     <% if user_signed_in? %>
