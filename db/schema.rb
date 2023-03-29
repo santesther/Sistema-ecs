@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_203935) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_29_214345) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -143,11 +143,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_203935) do
     t.string "licenciatura"
     t.string "semestre_apresentacao"
     t.string "ano_apresentacao"
-    t.string "matricula_aluno"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "estado_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "numero"
     t.string "aluno_semestre"
     t.string "ano"
     t.string "endereco"
-    t.string "numero"
     t.string "complemento"
     t.string "bairro"
     t.string "municipio"
@@ -156,15 +164,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_203935) do
     t.string "telefone"
     t.string "periodo_de"
     t.string "periodo_a"
-    t.string "estado_da_instituicao"
-    t.string "cnpj"
-    t.string "endereco_da_instituicao"
-    t.string "numero_da_instituicao"
-    t.string "bairro_da_instituicao"
-    t.string "municipio_da_instituicao"
-    t.string "cep_da_instituicao"
-    t.string "telefone_da_instituicao"
-    t.string "representante"
+    t.string "matricula_aluno"
     t.string "apolice"
     t.string "seguradora"
     t.string "data"
