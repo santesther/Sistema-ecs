@@ -1,6 +1,6 @@
 class RelatorioCampiController < ApplicationController
   def index
-    @relatorios = Relatorio.all
+    @relatorios = Relatcampi.all
 
     if current_user.licenciatura == 'Ciências da Natureza'
       redirect_to action: "edit"
@@ -9,7 +9,7 @@ class RelatorioCampiController < ApplicationController
     respond_to do |format|
      format.html
      format.pdf do
-       @relatorio = Relatorio.all
+       @relatorio = Relatcampi.all
        if current_user.role != "normal_user"
          @usuario_matricula = params['matricula']
        else
@@ -32,7 +32,7 @@ class RelatorioCampiController < ApplicationController
   end
 
   def create
-    @relatorios = Relatorio.new(relatorio_params)
+    @relatorios = Relatcampi.new(relatorio_params)
 
     @users = current_user.update(:pdf_campi => true)
 
@@ -74,7 +74,7 @@ class RelatorioCampiController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :periodo, :licenciatura, :semestre_apresentacao, :ano_apresentacao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :estado_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante, :numero, :aluno_semestre, :ano, :endereco, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :periodo_de, :periodo_a, :apolice, :seguradora, :data)
+    params.permit(:data, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a)
   end
 end
 

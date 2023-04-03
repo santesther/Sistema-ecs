@@ -1,13 +1,19 @@
-class CreateRelatorios < ActiveRecord::Migration[7.0]
+class CreateRelatpublicos < ActiveRecord::Migration[7.0]
   def change
-    create_table :relatorios do |t|
+    create_table :relatpublicos do |t|
+      t.string :data
+      t.string :seguradora
+      t.string :apolice
       t.string :instituicao_apresentacao
       t.string :aluno_apresentacao
       t.string :aluno_apresentacao_dois
-      t.string :periodo
-      t.string :licenciatura
       t.string :semestre_apresentacao
       t.string :ano_apresentacao
+      t.string :reitor
+      t.string :periodo_de
+      t.string :periodo_a
+      t.string :matricula_aluno
+      t.string :licenciatura
       t.string :cnpj
       t.string :endereco_da_instituicao
       t.string :numero_da_instituicao
@@ -27,12 +33,7 @@ class CreateRelatorios < ActiveRecord::Migration[7.0]
       t.string :estado
       t.string :cep
       t.string :telefone
-      t.string :periodo_de
-      t.string :periodo_a
-      t.string :matricula_aluno
-      t.string :apolice
-      t.string :seguradora
-      t.string :data
+      t.string :periodo
 
       t.timestamps
     end

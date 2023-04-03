@@ -1,0 +1,2 @@
+class Relatcampi < ApplicationRecord
+end

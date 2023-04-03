@@ -1,14 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  data: MyString
+  seguradora: MyString
+  apolice: MyString
   instituicao_apresentacao: MyString
   aluno_apresentacao: MyString
   aluno_apresentacao_dois: MyString
-  periodo: MyString
-  licenciatura: MyString
   semestre_apresentacao: MyString
   ano_apresentacao: MyString
   reitor: MyString
+  periodo_de: MyString
+  periodo_a: MyString
+  matricula_aluno: MyString
+  licenciatura: MyString
   cnpj: MyString
   endereco_da_instituicao: MyString
   numero_da_instituicao: MyString
@@ -28,22 +33,22 @@ one:
   estado: MyString
   cep: MyString
   telefone: MyString
-  periodo_de: MyString
-  periodo_a: MyString
-  matricula_aluno: MyString
-  apolice: MyString
-  seguradora: MyString
-  data: MyString
+  periodo: MyString
 
 two:
+  data: MyString
+  seguradora: MyString
+  apolice: MyString
   instituicao_apresentacao: MyString
   aluno_apresentacao: MyString
   aluno_apresentacao_dois: MyString
-  periodo: MyString
-  licenciatura: MyString
   semestre_apresentacao: MyString
   ano_apresentacao: MyString
   reitor: MyString
+  periodo_de: MyString
+  periodo_a: MyString
+  matricula_aluno: MyString
+  licenciatura: MyString
   cnpj: MyString
   endereco_da_instituicao: MyString
   numero_da_instituicao: MyString
@@ -63,9 +68,4 @@ two:
   estado: MyString
   cep: MyString
   telefone: MyString
-  periodo_de: MyString
-  periodo_a: MyString
-  matricula_aluno: MyString
-  apolice: MyString
-  seguradora: MyString
-  data: MyString
+  periodo: MyString
