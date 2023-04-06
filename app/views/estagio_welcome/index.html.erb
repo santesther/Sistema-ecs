@@ -67,27 +67,27 @@
                   <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome_social => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :class => 'btn btn-info revisar_btn' %></td>
 
                   <% if user.pdf_centro != false %>
-                    <td><%= link_to 'PDF', relatorio_centro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'PDF', relatorio_centro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                   <% end %>
 
                   <% if user.pdf_campi != false %>
-                    <td><%= link_to 'PDF', relatorio_campi_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'PDF', relatorio_campi_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_campi_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                   <% end %>
 
                   <% if user.pdf_publico != false %>
-                    <td><%= link_to 'PDF', relatorio_publico_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'PDF', relatorio_publico_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_publico_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                   <% end %>
 
                   <% if user.pdf_particular != false %>
-                    <td><%= link_to 'PDF', relatorio_particular_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'PDF', relatorio_particular_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_particular_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                   <% end %>
 
                   <% if user.pdf_naoformal != false %>
-                    <td><%= link_to 'PDF', relatorio_naoformal_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'PDF', relatorio_naoformal_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_naoformal_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                   <% end %>
                 </tr>
