@@ -181,7 +181,13 @@ class PublicosPdf < Prawn::Document
             text "Concedente: _________________________________________________", :inline_format => true
   
             move_down 30
-            text "IFFluminense <i>campus</i> Campos Centro: _______________________________________________________________________", :inline_format => true
+            
+            text "IFFluminense <i>campus</i> Campos Centro: "
+                %i[center].each do |vposition|
+                image "#{Rails.root}/app/assets/images/Carimbo_conceicao_correto.png", :width => 150,
+                position: 200, vposition: vposition
+                end
+
   
             move_down 30
             text "Estagiário: ______________________________________________________________", :inline_format => true

@@ -28,6 +28,11 @@ class RelatorioPublicoController < ApplicationController
 
   end
 
+  def avaliador
+    @relatpublico.avaliador.build
+  end
+
+
   def update
     @relatorios = current_user.update(user_params)
     redirect_to relatorio_publico_index_path, notice: 'Dados Atualizados com sucesso!'

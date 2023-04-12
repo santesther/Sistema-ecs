@@ -33,6 +33,7 @@ one:
   representante: MyString
   licenciatura: MyString
   periodo: MyString
+  avaliador: MyString
 
 two:
   data: MyString
@@ -67,3 +68,4 @@ two:
   representante: MyString
   licenciatura: MyString
   periodo: MyString
+  avaliador: MyString

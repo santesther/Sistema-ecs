@@ -33,6 +33,7 @@ one:
   estado: MyString
   cep: MyString
   telefone: MyString
+  avaliador: MyString
   periodo: MyString
 
 two:
@@ -68,4 +69,5 @@ two:
   estado: MyString
   cep: MyString
   telefone: MyString
+  avaliador: MyString
   periodo: MyString

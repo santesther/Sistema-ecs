@@ -37,6 +37,7 @@ one:
   estado: MyString
   cep: MyString
   telefone: MyString
+  avaliador: MyString
 
 two:
   data: MyString
@@ -75,3 +76,4 @@ two:
   estado: MyString
   cep: MyString
   telefone: MyString
+  avaliador: MyString

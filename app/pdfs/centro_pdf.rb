@@ -173,7 +173,7 @@ class CentroPdf < Prawn::Document
             E por estarem de pleno e comum acordo com o exposto no presente Termo de Compromisso, firmam em 03 (três) vias de igual teor, cabendo a 1.ª via à Instituição de Ensino PROMOTORA, a 2.ª, à CONCEDENTE e a 3.ª via, ao ESTAGIÁRIO.", align: :justify
   
             move_down 20
-            text "Campos dos Goytacazes, RJ, <u>#{I18n.l(DateTime.now.to_date, format: :long)}</u>", align: :center, :inline_format => true
+            text "Campos dos Goytacazes, RJ, <u>#{relatorio.data}</u>", align: :center, :inline_format => true
   
             move_down 30
             text "Concedente: _________________________________________________", :inline_format => true

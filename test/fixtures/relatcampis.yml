@@ -29,8 +29,9 @@ one:
   municipio: MyString
   cep: MyString
   telefone: MyString
-  periodo: MyString
   licenciatura: MyString
+  periodo: MyString
+  avaliador: MyString
 
 two:
   data: MyString
@@ -61,5 +62,6 @@ two:
   municipio: MyString
   cep: MyString
   telefone: MyString
-  periodo: MyString
   licenciatura: MyString
+  periodo: MyString
+  avaliador: MyString

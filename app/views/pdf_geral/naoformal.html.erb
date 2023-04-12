@@ -42,7 +42,7 @@
           CEP <%= @users.cep_da_instituicao %>, telefone <%= @users.telefone_da_instituicao %>,
           representada por <%= @users.representante %>, para fins
           de abertura de campo de Estágio ao <b>LICENCIANDO</b>, <u><%= f.text_field :aluno_apresentacao_tres, value: relatorio.aluno_apresentacao_tres %></u>, matriculado sob o nº <u><%= @users.matricula %></u>,
-          no <u><%= f.select :aluno_periodo, [relatorio.aluno_periodo], value: relatorio.aluno_periodo %></u> período do ano letivo de 20<%= f.number_field :ano, min:23, value: relatorio.ano %>, no <%= f.select :aluno_semestre, ['1.º', '2.º'], value: relatorio.aluno_semestre %>º semestre, no Curso Superior de Licenciatura
+          no <u><%= f.select :aluno_periodo, [relatorio.aluno_periodo], value: relatorio.aluno_periodo %></u> período do ano letivo de 20<%= f.number_field :ano, min:23, value: relatorio.ano %>, no <%= f.select :aluno_semestre, [relatorio.aluno_semestre], value: relatorio.aluno_semestre %>º semestre, no Curso Superior de Licenciatura
           em <u><%= @users.licenciatura %></u>, residente na Rua <%= @users.endereco %>, Nº <%= @users.numero %>, bairro
           <%= @users.bairro %>, município <%= @users.municipio %>, Estado do
           <%= f.text_field :estado, value: relatorio.estado %>, nos termos da Lei Nº 11.788 de 25/09/2008, cujas cláusulas constam e regem o presente contrato:
