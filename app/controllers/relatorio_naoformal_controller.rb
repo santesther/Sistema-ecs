@@ -75,6 +75,6 @@ class RelatorioNaoformalController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :instituicao_apresentacao_dois, :estado_da_instituicao, :aluno_apresentacao_tres, :aluno_periodo, :ano, :aluno_semestre, :estado, :periodo_de, :periodo_a)
+    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :instituicao_apresentacao_dois, :estado_da_instituicao, :aluno_apresentacao_tres, :aluno_periodo, :ano, :aluno_semestre, :estado, :periodo_de, :periodo_a, :avaliador)
   end
 end
