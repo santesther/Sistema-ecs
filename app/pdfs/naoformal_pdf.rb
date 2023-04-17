@@ -182,8 +182,26 @@ class NaoformalPdf < Prawn::Document
             text "Concedente: _________________________________________________", :inline_format => true
   
             move_down 30
-            text "IFFluminense <i>campus</i> Campos Centro: _______________________________________________________________________", :inline_format => true
-  
+            text "IFFluminense <i>campus</i> Campos Centro: "
+          if relatorio.avaliador == "Conceição Campinho"
+            bounding_box([0, cursor], width: 150, height: 100) do
+              stroke_bounds
+              %i[center].each do |vposition|
+              image "#{Rails.root}/app/assets/images/Carimbo_conceicao_correto.png", :width => 150,
+              position: :center, vposition: 25
+              end
+            end
+              elsif relatorio.avaliador == "Edina Lacerda"
+                bounding_box([0, cursor], width: 250, height: 100) do
+                  stroke_bounds
+                %i[center].each do |vposition|
+                  image "#{Rails.root}/app/assets/images/carimbo_edina.png", :width => 250,
+                  position: :center, vposition: 25
+                  end
+                end
+              else
+                text "okokokokokok"
+              end
             move_down 30
             text "Estagiário: ______________________________________________________________", :inline_format => true
           end

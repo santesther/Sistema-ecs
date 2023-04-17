@@ -49,8 +49,10 @@
         </p>
 
           <div class="periodo_div">
-            PERÍODO: de <%= f.text_field :periodo_de, required:true, value: relatorio.periodo_de, onkeypress:"$(this).mask('00/00/0000')" %> a <%= f.text_field :periodo_a, required: true, value: relatorio.periodo_a, onkeypress:"$(this).mask('00/00/0000')" %>
-          </div>
+              PERÍODO: de <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de, onkeypress:"$(this).mask('00/00/0000')" %> a <%= f.text_field :periodo_a, required: true, value: relatorio.periodo_a, onkeypress:"$(this).mask('00/00/0000')" %>
+              <br><br>
+              Avaliador: <%= f.select :avaliador, ['Conceição Campinho','Edina Lacerda'], {selected: relatorio.avaliador}, required:true %>
+            </div>
         <% end %>
       <% end %>
 

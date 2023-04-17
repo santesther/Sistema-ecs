@@ -220,23 +220,23 @@
                 <span>Caso não seja possível, o documento somente será impresso no NAPP/DIRLIC, localizado no IFF <i>campus</i> Campos Centro.</span><br />
               </div>
               <% if current_user.pdf_centro != false && current_user.status_impressao == false %>
-                <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+                <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
 
               <% if current_user.pdf_campi != false && current_user.status_impressao == false %>
-                <%= link_to 'Gerar PDF', relatorio_campi_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+                <%= link_to 'Gerar PDF', relatorio_campi_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
 
               <% if current_user.pdf_publico != false && current_user.status_impressao == false %>
-                <%= link_to 'Gerar PDF', relatorio_publico_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+                <%= link_to 'Gerar PDF', relatorio_publico_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
 
               <% if current_user.pdf_particular != false && current_user.status_impressao == false %>
-                <%= link_to 'Gerar PDF', relatorio_particular_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+                <%= link_to 'Gerar PDF', relatorio_particular_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
 
               <% if current_user.pdf_naoformal != false && current_user.status_impressao == false %>
-                <%= link_to 'Gerar PDF', relatorio_naoformal_index_path(@relatorio, current_user, :format => :pdf), :class => 'btn btn-dark desaparece_botao'%>
+                <%= link_to 'Gerar PDF', relatorio_naoformal_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
            
 
