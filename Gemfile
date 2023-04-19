@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'rails_admin', '~> 3.1', '>= 3.1.2'
+
 gem 'mailcatcher'
 
 gem 'devise'
@@ -111,3 +113,4 @@ end
 
 gem 'pg', '~> 1.4', '>= 1.4.6', group: :production
 
+gem "cssbundling-rails"

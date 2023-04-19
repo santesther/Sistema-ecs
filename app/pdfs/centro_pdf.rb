@@ -196,10 +196,18 @@ class CentroPdf < Prawn::Document
                   position: :center, vposition: 25
                   end
                 end
-              else
-                text "okokokokokok"
+              elsif relatorio.avaliador == "Elizabeth Freitas"
+                bounding_box([0, cursor], width: 250, height: 100) do
+                  stroke_bounds
+                %i[center].each do |vposition|
+                  image "#{Rails.root}/app/assets/images/carimbo_Elizabeth.png", :width => 250,
+                  position: :center, vposition: 5
+                  end
               end
-              
+            else 
+              text "okok"
+            end
+
             move_down 30
             text "Estagiário: ______________________________________________________________", :inline_format => true
           end

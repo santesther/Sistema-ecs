@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
-    "type": "module",
     "jquery": "^3.6.1",
     "jquery-mask-plugin": "^1.14.16",
-    "serve": "^14.2.0"
+    "rails_admin": "3.1.2",
+    "serve": "^14.2.0",
+    "type": "module"
   },
   "engines": {
     "node": "16.19.1"
@@ -14,6 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "type": "module",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "sass ./app/assets/stylesheets/rails_admin.scss:./app/assets/builds/rails_admin.css --no-source-map --load-path=node_modules"
   }
 }
