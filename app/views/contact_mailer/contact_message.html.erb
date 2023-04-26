@@ -20,19 +20,23 @@
    
 
     <% if @current_user.pdf_centro != false %>
-      <p><b>O relatório referente ao estágio do IFF Centro foi preenchido!</b></p>
+      <p><b>O relatório referente ao estágio do <u>IFF Centro</u> foi preenchido!</b></p>
     <% end %>
 
     <% if @current_user.pdf_campi != false %>
-      <p><b>O relatório referente ao estágio do IFF Campi foi preenchido!</b></p>
+      <p><b>O relatório referente ao estágio do <u>IFF Campi</u> foi preenchido!</b></p>
     <% end %>
 
     <% if @current_user.pdf_particular != false %>
-      <p><b>O relatório referente à rede <u>pública</u>, para estágio, foi preenchido!</b></p>
+      <p><b>O relatório referente à rede <u>Particular/Municipal</u>, para estágio, foi preenchido!</b></p>
     <% end %>
 
     <% if @current_user.pdf_naoformal != false %>
-      <p><b>O relatório referente à rede <u>não formal</u>, para estágio, foi preenchido!</b></p>
+      <p><b>O relatório referente à rede <u>Não Formal</u>, para estágio, foi preenchido!</b></p>
+    <% end %>
+
+    <% if @current_user.pdf_publico != false %>
+      <p><b>O relatório referente à rede <u>Pública</u>, para estágio, foi preenchido!</b></p>
     <% end %>
   </body>
 </html>

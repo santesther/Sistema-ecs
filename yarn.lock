@@ -582,6 +582,11 @@ signal-exit@^3.0.3:
   resolved "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.7.tgz"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
+signature_pad@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/signature_pad/-/signature_pad-4.1.5.tgz#d2ff3e9b21b479f46ae145e98e973b7928f9a22d"
+  integrity sha512-VOE846UbQMeLBbcR08KwjwE1wNLgp3gqC7yr/AELkgSMs/BdRpxIZna6K5XyZJpA7IWq9GiInw1C8PLm57VO6Q==
+
 string-width@^4.1.0:
   version "4.2.3"
   resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
