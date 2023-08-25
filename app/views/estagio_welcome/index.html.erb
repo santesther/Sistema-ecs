@@ -42,7 +42,9 @@
                   <td><%= user.licenciatura %></td>
                   <td><%= user.periodo %></td>
                   <td><p><%= user.email %></p></td>
+                  
 
+          
                   <% if user.situacao == "Revisar" %>
                     <td style="color:blue;font-weight:bold;"><%= user.situacao %></td>
                   <% else %>
@@ -61,9 +63,11 @@
                     <% else %>
                       <td style="color:green;font-weight:bold;"><%= user.finalizacao %></td>
                     <% end %>
-                  <% end %>
+                  <% end %>  
 
                   <td><%= user.role %></td>
+                  
+      
                   <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome_social => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :class => 'btn btn-info revisar_btn' %></td>
 
                   <% if user.pdf_centro != false %>
@@ -131,7 +135,6 @@
 
         <% if current_user.situacao == "Aprovado"%>
           <h5>Parabéns, seu perfil foi aprovado com sucesso!</h5>
-          <h6>Agora você já pode prosseguir com o cadastro para o estágio.</h6>
           <h5 style="color:blue;">Assim que preenchido seu Documento de Estágio será avaliado pela Dirlic e disponibilizado para impressão!</h5>
 
           <hr />
@@ -206,7 +209,6 @@
         <% if current_user.finalizacao == "Finalizado"%>
 
           <h5 style="color:green;font-weight:bold;" >Parabéns, seu Documento de Estágio foi aprovado com sucesso!</h5>
-          <h6 style="color:green;" >Agora você já pode prosseguir com a impressão do seu Documento.</h6>
 
           <hr />
          
@@ -219,6 +221,7 @@
                 <span>Lembre-se que o formulário só poderá ser acessado uma vez para impressão! <b>3 cópias, impressão dos dois lados da folha (anverso e verso)</b></span><br />
                 <span>Caso não seja possível, o documento somente será impresso no NAPP/DIRLIC, localizado no IFF <i>campus</i> Campos Centro.</span><br />
               </div>
+              
               <% if current_user.pdf_centro != false && current_user.status_impressao == false %>
                 <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
@@ -239,6 +242,10 @@
                 <%= link_to 'Gerar PDF', relatorio_naoformal_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
            
+              <hr />
+            
+              <h6>Após conseguir a assinatura da Instituição Condecente, faça o envio do Pdf para assinatura da Dirlic!</h6>
+              <h6>As instruções relacionadas ao segundo envio do Pdf a dirlic estão na aba "Envio"</h6>
 
               <% if current_user.status_impressao == true %>
                 <div class="contato_napp border p-1 mt-4">
