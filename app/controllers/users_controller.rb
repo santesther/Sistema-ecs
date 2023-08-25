@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show]
   
-
-
   def index
     @users = User.all.order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
     if params[:nome_social].present?
@@ -18,10 +16,13 @@ class UsersController < ApplicationController
     if params[:matricula].present?
       @users = @users.where("matricula LIKE ?", "%#{params[:matricula]}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
     end
+    if params[:finalizacao].present?
+      @users = @users.where("finalizacao LIKE ?", "%#{params[:finalizacao]}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
   end
+end
 
   def new
-    @user = User.new
+    @user = User.new(user_params)
   end
 
   def update_status
@@ -36,10 +37,10 @@ class UsersController < ApplicationController
 
 
   def show
-  #   @atividades_deferidas = Activity.where(user_id: params[:id], status: "Deferido") 
-  #   @atividades_indeferidas = Activity.where(user_id: params[:id], status: "Indeferido") 
-  #   @atividades_pendentes = Activity.where(user_id: params[:id], status: "Pendente") 
-  #   @atividades_revisar = Activity.where(user_id: params[:id], status: "Revisar") 
+    @documentos_deferidos = Archive.where(user_id: params[:id], status: "Deferido") 
+    @documentos_indeferidos = Archive.where(user_id: params[:id], status: "Indeferido") 
+    @documentos_pendentes = Archive.where(user_id: params[:id], status: "Pendente") 
+    @documentos_revisar = Archive.where(user_id: params[:id], status: "Revisar") 
   end
 
   def set_user
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:nome_civil, :nome_social, :email, :endereco, :complemento, :numero, :bairro, :municipio, :cep, :matricula, :licenciatura, :periodo, :telefone, :avatar, :nome_da_instituicao, :tipo_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :complemento_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante)
+    params.require(:user).permit(:nome_civil, :nome_social, :email, :endereco, :complemento, :numero, :bairro, :municipio, :cep, :matricula, :licenciatura, :periodo, :telefone, :avatar, :nome_da_instituicao, :tipo_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :complemento_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante, :arquivos)
   end
   
   end

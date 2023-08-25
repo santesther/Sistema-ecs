@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   validates_presence_of :nome_social, :email, :licenciatura, :periodo, :matricula
 
   validates_uniqueness_of :matricula, :email
@@ -7,8 +8,10 @@ class User < ApplicationRecord
 
   validates :status, presence: true
 
-  has_one_attached :avatar
-  has_one_attached :file
+  has_one_attached :avatar, dependent: :destroy
+  has_many :archives, dependent: :destroy
+  #has_one_attached :signature, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
