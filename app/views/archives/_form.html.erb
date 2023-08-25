@@ -1,0 +1,130 @@
+<% if user_signed_in? %>
+  <div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+    </div>
+    <div class="container container_estagio">
+  <div class="d-flex align-items-center justify-content-center">
+      <h1 class="titulo">Bem vindo(a) à tela de cadastro de Estágios!</h1>
+    </div>
+    
+    <br>
+
+  <div class="introducao">
+  <div class="page-header text-center">
+    <h3>Instruções para envio do Pdf!</h3>
+  </div>
+
+  <p>
+    <p>Após baixar o documento assinado pela Dirlic pela primeira vez,
+    o aluno deve levar esse documento para a instituição concedente e conseguir a assinatura da mesma.
+    Depois disso o aluno deve scannear o documento já assinado pela escola concedente, podendo usar 
+    algum aplicativo como "Cam Scanner" e fazer o envio do documento logo abaixo.
+    <br>
+    O documento será assinado pela Dirlic e liberado novamente para o acesso único do aluno.
+    <br>
+    Caso não seja possível scannear o Pdf, você pode levar o documento físico para a Dirlic,
+    no 4° andar sala 411 no Instituto Federal Fluminense <i>Campus</i> Campos Centro.
+  </p>
+
+<div class="card">
+  <div class="card-header"> <h3>Documento</h3></div>
+
+  <%= form_with(model: archive, local: true) do |form| %>
+
+    <% if archive.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h2><%= pluralize(archive.errors.count, "erro(s)") %> - Documento não pôde ser salvo!</h2>
+
+        <ul>
+        <% archive.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% if current_user.condicao != true %>
+
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Aluno(a)</label>
+        <div class="col-sm-4">
+          <%= @archive.nome_usuario %> 
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Documentos*</label>
+        <div class="col-sm-9">
+         <small style="color: red">(Só será permitido arquivo em PDF, JPEG ou PNG)</small><br />
+         <small style="color: purple">(Para selecionar mais de um documento, é necessário clicar nos documentos desejados com a tecla Ctrl pressionada)</small>
+        <br />
+          <%= form.hidden_field :user_id %>
+         <%= form.file_field :documents, accept: 'application/pdf, image/png,image/gif,image/jpeg', as: :file %>
+        </div>
+      </div>
+
+      <% else %>
+
+      <div class="d-flex align-items-center justify-content-center">
+        <h4 style="color:blue;">Você enviou seu documento para a Dirlic!</h4>
+        </div>
+        <hr />
+        <div class="d-flex align-items-center justify-content-center">
+        <h5 style="color:black;"><p> Assim que avaliado  e assinado seu documento ficará disponível na aba de "Documentos"</p>
+        <p> onde você poderá acessar seus documentos enviados e sua respectiva avaliação pela Dirlic! </p>
+        </h5>
+        </div>
+        <hr />
+    
+      <% end %>
+
+      <% if current_user.role == "admin" %>
+        <% if archive.status == "Pendente"  %>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label text-danger">Status*</label>
+            <div class="col-sm-9">
+             <%= select("archive","status",['Deferido','Indeferido','Revisar'],{include_blank: 'Selecione'}, required: true) %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if current_user.role == "admin" %>
+        <% if archive.status == "Deferido" || archive.status == "Indeferido" || archive.status == "Revisar"  %>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label text-danger">Status*</label>
+            <div class="col-sm-9">
+             <%= select("archive","status",['Deferido','Indeferido'],{include_blank: false}) %>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label text-danger">Observação do avaliador</label>
+            <div class="col-sm-9">
+              <%= form.text_area :feedback, rows: 5, class: 'form-control' %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      
+      <div class="card-footer text-muted">
+        <div class="col-sm-12">
+          <div class="text-center">
+            <%= form.submit "Salvar", :class => "btn btn-success direita" %>
+            <% if current_user.role == "admin" %>
+            <%= link_to 'Voltar', archive, :class => "btn btn-primary voltar"  %>
+            <% else %>
+            <%= link_to 'Voltar', root_path, :class => "btn btn-primary voltar" %>
+            <% end %>
+          </div>
+        </div>
+      </div> 
+  <% end %>
+<% end %>
+  
+</div>
