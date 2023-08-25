@@ -26,7 +26,7 @@
 				<li class="list-group-item"><b>Licenciatura:</b> <%= @user.licenciatura %></li>
 				<li class="list-group-item"><b>Período:</b> <%= @user.periodo %></li>
 				<li class="list-group-item"><b>Matrícula:</b> <%= @user.matricula %></li>
-				<li class="list-group-item"><b>Status:</b> <%= @user.situacao %></li>
+				<li class="list-group-item"><b>Status:</b> <%= @user.finalizacao %></li>
 				<li class="list-group-item"><b>Status do Documento de Estágio:</b> <%= @user.finalizacao %></li>
 				<li class="list-group-item"><b>Cadastrado em:</b> <%= @user.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
 				<li class="list-group-item"><b>Atualizado em:</b> <%= @user.updated_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
@@ -45,6 +45,118 @@
 			</ul>
 		</div>
 	</div>
+
+		<% if !@documentos_pendentes.empty? %>
+		<div class="table-responsive">
+	      <table class="table table-striped text-center table-bordered">
+	      	<thead class="bg-warning text-light">
+	          <tr>
+	            <th colspan="6">Documentos Pendentes</th>
+	          </tr>
+	        </thead>
+	        <thead class="thead-dark">
+	          <tr>
+	            <th>#</th>
+	            <th>Avaliador</th>
+	            <th>Analisar</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	            <% @documentos_pendentes.each_with_index do |documento, index| %>
+	              <tr>
+	                <td><%= index + 1 %></td>
+	                <td><%= documento.edited_by %></td>
+	                <td class="align-middle"><%= link_to 'Visualizar', documento, :class => "btn btn-danger"  %></td>
+	              </tr>
+	            <% end %>
+	        </tbody>
+	      </table>
+	    </div>
+    <% end %>
+
+    <% if !@documentos_revisar.empty? %>
+		<div class="table-responsive">
+	      <table class="table table-striped text-center table-bordered">
+	      	<thead class="bg-secondary text-light">
+	          <tr>
+	            <th colspan="6">Documentos A Revisar</th>
+	          </tr>
+	        </thead>
+	        <thead class="thead-dark">
+	          <tr>
+	            <th>#</th>
+	            <th>Avaliador</th>
+	            <th>Analisar</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	            <% @documentos_revisar.each_with_index do |documento, index| %>
+	              <tr>
+	                <td><%= index + 1 %></td>
+	                <td><%= documento.edited_by %></td>
+	                <td class="align-middle"><%= link_to 'Visualizar', documento, :class => "btn btn-danger"  %></td>
+	              </tr>
+	            <% end %>
+	        </tbody>
+	      </table>
+	    </div>
+	<% end %>
+
+	<% if !@documentos_deferidos.empty? %>
+		<div class="table-responsive">
+	      <table class="table table-striped text-center table-bordered">
+	      	<thead class="bg-success text-light">
+	          <tr>
+	            <th colspan="6">Documentos Deferidos</th>
+	          </tr>
+	        </thead>
+	        <thead class="thead-dark">
+	          <tr>
+	            <th>#</th>
+	            <th>Avaliador</th>
+	            <th>Analisar</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	            <% @documentos_deferidos.each_with_index do |documento, index| %>
+	              <tr>
+	                <td><%= index + 1 %></td>
+	                <td><%= documento.edited_by %></td>
+	                <td class="align-middle"><%= link_to 'Visualizar', documento, :class => "btn btn-danger"  %></td>
+	              </tr>
+	            <% end %>
+	        </tbody>
+	      </table>
+	    </div>
+	<% end %>
+
+	<% if !@documentos_indeferidos.empty? %>
+		<div class="table-responsive">
+	      <table class="table table-striped text-center table-bordered">
+	      	<thead class="bg-danger text-light">
+	          <tr>
+	            <th colspan="6">Documentos Indeferidos</th>
+	          </tr>
+	        </thead>
+	        <thead class="thead-dark">
+	          <tr>
+	            <th>#</th>
+	            <th>Avaliador</th>
+	            <th>Analisar</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	            <% @documentos_indeferidos.each_with_index do |documento, index| %>
+	              <tr>
+	                <td><%= index + 1 %></td>
+	                <td><%= documento.edited_by %></td>
+	                <td class="align-middle"><%= link_to 'Visualizar', documento, :class => "btn btn-danger"  %></td>
+	              </tr>
+	            <% end %>
+	        </tbody>
+	      </table>
+	    </div>
+	<% end %>
 
 
 	<div class="card-footer text-muted">

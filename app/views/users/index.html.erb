@@ -12,6 +12,8 @@
 
     <br>
 
+
+
   <%= form_tag(users_index_path, method: :get, class: "form-group")  do %>
     <div class="form-group row">
       <div class="col-md-6">
@@ -34,7 +36,7 @@
       </div>
 
         <div class="col-md-2">
-        <%= select_tag :status, options_for_select([["Pendente", "Pendente"],  ["Finalizado", "Finalizado"]], params[:licenciatura]), :prompt => "Selecione o status", class: "form-control "  %>
+        <%= select_tag :finalizacao, options_for_select([["Revisando", "Revisando"],  ["Finalizado", "Finalizado"], ["Negado", "Negado"]], params[:finalizacao]), :prompt => "Selecione o status", class: "form-control "  %>
       </div>
 
       <div class="col-md-2">
@@ -55,6 +57,7 @@
             <th>Matrícula</th>
             <th>Licenciatura</th>
             <th>E-mail</th>
+            <th>Situação</th>
           </tr>
         </thead>
         <tbody>
@@ -78,6 +81,7 @@
                 <td><%= user.matricula %></td>
                 <td><%= user.licenciatura %></td>
                 <td><%= user.email %></td>
+                <td><%= user.finalizacao %></td>
               </tr>
             <% end %>
         </tbody>
