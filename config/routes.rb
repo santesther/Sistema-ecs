@@ -1,22 +1,26 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  
-  devise_for :users, :controllers => { registrations: 'registrations'} 
-  
-  get 'users/index', to: "users#index"
-  get 'users/show'
-  
-  #resources :users /tenho q tentar assim dps
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   root "welcome#index"
-  
   get "/welcome", to: "welcome#index"
+  
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  get 'welcome/listagem', to: "welcome#listagem"
+  get 'users/index'
+  get 'users/show'
 
-  get 'download', to: "documents#download"
-  get 'preview', to: "documents#preview"
+  #routes envio de arquivos
+  get 'archives/index'
+  get 'archives/new'
+  post 'archives/new'
+
+
+  get 'archives/show'
+  get 'archives/deferidos'
+  get 'archives/indeferidos'
+  get 'archives/pendentes'
+  get 'archives/atividades_geral'
+  get 'archives/revisar'
+  get 'archives/export'
+
 
   #Routes do Sistema de Estágio
   get 'estagio_welcome/index'
@@ -115,5 +119,16 @@ Rails.application.routes.draw do
   get 'pdf_geral/update_naoformal'
   post 'pdf_geral/update_naoformal'
 
+  
+  get '/delete', to: 'archives#destroy', as: 'delete'
+
+
+  devise_for :users, :controllers => { registrations: 'registrations'} 
+
+  resources :archives do
+    member do
+      get 'export'
+     end
+ end
   
 end

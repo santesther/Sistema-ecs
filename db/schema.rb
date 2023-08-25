@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_12_202431) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_25_183755) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_202431) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "archives", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "nome_usuario"
+    t.json "documents"
+    t.string "status"
+    t.string "edited_by"
+    t.text "feedback"
+    t.index ["user_id"], name: "index_archives_on_user_id"
+  end
+
   create_table "avaliadors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,6 +70,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_202431) do
     t.string "tipo_da_instituicao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "registro_avaliacaos", force: :cascade do |t|
+    t.integer "aluno_id", null: false
+    t.string "nome_aluno", null: false
+    t.string "status", null: false
+    t.string "avaliador", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "id_archive"
+    t.integer "archive_id", null: false
+    t.integer "responsavel_avaliacao_id"
+    t.index ["archive_id"], name: "index_registro_avaliacaos_on_archive_id"
+    t.index ["responsavel_avaliacao_id"], name: "index_registro_avaliacaos_on_responsavel_avaliacao_id"
   end
 
   create_table "relatcampis", force: :cascade do |t|
@@ -386,7 +412,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_202431) do
     t.datetime "updated_at", null: false
     t.integer "role", default: 0
     t.string "licenciatura"
-    t.string "status", default: "Pendente", null: false
     t.string "nome"
     t.string "nome_social"
     t.string "nome_civil"
@@ -424,10 +449,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_202431) do
     t.string "telefone_da_instituicao"
     t.string "representante"
     t.string "tipo_da_instituicao"
+    t.boolean "condicao"
+    t.string "status", default: "Revisando", null: false
+    t.string "signature"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "archives", "users"
+  add_foreign_key "registro_avaliacaos", "archives"
+  add_foreign_key "registro_avaliacaos", "users", column: "aluno_id"
+  add_foreign_key "registro_avaliacaos", "users", column: "responsavel_avaliacao_id"
 end
