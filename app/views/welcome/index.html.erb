@@ -15,18 +15,21 @@
 
 <% if current_user.role == "normal_user" %>
       <div class="alert alert-primary">
-        <p>Olá <%= current_user.nome_social %>!</p>
-        <p><b>No início de cada semestre letivo, lembre-se de atualizar seu período no curso e e-mail!</b></p>
+        <p style="font-size: 1.1rem;">Olá <%= current_user.nome_social %>!</p>
+        <p style="font-size:1.2rem;"><b>No início de cada semestre letivo, lembre-se de atualizar seu período no curso e <i>e-mail</i> (este, se necessário).</b></p>
       </div>
   <p>
-  <h5> Verifique a disponibilidade do Documento de estágio na aba "listagem"!</h5>
-    É <span style="color: #f00;"><b>muito importante</b></span> que você preencha o 
-    Documento de Estágio <span style="color: #f00;"><b>corretamente</b></span> visto
-    que cada usuário tem acesso a apenas <span style="color: #f00;"><b>uma(1)</b></span> tentativa.</p>
-    <p>
-    Após o preenchimento seu Documento será avaliado pela Dirlic e disponibilizado com 
-    <u>período de início e fim</u>, além da <u>assinatura da Dirlic</u> para cumprimento do 
-    <b>Estágio Curricular Supervisionado.</b>
+  <h5> Disponível para preenchimento digital: Carta de apresentação, Termo de Compromisso ou Termo Aditivo ao campo ECS na aba "Cadastro/ECS"!</h5>
+   <p style="font-size:1.3rem; text-align: center; "> É <span style="color: #f00;"><b>muito importante</b></span> que VOCÊ preencha o 
+    Documento ao campo de Estágio <span style="color: #f00;"><b>corretamente</b></span>, visto
+    que cada USUÁRIO tem acesso a apenas <span style="color: #f00;"><b>uma</b></span> tentativa.</p>
+    <p style="font-size:1.1rem;">
+    Após o preenchimento, seu documento será avaliado pela DIRLIC e disponibilizado com 
+    <u>período de início e fim</u>, conforme o Seguro obrigatório, para fins de impressão em 03 vias de iguais teor, após o deferimento da DIRLIC/NAPP.</b>
+
+    <div class="d-flex align-items-center justify-content-center">
+    <a href="http://licenciaturas.centro.iff.edu.br/nucleo-de-apoio-a-pratica-profissional/orientacoes-sistema-ecs" target="_blank" class="btn btn-primary">Clique aqui para rever as Orientações das etapas!</a> <hr/>
+    </div>
   </p>
 
   <% elsif current_user.role != "normal_user" %>
@@ -66,9 +69,9 @@
             <div class="text-box-heading">
                 <div class="form">
                 <form>
-                Bem vindo(a) ao <b>Sistema ECS</b> destinado ao Estágio Curricular Supervisionado, obrigatório e não remunerado, nos cursos de Licenciatura do <i>Campus</i> Campos Centro do IFFluminense.<br>
+                Bem vindo(a) ao <b>Sistema ECS</b> destinado ao Estágio Curricular Supervisionado, obrigatório e não remunerado, nos Cursos de Licenciatura do <i>Campus</i> Campos Centro do IFFluminense.<br>
                 
-                Este Sistema foi criado para fins de emissões de documentos obrigatórios ao Licenciando(a) e ao campo de estágio oportunizado por Instituições parceiras, sejam Formais ou Não Formais.</p>
+                Este Sistema foi criado para fins de emissões de documentos obrigatórios ao Licenciando(a) e ao campo de Estágio oportunizado por Instituições de Ensino parceiras.</p>
             </form>
             </div>
             </div>

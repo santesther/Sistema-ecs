@@ -3,11 +3,12 @@
     <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
     </div>
     <div class="container container_estagio">
-      <h1 class="titulo">Bem vindo(a) à tela de cadastro de Estágios!</h1>
+      <h1 class="titulo">Bem vindo(a) ao Cadastro do ECS!</h1>
       <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
-
       <hr />
-
+       <span class style="color:black;font-weight:bold;">
+      <p><b>Legendas: TCE Termo de Compromisso de Estágio / TAdE Termo Aditivo de Estágio</u></b></p></span>
+      <hr />
       <% if current_user.role != "normal_user" %>
 
         <%= form_tag(estagio_welcome_index_path, method: :get, class: "form-group")  do %>
@@ -69,7 +70,28 @@
                   
       
                   <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome_social => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :class => 'btn btn-info revisar_btn' %></td>
+                  <td><%= link_to "Email", root_path, :class => 'btn btn-primary' %></td>
 
+                  <% if user.pdf_aditivo_municipalouparticular != false %>
+                    <td><%= link_to 'PDF', relatorio_municipalouparticularaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+                  
+                  <% if user.pdf_aditivo_estadual != false %>
+                    <td><%= link_to 'PDF', relatorio_estadualaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_estadualaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+                  
+                  <% if user.pdf_aditivo_campi != false %>
+                    <td><%= link_to 'PDF', relatorio_campiaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_campiaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+                  
+                  <% if user.pdf_aditivo_centro != false %>
+                    <td><%= link_to 'PDF', relatorio_aditivocentro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
+                    <td><%= link_to 'Modificar', pdf_geral_aditivocentro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+                  <% end %>
+                  
                   <% if user.pdf_centro != false %>
                     <td><%= link_to 'PDF', relatorio_centro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
@@ -104,14 +126,14 @@
 
       <% else %>
         <% if current_user.situacao == "Revisar" %>
-          <p>Sua solicitação foi encaminhada para aprovação.</p>
-          <p>Seu pedido será avaliado e notificado por e-mail em qualquer mudança no status do pedido!</p>
+          <p>Sua solicitação foi encaminhada para análise.</p>
+          <p>Seu pedido será avaliado pela DIRLIC/NAPP e você será notificado, pelo <i>e-mail</i> cadastrado, atualização do <i>status</i> do pedido!</p>
 
-          <%= image_tag("loader.gif", :alt => "gif aguarde") %>
+          <%= image_tag("loader.gif", :alt => "gif aguarde", width: "420x420") %>
         <% else %>
           <% if current_user.situacao == "0" %>
             <div class="btn_aprovacao">
-              <p>Atualize seu período antes de solicitar o acesso ao sistema de cadastro de estágio.</p> <br/>
+              <p>Atualize seu período antes de solicitar o acesso ao Sistema de Cadastro do ECS.</p> <br/>
               <p>Clique no botão abaixo para solicitar o acesso!</p>
 
               <%= button_to 'Solicitar Acesso', action: 'pendente', :id => current_user.id %>
@@ -121,40 +143,39 @@
         
 
         <% if current_user.situacao == "Reprovado" %>
-          <h5>Parece que a administração está com dificuldades na validação do seu perfil!</h5>
+          <h5>INDEFERIDO.<h5>
+           <h5>NOTA: nesse caso, você comparecerá ao setor DIRLIC/NAPP - <i>Bloco G, 4.º andar, sala 411</i> - para solicitação de novo acesso ao preenchimento dos documentos exigidos ao campo de Estágio <span style="color: #f00;"> <i>(o acesso será permitido uma única vez)</i></span>.</h5>
 
-          <br />
+          <hr />
 
-          <p>Mas não se preocupe.</p>
-          <p>Contate um administrador para normalizar seu cadastro e prosseguir com o registro do estágio.</p>
-
-          <div class="col-md-12 imagem_reprovado">
-            <%= image_tag("reprovado.jpg", size: "250x250", :alt => "ícone estudantes") %>
+          <div class="card">
+          <div class="card-header"><h5><b>Observação do(a) avaliador(a) a respeito da sua situação de Estágio:<h5></b>
+          <br> <%= current_user.feedback_situacao %><h5>
+          </div>
           </div>
         <% end %>
 
         <% if current_user.situacao == "Aprovado"%>
+          <h5>DEFERIDO.<h5>
           <h5>Parabéns, seu perfil foi aprovado com sucesso!</h5>
-          <h5 style="color:blue;">Assim que preenchido seu Documento de Estágio será avaliado pela Dirlic e disponibilizado para impressão!</h5>
+          <h6 style="color:blue;">Assim que preenchido seu Documento de Estágio será avaliado pela Dirlic e disponibilizado para impressão!</h6>
 
           <hr />
 
-          <% if current_user.pdf_centro == false && current_user.pdf_campi == false && current_user.pdf_publico == false && current_user.pdf_particular == false && current_user.pdf_naoformal == false  %>
-            <p class="escolha_um_formulario">Escolha um formulário, mas lembre-se que só é possível fazer o <u>preenchimento uma única vez.</u></p>
+          <% if current_user.pdf_aditivo_centro == false && current_user.pdf_aditivo_municipalouparticular == false && current_user.pdf_aditivo_estadual == false && current_user.pdf_centro == false && current_user.pdf_campi == false && current_user.pdf_publico == false && current_user.pdf_particular == false && current_user.pdf_naoformal == false && current_user.pdf_aditivo_campi == false  %>
+            <p class="escolha_um_formulario">Escolha a rede de ensino, mas lembre-se que só é possível fazer o <u>preenchimento uma única vez.</u></p>
+            <p class="escolha_um_formulario2">Caso haja erro no preenchimento, comparecer a DIRLIC/NAPP para autorização de novo acesso, o qual só será permitido <u>uma única vez.</u></u></p>
 
 
             <div class="botoes">
-              <div class="col btn1">
-                <%= button_tag 'Instituição de Ensino Federal', :class => 'btn btn-outline-primary' %>
-              </div>
-              <br>
-              <div class="col btn2">
-                <%= button_tag "Instituição de Ensino Estadual, Municipal ou Particular", :class => 'btn btn-outline-primary' %>
-              </div>
+              <span class="col btn1">
+                <%= button_tag 'Rede de Ensino Federal', :class => 'btn btn-outline-primary' %>
+               </span>
+                <span class="col btn2"> <%= button_tag "Rede de Ensino Estadual, Municipal ou Particular", :class => 'btn btn-outline-primary' %></span>
               <br>
               <% if current_user.licenciatura == 'Educação Física'%>
                 <div class="col btn3">
-                  <%= link_to "Instituição de Ensino não formal", relatorio_naoformal_index_path, :class => 'btn btn-outline-primary' %>
+                  <%= link_to "Rede de Ensino não formal", relatorio_naoformal_index_path, :class => 'btn btn-outline-primary' %>
                 </div>
               <% end %>
             </div>
@@ -162,6 +183,7 @@
               <% if current_user.licenciatura == 'Educação Física' && current_user.periodo == '5.º' %>
                 .div_federal {
                   margin-left: 55px!important;
+                  font-style: italic;
                 }
                 .div_federal2 {
                   margin-left: 410px;
@@ -183,26 +205,34 @@
             </style>
 
             <div class="div_federal" style="display:none">
-              <%= link_to "Campus Campos Centro", relatorio_centro_index_path, :class => 'btn btn-success centro' %>
-              <%= link_to "Campus Campos Campi", relatorio_campi_index_path, :class => 'btn btn-success guarus' %>
+            <a href="<%= relatorio_centro_index_path(@relatorio) %>" class="btn btn-success" ><i>Campus</i> Campos Centro do IFFluminense - Carta de Apresentação e TCE</a>
+            <a href="<%= relatorio_aditivocentro_index_path(@relatorio) %>" class="btn btn-success" ><i>Campus</i> Campos Centro do IFFluminense - Carta de Apresentação e TAdE</a>
+              <span class="campi">
+            <a href="<%= relatorio_campi_index_path(@relatcampi) %>" class="btn btn-success" >Outros <i>Campi</i> do IFFluminense - Carta de Apresentação e TCE</a>
+            <a href="<%= relatorio_campiaditivo_index_path(@relatcampi) %>" class="btn btn-success" >Outros <i>Campi</i> do IFFluminense - Carta de Apresentação e TAdE</a>
+            <a href="<%= estagio_welcome_locus_path %>" class="btn btn-success" >Outro <i>locus</i> Federal </a>
+              </span>
             </div>
 
             <div class="div_federal2" style="display:none">
-              <%= link_to "Rede Pública/Estadual", relatorio_publico_index_path, :class => 'btn btn-light publica' %>
-              <%= link_to "Rede Particular ou Municipal", relatorio_particular_index_path, :class => 'btn btn-light particular' %>
+              <%= link_to "Instituição de Ensino Estadual - Carta de Apresentação e TCE", relatorio_publico_index_path, :class => 'btn btn-info publica' %>
+              <%= link_to "Instituição de Ensino Estadual - Carta de Apresentação e TAdE", relatorio_estadualaditivo_index_path, :class => 'btn btn-info publica' %>
+              <span class="municipal">
+              <%= link_to "Instituição de Ensino Municipal ou Particular - Carta de Apresentação e TCE", relatorio_particular_index_path, :class => 'btn btn-info particular' %>
+              <%= link_to "Instituição de Ensino Municipal ou Particular - Carta de Apresentação e TAdE", relatorio_municipalouparticularaditivo_index_path, :class => 'btn btn-info particular' %>
+              </span>
             </div>
           <% end %>
 
         <% if current_user.finalizacao == "Negado" %>
           <h5>Parece que a administração está com dificuldades na validação do seu Documento de Estágio!</h5>
 
-          <br />
+          <hr />
 
-          <p>Mas não se preocupe.</p>
-          <p>Contate um administrador para normalizar sua situação e prosseguir com o estágio.</p>
-
-          <div class="col-md-12 imagem_reprovado">
-            <%= image_tag("reprovado.jpg", :alt => "ícone estudantes") %>
+          <div class="card">
+          <div class="card-header"><h5><b>Observação do(a) avaliador(a) a respeito da sua situação de Estágio:<h5></b>
+          <br> <%= current_user.feedback_situacao %><h5>
+          </div>
           </div>
         <% end %>
 
@@ -212,7 +242,7 @@
 
           <hr />
          
-          <% if current_user.pdf_centro != false || current_user.pdf_campi != false || current_user.pdf_publico != false || current_user.pdf_particular != false || current_user.pdf_naoformal != false %>
+          <% if  current_user.pdf_aditivo_centro != false || current_user.pdf_aditivo_municipalouparticular != false || current_user.pdf_aditivo_estadual != false || current_user.pdf_aditivo_campi != false || current_user.pdf_centro != false || current_user.pdf_campi != false || current_user.pdf_publico != false || current_user.pdf_particular != false || current_user.pdf_naoformal != false %>
             <div class="pdf_btn">
               <span>Clique aqui e imprima o formulário!</span><br />
 
@@ -222,6 +252,22 @@
                 <span>Caso não seja possível, o documento somente será impresso no NAPP/DIRLIC, localizado no IFF <i>campus</i> Campos Centro.</span><br />
               </div>
               
+               <% if current_user.pdf_aditivo_municipalouparticular != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_municipalouparticularaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+              
+              <% if current_user.pdf_aditivo_estadual != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_estadualaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+
+              <% if current_user.pdf_aditivo_campi != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_campiaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+
+               <% if current_user.pdf_aditivo_centro != false && current_user.status_impressao == false %>
+                <%= link_to 'Gerar PDF', relatorio_adivito_centro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
+              <% end %>
+
               <% if current_user.pdf_centro != false && current_user.status_impressao == false %>
                 <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
@@ -258,19 +304,21 @@
         <% end %>
       <% end %>
 
-      <br />
-      <%= link_to "Voltar ao início", welcome_path, :class => 'btn btn-warning voltar'  %>
+     
+      </div>
+       <div class='contato_dirlic_pdf border mt-4 pt-3 col-md-12'>
+      <p><b>CONTATO: IFFluminense <i>Campus</i> Campos Centro/DIRLIC/NAPP: <u>(22) 2726-2897</u></b></p>
       </div>
     <% end %>
-
-  <div class='contato_dirlic_pdf border mt-4 pt-3 col-md-12'>
-    <p><b>CONTATO: IFFluminense <i>campus</i> Campos Centro/DIRLIC/NAPP: <u>(22) 2726-2897 // (22) 2726-2923</u></b></p>
-  </div>
 
   <style type="text/css">
     .titulo {
       text-align: center;
       padding-top: 10px;
+    }
+    .contato_dirlic_pdf {
+      top:11.6rem;
+      position: relative;
     }
     td p {
       white-space: nowrap;
@@ -293,11 +341,25 @@
       width:270px;
       margin-top:-10px;
       position: absolute;
+      left: 100px;
+    }
+    .campi {
+      width:270px;
+      margin-top:-11.3rem;
+      position: absolute;
+      left:300px;
     }
     .div_federal2 {
       width:270px;
       margin-top:-10px;
       position: absolute;
+      left:23rem;
+    }
+    .municipal {
+      width:270px;
+      margin-top:-11.3rem;
+      position: absolute;
+      left:17rem;
     }
     .btn-light {
       border:1px solid rgba(10,10,200,0.9);
@@ -362,6 +424,12 @@
       color: red;
       text-transform:uppercase;
       font-weight: bold;
+    }
+    .escolha_um_formulario2 {
+      color: green;
+      text-transform:uppercase;
+      font-weight: bold;
+      font-size: 14px;
     }
     @media (max-width: 991.98px) {
       .voltar {

@@ -8,38 +8,44 @@
 
         <hr />
 
-        <h2><b>Termo de Compromisso de Estágio - TCE</b></h2>
+        <h2><b>Carta de Apresentação</b></h2>
         
         <br />
 
-        <p><b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profssional(NAPP) do IFFluminense <i>campus</i> Campos Centro.<br>
-            <b>À:</b>Direção da Instituição de Ensino: </b> <u><%= f.text_field :instituicao_apresentacao, required: true  %></u><br>
-            <b>Assunto: <i>Apresentação de discente-estagiário:</i></b><%= f.text_field :aluno_apresentacao, required: true %><br>
+        <p style="text-align: justify; font-size: 16px;"><b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profssional(NAPP) do IFFluminense <i>campus</i> Campos Centro.<br>
+            <b>À: </b>Direção da Instituição de Ensino: </b> <u><b>IFFluminense <i>campus</i> Campos Centro/DAEBPCC<b></u><br>
+            <b>Assunto: <i>Apresentação de discente-estagiário: </i></b><%= f.text_field :aluno_apresentacao, required: true %><br>
             Prezado Gestor.<br>
-            O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste instituto, no </b> <u><%= current_user.periodo %></u> º período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1', '2'], {include_blank:"Selecione"} %>º semestre letivo de 20<%= f.number_field :ano_apresentacao, min:23, value: 23, required:true %>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores.
-            Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP.<br> (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu.
+            O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste Instituto, no </b> <u><%= current_user.periodo %></u> período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre letivo de <%= f.select :semestre_apresentacao,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>, 
+            <b>para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente</b>, prescristas no Plano de Atividades de Estágio (PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. 
+            <br>Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e não remunerado, e de importância significativa para a formação dos futuros formadores.<br>
+            Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as).<br> 
+            Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP - (22) 2726-2897 // <i>dirlicenciatura.camposcentro@iff.edu.br</i>, bem como o <i>site</i> <a href="http://licenciaturas.centro.iff.edu.br/" target="_blank">licenciaturas.centro.iff.edu</a>.
+          <hr />
           <br>
-          O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua 
-          Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos
-          Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos
-          Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E
-          CONCEDENTE -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor
-          Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP:
-          28.030-130, telefone (22) 27262897, firma parceria, em atendimento à Lei Nº 11.788, de
-          25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de
-          abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em
-          atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>
-          <b><%= current_user.nome_social%></b>
-          matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= current_user.numero %>, no 
-          <%= f.select :aluno_semestre,['1', '2'], {include_blank:"Selecione"} %>º semestre do ano letivo de 20<%= f.number_field :ano, min:23, value: 23, required:true %>
-          no curso Superior de Licenciatura em <%= current_user.licenciatura %>, <%= current_user.periodo %>º periodo.
-          Residente no(a) <%= current_user.endereco %>, nº <%= current_user.numero %>, Complemento: <%= current_user.complemento %>
-          Bairro: <%= current_user.bairro %>, município: <%= current_user.municipio %>, UF: <%= f.text_field :estado, required: true %>,
-          CEP: <%= current_user.cep %>, telefone/contato nº <%= current_user.telefone %>. 
-        </p>
+        <h2><b>Termo de Compromisso de Estágio - TCE -</b></h2>
 
-        <br />
-        <br />
+          <p style="text-align: justify;font-size: 16px; font-style 'Calibri'" >O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF n.º 10.779.511/0001-07, situado à Rua 
+          Coronel Walter Kramer, n.º 357, bairro: Parque Santo Antônio, município: Campos dos
+          Goytacazes/RJ, CEP: 28.030-130, neste Ato representado pela <b>Diretoria de Ensino dos Cursos
+          Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E
+          CONCEDENTE -</b>, inscrita no CNPJ/MF sob o n.º 10.779.511/0002-98, situada na Rua Doutor
+          Siqueira, n.º 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP:
+          28.030-130, telefone (22) 27262897, firma parceria com a <b>Diretoria de Ensino da Educação Básica e Profissional deste <i>Campus</i>, para fins de
+          abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em
+          atendimento à Lei N.º 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>
+          <div class="d-flex align-items-center justify-content-center">
+          <b><%= current_user.nome_civil%></b>
+          </div></p>
+          <p style="text-align: justify;font-size: 16px;" >matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o n.º <%= current_user.matricula %>, no 
+          <%= f.select :aluno_semestre,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre do ano letivo de <%= f.select :ano,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>
+          no curso Superior de Licenciatura em <%= current_user.licenciatura %>, <%= current_user.periodo %> periodo.
+          Residente no(a) <%= current_user.endereco %>, n.º <%= current_user.numero %>, Complemento: <%= current_user.complemento %>,
+          Bairro: <%= current_user.bairro %>, município: <%= current_user.municipio %>, UF: <%= f.text_field :estado, required: true %>,
+          CEP: <%= current_user.cep %>, telefone/contato n.º <%= current_user.telefone %>. 
+        </p>
+        <hr />
+        
 
         <%= link_to "Voltar", :back, :class => 'btn btn-primary' %>
         <div class="btn btn-success avancar">
@@ -52,9 +58,12 @@
 
       <div class="clausulas_conteudo">
         <div class="confirmacao_preenchimento">
-          <p><b>Atenção</b> ao preenchimento dos dados!</p>
-          <p>Em caso de dúvida ou erro no preenchimento, entre em contato com o NAPP/DIRLIC.</p>
+         <div class="alert alert-secondary">
+          <p style="color:red;font-weight:bold; font-size:1.8rem; font: Calibri"><b>Atenção</b> ao preenchimento dos dados!</p>
+          <p style="font-size:1.2rem;">Em caso de dúvida ou erro no preenchimento, entre em contato com o NAPP/DIRLIC.</p>
+          <p style="font-size:1.5rem;">É muito importante que você preencha o Documento de Estágio corretamente, visto que cada usuário tem acesso a apenas uma tentativa.</p>
           <div class="btn btn-info confirma_preenchimento">Entendi!</div>
+        </div>
         </div>
 
         <div class="clausulas">
@@ -295,6 +304,12 @@
     }
     .confirmacao_preenchimento{
       color: white;
+      text-align:center;
+      font-size: 1.5rem;
+      padding-top: 6.5rem;
+      font-family: "Times New Roman";
+      margin-left: 10rem;
+      margin-right: 10rem;
     }
     .clausulas_texto {
       max-height:400px;

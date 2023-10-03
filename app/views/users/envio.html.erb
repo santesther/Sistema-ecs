@@ -1,0 +1,29 @@
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Estágio Curricular Supervisionado</h1>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+</div>
+<br>
+ <div class="introducao">
+  <div class="page-header text-center">
+    <h3>Instruções para envio do Pdf!</h3>
+  </div>
+
+  <p>
+  <br>
+    <p>Após baixar o documento assinado pela Dirlic pela primeira vez,
+    o aluno deve levar esse documento para a instituição concedente e conseguir a assinatura da mesma.
+    Depois disso o aluno deve scannear o documento já assinado pela escola concedente, podendo usar 
+    algum aplicativo como "Cam Scanner" e fazer o envio do documento logo abaixo.
+    <br>
+    O documento será assinado pela Dirlic e liberado novamente para o acesso único do aluno.
+    <br>
+    Caso não seja possível scannear o Pdf, você pode levar o documento físico para a Dirlic,
+    no 4° andar sala 411 no Instituto Federal Fluminense <i>Campus</i> Campos Centro.
+  </p>
+
+  <%= form_with(model: @user) do |f| %> 
+    <%= f.file_field :arquivos %>  
+    <%= f.submit "Enviar"%>
+   <% end %>

@@ -32,7 +32,7 @@
             </tbody>
         </table>
 
-          <% if @id_user.pdf_centro != false || @id_user.pdf_campi != false || @id_user.pdf_publico != false || @id_user.pdf_particular != false || @id_user.pdf_naoformal != false %>
+          <% if @id_user.pdf_aditivo_centro != false || @id_user.pdf_aditivo_campi != false || @id_user.pdf_aditivo_estadual != false || @id_user.pdf_aditivo_municipalouparticular != false || @id_user.pdf_centro != false || @id_user.pdf_campi != false || @id_user.pdf_publico != false || @id_user.pdf_particular != false || @id_user.pdf_naoformal != false %>
 
           <div class="field">
           <h3>Aprovação para acesso ao Documento de Estágio </h3>
@@ -48,8 +48,18 @@
           <%= f.label :finalizacao_do_usuário %><br />
           <%= f.select :finalizacao, @values_finalizacao, selected: "Revisando" %>
           </div>
+          
+
+          <hr />
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label text-danger">Observação do avaliador</label>
+            <div class="col-sm-9">
+              <%= f.text_area :feedback_situacao, rows: 5, class: 'form-control' %>
+            </div>
+          </div>
           <br>
           <%= f.submit "Salvar", :class => 'btn btn-success' %>
+          <hr />
         
         <% else %>
 
@@ -58,8 +68,18 @@
           <%= f.label :situação_do_usuário %><br />
           <%= f.select :situacao, @values_situacao, selected: "Revisar" %>
           </div>
-          <br>
+         
+
+          <hr />
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label text-danger">Observação do avaliador</label>
+            <div class="col-sm-9">
+              <%= f.text_area :feedback_situacao, rows: 5, class: 'form-control' %>
+            </div>
+          </div>
+           <br>
           <%= f.submit "Salvar", :class => 'btn btn-success' %>
+          <hr />
 
         <% end %>
       
