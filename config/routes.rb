@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
 
   #Routes do Sistema de Estágio
+  get 'estagio_welcome/locus'
+
   get 'estagio_welcome/index'
   post 'estagio_welcome/index'
 
@@ -44,6 +46,15 @@ Rails.application.routes.draw do
   get 'estagio_welcome/pdf_visualiza'
 
   get 'relatorio_centro/index'
+  
+  get 'relatorio_aditivocentro/index'
+
+  get 'relatorio_campiaditivo/index'
+
+  get 'relatorio_estadualaditivo/index'
+
+  get 'relatorio_municipalouparticularaditivo/index'
+
   get 'relatorio_campi/index'
 
   get 'relatorio_publico/index'
@@ -75,8 +86,41 @@ Rails.application.routes.draw do
   get 'relatorio_centro/edit'
   post 'relatorio_centro/edit'
 
+  get 'relatorio_aditivocentro/create'
+  post 'relatorio_aditivocentro/create'
+
+  get 'relatorio_aditivocentro/edit'
+  post 'relatorio_aditivocentro/edit'
+
+  get 'relatorio_aditivocentro/update'
+  post 'relatorio_aditivocentro/update'
+
+  get 'relatorio_campiaditivo/create'
+  post 'relatorio_campiaditivo/create'
+
+  get 'relatorio_campiaditivo/edit'
+  post 'relatorio_campiaditivo/edit'
+
+  get 'relatorio_estadualaditivo/create'
+  post 'relatorio_estadualaditivo/create'
+
+  get 'relatorio_estadualaditivo/edit'
+  post 'relatorio_estadualaditivo/edit'
+
+  get 'relatorio_estadualaditivo/update'
+  post 'relatorio_estadualaditivo/update'
+
   get 'relatorio_centro/update'
   post 'relatorio_centro/update'
+
+  get 'relatorio_municipalouparticularaditivo/update'
+  post 'relatorio_municipalouparticularaditivo/update'
+
+  get 'relatorio_municipalouparticularaditivo/create'
+  post 'relatorio_municipalouparticularaditivo/create'
+
+  get 'relatorio_municipalouparticularaditivo/edit'
+  post 'relatorio_municipalouparticularaditivo/edit'
 
   get 'relatorio_campi/create'
   post 'relatorio_campi/create'
@@ -103,7 +147,23 @@ Rails.application.routes.draw do
   get 'pdf_geral/campi'
   get 'pdf_geral/naoformal'
   get 'pdf_geral/publico'
+  get 'pdf_geral/aditivocentro'
+  get 'pdf_geral/campiaditivo'
+  get 'pdf_geral/estadualaditivo'
+  get 'pdf_geral/municipalouparticularaditivo'
 
+  get 'pdf_geral/update_aditivocentro'
+  post 'pdf_geral/update_aditivocentro'
+
+  get 'pdf_geral/update_campiaditivo'
+  post 'pdf_geral/update_campiaditivo'
+
+  get 'pdf_geral/update_estadualaditivo'
+  post 'pdf_geral/update_estadualaditivo'
+
+  get 'pdf_geral/update_municipalouparticularaditivo'
+  post 'pdf_geral/update_municipalouparticularaditivo'
+  
   get 'pdf_geral/update_particular'
   post 'pdf_geral/update_particular'
 

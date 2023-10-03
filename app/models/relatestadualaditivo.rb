@@ -1,0 +1,2 @@
+class Relatestadualaditivo < ApplicationRecord
+end
