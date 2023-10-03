@@ -14,7 +14,7 @@ gem 'sass-rails'
 
 gem 'bootstrap'
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 2.2', '>= 2.2.4'
 
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
 

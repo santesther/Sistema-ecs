@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_25_183755) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_03_172804) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -86,6 +86,88 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_183755) do
     t.index ["responsavel_avaliacao_id"], name: "index_registro_avaliacaos_on_responsavel_avaliacao_id"
   end
 
+  create_table "relataditivocentros", force: :cascade do |t|
+    t.string "data"
+    t.string "seguradora"
+    t.string "apolice"
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
+    t.string "aluno_semestre"
+    t.string "periodo_de"
+    t.string "periodo_a"
+    t.string "matricula_aluno"
+    t.string "ano"
+    t.string "endereco"
+    t.string "numero"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "municipio"
+    t.string "estado"
+    t.string "cep"
+    t.string "telefone"
+    t.string "estado_da_instituicao"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "licenciatura"
+    t.string "periodo"
+    t.string "avaliador"
+    t.string "periodo_letivo"
+    t.string "periodo_dirlic"
+    t.string "semestre_dirlic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatcampiaditivos", force: :cascade do |t|
+    t.string "data"
+    t.string "seguradora"
+    t.string "apolice"
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
+    t.string "aluno_semestre"
+    t.string "periodo_de"
+    t.string "periodo_a"
+    t.string "matricula_aluno"
+    t.string "ano"
+    t.string "endereco"
+    t.string "numero"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "municipio"
+    t.string "estado"
+    t.string "cep"
+    t.string "telefone"
+    t.string "estado_da_instituicao"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "licenciatura"
+    t.string "periodo"
+    t.string "avaliador"
+    t.string "periodo_letivo"
+    t.string "periodo_dirlic"
+    t.string "semestre_dirlic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "relatcampis", force: :cascade do |t|
     t.string "data"
     t.string "instituicao_apresentacao"
@@ -118,6 +200,88 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_183755) do
     t.string "licenciatura"
     t.string "periodo"
     t.string "avaliador"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatestadualaditivos", force: :cascade do |t|
+    t.string "data"
+    t.string "seguradora"
+    t.string "apolice"
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
+    t.string "aluno_semestre"
+    t.string "periodo_de"
+    t.string "periodo_a"
+    t.string "matricula_aluno"
+    t.string "ano"
+    t.string "endereco"
+    t.string "numero"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "municipio"
+    t.string "estado"
+    t.string "cep"
+    t.string "telefone"
+    t.string "estado_da_instituicao"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "licenciatura"
+    t.string "periodo"
+    t.string "avaliador"
+    t.string "periodo_letivo"
+    t.string "periodo_dirlic"
+    t.string "semestre_dirlic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relatmunicipalouparticularaditivos", force: :cascade do |t|
+    t.string "data"
+    t.string "seguradora"
+    t.string "apolice"
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
+    t.string "aluno_semestre"
+    t.string "periodo_de"
+    t.string "periodo_a"
+    t.string "matricula_aluno"
+    t.string "ano"
+    t.string "endereco"
+    t.string "numero"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "municipio"
+    t.string "estado"
+    t.string "cep"
+    t.string "telefone"
+    t.string "estado_da_instituicao"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "licenciatura"
+    t.string "periodo"
+    t.string "avaliador"
+    t.string "periodo_letivo"
+    t.string "periodo_dirlic"
+    t.string "semestre_dirlic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -429,14 +593,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_183755) do
     t.string "cep"
     t.string "telefone"
     t.string "periodo"
-    t.string "situacao", default: "0"
-    t.boolean "pdf_centro", default: false
-    t.boolean "pdf_campi", default: false
-    t.boolean "pdf_publico", default: false
-    t.boolean "pdf_particular", default: false
-    t.boolean "pdf_naoformal", default: false
-    t.boolean "status_impressao", default: false
-    t.string "finalizacao", default: "0"
     t.string "data"
     t.string "nome_da_instituicao"
     t.string "cnpj"
@@ -452,6 +608,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_183755) do
     t.boolean "condicao"
     t.string "status", default: "Revisando", null: false
     t.string "signature"
+    t.string "feedback_situacao"
+    t.string "situacao", default: "0"
+    t.boolean "pdf_centro", default: false
+    t.boolean "pdf_campi", default: false
+    t.boolean "pdf_publico", default: false
+    t.boolean "pdf_particular", default: false
+    t.boolean "pdf_aditivo_centro", default: false
+    t.boolean "pdf_aditivo_campi", default: false
+    t.boolean "pdf_aditivo_estadual", default: false
+    t.boolean "pdf_aditivo_municipalouparticular", default: false
+    t.boolean "status_impressao", default: false
+    t.string "finalizacao", default: "Revisando"
+    t.boolean "pdf_naoformal", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

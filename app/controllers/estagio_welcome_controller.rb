@@ -50,7 +50,7 @@ class EstagioWelcomeController < ApplicationController
   end
 
   def situacao_params
-    params.permit(:situacao, :finalizacao)
+    params.permit(:situacao, :finalizacao, :feedback_situacao)
   end
 
   def situacao_revisar
