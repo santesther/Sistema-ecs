@@ -1,0 +1,2 @@
+class Relatmunicipalouparticularaditivo < ApplicationRecord
+end
