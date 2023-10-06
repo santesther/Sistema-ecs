@@ -16,7 +16,7 @@
             <b>À: </b>Direção da Instituição de Ensino: </b><%= f.text_field :instituicao_apresentacao, required: true  %></u><br>
             <b>Assunto: <i>Apresentação de discente-estagiário: </i></b><%= f.text_field :aluno_apresentacao, required: true %><br>
             Prezado Gestor.<br>
-            O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste Instituto, no </b> <u><%= current_user.periodo %></u> período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre letivo de <%= f.select :semestre_apresentacao,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>, 
+            O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste Instituto, no </b> <u><%= current_user.periodo %></u> período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre letivo de <%= f.select :ano_apresentacao,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>, 
             <b>para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente</b>, prescristas no Plano de Atividades de Estágio (PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. 
             <br>Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e não remunerado, e de importância significativa para a formação dos futuros formadores.<br>
             Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as).<br> 
@@ -28,12 +28,12 @@
           <p style="text-align: justify;font-size: 16px; font-style 'Calibri'" >O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF n.º 10.779.511/0001-07, situado à Rua 
           Coronel Walter Kramer, n.º 357, bairro: Parque Santo Antônio, município: Campos dos
           Goytacazes/RJ, CEP: 28.030-130, neste Ato representado pela <b>Diretoria de Ensino dos Cursos
-          Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E
-          CONCEDENTE -</b>, inscrita no CNPJ/MF sob o n.º 10.779.511/0002-98, situada na Rua Doutor
+          Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, 
+          inscrito no CNPJ/MF sob o n.º 10.779.511/0002-98, situada na Rua Doutor
           Siqueira, n.º 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP:
-          28.030-130, telefone (22) 27262897, firma parceria, em atendimento à Lei Nº 11.788, de
-          25/09/2008, com o(a) <%= f.text_field :instituicao_apresentacao, required:true %>-
-          <b>Instituição de Ensino CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº <%= current_user.cnpj %>,
+          28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de
+          25/09/2008, com a Instituição de Ensino <b><%= f.text_field :instituicao_apresentacao, required:true %>-
+          CONCEDENTE -</b> inscrita no CNPJ/MF sob o nº <%= current_user.cnpj %>,
           situada no(a) <%= current_user.endereco_da_instituicao %>, nº <%= current_user.numero_da_instituicao %>, Bairro: <%= current_user.bairro_da_instituicao%>,
           no municipio de <%= current_user.municipio_da_instituicao %>, estado do <%= f.text_field :estado_da_instituicao, required:true %>,
           CEP: <%= current_user.cep_da_instituicao %>, telefone <%= current_user.telefone_da_instituicao %>,

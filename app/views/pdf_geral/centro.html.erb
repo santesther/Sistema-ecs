@@ -32,15 +32,15 @@
             </div><br>
             <p>
             matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.matricula %>, no 
-            <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %>º semestre do ano letivo de 20<%= f.number_field :ano, min:23, value: relatorio.ano, required:true %>
-            no curso Superior de Licenciatura em <%= @users.licenciatura %>, <%= @users.periodo %>º periodo.
+            <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo de  <%= f.select :ano,[relatorio.ano], value: relatorio.ano, required:true %>
+            no curso Superior de Licenciatura em <%= @users.licenciatura %>, <%= @users.periodo %> periodo.
             Residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
             Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= f.text_field :estado, value: relatorio.estado, required:true %>,
             CEP: <%= @users.cep %>, telefone/contato nº <%= @users.telefone %>. 
             </p>
 
            <div class="periodo_div">
-              PERÍODO: de <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de %> a <%= f.text_field :periodo_a, required: true, value: relatorio.periodo_a %>
+              <b>Período do Estágio: de <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de %> a <%= f.text_field :periodo_a, required: true, value: relatorio.periodo_a %></b>
               <br><br>
               Avaliador: <%= f.select :avaliador, ['Conceição Campinho','Edina Lacerda', 'Elizabeth Freitas'], {selected: relatorio.avaliador}, required:true %>
             </div>
@@ -59,9 +59,12 @@
 
       <div class="clausulas_conteudo">
         <div class="confirmacao_preenchimento">
-          <p><b>Atenção</b> ao preenchimento dos dados!</p>
-          <p>Lembre-se de conferir os dados e atualizar a situação do aluno!</p>
+         <div class="alert alert-secondary">
+          <p style="color:red;font-weight:bold; font-size:1.8rem; font: Calibri"><b>Atenção</b> ao preenchimento dos dados!</p>
+          <p style="font-size:1.2rem;">Em caso de dúvida ou erro no preenchimento, entre em contato com o NAPP/DIRLIC.</p>
+          <p style="font-size:1.5rem;">É muito importante que você preencha o Documento de Estágio corretamente, visto que cada usuário tem acesso a apenas uma tentativa.</p>
           <div class="btn btn-info confirma_preenchimento">Entendi!</div>
+        </div>
         </div>
 
 
@@ -309,6 +312,12 @@
     }
     .confirmacao_preenchimento{
       color: white;
+      text-align:center;
+      font-size: 1.5rem;
+      padding-top: 6.5rem;
+      font-family: "Times New Roman";
+      margin-left: 10rem;
+      margin-right: 10rem;
     }
     .btn-primary {
       color: white!important;

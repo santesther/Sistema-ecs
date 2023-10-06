@@ -18,41 +18,40 @@ class CampiaditivoPdf< Prawn::Document
           if(relatorio.matricula_aluno == @usuario_matricula)
               move_down 10
               text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u>#{relatorio.instituicao_apresentacao}</u>", align: :left, size: 15, :inline_format => true, :leading => 10
-              move_down 20
+              move_down 10
               text "<b>Assunto: Apresentação de discente-estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
-              move_down 30
-              text "Prezado Gestor", align: :justify, :inline_format => true, :leading => 10
+              move_down 20
+              text "Prezado Gestor.", align: :justify, :inline_format => true, :leading => 10
               move_down 10
               text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u>#{relatorio.aluno_apresentacao_dois}</u>, matriculado(a), neste instituto, no <u>#{relatorio.periodo}</u> semestre do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, no <u>#{relatorio.semestre_apresentacao}</u> semestre letivo de <u>#{relatorio.ano_apresentacao}</u>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, :inline_format => true, :leading => 10
-              move_down 10
+              move_down 3
               text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, :inline_format => true, :leading => 10
-              move_down 40 
+              
 
+              %i[center].each do |position|
+                image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
+                move_down 30
+                end
 
-            %i[center].each do |position|
-              image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550, position: position
-              end
-            move_down 10
+              %i[center].each do |position|
+                image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550, position: position
+                end
+              move_down 10
 
 
             text "<b>TERMO ADITIVO DE ESTÁGIO</b> (Período letivo: <b><u>#{relatorio.periodo_letivo})</u></b>", align: :center, size: 15, :inline_format => true, :leading => 10
-            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, :leading => 10
-            text "<b>Apólice de seguro nº: </b><u>#{relatorio.apolice}</u> ", align: :center, :inline_format => true, :leading => 10
-            move_down 10
-            text "O INSTITUTO FEDERAL FLUMINENSE, CNPJ/MF nº 10.779.511/0001-07, situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, firma parceria, em atendimento à Lei Nº 11.788, de 25/09/2008, com o Instituto Federal Fluminense <i>campus<i> <u>#{relatorio.instituicao_apresentacao}</u> - Instituição de Ensino CONCEDENTE - inscrito no CNPJ/MF sob o nº <u>#{relatorio.cnpj}</u>, situado no(a) <u>#{relatorio.endereco_da_instituicao}</u>, Bairro: <u>#{relatorio.bairro_da_instituicao}</u>, no município de <u>#{relatorio.municipio_da_instituicao}</u>, Estado do Rio de Janeiro, CEP: <u>#{relatorio.cep_da_instituicao}</u>, telefone <u>#{relatorio.telefone_da_instituicao}</u>, representado por <u>#{relatorio.representante}</u>, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura, ao(à) LICENCIANDO(A)", align: :justify, :inline_format => true, :leading => 10
+            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :justify, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro nº: </b><u>#{relatorio.apolice}</u> ", align: :justify, :inline_format => true, :leading => 10
+            move_down 5
+            text "O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com o <b>Instituto Federal Fluminense <i>campus<i> <u>#{relatorio.instituicao_apresentacao}</u> - Instituição de Ensino CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº <u>#{relatorio.cnpj}</u>, situado no(a) <u>#{relatorio.endereco_da_instituicao}</u>, Bairro: <u>#{relatorio.bairro_da_instituicao}</u>, no município de <u>#{relatorio.municipio_da_instituicao}</u>, Estado do Rio de Janeiro, CEP: <u>#{relatorio.cep_da_instituicao}</u>, telefone <u>#{relatorio.telefone_da_instituicao}</u>, representado por <b><u>#{relatorio.representante}</u>, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
             text "<u>#{relatorio.aluno_apresentacao}</u>", align: :center, :inline_format => true, :leading => 10 
             text "matrícula nº <u>#{relatorio.matricula_aluno}</u> do <u>#{relatorio.periodo}</u> do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>.", align: :justify, :inline_format => true, :leading => 10
 
-            text "<b>Cláusula Primeira:</b>", align: :left, :inline_format => true, :leading => 10
-            text "O PRESENTE TERMO ADITIVO ALTERA:", align: :left, :inline_format => true, :leading => 10 
-            text "(<b>X</b>) O período do término do estágio para: <u>#{relatorio.periodo_a}</u>", align: :justify, :inline_format => true, :leading => 10
-            text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado <u>#{relatorio.periodo_dirlic}</u> período no Campus Campos Centro do IFFluminense, no <u>#{relatorio.semestre_dirlic}</u> semestre letivo de <u>#{relatorio.ano}</u>.", align: :justify, :inline_format => true, :leading => 10
+            text "<b>Cláusula Primeira:</b>", align: :left, :inline_format => true, :leading => 5
+            text "O PRESENTE TERMO ADITIVO ALTERA:", align: :left, :inline_format => true, :leading => 5 
+            text "(<b>X</b>) O período do término do estágio para: <b><u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true, :leading => 5
+            text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado <u>#{relatorio.periodo_dirlic}</u> período no Campus Campos Centro do IFFluminense, no <u>#{relatorio.semestre_dirlic}</u> semestre letivo de <u>#{relatorio.ano}</u>.", align: :justify, :inline_format => true, :leading => 5
     
-              
-            %i[center].each do |position|
-              image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550, position: position
-              end
-              move_down 10
   
             text "CLÁUSULA SEGUNDA", align: :center, size: 16
             move_down 20
@@ -121,6 +120,11 @@ class CampiaditivoPdf< Prawn::Document
 
             move_down 30
             text "Licenciando(a) Estagiário(a): ______________________________________________________________", :inline_format => true
+
+            move_down 135
+            %i[center].each do |position|
+              image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
+              end
           end
         end
     end

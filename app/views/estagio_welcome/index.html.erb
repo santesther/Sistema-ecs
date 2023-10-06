@@ -173,11 +173,6 @@
                </span>
                 <span class="col btn2"> <%= button_tag "Rede de Ensino Estadual, Municipal ou Particular", :class => 'btn btn-outline-primary' %></span>
               <br>
-              <% if current_user.licenciatura == 'Educação Física'%>
-                <div class="col btn3">
-                  <%= link_to "Rede de Ensino não formal", relatorio_naoformal_index_path, :class => 'btn btn-outline-primary' %>
-                </div>
-              <% end %>
             </div>
             <style type='text/css'>
               <% if current_user.licenciatura == 'Educação Física' && current_user.periodo == '5.º' %>

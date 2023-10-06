@@ -13,7 +13,7 @@
         <br />
 
             <p style="text-align: justify; font-size: 16px;"><b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profssional(NAPP) do IFFluminense <i>campus</i> Campos Centro.<br>
-            <b>À: </b>Direção da Instituição de Ensino: </b> <u><b>IFFluminense <i>campus</i> Campos Centro/DAEBPCC<b></u><br>
+            <b>À: </b>Direção da Instituição de Ensino: </b> <u><b>IFFluminense <i>campus</i> Campos Centro/DAEBPCC</b></u><br>
             <b>Assunto: <i>Apresentação de discente-estagiário: </i></b><%= f.text_field :aluno_apresentacao, required: true %><br>
             Prezado Gestor.<br>
             O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste Instituto, no </b> <u><%= current_user.periodo %></u> período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre letivo de <%= f.select :ano_apresentacao,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>, 
@@ -28,17 +28,17 @@
         <br />
 
         <p style="text-align: justify; font-size: 16px;">Aditamento ao Termo de Compromisso de Estágio, Ato 
-        representado pela Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - 
-        INSTITUIÇÃO PROMOTORA E CONCEDENTE -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
+        representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - 
+        INSTITUIÇÃO PROMOTORA E CONCEDENTE -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
         Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, 
-        telefone (22) 27262897, firma parceria, em atendimento à Lei Nº 11.788, de 25/09/2008, com a Diretoria de 
+        telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de 
         Ensino da Educação Básica e Profissional, para fins de continuidade do Estágio Curricular Supervisionado dos 
-        Cursos de Licenciatura, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) LICENCIANDO(A)
+        Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>
         <div class="d-flex align-items-center justify-content-center">
           <b><%= f.text_field :aluno_apresentacao, required: true  %></b>
           </div></p>
           matrícula nº <%= current_user.matricula %> do <%= current_user.periodo %> do Curso Superior de Licenciatura em
-          <%= current_user.licenciatura %><br>
+          <%= current_user.licenciatura %>.<br>
           <hr />
         <br />
         <br />
