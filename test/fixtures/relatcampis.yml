@@ -2,6 +2,8 @@
 
 one:
   data: MyString
+  seguradora: MyString
+  apolice: MyString
   instituicao_apresentacao: MyString
   aluno_apresentacao: MyString
   aluno_apresentacao_dois: MyString
@@ -35,6 +37,8 @@ one:
 
 two:
   data: MyString
+  seguradora: MyString
+  apolice: MyString
   instituicao_apresentacao: MyString
   aluno_apresentacao: MyString
   aluno_apresentacao_dois: MyString

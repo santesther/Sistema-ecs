@@ -16,6 +16,7 @@ one:
   licenciatura: MyString
   cnpj: MyString
   endereco_da_instituicao: MyString
+  complemento_da_instituicao: MyString
   numero_da_instituicao: MyString
   bairro_da_instituicao: MyString
   municipio_da_instituicao: MyString
@@ -52,6 +53,7 @@ two:
   licenciatura: MyString
   cnpj: MyString
   endereco_da_instituicao: MyString
+  complemento_da_instituicao: MyString
   numero_da_instituicao: MyString
   bairro_da_instituicao: MyString
   municipio_da_instituicao: MyString

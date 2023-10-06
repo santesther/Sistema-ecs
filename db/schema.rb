@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_03_172804) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_06_131626) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -170,6 +170,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_172804) do
 
   create_table "relatcampis", force: :cascade do |t|
     t.string "data"
+    t.string "seguradora"
+    t.string "apolice"
     t.string "instituicao_apresentacao"
     t.string "aluno_apresentacao"
     t.string "aluno_apresentacao_dois"
@@ -543,6 +545,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_172804) do
     t.string "licenciatura"
     t.string "cnpj"
     t.string "endereco_da_instituicao"
+    t.string "complemento_da_instituicao"
     t.string "numero_da_instituicao"
     t.string "bairro_da_instituicao"
     t.string "municipio_da_instituicao"

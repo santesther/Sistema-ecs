@@ -2,6 +2,8 @@ class CreateRelatcampis < ActiveRecord::Migration[7.0]
   def change
     create_table :relatcampis do |t|
       t.string :data
+      t.string :seguradora
+      t.string :apolice
       t.string :instituicao_apresentacao
       t.string :aluno_apresentacao
       t.string :aluno_apresentacao_dois

@@ -16,6 +16,7 @@ class CreateRelatpublicos < ActiveRecord::Migration[7.0]
       t.string :licenciatura
       t.string :cnpj
       t.string :endereco_da_instituicao
+      t.string :complemento_da_instituicao
       t.string :numero_da_instituicao
       t.string :bairro_da_instituicao
       t.string :municipio_da_instituicao
