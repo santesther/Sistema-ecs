@@ -15,7 +15,7 @@ class ArchivesController < ApplicationController
         @archives_geral = @archives_geral.where('status like ?', "%#{params[:status]}%")
       end
       if params[:search_aluno].present?
-        @archives_geral = @archives_geral.joins(:user).merge(User.where('lower(nome_social) like ?', "%#{params[:search_aluno].downcase}%"))
+        @archives_geral = @archives_geral.joins(:user).merge(User.where('lower(nome_civil) like ?', "%#{params[:search_aluno].downcase}%"))
       end
       if params[:search_periodo].present?
         @archives_geral = @archives_geral.joins(:user).merge(User.where("periodo LIKE ?", "%#{params[:search_periodo]}%"))
