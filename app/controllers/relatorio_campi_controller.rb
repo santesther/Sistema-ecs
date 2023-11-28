@@ -31,6 +31,14 @@ class RelatorioCampiController < ApplicationController
     redirect_to relatorio_campi_index_path, notice: 'Dados Atualizados com sucesso!'
   end
 
+  def destroy
+    @relatorios = Relatcampi.all
+    if @relatorios.present?
+      @relatorios.destroy_by(params[:id])
+    end
+      redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
+    end
+
   def create
     @relatorios = Relatcampi.new(relatorio_params)
 

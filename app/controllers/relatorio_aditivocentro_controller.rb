@@ -30,6 +30,14 @@ class RelatorioAditivocentroController < ApplicationController
         @relatorios = current_user.update(user_params)
         redirect_to relatorio_aditivocentro_index_path, notice: 'Dados Atualizados com sucesso!'
       end
+
+      def destroy
+        @relatorios = Relataditivocentro.all
+        if @relatorios.present?
+          @relatorios.destroy_by(params[:id])
+        end
+          redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
+        end
     
       def create
         @relatorios = Relataditivocentro.new(relatorio_params)

@@ -31,6 +31,14 @@ class RelatorioNaoformalController < ApplicationController
     redirect_to relatorio_naoformal_index_path, notice: 'Dados Atualizados com sucesso!'
   end
 
+  def destroy
+    @relatorios = Relatnaoformal.all
+    if @relatorios.present?
+      @relatorios.destroy_by(params[:id])
+    end
+      redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
+    end
+
   def create
     @relatorios = Relatnaoformal.new(relatorio_params)
 

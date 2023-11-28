@@ -32,10 +32,20 @@ class RelatorioCentroController < ApplicationController
     redirect_to relatorio_centro_index_path, notice: 'Dados Atualizados com sucesso!'
   end
 
+  def destroy
+    @relatorios = Relatorio.all
+    if @relatorios.present?
+      @relatorios.destroy_by(params[:id])
+    end
+      redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
+    end
+
+
   def create
     @relatorios = Relatorio.new(relatorio_params)
 
     @users = current_user.update(:pdf_centro => true)
+   
 
     @relatorios.ano = @relatorios.ano
     @relatorios.matricula_aluno = current_user.matricula
@@ -56,7 +66,7 @@ class RelatorioCentroController < ApplicationController
     if @relatorios.save
       redirect_to estagio_welcome_index_path, id: @relatorios.id,  notice: 'Relatório salvo com sucesso!'
     else
-      redirect_to estagio_welcome_index_path, notice: 'Ocorreu um erro ao salvar o relatório, tente novamente mais tarde!'
+      redirect_to estagio_welcome_index_path, alert: 'Ocorreu um erro ao salvar o relatório, tente novamente mais tarde!'
     end
   end
 

@@ -38,6 +38,14 @@ class RelatorioPublicoController < ApplicationController
     redirect_to relatorio_publico_index_path, notice: 'Dados Atualizados com sucesso!'
   end
 
+  def destroy
+    @relatorios = Relatpublico.all
+    if @relatorios.present?
+      @relatorios.destroy_by(params[:id])
+    end
+      redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
+    end
+
   def create
     @relatorios = Relatpublico.new(relatorio_params)
 

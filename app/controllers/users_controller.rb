@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show]
+  before_action :set_user
   
   def index
     @users = User.all.order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
@@ -33,6 +33,53 @@ end
     else
       redirect_to users_path, alert: "Nao foi possível trocar o status" 	
     end
+  end
+
+  def liberar
+    @user = User.find(params[:id])
+
+    if @user.pdf_centro == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_centro)
+    end
+    if @user.pdf_campi == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_campi)
+    end
+    if @user.pdf_publico == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_publico)
+    end
+    if @user.pdf_particular == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_particular)
+    end
+    if @user.pdf_aditivo_centro == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_aditivo_centro)
+    end
+    if @user.pdf_aditivo_campi == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_aditivo_campi)
+    end
+    if @user.pdf_aditivo_estadual == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_aditivo_estadual)
+    end
+    if @user.pdf_aditivo_municipalouparticular == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_aditivo_municipalouparticular)
+    end
+    if @user.pdf_naoformal == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:pdf_naoformal)
+    end
+    if @user.status_impressao == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:status_impressao)
+    end
+    if @user.condicao == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:condicao)
+    end
+    if @user.apagar == true && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+    @user.toggle!(:apagar)
+    end
+    if @user.save && @user.liberacao == "Aprovado" && @user.finalizacao != "Finalizado"
+      @user.toggle!(:liberacao)
+      redirect_to estagio_welcome_index_path, notice: 'O usuário está apto a preencher outro Termo!' 
+   else
+      redirect_to estagio_welcome_index_path, alert: 'Não foi possível efetuar a liberação do usuário! Lembre-se que o usuário não pode estar finalizado e precisa estar liberado!'
+   end
   end
 
 
