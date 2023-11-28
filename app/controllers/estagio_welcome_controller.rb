@@ -1,16 +1,16 @@
 class EstagioWelcomeController < ApplicationController
   def index
-    @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%").paginate(page: params[:page], per_page: 30)
+    @users = User.order(nome_social: :ASC).where("role == '0' AND situacao != 'Pendente' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%").paginate(page: params[:page], per_page: 30)
     if @users.exists?
     else
-      @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
+      @users = User.order(nome_social: :ASC).where(" role == '0' AND situacao != 'Pendente' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
       if @users.exists?
       else
-        @users = User.order(nome_social: :ASC).where("situacao != '0' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
+        @users = User.order(nome_social: :ASC).where("role == '0' AND situacao != 'Pendente' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
       end
     end
 
-    @will_paginate = User.where("situacao != '0'").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+    @will_paginate = User.where("situacao != 'Pendente'").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
   end
 
   def edit
@@ -24,9 +24,11 @@ class EstagioWelcomeController < ApplicationController
     @id_user = User.find(params[:id])
     
 
-    @values_situacao = ["Revisar", "Aprovado", "Reprovado"]
+    @values_situacao = ["Revisar", "Aprovado", "Reprovado", "Pendente"]
 
     @values_finalizacao = ["Revisando", "Finalizado", "Negado"]
+
+    @values_liberacao = ["Reprovado", "Aprovado"]
   end
 
   def update
@@ -46,11 +48,14 @@ class EstagioWelcomeController < ApplicationController
 
     @user = current_user.update(:finalizacao => "Revisando")
 
+    @user = current_user.update(:liberacao => "Reprovado")
+
     redirect_to estagio_welcome_index_path, notice: 'Solicitação enviada com sucesso!'
   end
 
+
   def situacao_params
-    params.permit(:situacao, :finalizacao, :feedback_situacao)
+    params.permit(:situacao, :finalizacao, :feedback_situacao, :liberacao)
   end
 
   def situacao_revisar
@@ -59,6 +64,10 @@ class EstagioWelcomeController < ApplicationController
 
   def finalizacao_revisar
     params.permit(:finalizacao => "Revisando")
+  end
+
+  def liberacao_revisar
+    params.permit(:liberacao => "Reprovado")
   end
 
 end
