@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   #Routes do Sistema de Estágio
   get 'estagio_welcome/locus'
 
+  post 'estagio_welcome/atualizar_prazo'
+
   get 'estagio_welcome/index'
   post 'estagio_welcome/index'
 
@@ -179,8 +181,17 @@ Rails.application.routes.draw do
   get 'pdf_geral/update_naoformal'
   post 'pdf_geral/update_naoformal'
 
-  
+  #deletes
   get '/delete', to: 'archives#destroy', as: 'delete'
+  get '/delete_relat_centro', to: 'relatorio_centro#destroy', as: 'delete_relat_centro'
+  get '/delete_relat_campi', to: 'relatorio_campi#destroy', as: 'delete_relat_campi'
+  get '/delete_relat_publico', to: 'relatorio_publico#destroy', as: 'delete_relat_publico'
+  get '/delete_relat_particular', to: 'relatorio_particular#destroy', as: 'delete_relat_particular'
+  get '/delete_relat_naoformal', to: 'relatorio_naoformal#destroy', as: 'delete_relat_naoformal'
+  get '/delete_relat_aditivocentro', to: 'relatorio_aditivocentro#destroy', as: 'delete_relat_aditivocentro'
+  get '/delete_relat_campiaditivo', to: 'relatorio_campiaditivo#destroy', as: 'delete_relat_campiaditivo'
+  get '/delete_relat_estadualaditivo', to: 'relatorio_estadualaditivo#destroy', as: 'delete_relat_estadualaditivo'
+  get '/delete_relat_municipalouparticularaditivo', to: 'relatorio_municipalouparticularaditivo#destroy', as: 'delete_relat_municipalouparticularaditivo'
 
 
   devise_for :users, :controllers => { registrations: 'registrations'} 
@@ -191,4 +202,9 @@ Rails.application.routes.draw do
      end
  end
   
+ resources :users do
+  member do
+    get 'liberar'
+   end
+end
 end
