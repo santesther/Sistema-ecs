@@ -36,7 +36,7 @@
             representada por <b><%= @users.representante%>, para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
             ao(à) <b>LICENCIANDO(A) <% @users.nome_social %></b>  matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.matricula %>, no 
             <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %>º semestre do ano letivo de <%= f.number_field :ano, min:23, value: relatorio.ano, required:true %>
-            no curso Superior de Licenciatura em <%= @users.licenciatura %>, <%= @users.periodo %>º periodo.
+            no curso Superior de Licenciatura em <%= @users.licenciatura %>, <%= @users.periodo %> periodo.
             Residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
             Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= f.text_field :estado, value: relatorio.estado, required:true %>,
             CEP: <%= @users.cep %>, telefone/contato nº <%= @users.telefone %>.

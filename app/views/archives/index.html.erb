@@ -100,7 +100,7 @@
                   <td><%= archives.user.periodo %></td>
                   <td><%= archives.user.licenciatura %></td>
                   <td><%= archives.status %></td>
-                  <% if current_user.role != "admin" #&& archives.status == "Deferido" %>
+                  <% if current_user.role != "admin" && archives.status == "Deferido" #&& archives.status == "Deferido" %>
                     <td><%= link_to 'Exibir', archives %></td>
                   <% else %>
                     <td><%= link_to 'Analisar', archives  %></td>
@@ -130,14 +130,10 @@
           <tbody>
           <% @archives_aluno.each_with_index do |archives, index| %>
                 <tr>
+                <% if archives.status == "Deferido" %>
                   <td><b><%= index + 1 %></b></td>
                   <td><%= archives.status %></td>
                   <td><%= link_to 'Exibir', archives %></td>
-                  <% if archives.status == "Pendente" %>
-                    <td><%= link_to 'Editar', edit_archive_path(archives) %></td>
-                    <td><%= link_to 'Apagar', delete_path(id: archives), data: { confirm: 'Tem certeza?' } %></td>
-                  <% elsif archives.status == "Revisar" %>
-                    <td><%= link_to 'Editar', edit_archive_path(archives) %></td>
                   <% end %>
                 </tr>
             <% end %>

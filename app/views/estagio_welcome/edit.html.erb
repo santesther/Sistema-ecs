@@ -37,7 +37,7 @@
           <div class="field">
           <h3>Aprovação para acesso ao Documento de Estágio </h3>
           <%= f.label :situação_do_usuário %><br />
-          <%= f.select :situacao, @values_situacao, selected: "Revisar" %>
+          <%= f.select :situacao, @values_situacao, selected: @id_user.situacao %>
           </div>
           <br>
       
@@ -46,9 +46,17 @@
           <h3>Finalização do Documento de Estágio </h3>
           <div class="field">
           <%= f.label :finalizacao_do_usuário %><br />
-          <%= f.select :finalizacao, @values_finalizacao, selected: "Revisando" %>
+          <%= f.select :finalizacao, @values_finalizacao, selected: @id_user.finalizacao %>
           </div>
-          
+
+          <br>
+           <hr />
+
+          <h3>Liberação para novo preenchimento</h3>
+          <div class="field">
+          <%= f.label :liberacao_do_usuário %><br />
+          <%= f.select :liberacao, @values_liberacao, selected: @id_user.liberacao %>
+          </div>
 
           <hr />
           <div class="form-group row">
@@ -68,6 +76,14 @@
           <%= f.label :situação_do_usuário %><br />
           <%= f.select :situacao, @values_situacao, selected: "Revisar" %>
           </div>
+
+          <hr />
+
+          <h3>Liberação para novo preenchimento</h3>
+          <div class="field">
+          <%= f.label :liberacao_do_usuário %><br />
+          <%= f.select :liberacao, @values_liberacao, selected: @id_user.liberacao %>
+          </div>
          
 
           <hr />
@@ -83,7 +99,6 @@
 
         <% end %>
       
-        <hr />
         <% else %>
           <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
 
