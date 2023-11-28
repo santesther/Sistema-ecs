@@ -17,28 +17,33 @@ class PublicosPdf < Prawn::Document
   
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
-            text "Campos dos Goytacazes, RJ, <u>#{relatorio.data}</u>", align: :center, :inline_format => true
-            move_down 40
+            draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [200, 600], :inline_format => true
+            move_down 20
             text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u>#{relatorio.instituicao_apresentacao}</u>", align: :left, size: 15, :inline_format => true, :leading => 10
-            move_down 10
+            move_down 5
             text "<b>Assunto: Apresentação de discente-estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
             move_down 20
             text "Prezado Gestor.", align: :justify, :inline_format => true, :leading => 10
             move_down 10
             text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u>#{relatorio.aluno_apresentacao_dois}</u>, matriculado(a), neste instituto, no <u>#{relatorio.periodo}</u> do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, no <u>#{relatorio.ano_apresentacao}</u> semestre letivo de <u>#{relatorio.semestre_apresentacao}</u>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, :inline_format => true, :leading => 10
-            move_down 30
+            move_down 5
             text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, :inline_format => true, :leading => 10
-            move_down 70 
+            
+            %i[center].each do |position|
+              image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
+              move_down 30
+              end
 
             %i[center].each do |position|
               image "#{Rails.root}/app/assets/images/cabecalho.png", :width => 550, position: position
               end
             move_down 10
       
+            move_down 5
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 5
-            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, :leading => 10
-            text "<b>Apólice de seguro: </b><u>#{relatorio.apolice}</u>",align: :center, :inline_format => true, :leading => 10
+            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :justify, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro: </b><u>#{relatorio.apolice}</u>",align: :justify, :inline_format => true, :leading => 10
             move_down 5
 
             text "O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, munícipio: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com o(a) <b><u>#{relatorio.instituicao_apresentacao}</u> - Instituição de Ensino CONCEDENTE - </b> inscrito no CNPJ/MF sob o nº <u>#{relatorio.cnpj}</u>, situado no(a) <u>#{relatorio.endereco_da_instituicao}</u>, nº: <u>#{relatorio.numero_da_instituicao}</u>, <u>#{relatorio.complemento_da_instituicao}</u>, Bairro: <u>#{relatorio.bairro_da_instituicao}</u>, no município de <u>#{relatorio.municipio_da_instituicao}</u>, Estado do Rio de Janeiro, CEP: <u>#{relatorio.cep_da_instituicao}</u>, telefone: <u>#{relatorio.telefone_da_instituicao}</u>, representado por <b><u>#{relatorio.representante}</u>, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)", align: :justify, :inline_format => true, :leading => 10
@@ -178,6 +183,8 @@ class PublicosPdf < Prawn::Document
   
             move_down 30
             text "IFFluminense <i>campus</i> Campos Centro: "
+            stroke_horizontal_rule
+            pad_top(20) { }
           if relatorio.avaliador == "Conceição Campinho"
             bounding_box([0, cursor], width: 150, height: 100) do
               transparent(0) { stroke_bounds }
@@ -185,7 +192,14 @@ class PublicosPdf < Prawn::Document
               image "#{Rails.root}/app/assets/images/Carimbo_conceicao_correto.png", :width => 150,
               position: :center, vposition: 25
               end
+              bounding_box([55, cursor], width: 550, height: 300) do
+                transparent(0) { stroke_bounds }
+                %i[center].each do |vposition|
+                image "#{Rails.root}/app/assets/images/assinatura_conceicao.png", :width => 150,
+                position: :center, vposition: -118
             end
+          end
+        end
               elsif relatorio.avaliador == "Edina Lacerda"
                 bounding_box([0, cursor], width: 250, height: 100) do
                   transparent(0) { stroke_bounds }
@@ -208,6 +222,11 @@ class PublicosPdf < Prawn::Document
   
             move_down 30
             text "Estagiário: ______________________________________________________________", :inline_format => true
+
+            move_down 220
+          %i[center].each do |position|
+            image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
+            end
           end
         end
     end

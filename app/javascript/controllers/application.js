@@ -72,7 +72,7 @@ $(document).ready('turbolinks:load', function(){
      $('.div_concedente').hide(200);
    });
  });
- 
+
  $(document).ready('turbolinks:load', function() {
    $('.clausulas').hide();
    $('.conteudo').show();
