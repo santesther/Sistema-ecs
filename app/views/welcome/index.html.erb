@@ -10,12 +10,12 @@
 
 <div class="introducao">
   <div class="page-header text-center">
-    <h3>Seja bem vindo(a) <%=current_user.nome_social %>! </h3>
+    <h3>Seja bem vindo(a) <%=current_user.nome_civil %>! </h3>
   </div>
 
 <% if current_user.role == "normal_user" %>
       <div class="alert alert-primary">
-        <p style="font-size: 1.1rem;">Olá <%= current_user.nome_social %>!</p>
+        <p style="font-size: 1.1rem;">Olá <%= current_user.nome_civil %>!</p>
         <p style="font-size:1.2rem;"><b>No início de cada semestre letivo, lembre-se de atualizar seu período no curso e <i>e-mail</i> (este, se necessário).</b></p>
       </div>
   <p>
@@ -35,19 +35,12 @@
   <% elsif current_user.role != "normal_user" %>
 
   <p>
-  <h5>Verifique a situação dos alunos e seus Documentos de Estágio na aba "Listagem"!</h5>
+  <h5>Verifique a situação dos alunos e seus Documentos de Estágio na aba "Cadastro/ECS"!</h5>
     Assim que disponível, <u>modifique</u> o Documento de Estágio disponibilizado de cada aluno,
     adicionando as informações que <span style="color: #f00;"><b>cabem a Dirlic</b></span> e ao final
     <b>mude o status de finalização do Documento de Estágio</b> para o aluno ter <b>acesso</b> ao 
     <span style="color: #f00;"><b>PDF e a impressão do mesmo!</b></span>
     </p>
-
-    <p>
-    <div class="text-center" <span style="color: #f00;"><b>ATENÇÃO!</b></div>
-    </span> <b>Sempre</b> que acessar a funcionalidade de <u><span style="color: #f00;">mudança de status</u>
-    </span> <b>lembre-se de atualizar o status tanto de <u>acesso ao Documento de Estágio</u> quanto o de 
-    <u>finalização do Documento de Estágio.
-  </p>
   
 <% end %>
   <% else %>

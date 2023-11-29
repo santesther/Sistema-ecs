@@ -24,7 +24,7 @@ class EstagioWelcomeController < ApplicationController
     @id_user = User.find(params[:id])
     
 
-    @values_situacao = ["Revisar", "Aprovado", "Reprovado", "Pendente"]
+    @values_situacao = ["Revisar", "Aprovado", "Reprovado"]
 
     @values_finalizacao = ["Revisando", "Finalizado", "Negado"]
 

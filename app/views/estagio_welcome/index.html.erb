@@ -86,7 +86,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                     <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %>
                   <% end %>
                   
@@ -95,7 +95,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_estadualaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                     <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_estadualaditivo_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_estadualaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %>
                   <% end %>
                   
@@ -104,7 +104,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_campiaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                     <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_campiaditivo_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_campiaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %>
                   <% end %>
                   
@@ -113,7 +113,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_aditivocentro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                     <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_aditivocentro_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_aditivocentro_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %>
                   <% end %>
                   
@@ -122,7 +122,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                   <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_centro_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_centro_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %>
                   <% end %>
                   
@@ -131,7 +131,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_campi_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                      <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_campi_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_campi_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %>                  
                   <% end %>
 
@@ -140,7 +140,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_publico_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                     <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_publico_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_publico_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %>                    
                   <% end %>
 
@@ -149,7 +149,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_particular_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                     <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_particular_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_particular_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %> 
                   <% end %>
 
@@ -158,7 +158,7 @@
                     <td><%= link_to 'Modificar', pdf_geral_naoformal_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-info revisar_btn'  %></td>
                      <% if user.status_impressao == true %>
-                    <td><%= link_to "Apagar", delete_relat_naoformal_path(:id => user.id), :class => 'btn btn-danger',  method: :delete  %></td>
+                    <td><%= link_to "Excluir PDF", delete_relat_naoformal_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                   <% end %> 
                   <% end %>
                 </tr>
@@ -404,6 +404,16 @@
     .btn-light {
       border:1px solid rgba(10,10,200,0.9);
     }
+    .btn-vermelho {
+    background-color: #f44336; 
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
     .btn-light:hover {
       border:1px solid rgba(10,10,200,0.9);
     }
