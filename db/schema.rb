@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_24_151153) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_30_183240) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -164,6 +164,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_151153) do
     t.string "periodo_letivo"
     t.string "periodo_dirlic"
     t.string "semestre_dirlic"
+    t.string "representante_da_instituicao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -202,6 +203,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_151153) do
     t.string "licenciatura"
     t.string "periodo"
     t.string "avaliador"
+    t.string "representante_da_instituicao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -243,6 +245,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_151153) do
     t.string "periodo_letivo"
     t.string "periodo_dirlic"
     t.string "semestre_dirlic"
+    t.string "representante_da_instituicao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -284,6 +287,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_151153) do
     t.string "periodo_letivo"
     t.string "periodo_dirlic"
     t.string "semestre_dirlic"
+    t.string "representante_da_instituicao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -525,6 +529,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_151153) do
     t.string "cep"
     t.string "telefone"
     t.string "avaliador"
+    t.string "representante_da_instituicao_dois"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -565,6 +570,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_151153) do
     t.string "telefone"
     t.string "avaliador"
     t.string "periodo"
+    t.string "representante_da_instituicao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -116,13 +116,6 @@
             <%= f.text_field :cep, class: "form-control", onkeypress:"$(this).mask('00000-000')" %> 
           </div>
 
-        </div>
-         <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Assinatura*</label>
-          <div class="col-sm-4">
-          <%= f.file_field :signatures, accept: 'image/gif, image/jpg, image/jpeg, image/png' %>
-          </div>
-
 <div class="form-group row">
 <label class="col-sm-2 col-form-label">Nova senha*</label>
 <div class="col-sm-4">
@@ -205,11 +198,6 @@
           <label class="col-sm-2 col-form-label">Telefone da instituição*</label>
           <div class="col-sm-4">
             <%= f.text_field :telefone_da_instituicao, required: true, class: "form-control", onkeypress:"$(this).mask('(00) 00000-0000')" %> 
-          </div>
-
-          <label class="col-sm-2 col-form-label">Representada por*</label>
-          <div class="col-sm-4">
-            <%= f.text_field :representante, class: "form-control" %> 
           </div>
 
         </div>

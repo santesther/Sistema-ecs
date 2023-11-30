@@ -37,6 +37,7 @@ one:
   periodo_letivo: MyString
   periodo_dirlic: MyString
   semestre_dirlic: MyString
+  representante_da_instituicao: MyString
 
 two:
   data: MyString
@@ -75,3 +76,4 @@ two:
   periodo_letivo: MyString
   periodo_dirlic: MyString
   semestre_dirlic: MyString
+  representante_da_instituicao: MyString

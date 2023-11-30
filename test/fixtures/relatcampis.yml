@@ -34,6 +34,7 @@ one:
   licenciatura: MyString
   periodo: MyString
   avaliador: MyString
+  representante_da_instituicao: MyString
 
 two:
   data: MyString
@@ -69,3 +70,4 @@ two:
   licenciatura: MyString
   periodo: MyString
   avaliador: MyString
+  representante_da_instituicao: MyString

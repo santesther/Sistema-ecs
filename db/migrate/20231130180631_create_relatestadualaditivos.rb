@@ -37,6 +37,7 @@ class CreateRelatestadualaditivos < ActiveRecord::Migration[7.0]
       t.string :periodo_letivo
       t.string :periodo_dirlic
       t.string :semestre_dirlic
+      t.string :representante_da_instituicao
 
       t.timestamps
     end

@@ -36,6 +36,7 @@ one:
   telefone: MyString
   avaliador: MyString
   periodo: MyString
+  representante_da_instituicao: MyString
 
 two:
   data: MyString
@@ -73,3 +74,4 @@ two:
   telefone: MyString
   avaliador: MyString
   periodo: MyString
+  representante_da_instituicao: MyString

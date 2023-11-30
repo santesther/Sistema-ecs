@@ -8,8 +8,9 @@
       <div class="clausulas_conteudo">
         <div class="confirmacao_preenchimento">
         <div class="alert alert-secondary">
-          <p style="color:red;font-weight:bold; font-size:2rem;" ><b>Atenção</b> ao preenchimento dos dados!</p>
-          <p style="color:red;font-weight:bold;">As informações serão utilizadas no seu Documento de Estágio, portanto preencha corretamente!</p>
+          <p style="color:red;font-weight:bold; font-size:2rem;" ><b>Atenção</b> aos preenchimentos dos dados!</p>
+          <p style="color:red;font-weight:bold;">As informações serão utilizadas nos seus Documentos ao Campo do Estágio.</p>
+          <p style="color:red;font-weight:bold;">Preencha corretamente!</p>
           <div class="btn btn-info confirma_preenchimento">Entendi!</div>
         </div>
         </div>
@@ -23,7 +24,7 @@
 <%= render "devise/shared/error_messages", resource: resource %>
 
    <div class="form-group row">
-     <small style="color: red">(Nome completo e sem abreviaturas!)</small>
+     <small style="color: red; font-size:1.3rem">(Dados completos e sem abreviaturas)</small>
           <label class="col-sm-2 col-form-label">Nome civil*</label> 
           <div class="col-sm-4">
             <%= f.text_field :nome_civil, required: true, class: "form-control" %> 
@@ -58,7 +59,7 @@
 
           <label for="inputEmail3" class="col-sm-2 col-form-label">Período*</label>
           <div class="col-sm-2">
-            <%= f.select :periodo, options_for_select(['1.º','2.º','3.º','4.º','5.º', '6.º', '7.º', '8.º', 'Pedagoga/TAE'], f.object.periodo), include_blank: "Selecione", class: "form-control" %>
+            <%= f.select :periodo, options_for_select(['5.º', '6.º', '7.º', '8.º', 'Pedagoga/TAE'], f.object.periodo), include_blank: "Selecione", class: "form-control" %>
           </div>
 
         </div>
@@ -196,10 +197,6 @@
           <div class="col-sm-4">
             <%= f.text_field :telefone_da_instituicao, required: true, class: "form-control", onkeypress:"$(this).mask('(00) 00000-0000')" %> 
           </div>
-
-          <label class="col-sm-2 col-form-label">Representada por*</label>
-          <div class="col-sm-4">
-            <%= f.text_field :representante, class: "form-control" %> 
           </div>
 
       <div class="card-footer text-muted">

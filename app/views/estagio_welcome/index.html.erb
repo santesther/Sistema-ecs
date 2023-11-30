@@ -3,7 +3,7 @@
     <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
     </div>
     <div class="container container_estagio">
-      <h1 class="titulo">Bem vindo(a) ao Cadastro do ECS!</h1>
+      <h1 class="titulo">Bem-vindo(a) ao preenchimento dos Termos!</h1>
       <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
       <hr />
        <span class style="color:black;font-weight:bold;">
@@ -172,13 +172,13 @@
       <% else %>
         <% if current_user.situacao == "Revisar" %>
           <p>Sua solicitação foi encaminhada para análise.</p>
-          <p>Seu pedido será avaliado pela DIRLIC/NAPP e você será notificado, pelo <i>e-mail</i> cadastrado, atualização do <i>status</i> do pedido!</p>
+          <p>Seu pedido será avaliado pela DIRLIC/NAPP e você será notificado(a), pelo <i>e-mail</i> cadastrado, atualização do <i>status</i> do pedido!</p>
 
           <%= image_tag("loader.gif", :alt => "gif aguarde", width: "420x420") %>
         <% else %>
           <% if current_user.situacao == "Pendente" %>
             <div class="btn_aprovacao">
-              <p>Atualize seu período antes de solicitar o acesso ao Sistema de Cadastro do ECS.</p> <br/>
+              <p style="font-size:1.3rem;">Atualize seu período do Curso, antes de solicitar o acesso ao preenchimento dos Termos.</p> <br/>
               <p>Clique no botão abaixo para solicitar o acesso!</p>
 
               <%= button_to 'Solicitar Acesso', action: 'pendente', :id => current_user.id %>
