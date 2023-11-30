@@ -77,7 +77,7 @@ end
     if @user.save
       redirect_to estagio_welcome_index_path, notice: 'O usuário está apto a preencher outro Termo!' 
    else
-      redirect_to estagio_welcome_index_path, alert: 'Não foi possível efetuar a liberação do usuário! Lembre-se que o usuário não pode estar finalizado e precisa estar liberado!'
+      redirect_to estagio_welcome_index_path, alert: 'Não foi possível efetuar a liberação do usuário! '
    end
   end
 
