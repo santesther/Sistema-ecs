@@ -37,44 +37,47 @@ end
 
   def liberar
     @user = User.find(params[:id])
-    @user.update(:situacao => "Pendente")
-    @user.update(:finalizacao => "Revisando")
-    @user.update(:liberacao => "Reprovado")
 
-    if @user.pdf_centro == true
+    if @user.pdf_centro == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_centro)
     end
-    if @user.pdf_campi == true
+    if @user.pdf_campi == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_campi)
     end
-    if @user.pdf_publico == true
+    if @user.pdf_publico == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_publico)
     end
-    if @user.pdf_particular == true
+    if @user.pdf_particular == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_particular)
     end
-    if @user.pdf_aditivo_centro == true
+    if @user.pdf_aditivo_centro == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_aditivo_centro)
     end
-    if @user.pdf_aditivo_campi == true
+    if @user.pdf_aditivo_campi == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_aditivo_campi)
     end
-    if @user.pdf_aditivo_estadual == true
+    if @user.pdf_aditivo_estadual == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_aditivo_estadual)
     end
-    if @user.pdf_aditivo_municipalouparticular == true
+    if @user.pdf_aditivo_municipalouparticular == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_aditivo_municipalouparticular)
     end
-    if @user.pdf_naoformal == true
+    if @user.pdf_naoformal == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_naoformal)
     end
-    if @user.status_impressao == true
+    if @user.status_impressao == true && @user.liberacao == "Aprovado"
     @user.toggle!(:status_impressao)
     end
-    if @user.condicao == true
+    if @user.condicao == true && @user.liberacao == "Aprovado"
     @user.toggle!(:condicao)
     end
-    if @user.save
+
+    if @user.liberacao == "Aprovado" && @relatorios.present? != true
+    @user.update(:situacao => "Pendente")
+    end
+    @user.update(:finalizacao => "Revisando")
+
+    if @user.save && @relatorios.present? != true
       redirect_to estagio_welcome_index_path, notice: 'O usuário está apto a preencher outro Termo!' 
    else
       redirect_to estagio_welcome_index_path, alert: 'Não foi possível efetuar a liberação do usuário! '
@@ -90,7 +93,8 @@ end
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @users = User.all
+    @user = User.find_by(params[:id])
   end
 
   private 
