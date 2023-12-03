@@ -50,6 +50,14 @@
           </div>
 
           <br>
+          <hr />
+
+           <h3>Liberação para novo preenchimento</h3>
+          <div class="field">
+          <%= f.label :liberacao_do_usuário %><br />
+          <%= f.select :liberacao, @values_liberacao, selected: @id_user.liberacao %>
+          </div>
+         
 
           <hr />
           <div class="form-group row">
@@ -71,13 +79,6 @@
           </div>
 
           <hr />
-
-          <h3>Liberação para novo preenchimento</h3>
-          <div class="field">
-          <%= f.label :liberacao_do_usuário %><br />
-          <%= f.select :liberacao, @values_liberacao, selected: @id_user.liberacao %>
-          </div>
-         
 
           <hr />
           <div class="form-group row">

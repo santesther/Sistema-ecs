@@ -72,15 +72,15 @@ end
     @user.toggle!(:condicao)
     end
 
-    if @user.liberacao == "Aprovado" && @relatorios.present? != true
+    if @user.liberacao == "Aprovado"
     @user.update(:situacao => "Pendente")
     end
     @user.update(:finalizacao => "Revisando")
 
-    if @user.save && @relatorios.present? != true
+    if @user.save && @user.liberacao == "Aprovado"
       redirect_to estagio_welcome_index_path, notice: 'O usuário está apto a preencher outro Termo!' 
    else
-      redirect_to estagio_welcome_index_path, alert: 'Não foi possível efetuar a liberação do usuário! '
+      redirect_to estagio_welcome_index_path, alert: 'Não foi possível efetuar a liberação do usuário! Lembre-se que o usuário precisa estar liberado e ter seu termo deletado!'
    end
   end
 

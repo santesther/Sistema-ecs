@@ -85,8 +85,11 @@
                     <td><%= link_to 'PDF', relatorio_municipalouparticularaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if user.status_impressao == true %>
+                    <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
+                  <% end %>
+                   <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
                   
@@ -94,8 +97,11 @@
                     <td><%= link_to 'PDF', relatorio_estadualaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_estadualaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary' %></td>
-                    <% if user.status_impressao == true %>
+                    <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_estadualaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
+                  <% end %>
+                   <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
                   
@@ -103,8 +109,11 @@
                     <td><%= link_to 'PDF', relatorio_campiaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_campiaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if user.status_impressao == true %>
+                    <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_campiaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
+                  <% end %>
+                   <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
                   
@@ -112,8 +121,11 @@
                     <td><%= link_to 'PDF', relatorio_aditivocentro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_aditivocentro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if user.status_impressao == true %>
+                    <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_aditivocentro_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
+                  <% end %>
+                   <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
                   
@@ -121,8 +133,11 @@
                     <td><%= link_to 'PDF', relatorio_centro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                  <% if user.status_impressao == true %>
+                  <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_centro_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
+                  <% end %>
+                  <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
                   
@@ -130,8 +145,11 @@
                     <td><%= link_to 'PDF', relatorio_campi_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_campi_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                     <% if user.status_impressao == true %>
+                     <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_campi_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
+                  <% end %>
+                   <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>                  
                   <% end %>
 
@@ -139,17 +157,23 @@
                     <td><%= link_to 'PDF', relatorio_publico_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_publico_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if user.status_impressao == true %>
+                    <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_publico_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %>                    
+                  <% end %> 
+                    <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
+                  <% end %>
                   <% end %>
 
                   <% if user.pdf_particular != false %>
                     <td><%= link_to 'PDF', relatorio_particular_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_particular_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if user.status_impressao == true %>
+                    <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_particular_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
+                  <% end %>
+                   <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %> 
                   <% end %>
 
@@ -157,8 +181,11 @@
                     <td><%= link_to 'PDF', relatorio_naoformal_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_naoformal_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                     <% if user.status_impressao == true %>
+                     <% if @relatorio.nil? == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_naoformal_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
+                  <% end %>
+                   <% if user.status_impressao == true %>
+                    <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %> 
                   <% end %>
                 </tr>
@@ -413,7 +440,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-}
+    }
     .btn-light:hover {
       border:1px solid rgba(10,10,200,0.9);
     }
