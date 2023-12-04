@@ -19,6 +19,10 @@
     <p><strong>Mensagem:</strong></p>
    
 
+    <% if @current_user.pdf_aditivo_centro != false %>
+      <p><b>O relatório <b>aditivo</b> referente ao estágio do <u>IFF Centro</u> foi preenchido!</b></p>
+    <% end %>
+
     <% if @current_user.pdf_centro != false %>
       <p><b>O relatório referente ao estágio do <u>IFF Centro</u> foi preenchido!</b></p>
     <% end %>
@@ -27,8 +31,16 @@
       <p><b>O relatório referente ao estágio do <u>IFF Campi</u> foi preenchido!</b></p>
     <% end %>
 
+    <% if @current_user.pdf_aditivo_campi != false %>
+      <p><b>O relatório <b>aditivo</b> referente ao estágio do <u>IFF Campi</u> foi preenchido!</b></p>
+    <% end %>
+
     <% if @current_user.pdf_particular != false %>
       <p><b>O relatório referente à rede <u>Particular/Municipal</u>, para estágio, foi preenchido!</b></p>
+    <% end %>
+
+    <% if @current_user.pdf_aditivo_municipalouparticular != false %>
+      <p><b>O relatório <b>aditivo</b> referente à rede <u>Particular/Municipal</u>, para estágio, foi preenchido!</b></p>
     <% end %>
 
     <% if @current_user.pdf_naoformal != false %>
@@ -37,6 +49,10 @@
 
     <% if @current_user.pdf_publico != false %>
       <p><b>O relatório referente à rede <u>Pública</u>, para estágio, foi preenchido!</b></p>
+    <% end %>
+
+    <% if @current_user.pdf_aditivo_estadual != false %>
+      <p><b>O relatório <b>aditivo</b> referente à rede <u>Pública</u>, para estágio, foi preenchido!</b></p>
     <% end %>
   </body>
 </html>

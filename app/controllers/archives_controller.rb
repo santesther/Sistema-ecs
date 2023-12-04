@@ -89,7 +89,7 @@ class ArchivesController < ApplicationController
     respond_to do |format|
       if @archive.save
         if current_user.role != "admin"
-          #ApplicationMailer.atividade_enviada(current_user, @activity).deliver
+          ApplicationMailer.atividade_enviada(current_user, @archive).deliver
           @users = current_user.update(:condicao => true)
         end
         format.html { redirect_to archives_new_path(:id => @archive.id), notice: 'Atividade criada com sucesso.'  }
@@ -121,14 +121,14 @@ class ArchivesController < ApplicationController
           @aluno_da_atividade = User.find_by(nome_social: @archive.nome_usuario)
   
           if current_user.role != "admin"
-           # ApplicationMailer.atividade_editada(current_user, @archive).deliver
+           ApplicationMailer.atividade_editada(current_user, @archive).deliver
           else
             @id = @aluno_da_atividade.id
             @nome_social = @archive.nome_usuario
             @status = @archive.status
   
             @registro = RegistroAvaliacao.create!(aluno_id: @id, nome_aluno: @nome_social, status: @status, avaliador: current_user.nome_social, archive_id: @archive.id, responsavel_avaliacao_id: current_user.id)
-            #ApplicationMailer.atividade_avaliada(current_user, @archive, @aluno_da_atividade).deliver
+            ApplicationMailer.atividade_avaliada(current_user, @archive, @aluno_da_atividade).deliver
           end
   
           format.html { redirect_to @archive, notice: 'Atividade atualizada com sucesso.' }
