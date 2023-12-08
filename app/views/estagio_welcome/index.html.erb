@@ -332,7 +332,7 @@
               <% end %>
 
                <% if current_user.pdf_aditivo_centro != false && current_user.status_impressao == false %>
-                <%= link_to 'Gerar PDF', relatorio_adivito_centro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
+                <%= link_to 'Gerar PDF', relatorio_aditivocentro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
 
               <% if current_user.pdf_centro != false && current_user.status_impressao == false %>
