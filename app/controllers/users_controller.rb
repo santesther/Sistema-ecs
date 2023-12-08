@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user
+  before_action :set_user, only: [:show]
   
   def index
-    @users = User.all.order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+    @users = User.all.order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
     if params[:nome_social].present?
-      @users = @users.where("lower(nome_social) LIKE ?", "%#{params[:nome_social].downcase}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+      @users = @users.where("lower(nome_civil) LIKE ?", "%#{params[:nome_civil].downcase}%").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
     end
     if params[:licenciatura].present?
       @users = @users.where("lower(licenciatura) LIKE ?", "%#{params[:licenciatura].downcase}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
@@ -93,8 +93,7 @@ end
   end
 
   def set_user
-    @users = User.all
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 
   private 
