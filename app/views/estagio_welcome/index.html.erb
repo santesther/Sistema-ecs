@@ -76,6 +76,16 @@
                       <td style="color:green;font-weight:bold;"><%= user.liberacao %></td>
                     <% end %>
                     <% end %>
+                    
+                     <div class="clausulas_conteudo">
+                    <div class="confirmacao_preenchimento">
+                    <div class="alert alert-secondary">
+                      <p style="color:red;font-weight:bold; font-size:1.8rem; font: Calibri"><b>Atenção</b> com a sequência das etapas!</p>
+                      <p style="font-size:1.5rem;">O usuário só deve ser liberado <b><u>DEPOIS</u></b> de ter seu <b><u>PDF EXCLUÍDO</u></b>!</p>
+                      <p style="font-size:1.5rem;">Além da obrigatoriedade do usuário ter sua <b><u>liberação aprovada</u></b> e já ter realizado a impressão do Termo.</p>
+                      <div class="btn btn-info confirma_preenchimento">Entendi!</div>
+                    </div>
+                    </div>
 
                   <td><%= user.role %></td>
                   
@@ -379,6 +389,38 @@
     <% end %>
 
   <style type="text/css">
+  .conteudo p {
+      line-height: 2.5;
+      text-align: justify;
+    }
+    input {
+      height:30px;
+      border:none;
+      border-bottom:2px dashed black;
+    }
+    .btn-success, .btn-warning {
+      height:40px;
+      margin-left:30px;
+    }
+    .periodo_div {
+      text-align:center;
+    }
+    .clausulas_conteudo {
+      height:145%;
+      width:100%;
+      position:absolute;
+      top:0;
+      left:0;
+    }
+    .confirmacao_preenchimento{
+      color: white;
+      text-align:center;
+      font-size: 1.5rem;
+      padding-top: 6.5rem;
+      font-family: "Times New Roman";
+      margin-left: 10rem;
+      margin-right: 10rem;
+    }
     .titulo {
       text-align: center;
       padding-top: 10px;
