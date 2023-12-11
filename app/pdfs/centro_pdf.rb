@@ -19,11 +19,11 @@ class CentroPdf < Prawn::Document
           if(relatorio.matricula_aluno == @usuario_matricula)
             draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [200, 600], :inline_format => true
             move_down 10
-            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u>IFFluminense campus Campos Centro/DAEBPCC</u>", align: :left, size: 12, :inline_format => true
-            move_down 10
+            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u>IFFluminense <i>Campus</i> Campos Centro/DAEBPCC</u>", align: :left, size: 12, :inline_format => true
+            move_down 12
             text "<b>DA:</b><u> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profissional (NAPP) do IFFluminense campus Campos Centro</u>", align: :left, size: 12, :inline_format => true
             move_down 10
-            text "<b>Assunto: Apresentação do Discente-Estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 10, :inline_format => true, :leading => 10
+            text "<b>Assunto: Apresentação do Discente-Estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 12, :inline_format => true, :leading => 10
             move_down 5
             text "Prezado Gestor.", align: :justify, :inline_format => true, :leading => 10
             move_down 10
@@ -130,7 +130,7 @@ class CentroPdf < Prawn::Document
             move_down 5
             text "<b><u>#{relatorio.aluno_apresentacao}</u></b>", align: :center, size: 20, :inline_format => true, :leading => 10
             move_down 5
-            text "matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_semestre}</u> semestre do ano letivo de <u>#{relatorio.ano}</u>, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, <u>#{relatorio.periodo}</u> período. Residente no(a) <u>#{relatorio.endereco}</u>, nº <u>#{relatorio.numero}</u>, Complemento: <u>#{relatorio.complemento}</u>, Bairro: <u>#{relatorio.bairro}</u>, município: <u>#{relatorio.municipio}</u>, UF: <u>#{relatorio.estado}</u>, CEP: <u>#{relatorio.cep}<u>, telefone/contato: nº <u>#{relatorio.telefone}</u>", align: :center, :inline_format => true, :leading => 10
+            text "matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_semestre}</u> semestre do ano letivo de <u>#{relatorio.ano}</u>, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, <u>#{relatorio.periodo}</u> período. Residente no(a) <u>#{relatorio.endereco}</u>, nº <u>#{relatorio.numero}</u>, Complemento: <u>#{relatorio.complemento}</u>, Bairro: <u>#{relatorio.bairro}</u>, município: <u>#{relatorio.municipio}</u>, UF: <u>#{relatorio.estado}</u>, CEP: <u>#{relatorio.cep}<u>, telefone/contato: nº <u>#{relatorio.telefone}</u>", align: :justify, :inline_format => true, :leading => 10
             move_down 10
             text "<b>Período de Estágio: de <u>#{relatorio.periodo_de}</u> a <u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true
   
