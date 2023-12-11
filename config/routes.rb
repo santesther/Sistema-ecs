@@ -181,7 +181,7 @@ Rails.application.routes.draw do
   get 'pdf_geral/update_naoformal'
   post 'pdf_geral/update_naoformal'
 
-  #deletes
+  #deletes relats
   get '/delete', to: 'archives#destroy', as: 'delete'
   get '/delete_relat_centro', to: 'relatorio_centro#destroy', as: 'delete_relat_centro'
   get '/delete_relat_campi', to: 'relatorio_campi#destroy', as: 'delete_relat_campi'
