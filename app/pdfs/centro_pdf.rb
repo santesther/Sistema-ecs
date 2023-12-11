@@ -294,6 +294,21 @@ class CentroPdf < Prawn::Document
                 end
               end
             end
+          elsif relatorio.avaliador == "Elizabeth Freitas"
+            bounding_box([50, cursor], width: 150, height: 100) do
+              transparent(0) { stroke_bounds }
+              %i[center].each do |vposition|
+              image "#{Rails.root}/app/assets/images/carimbo_Elizabeth.png", :width => 250,
+              position: :center, vposition: 5
+              end
+              bounding_box([55, cursor], width: 400, height: 450) do
+                transparent(0) { stroke_bounds }
+                %i[center].each do |vposition|
+                image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 140,
+                position: :center, vposition: -150
+            end
+          end
+        end
               elsif relatorio.avaliador == "Virginia Ribeiro"
                 bounding_box([50, cursor], width: 150, height: 100) do
                   transparent(0) { stroke_bounds }
