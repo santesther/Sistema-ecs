@@ -35,12 +35,15 @@
   <% elsif current_user.role != "normal_user" %>
 
   <p>
-  <h5>Verifique a situação dos alunos e seus Documentos de Estágio na aba "Cadastro/ECS"!</h5>
-    Assim que disponível, <u>modifique</u> o Documento de Estágio disponibilizado de cada aluno,
+  <h5 style = "font-size:1.4rem; text-align: center;">Verifique a situação dos alunos e seus Documentos de Estágio na aba "Cadastro/ECS"!</h5><br>
+   <p style="font-size:1.2rem;">Assim que disponível, <b><u>modifique</u></b> o Documento de Estágio disponibilizado de cada aluno,
     adicionando as informações que <span style="color: #f00;"><b>cabem a Dirlic</b></span> e ao final
     <b>mude o status de finalização do Documento de Estágio</b> para o aluno ter <b>acesso</b> ao 
     <span style="color: #f00;"><b>PDF e a impressão do mesmo!</b></span>
     </p>
+    <p style="color:red;font-weight:bold; font-size:1.4rem; font: Calibri;  text-align: center;"><b>Atenção</b> com a sequência das etapas!</p>
+    <p style="font-size:1.2rem;">O usuário só deve ser liberado <b><u>DEPOIS</u></b> de ter seu <b><u>PDF EXCLUÍDO</u></b>!</p>
+    <p style="font-size:1.2rem;">Além da obrigatoriedade do usuário ter sua <b><u>liberação aprovada</u> e <u>já ter realizado a impressão do Termo</u></b>.</p>
   
 <% end %>
   <% else %>

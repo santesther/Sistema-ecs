@@ -15,15 +15,14 @@
   </div>
 
   <p>
-    <p>Ao baixar o documento assinado pela Dirlic,
-    o aluno deve levá-lo à Instituição Concedente a fim de obter a assinatura do Responsável Legal pela mesma.
-    Após, o aluno deve scannear o Termo assinado pela Instituição Concedente, podendo usar 
-    algum aplicativo como "Cam Scanner" e realizar o envio do documento.
-    <br>
-    Caso não seja possível scannear o Termo:
-    <br>
-    A impressão dos documentos pode ser realizada no micródromo do <i>Campus</i> Campos Centro. Caso não
-    seja possível, orientamos que se dirija a NAPP/DIRLIC.
+    <p style="font-size:1.2rem;">Ao baixar o documento assinado pela Dirlic,
+    o aluno deve <b>levá-lo à Instituição Concedente a fim de <u>obter a assinatura do Responsável Legal</u></b> pela mesma.
+    Após, <b>se tiver possibilidade</b>, o aluno deve <b><u>scannear</u></b> o Termo assinado pela Instituição Concedente e realizar o envio do documento.
+    <br><br>
+    <b>Caso <u>não seja possível</u> scannear o Termo:</b>
+    <br><br>
+    A impressão dos documentos <b>pode ser realizada no <u>micródromo</u> do <i>Campus</i> Campos Centro</b>. Caso <b><u>não
+    seja possível</u><b>, orientamos que se dirija a <u>NAPP/DIRLIC no bloco G, sala 411</u>.
   </p>
 
 <div class="card">
@@ -43,7 +42,7 @@
       </div>
     <% end %>
 
-    <% if current_user.condicao != true %>
+    <% if current_user.condicao != true && current_user.role == "normal_user" %>
 
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Aluno(a)</label>
@@ -64,7 +63,7 @@
         </div>
       </div>
 
-      <% else %>
+      <% elsif current_user.role == "normal_user" && current_user.condicao == true %>
 
       <div class="d-flex align-items-center justify-content-center">
         <h4 style="color:blue;">Você enviou seu documento para a Dirlic!</h4>
