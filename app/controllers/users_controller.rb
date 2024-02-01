@@ -40,6 +40,9 @@ end
 
     if @user.pdf_centro == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_centro)
+    if @relatorios.present?
+      @relatorios.destroy_by(params[:id])
+    end
     end
     if @user.pdf_campi == true && @user.liberacao == "Aprovado"
     @user.toggle!(:pdf_campi)
@@ -77,19 +80,18 @@ end
     end
     @user.update(:finalizacao => "Revisando")
 
-    if @user.save && @user.liberacao == "Aprovado"
+    if @relatorio.present? == false
+    if @user.save && @user.liberacao == "Aprovado" 
       redirect_to estagio_welcome_index_path, notice: 'O usuário está apto a preencher outro Termo!' 
    else
       redirect_to estagio_welcome_index_path, alert: 'Não foi possível efetuar a liberação do usuário! Lembre-se que o usuário precisa estar liberado e ter seu termo deletado!'
    end
   end
+end
 
 
   def show
-    @documentos_deferidos = Archive.where(user_id: params[:id], status: "Deferido") 
-    @documentos_indeferidos = Archive.where(user_id: params[:id], status: "Indeferido") 
-    @documentos_pendentes = Archive.where(user_id: params[:id], status: "Pendente") 
-    @documentos_revisar = Archive.where(user_id: params[:id], status: "Revisar") 
+  
   end
 
   def set_user

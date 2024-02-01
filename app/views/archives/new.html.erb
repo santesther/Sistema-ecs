@@ -1,7 +1,0 @@
-  <% if current_user.role == "normal_user" %>
-  <%= render 'form', archive: @archive %>
-<% end %>
-
-<% if current_user.role != "normal_user" %>
-  <%= render 'admin', archive: @archive %>
-<% end %>

@@ -9,7 +9,6 @@ class User < ApplicationRecord
   validates :status, presence: true
 
   has_one_attached :avatar, dependent: :destroy
-  has_many :archives, dependent: :destroy
   #has_one_attached :signature, dependent: :destroy
 
   # Include default devise modules. Others available are:
