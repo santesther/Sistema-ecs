@@ -4,20 +4,20 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all.order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
-    if params[:nome_social].present?
+    if params[:nome_civil].present?
       @users = @users.where("lower(nome_civil) LIKE ?", "%#{params[:nome_civil].downcase}%").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
     end
     if params[:licenciatura].present?
-      @users = @users.where("lower(licenciatura) LIKE ?", "%#{params[:licenciatura].downcase}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+      @users = @users.where("lower(licenciatura) LIKE ?", "%#{params[:licenciatura].downcase}%").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
     end
     if params[:periodo].present?
-      @users = @users.where("lower(periodo) LIKE ?", "%#{params[:periodo].downcase}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+      @users = @users.where("lower(periodo) LIKE ?", "%#{params[:periodo].downcase}%").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
     end
     if params[:matricula].present?
-      @users = @users.where("matricula LIKE ?", "%#{params[:matricula]}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+      @users = @users.where("matricula LIKE ?", "%#{params[:matricula]}%").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
     end
     if params[:finalizacao].present?
-      @users = @users.where("finalizacao LIKE ?", "%#{params[:finalizacao]}%").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+      @users = @users.where("finalizacao LIKE ?", "%#{params[:finalizacao]}%").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
   end
 end
 

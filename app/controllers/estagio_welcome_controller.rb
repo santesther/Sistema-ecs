@@ -1,21 +1,21 @@
 class EstagioWelcomeController < ApplicationController
   def index
-    @users = User.order(nome_social: :ASC).where("role == '0' AND situacao != 'Pendente' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%").paginate(page: params[:page], per_page: 30)
+    @users = User.order(nome_civil: :ASC).where("role == '0' AND situacao != 'Pendente' AND (nome_civil LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%").paginate(page: params[:page], per_page: 30)
     if @users.exists?
     else
-      @users = User.order(nome_social: :ASC).where(" role == '0' AND situacao != 'Pendente' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
+      @users = User.order(nome_civil: :ASC).where(" role == '0' AND situacao != 'Pendente' AND (nome_civil LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
       if @users.exists?
       else
-        @users = User.order(nome_social: :ASC).where("role == '0' AND situacao != 'Pendente' AND (nome_social LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
+        @users = User.order(nome_civil: :ASC).where("role == '0' AND situacao != 'Pendente' AND (nome_civil LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
       end
     end
 
-    @will_paginate = User.where("situacao != 'Pendente'").order(nome_social: :ASC).paginate(page: params[:page], per_page: 30)
+    @will_paginate = User.where("situacao != 'Pendente'").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
   end
 
   def edit
     session[:id_user] = params['id']
-    session[:nome_user] = params['nome_social']
+    session[:nome_user] = params['nome_civil']
     session[:matricula_user] = params['matricula']
     session[:curso_user] = params['curso']
     session[:periodo_user] = params['periodo']
