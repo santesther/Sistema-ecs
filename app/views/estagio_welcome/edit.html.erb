@@ -43,6 +43,15 @@
       
          <hr />
 
+         <h3>Finalização do Documento de Estágio </h3>
+          <div class="field">
+          <%= f.label :finalizacao_do_usuário %><br />
+          <%= f.select :finalizacao, @values_finalizacao, selected: @id_user.finalizacao %>
+          </div>
+
+          <br>
+          <hr />
+
            <h3>Liberação para novo preenchimento</h3>
           <div class="field">
           <%= f.label :liberacao_do_usuário %><br />
