@@ -7,20 +7,6 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/show'
 
-  #routes envio de arquivos
-  get 'archives/index'
-  get 'archives/new'
-  post 'archives/new'
-
-
-  get 'archives/show'
-  get 'archives/deferidos'
-  get 'archives/indeferidos'
-  get 'archives/pendentes'
-  get 'archives/atividades_geral'
-  get 'archives/revisar'
-  get 'archives/export'
-
 
   #Routes do Sistema de Estágio
   get 'estagio_welcome/locus'
