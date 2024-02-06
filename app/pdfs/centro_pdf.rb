@@ -36,6 +36,8 @@ class CentroPdf < Prawn::Document
               image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
               move_down 30
               end
+
+              
             if relatorio.avaliador == "Conceição Campinho"
             bounding_box([-10, cursor], width: 150, height: 100) do
               transparent(0) { stroke_bounds }
