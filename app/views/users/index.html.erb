@@ -72,8 +72,8 @@
                   <% end %>
                 </td>
                 <td><%= %> 
-                    <% if not user.nome_social.blank? %>
-                      <p><%= user.nome_social %></p>
+                    <% if not user.nome_civil.blank? %>
+                      <p><%= user.nome_civil %></p>
                       <%= link_to "Acessar perfil", users_show_path(id: user.id), :target => '_blank',  :class => "btn btn-primary" %>
                     <% end %>
                 </td>
