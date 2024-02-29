@@ -17,10 +17,21 @@ export { application } // abre a interface do admin
 //= require bootstrap
 //= require_tree .
 
+import Swal from 'sweetalert2';
+window.Swal = Swal;
 
-$(document).on('turbolinks:load', function() {
+$(document).ready('turbolinks:load', function() {
     //Logica
+    $('.alert').click('turbolinks:load', function() {
+      Swal.fire("funcionando!");
+  });
 });
+
+$(document).ready('turbolinks:load', function() {
+  $('.delete-post').click('turbolinks:load', function() {
+    
+});
+  });
 
 $(document).ready('turbolinks:load', function(){
     var tam = $(window).width();
