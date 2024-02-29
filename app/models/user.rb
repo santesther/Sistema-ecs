@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   validates :status, presence: true
 
+  mount_uploader :avatar, AvatarUploader
   has_one_attached :avatar, dependent: :destroy
-  #has_one_attached :signature, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

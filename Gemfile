@@ -5,6 +5,8 @@ ruby '3.1.2'
 
 gem 'rails_admin'
 
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
 gem 'mailcatcher'
 
 gem 'devise'
@@ -64,7 +66,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+gem 'jbuilder', '~> 2.5'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

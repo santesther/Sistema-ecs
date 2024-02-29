@@ -36,6 +36,7 @@ class RelatorioCentroController < ApplicationController
     @relatorios = Relatorio.all
     if @relatorios.present?
       @relatorios.destroy_by(params[:id])
+      ContactMailer.confirmacao_delete(current_user).deliver
     end
       redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
     end

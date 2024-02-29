@@ -18,6 +18,7 @@
   	<div class="row">
     	<div class="col-md-12 ">
 			<ul class="list-group">
+				<li class=list-group-item><b>Enviar E-mail:</b> <%= link_to 'Enviar e-mail', mensagens_path(:user_id => @user.id), :class => "btn btn-success btn-block" %></li>
 				<li class="list-group-item"><b>Nome civil:</b> <%= @user.nome_civil %></li>
 				<% if not @user.nome_social.blank? %>
 					<li class="list-group-item"><b>Nome social:</b> <%= @user.nome_social %></li>
@@ -40,7 +41,10 @@
 				<li class="list-group-item"><b>Município da Instituição:</b> <%= @user.municipio_da_instituicao %></li>
 				<li class="list-group-item"><b>CEP da Instituição:</b> <%= @user.cep_da_instituicao %></li>
 				<li class="list-group-item"><b>Telefone da Instituição:</b> <%= @user.telefone_da_instituicao %></li>
+				<% if not @user.representante.blank? %>
 				<li class="list-group-item"><b>Representada por:</b> <%= @user.representante %></li>
+				<% else %>
+				<% end %>
 			</ul>
 		</div>
 	</div>

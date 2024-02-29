@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/galetahub/ckeditor.git
+  revision: 8200ccdbf789669d154b800aab329db8f46aabdc
+  specs:
+    ckeditor (5.1.1)
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,9 +89,6 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
-    bootstrap-sass (3.4.1)
-      autoprefixer-rails (>= 5.2.1)
-      sassc (>= 2.0.0)
     builder (3.2.4)
     cancancan (3.5.0)
     capybara (3.38.0)
@@ -379,16 +383,16 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap
-  bootstrap-sass (~> 3.3, >= 3.3.6)
   cancancan
   capybara (~> 3.38)
   carrierwave (~> 2.2, >= 2.2.4)
+  ckeditor!
   cssbundling-rails
   debug
   devise
   image_processing (~> 1.12, >= 1.12.2)
   importmap-rails
-  jbuilder
+  jbuilder (~> 2.5)
   jquery-rails
   mailcatcher
   material_icons (~> 2.2)

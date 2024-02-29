@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "welcome#index"
+  resources :mensagens
   get "/welcome", to: "welcome#index"
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -10,8 +11,6 @@ Rails.application.routes.draw do
 
   #Routes do Sistema de Estágio
   get 'estagio_welcome/locus'
-
-  post 'estagio_welcome/atualizar_prazo'
 
   get 'estagio_welcome/index'
   post 'estagio_welcome/index'
@@ -168,7 +167,6 @@ Rails.application.routes.draw do
   post 'pdf_geral/update_naoformal'
 
   #deletes relats
-  get '/delete', to: 'archives#destroy', as: 'delete'
   get '/delete_relat_centro', to: 'relatorio_centro#destroy', as: 'delete_relat_centro'
   get '/delete_relat_campi', to: 'relatorio_campi#destroy', as: 'delete_relat_campi'
   get '/delete_relat_publico', to: 'relatorio_publico#destroy', as: 'delete_relat_publico'
@@ -181,12 +179,6 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => { registrations: 'registrations'} 
-
-  resources :archives do
-    member do
-      get 'export'
-     end
- end
   
  resources :users do
   member do

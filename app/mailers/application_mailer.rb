@@ -27,6 +27,6 @@ class ApplicationMailer < ActionMailer::Base
   def mensagem_enviada(mensagem)
     @mensagem = mensagem
 
-    mail(:to => mensagem.destinatario.email, :subject => 'NAPP DIRLIC - Notificação de ATPA')
+    mail(:to => mensagem.destinatario.email, :subject => 'NAPP DIRLIC - Notificação sobre o seu Termo!')
   end
 end

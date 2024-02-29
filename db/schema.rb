@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_08_214534) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_28_182129) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -70,6 +70,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_214534) do
     t.string "tipo_da_instituicao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "mensagens", force: :cascade do |t|
+    t.text "texto"
+    t.integer "destinatario_id"
+    t.integer "remetente_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["destinatario_id"], name: "index_mensagens_on_destinatario_id"
+    t.index ["remetente_id"], name: "index_mensagens_on_remetente_id"
   end
 
   create_table "registro_avaliacaos", force: :cascade do |t|
@@ -639,6 +649,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_214534) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "archives", "users"
+  add_foreign_key "mensagens", "users", column: "destinatario_id"
+  add_foreign_key "mensagens", "users", column: "remetente_id"
   add_foreign_key "registro_avaliacaos", "archives"
   add_foreign_key "registro_avaliacaos", "users", column: "aluno_id"
   add_foreign_key "registro_avaliacaos", "users", column: "responsavel_avaliacao_id"
