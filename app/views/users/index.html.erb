@@ -75,7 +75,7 @@
                     <% if not user.nome_civil.blank? %>
                       <p><%= user.nome_civil %></p>
                       <%= link_to "Acessar perfil", users_show_path(id: user.id), :target => '_blank',  :class => "btn btn-primary" %>
-                      <%= link_to 'Enviar e-mail', mensagens_path(:user_id => user.id), :class => "btn btn-success btn-block" %>
+                      <%= link_to 'Enviar e-mail', mensagens_path(:user_id => user.id), :target => '_blank', :class => "btn btn-success btn-block" %>
                     <% end %>
                 </td>
                 <td><%= user.periodo %></td>
