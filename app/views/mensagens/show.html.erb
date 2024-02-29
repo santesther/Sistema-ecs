@@ -1,0 +1,32 @@
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+    </div>
+    <div class="container container_estagio">
+      <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
+      <hr />
+
+<div class="card">
+
+  <div class="card-header"> <h3>E-mail enviado</h3></div>
+
+   <div class="row">
+      <div class="col-md-12 ">
+	    <ul class="list-group">
+	    	<li class="list-group-item"><b>Destinatário:</b> <%= @mensagem.destinatario_id %></li>
+	        <li class="list-group-item"><b>Texto:</b> <%= @mensagem.texto %></li>
+	        
+	        <li class="list-group-item"><b>Remetente:</b> <%= current_user.nome_civil %></li>
+	        <li class="list-group-item"><b>Cadastrado em:</b> <%= @mensagem.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
+	    </ul>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    <div class="col-sm-12">
+      <div class="text-center">
+        <%= link_to "Voltar", estagio_welcome_index_path, :class => "btn btn-primary"  %>
+      </div>
+    </div>
+  </div>   
+
+</div>

@@ -1,0 +1,11 @@
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+    </div>
+    <div class="container container_estagio">
+      <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
+      <hr />
+
+<div class="card">
+	<div class="card-header"> <h3>Enviar e-mail</h3></div>
+	<%= render 'form', mensagem: @mensagem %>
+</div>

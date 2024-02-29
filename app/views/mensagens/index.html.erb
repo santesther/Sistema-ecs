@@ -1,0 +1,48 @@
+<div class="d-flex align-items-center justify-content-center">
+    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+    </div>
+    <div class="container container_estagio">
+      <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
+      <hr />
+
+<div class="card">
+
+  <div class="card-header"> <h3>E-mails enviados: </h3></div>
+    <br>
+  <div class="row">
+    <div class="formulario_login col-md-6 col-offset-2 ">
+      <%= link_to 'Enviar e-mail', new_mensagem_path(user_id: params[:user_id]), :class => "btn btn-success btn-block" %>  
+    </div>
+  </div>
+    <br>
+  <div class="table-responsive">
+    <table class="table table-striped text-center">
+      <thead class="thead-dark ">
+        <tr>
+          <th>Remetente</th>
+          <th>Data</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @mensagens.each do |mensagem| %>
+          <tr>
+            <td><%= current_user.nome_civil %></td>
+            <td><%= mensagem.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></td>
+            <td><%= link_to 'Visualizar', mensagem %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>   
+
+  <div class="card-footer text-muted">
+    <div class="col-sm-12">
+      <div class="text-center">
+        <%= link_to 'Voltar', estagio_welcome_index_path, :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+</div>
