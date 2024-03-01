@@ -119,8 +119,8 @@ class CampiaditivoPdf< Prawn::Document
 
 
             text "<b>TERMO ADITIVO DE ESTÁGIO</b> (Período letivo: <b><u>#{relatorio.periodo_letivo})</u></b>", align: :center, size: 15, :inline_format => true, :leading => 10
-            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :justify, :inline_format => true, :leading => 10
-            text "<b>Apólice de seguro nº: </b><u>#{relatorio.apolice}</u> ", align: :justify, :inline_format => true, :leading => 10
+            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro nº: </b><u>#{relatorio.apolice}</u> ", align: :center, :inline_format => true, :leading => 10
             move_down 5
             text "O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com o <b>Instituto Federal Fluminense <i>campus<i> <u>#{relatorio.instituicao_apresentacao}</u> - Instituição de Ensino CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº <u>#{relatorio.cnpj}</u>, situado no(a) <u>#{relatorio.endereco_da_instituicao}</u>, Bairro: <u>#{relatorio.bairro_da_instituicao}</u>, no município de <u>#{relatorio.municipio_da_instituicao}</u>, Estado do Rio de Janeiro, CEP: <u>#{relatorio.cep_da_instituicao}</u>, telefone <u>#{relatorio.telefone_da_instituicao}</u>, representado por <b><u>#{relatorio.representante_da_instituicao}</u>, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
             text "<u>#{relatorio.aluno_apresentacao}</u>", align: :center, :inline_format => true, :leading => 10 
@@ -130,8 +130,8 @@ class CampiaditivoPdf< Prawn::Document
             text "O PRESENTE TERMO ADITIVO ALTERA:", align: :left, :inline_format => true, :leading => 5 
             text "(<b>X</b>) O período do término do estágio para: <b><u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true, :leading => 5
             text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado <u>#{relatorio.periodo_dirlic}</u> período no Campus Campos Centro do IFFluminense, no <u>#{relatorio.semestre_dirlic}</u> semestre letivo de <u>#{relatorio.ano}</u>.", align: :justify, :inline_format => true, :leading => 5
-    
-  
+            
+            move_down 12
             text "CLÁUSULA SEGUNDA", align: :center, size: 16
             move_down 20
             text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.
