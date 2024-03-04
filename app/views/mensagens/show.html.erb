@@ -12,7 +12,7 @@
    <div class="row">
       <div class="col-md-12 ">
 	    <ul class="list-group">
-	    	<li class="list-group-item"><b>Destinatário:</b> <%= @mensagem.destinatario_id %></li>
+	    	 <li class="list-group-item"><b>Destinatário:</b> <%= User.find(@mensagem.destinatario_id).nome_civil %></li>
 	        <li class="list-group-item"><b>Texto:</b> <%= @mensagem.texto %></li>
 	        
 	        <li class="list-group-item"><b>Remetente:</b> <%= current_user.nome_civil %></li>
@@ -24,7 +24,7 @@
   <div class="card-footer text-muted">
     <div class="col-sm-12">
       <div class="text-center">
-        <%= link_to "Voltar", users_index_path, :class => "btn btn-primary"  %>
+        <%= link_to "Voltar", users_path, :class => "btn btn-primary"  %>
       </div>
     </div>
   </div>   
