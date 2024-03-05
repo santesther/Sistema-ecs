@@ -37,7 +37,7 @@
           <br>
           <b>Data:</b><%=f.text_field :data, required: true, value: relatorio.data %>
               <br><br>
-              Avaliador: <%= f.select :avaliador, ['Conceição Campinho','Edina Lacerda', 'Elizabeth Freitas', 'Virginia Ribeiro', 'Marlúcia Cereja'], {selected: relatorio.avaliador}, required:true %>
+              Avaliador: <%= f.select :avaliador, ['Edina Lacerda', 'Elizabeth Freitas', 'Virginia Ribeiro', 'Marlúcia Cereja'], {selected: relatorio.avaliador}, required:true %>
             </div>
           <% end %>
         <% end %>
