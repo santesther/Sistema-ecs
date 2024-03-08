@@ -1,50 +1,54 @@
+<% if defined?(current_user) %>
 <div class="d-flex align-items-center justify-content-center">
-    <h1>Estágio Curricular Supervisionado</h1>
+  <h1>Estágio Curricular Supervisionado</h1>
 </div>
+
 <div class="d-flex align-items-center justify-content-center">
-    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+  <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
 </div>
 <br>
 
 <div class="card">
+  <div class="card-header">
+    <h3>Usuários</h3>
+  </div>
 
-  <div class="card-header"> <h3>Usuários</h3></div>
+  <br>
 
-    <br>
-
-
-
-  <%= form_tag(users_index_path, method: :get, class: "form-group")  do %>
+  <%= form_tag(users_path, method: :get, class: "form-group") do %>
     <div class="form-group row">
       <div class="col-md-6">
-        <%= text_field_tag :nome_civil, params[:nome_civil], class: "form-control ", placeholder: 'Nome do aluno' %>
+        <%= text_field_tag :nome_civil, params[:nome_civil], class: "form-control", placeholder: 'Nome do aluno' %>
       </div>
 
       <div class="col-md-4">
-        <%= select_tag :licenciatura, options_for_select([["Ciências da Natureza", "Ciências da Natureza"],  ["Educação Física", "Educação Física"], ["Geografia", "Geografia"], ["Letras: Português e Literaturas", "Letras: Português e Literaturas"], ["Matemática", "Matemática"], ["Teatro", "Teatro"]], params[:licenciatura]), :prompt => "Selecione o curso", class: "form-control "  %>
+        <%= select_tag :licenciatura, options_for_select([["Ciências da Natureza", "Ciências da Natureza"],  ["Educação Física", "Educação Física"], ["Geografia", "Geografia"], ["Letras: Português e Literaturas", "Letras: Português e Literaturas"], ["Matemática", "Matemática"], ["Teatro", "Teatro"]], params[:licenciatura]), prompt: "Selecione o curso", class: "form-control" %>
       </div>
 
+      <div class="col-md-2 text-right">
+        <%= submit_tag "Procurar", class: "btn btn-success" %>
+    </div>
     </div>
     <br>
     <div class="form-group row">
       <div class="col-md-6">
-        <%= text_field_tag :matricula, params[:matricula], class: "form-control ", placeholder: 'Matrícula do aluno' %>
-      </div>
-
-        <div class="col-md-2">
-        <%= select_tag :periodo, options_for_select([["1.º", "1.º"],  ["2.º", "2.º"], ["3.º", "3.º"], ["4.º", "4.º"], ["5.º", "5.º"], ["6.º", "6.º"], ["7.º", "7.º"], ["8.º", "8.º"]], params[:periodo]), :prompt => "Selecione o período", class: "form-control "  %>
-      </div>
-
-        <div class="col-md-2">
-        <%= select_tag :finalizacao, options_for_select([["Revisando", "Revisando"],  ["Finalizado", "Finalizado"], ["Negado", "Negado"]], params[:finalizacao]), :prompt => "Selecione o status", class: "form-control "  %>
+        <%= text_field_tag :matricula, params[:matricula], class: "form-control", placeholder: 'Matrícula do aluno' %>
       </div>
 
       <div class="col-md-2">
-        <%= submit_tag ("Procurar"), class: "form-control btn-info"%>
+        <%= select_tag :periodo, options_for_select([["1.º", "1.º"],  ["2.º", "2.º"], ["3.º", "3.º"], ["4.º", "4.º"], ["5.º", "5.º"], ["6.º", "6.º"], ["7.º", "7.º"], ["8.º", "8.º"]], params[:periodo]), prompt: "Selecione o período", class: "form-control" %>
+      </div>
+
+      <div class="col-md-2">
+        <%= select_tag :finalizacao, options_for_select([["Revisando", "Revisando"],  ["Finalizado", "Finalizado"], ["Negado", "Negado"]], params[:finalizacao]), prompt: "Selecione o status", class: "form-control" %>
+      </div>
+
+      <div class="col-md-2">
+      <%= link_to "Limpar Pesquisa", users_path, class: "btn btn-secondary"  %>
       </div>
     </div>
   <% end %>
-  
+  <br>
   <%= form_with model: @user do |form| %>
     <div class="table-responsive">
       <table class="table table-striped text-center">
@@ -53,6 +57,8 @@
             <th>#</th>
             <th>Perfil</th>
             <th>Nome</th>
+            <th>Acessar Perfil</th>
+            <th>Enviar E-mail</th>
             <th>Período</th>
             <th>Matrícula</th>
             <th>Licenciatura</th>
@@ -61,47 +67,51 @@
           </tr>
         </thead>
         <tbody>
-            <% @users.each_with_index do |user, index| %>
-              <tr>
-                <td><%= index + 1 %></td>
-                <td>
-                  <% if user.avatar.url.present? %>
-                    <%= image_tag(user.avatar.url, size:"100x100", class: "styleImage") %>
-                    <% else %>
-                    <%= image_tag("DirlicOficial.png", size: "100x100", :alt => "logo estágio curricular supervisonado") -%>  
-                  <% end %>
-                </td>
-                <td><%= %> 
-                    <% if not user.nome_civil.blank? %>
-                      <p><%= user.nome_civil %></p>
-                      <%= link_to "Acessar perfil", users_show_path(id: user.id), :target => '_blank',  :class => "btn btn-primary" %>
-                      <%= link_to 'Enviar e-mail', mensagens_path(:user_id => user.id), :target => '_blank', :class => "btn btn-success btn-block" %>
-                    <% end %>
-                </td>
-                <td><%= user.periodo %></td>
-                <td><%= user.matricula %></td>
-                <td><%= user.licenciatura %></td>
-                <td><%= user.email %></td>
-                <td><%= user.finalizacao %></td>
-              </tr>
-            <% end %>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td> <!-- Ou outro campo identificador, se preferir -->
+              <td>
+                <% if user.avatar.url.present? %>
+                  <%= image_tag(user.avatar.url, size: "100x100", class: "styleImage") %>
+                <% else %>
+                  <%= image_tag("DirlicOficial.png", size: "100x100", alt: "logo estágio curricular supervisionado") %>
+                <% end %>
+              </td>
+              <td><%= user.nome_civil if user.nome_civil.present? %></td>
+              <td>
+                <% if user.nome_civil.present? %>
+                  <%= link_to "Acessar perfil", user, target: '_blank', class: "btn btn-primary" %>
+                <% end %>
+              </td>
+              <td>
+                <% if user.nome_civil.present? %>
+                  <%= link_to 'Enviar e-mail', mensagens_path(user_id: user.id), target: '_blank', class: "btn btn-success btn-block" %>
+                <% end %>
+              </td>
+              <td><%= user.periodo %></td>
+              <td><%= user.matricula %></td>
+              <td><%= user.licenciatura %></td>
+              <td><%= user.email %></td>
+              <td><%= user.finalizacao %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
 
-  
-      
-      <div class="pagination">
-        <%= will_paginate @users %>
-      </div>
-
+    <div class="pagination">
+      <%= will_paginate @users %>
+    </div>
+  <% end %>
 </div>
-  <div class='contato_dirlic_pdf border mt-4 pt-3 col-md-12'>
+
+<div class='contato_dirlic_pdf border mt-4 pt-3 col-md-12'>
   <div class="d-flex align-items-center justify-content-center">
-  <%= link_to "Voltar", users_index_path, :class => "btn btn-primary"  %>
+    <%= link_to "Voltar", root_path, class: "btn btn-primary"  %>
   </div> 
   <br>
-  </div>
-
-<br>
+</div>
 <% end %>
+
+
+

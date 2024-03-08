@@ -1,97 +1,90 @@
 <% if user_signed_in? %>
     <div class="d-flex align-items-center justify-content-center">
-    <h1>Estágio Curricular Supervisionado</h1>
+        <h1>Estágio Curricular Supervisionado</h1>
     </div>
     <div class="d-flex align-items-center justify-content-center">
-    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+        <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisionado") -%>   
     </div>
 
     <br><br>
 
-<div class="introducao">
-  <div class="page-header text-center">
-    <h3>Seja bem vindo(a) <%=current_user.nome_civil %>! </h3>
-  </div>
+    <div class="introducao">
+        <div class="page-header text-center">
+            <h3>Seja bem vindo(a) <%=current_user.nome_civil %>! </h3>
+        </div>
 
-<% if current_user.role == "normal_user" %>
-      <div class="alert alert-primary">
-        <p style="font-size: 1.1rem;">Olá <%= current_user.nome_civil %>!</p>
-        <p style="font-size:1.2rem;"><b>No início de cada semestre letivo, lembre-se de atualizar seu período no curso e demais dados, se necessário.</b></p>
-      </div>
-  <p>
-  <h5> Disponível para preenchimento digital: Carta de apresentação, Termo de Compromisso ou Termo Aditivo ao campo ECS na aba "Cadastro/ECS"!</h5>
-   <p style="font-size:1.3rem; text-align: center; "> É <span style="color: #f00;"><b>muito importante</b></span> que VOCÊ preencha o 
-    Documento ao campo de Estágio <span style="color: #f00;"><b>corretamente</b></span>, visto
-    que cada USUÁRIO tem acesso a apenas <span style="color: #f00;"><b>uma</b></span> tentativa.</p>
-    <p style="font-size:1.3rem;">
-    Após o preenchimento, seu documento será avaliado pela DIRLIC e disponibilizado com 
-    <u>período de início e fim</u>, conforme o Seguro obrigatório, para fins de impressão em 03 vias de iguais teor, após o deferimento da DIRLIC/NAPP.</b>
+        <% if current_user.role == "normal_user" %>
+            <div class="alert alert-primary">
+                <p style="font-size: 1.1rem;">Olá <%= current_user.nome_civil %>!</p>
+                <p style="font-size:1.2rem;"><b>No início de cada semestre letivo, lembre-se de atualizar seu período no curso e demais dados, se necessário.</b></p>
+            </div>
+            <p>
+                <h5> Disponível para preenchimento digital: Carta de apresentação, Termo de Compromisso ou Termo Aditivo ao campo ECS na aba "Cadastro/ECS"!</h5>
+                <p style="font-size:1.3rem; text-align: center; "> É <span style="color: #f00;"><b>muito importante</b></span> que VOCÊ preencha o 
+                Documento ao campo de Estágio <span style="color: #f00;"><b>corretamente</b></span>, visto
+                que cada USUÁRIO tem acesso a apenas <span style="color: #f00;"><b>uma</b></span> tentativa.</p>
+                <p style="font-size:1.3rem;">
+                Após o preenchimento, seu documento será avaliado pela DIRLIC e disponibilizado com 
+                <u>período de início e fim</u>, conforme o Seguro obrigatório, para fins de impressão em 03 vias de iguais teor, após o deferimento da DIRLIC/NAPP.</b>
 
-    <div class="d-flex align-items-center justify-content-center">
-    <a href="http://licenciaturas.centro.iff.edu.br/nucleo-de-apoio-a-pratica-profissional/orientacoes-sistema-ecs" target="_blank" class="btn btn-primary">Clique aqui para rever as Orientações!</a> <hr/>
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="http://licenciaturas.centro.iff.edu.br/nucleo-de-apoio-a-pratica-profissional/orientacoes-sistema-ecs" target="_blank" class="btn btn-primary">Clique aqui para rever as Orientações!</a> <hr/>
+                </div>
+            </p>
+        <% else %>
+            <p>
+                <h5 style="font-size:1.4rem; text-align: center;">Verifique a situação dos alunos e seus Documentos de Estágio na aba "Cadastro/ECS"!</h5><br>
+                <p style="font-size:1.2rem;">Assim que disponível, <b><u>modifique</u></b> o Documento de Estágio disponibilizado de cada aluno,
+                adicionando as informações que <span style="color: #f00;"><b>cabem a Dirlic</b></span> e ao final
+                <b>mude o status de finalização do Documento de Estágio</b> para o aluno ter <b>acesso</b> ao 
+                <span style="color: #f00;"><b>PDF e a impressão do mesmo!</b></span>
+                </p>
+                <p style="color:red;font-weight:bold; font-size:1.4rem; font: Calibri;  text-align: center;"><b>Atenção</b> com a sequência das etapas!</p>
+                <p style="font-size:1.2rem;">O usuário só deve ser liberado <b><u>DEPOIS</u></b> de ter seu <b><u>PDF EXCLUÍDO</u></b>!</p>
+                <p style="font-size:1.2rem;">Além da obrigatoriedade do usuário ter sua <b><u>liberação aprovada</u> e <u>já ter realizado a impressão do Termo</u></b>.</p>
+            </p>
+        <% end %>
     </div>
-  </p>
-
-  <% elsif current_user.role != "normal_user" %>
-
-  <p>
-  <h5 style = "font-size:1.4rem; text-align: center;">Verifique a situação dos alunos e seus Documentos de Estágio na aba "Cadastro/ECS"!</h5><br>
-   <p style="font-size:1.2rem;">Assim que disponível, <b><u>modifique</u></b> o Documento de Estágio disponibilizado de cada aluno,
-    adicionando as informações que <span style="color: #f00;"><b>cabem a Dirlic</b></span> e ao final
-    <b>mude o status de finalização do Documento de Estágio</b> para o aluno ter <b>acesso</b> ao 
-    <span style="color: #f00;"><b>PDF e a impressão do mesmo!</b></span>
-    </p>
-    <p style="color:red;font-weight:bold; font-size:1.4rem; font: Calibri;  text-align: center;"><b>Atenção</b> com a sequência das etapas!</p>
-    <p style="font-size:1.2rem;">O usuário só deve ser liberado <b><u>DEPOIS</u></b> de ter seu <b><u>PDF EXCLUÍDO</u></b>!</p>
-    <p style="font-size:1.2rem;">Além da obrigatoriedade do usuário ter sua <b><u>liberação aprovada</u> e <u>já ter realizado a impressão do Termo</u></b>.</p>
-  
-<% end %>
-  <% else %>
+<% else %>
     <br><br>
-  <div class="d-flex align-items-center justify-content-center">
-    <h1>Estágio Curricular Supervisionado</h1>
+    <div class="d-flex align-items-center justify-content-center">
+        <h1>Estágio Curricular Supervisionado</h1>
     </div>
     <div class="d-flex align-items-center justify-content-center">
-    <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
+        <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisionado") -%>   
     </div>
 
     <div class="text-box">
-            <div class="text-box-heading">
+        <div class="text-box-heading">
             <div class="d-flex align-items-center justify-content-center">
-            <div class="arrow-down"><span style="color: #f00;">Licenciando(a)!</span></div>
+                <div class="arrow-down"><span style="color: #f00;">Licenciando(a)!</span></div>
             </div>
             <p><br>
             <div class="text-box">
-            <div class="text-box-heading">
-                <div class="form">
-                <form>
-                Bem vindo(a) ao <b>Sistema ECS</b> destinado ao Estágio Curricular Supervisionado, obrigatório e não remunerado, nos Cursos de Licenciatura do <i>Campus</i> Campos Centro do IFFluminense.<br>
-                
-                Este Sistema foi criado para fins de emissões de documentos obrigatórios ao(à) Licenciando(a) e ao campo de Estágio oportunizado por Instituições de Ensino parceiras.</p>
-                
-                <p> <a href="http://licenciaturas.centro.iff.edu.br/nucleo-de-apoio-a-pratica-profissional/orientacoes-sistema-ecs" target="_blank" class="btn btn-primary">Clique aqui para ver as Orientações &#10132; SISTEMA ECS (a partir de 2024.1), antes de criar conta.</a></p>
-            </form>
+                <div class="text-box-heading">
+                    <div class="form">
+                        <form>
+                            Bem vindo(a) ao <b>Sistema ECS</b> destinado ao Estágio Curricular Supervisionado, obrigatório e não remunerado, nos Cursos de Licenciatura do <i>Campus</i> Campos Centro do IFFluminense.<br>
+                            Este Sistema foi criado para fins de emissões de documentos obrigatórios ao(à) Licenciando(a) e ao campo de Estágio oportunizado por Instituições de Ensino parceiras.</p>
+                            <p> <a href="http://licenciaturas.centro.iff.edu.br/nucleo-de-apoio-a-pratica-profissional/orientacoes-sistema-ecs" target="_blank" class="btn btn-primary">Clique aqui para ver as Orientações &#10132; SISTEMA ECS (a partir de 2024.1), antes de criar conta.</a></p>
+                        </form>
+                    </div>
+                </div>
             </div>
-            </div>
-            </div>
-            </div>
-        </header>
+        </div>
     </div>
-</div>
 
     <div class="d-flex align-items-center justify-content-center">
-    <div id="main" class="main">
-    <div id ="texto-home" class="texto-home">
-    <br>
-    <h2>Crie sua conta ou faça login!</h2>
-    <br><br>
-    <div class="text-center">
-        <%= link_to "Acessar", new_user_session_path, :class => "btn btn-primary" %><br><br>
-        <%= link_to "Criar Conta", new_user_registration_path, :class => "btn btn-success direita"  %>
-        </div>
-    <% end %>
-
+        <div id="main" class="main">
+            <div id="texto-home" class="texto-home">
+                <br>
+                <h2>Crie sua conta ou faça login!</h2>
+                <br><br>
+                <div class="text-center">
+                    <%= link_to "Acessar", new_user_session_path, :class => "btn btn-primary" %><br><br>
+                    <%= link_to "Criar Conta", new_user_registration_path, :class => "btn btn-success direita"  %>
+                </div>
+            </div>
+        </div> 
     </div>
-    </div> 
-</div>
-
+<% end %>

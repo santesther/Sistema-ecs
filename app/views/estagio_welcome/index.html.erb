@@ -46,8 +46,6 @@
                   <td><%= user.periodo %></td>
                   <td><p><%= user.email %></p></td>
                   
-
-          
                   <% if user.situacao == "Revisar" %>
                     <td style="color:blue;font-weight:bold;"><%= user.situacao %></td>
                   <% else %>
@@ -84,10 +82,8 @@
                     <td><%= link_to 'PDF', relatorio_municipalouparticularaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if @relatorio.nil? == true %>
-                    <td><%= link_to "Excluir PDF", delete_relat_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %>
                    <% if user.status_impressao == true %>
+                    <td><%= link_to "Excluir PDF", delete_relat_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
@@ -96,10 +92,8 @@
                     <td><%= link_to 'PDF', relatorio_estadualaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_estadualaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary' %></td>
-                    <% if @relatorio.nil? == true %>
-                    <td><%= link_to "Excluir PDF", delete_relat_estadualaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %>
                    <% if user.status_impressao == true %>
+                    <td><%= link_to "Excluir PDF", delete_relat_estadualaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
@@ -108,10 +102,8 @@
                     <td><%= link_to 'PDF', relatorio_campiaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_campiaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if @relatorio.nil? == true %>
-                    <td><%= link_to "Excluir PDF", delete_relat_campiaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %>
                    <% if user.status_impressao == true %>
+                    <td><%= link_to "Excluir PDF", delete_relat_campiaditivo_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
@@ -120,10 +112,8 @@
                     <td><%= link_to 'PDF', relatorio_aditivocentro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_aditivocentro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if @relatorio.nil? == true %>
+                    <% if user.status_impressao == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_aditivocentro_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %>
-                   <% if user.status_impressao == true %>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
@@ -132,10 +122,8 @@
                     <td><%= link_to 'PDF', relatorio_centro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary prosseguir'  %></td>
-                  <% if @relatorio.nil? == true %>
-                    <td><%= link_to "Excluir PDF", delete_relat_centro_path(:id => user.id), data: { controller: 'alert', action: 'click=>alert#showAlert'}, method: :delete, :class => 'btn btn-vermelho' %></td>
-                  <% end %>
-                  <% if user.status_impressao == true %>
+                  <% if user.status_impressao != false %>
+                    <td><%= link_to "Excluir PDF", delete_relat_centro_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { confirm: 'Tem certeza que deseja excluir este PDF? Esta ação não pode ser desfeita.' } %></td>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
@@ -144,10 +132,8 @@
                     <td><%= link_to 'PDF', relatorio_campi_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_campi_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                     <% if @relatorio.nil? == true %>
-                    <td><%= link_to "Excluir PDF", delete_relat_campi_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %>
                    <% if user.status_impressao == true %>
+                    <td><%= link_to "Excluir PDF", delete_relat_campi_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>                  
                   <% end %>
@@ -156,10 +142,8 @@
                     <td><%= link_to 'PDF', relatorio_publico_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_publico_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if @relatorio.nil? == true %>
+                   <% if user.status_impressao == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_publico_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %> 
-                    <% if user.status_impressao == true %>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %>
                   <% end %>
@@ -168,10 +152,8 @@
                     <td><%= link_to 'PDF', relatorio_particular_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_particular_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                    <% if @relatorio.nil? == true %>
-                    <td><%= link_to "Excluir PDF", delete_relat_particular_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %>
                    <% if user.status_impressao == true %>
+                    <td><%= link_to "Excluir PDF", delete_relat_particular_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %> 
                   <% end %>
@@ -180,10 +162,8 @@
                     <td><%= link_to 'PDF', relatorio_naoformal_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
                     <td><%= link_to 'Modificar', pdf_geral_naoformal_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
                     <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
-                     <% if @relatorio.nil? == true %>
+                    <% if user.status_impressao == true %>
                     <td><%= link_to "Excluir PDF", delete_relat_naoformal_path(:id => user.id), :class => 'btn btn-vermelho',  method: :delete  %></td>
-                  <% end %>
-                   <% if user.status_impressao == true %>
                     <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
                   <% end %> 
                   <% end %>
@@ -311,10 +291,11 @@
           <% if  current_user.pdf_aditivo_centro != false || current_user.pdf_aditivo_municipalouparticular != false || current_user.pdf_aditivo_estadual != false || current_user.pdf_aditivo_campi != false || current_user.pdf_centro != false || current_user.pdf_campi != false || current_user.pdf_publico != false || current_user.pdf_particular != false || current_user.pdf_naoformal != false %>
             <div class="pdf_btn">
               <span>Clique aqui e imprima o formulário!</span><br />
+              <span><b>Se impresso em frente e verso o documento NÃO será válido</b>.</span><br />
 
               <div class="aviso_impressao">
                 <span style="font-size:1.2em;"><b><u>Aviso!</u></b></span> <br />
-                <span>Lembre-se que o formulário só poderá ser acessado uma vez para impressão! <b>3 cópias, impressão dos dois lados da folha (anverso e verso)</b></span><br />
+                <span>Lembre-se que o formulário só poderá ser acessado uma vez para impressão! <b>3 cópias, NÃO imprima frente e verso.</b></span><br />
                 <span>Caso não seja possível, o documento somente será impresso no NAPP/DIRLIC, localizado no IFF <i>campus</i> Campos Centro.</span><br />
               </div>
               
@@ -353,11 +334,6 @@
               <% if current_user.pdf_naoformal != false && current_user.status_impressao == false %>
                 <%= link_to 'Gerar PDF', relatorio_naoformal_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
               <% end %>
-           
-              <hr />
-            
-              <h6>Após conseguir a assinatura da Instituição Condecente, faça o envio do Pdf para assinatura da Dirlic!</h6>
-              <h6>As instruções relacionadas ao segundo envio do Pdf a dirlic estão na aba "Envio"</h6>
 
               <% if current_user.status_impressao == true %>
                 <div class="contato_napp border p-1 mt-4">
