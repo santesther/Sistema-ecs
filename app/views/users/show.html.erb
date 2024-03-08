@@ -18,7 +18,7 @@
   	<div class="row">
     	<div class="col-md-12 ">
 			<ul class="list-group">
-				<li class=list-group-item><b>Enviar E-mail:</b> <%= link_to 'Enviar e-mail', mensagens_path(:user_id => @user.id), :class => "btn btn-success btn-block" %></li>
+				<li class=list-group-item><b>Enviar E-mail:</b> <%= link_to 'Enviar e-mail', mensagens_path(:user_id => @user.id), :target => '_blank', :class => "btn btn-success btn-block" %></li>
 				<li class="list-group-item"><b>Nome civil:</b> <%= @user.nome_civil %></li>
 				<% if not @user.nome_social.blank? %>
 					<li class="list-group-item"><b>Nome social:</b> <%= @user.nome_social %></li>
