@@ -178,7 +178,7 @@ Rails.application.routes.draw do
   get '/delete_relat_municipalouparticularaditivo', to: 'relatorio_municipalouparticularaditivo#destroy', as: 'delete_relat_municipalouparticularaditivo'
 
 
-  devise_for :users, :controllers => { registrations: 'registrations'} 
+  devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
   
  resources :users do
   member do
