@@ -33,13 +33,15 @@ class EstagioWelcomeController < ApplicationController
 
   def update
     @id_user = session[:id_user]
-
-    ContactMailer.mudanca_status(current_user).deliver
-
-    User.where(id: @id_user).update(situacao_params)
-
+    user = User.find(@id_user)
+  
+    ContactMailer.mudanca_status(user).deliver
+  
+    user.update(situacao_params)
+  
     redirect_to estagio_welcome_index_path, notice: 'Status do usuário atualizado com sucesso!'
   end
+  
 
   def pendente
     session[:id] = params[:id]

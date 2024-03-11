@@ -8,21 +8,17 @@
     <h1>Mensagem de contato</h1>
     <h2>Data de envio: <%= Time.now.strftime("%d/%m/%Y %H:%M") %></h2>
 
-    <p><strong>Usuário(a): </strong><%= @current_user.nome_civil %></p>
-
-    <p><strong>Email: </strong><%= @current_user.email %></p>
-
-    <p><strong>Matrícula: </strong><%= @current_user.matricula %></p>
-
-    <p><strong>Curso: </strong><%= @current_user.licenciatura %></p>
+    <p><strong>Usuário(a): </strong><%= @user.nome_civil %></p>
+    <p><strong>Email: </strong><%= @user.email %></p>
+    <p><strong>Matrícula: </strong><%= @user.matricula %></p>
+    <p><strong>Curso: </strong><%= @user.licenciatura %></p>
 
     <p><strong>Mensagem:</strong></p>
    
-    <p>O(a) usuário(a) <strong><%= @current_user.nome_civil %></strong> teve o seu status atualizado!</p>
+    <p>O(a) usuário(a) <strong><%= @user.nome_civil %></strong> teve o seu status atualizado!</p>
 
-    <% if not @current_user.feedback_situacao.nil? %>
-	  <p>Observação do avaliador: <strong><%= @current_user.feedback_situacao %></strong></p>
+    <% if not @user.feedback_situacao.nil? %>
+      <p>Observação do avaliador: <strong><%= @user.feedback_situacao %></strong></p>
     <% end %>
-
   </body>
 </html>
