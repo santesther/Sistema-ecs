@@ -45,7 +45,7 @@
 
          <h3>Finalização do Documento de Estágio </h3>
           <div class="field">
-          <%= f.label :finalizacao_do_usuário %><br />
+          <%= f.label :liberação_para_impressão_do_termo %><br />
           <%= f.select :finalizacao, @values_finalizacao, selected: @id_user.finalizacao %>
           </div>
 
@@ -54,7 +54,7 @@
 
            <h3>Liberação para novo preenchimento</h3>
           <div class="field">
-          <%= f.label :liberacao_do_usuário %><br />
+          <%= f.label :liberacao_do_usuário_para_preencher_outro_termo %><br />
           <%= f.select :liberacao, @values_liberacao, selected: @id_user.liberacao %>
           </div>
          

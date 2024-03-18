@@ -1,17 +1,26 @@
 class EstagioWelcomeController < ApplicationController
   def index
-    @users = User.order(nome_civil: :ASC).where("role == '0' AND situacao != 'Pendente' AND (nome_civil LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%").paginate(page: params[:page], per_page: 30)
-    if @users.exists?
-    else
-      @users = User.order(nome_civil: :ASC).where(" role == '0' AND situacao != 'Pendente' AND (nome_civil LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
-      if @users.exists?
-      else
-        @users = User.order(nome_civil: :ASC).where("role == '0' AND situacao != 'Pendente' AND (nome_civil LIKE :search OR matricula LIKE :search OR licenciatura LIKE :search OR periodo LIKE :search OR email LIKE :search)", search: "%#{params[:search]}%".titleize).paginate(page: params[:page], per_page: 30)
-      end
+    @users = User.where("role = ? AND situacao != ?", '0', 'Pendente').order(nome_civil: :ASC)
+  
+    if params[:nome_civil].present?
+      @users = @users.where("lower(nome_civil) LIKE ?", "%#{params[:nome_civil].downcase}%")
     end
-
+    if params[:licenciatura].present?
+      @users = @users.where("lower(licenciatura) LIKE ?", "%#{params[:licenciatura].downcase}%")
+    end
+    if params[:periodo].present?
+      @users = @users.where("lower(periodo) LIKE ?", "%#{params[:periodo].downcase}%")
+    end
+    if params[:matricula].present?
+      @users = @users.where("matricula LIKE ?", "%#{params[:matricula]}%")
+    end
+    if params[:email].present?
+      @users = @users.where("lower(email) LIKE ?", "%#{params[:email].downcase}%")
+    end
+  
     @will_paginate = User.where("situacao != 'Pendente'").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
   end
+  
 
   def edit
     session[:id_user] = params['id']
