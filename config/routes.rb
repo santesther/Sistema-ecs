@@ -171,7 +171,6 @@ Rails.application.routes.draw do
   get '/delete_relat_campi', to: 'relatorio_campi#destroy', as: 'delete_relat_campi'
   get '/delete_relat_publico', to: 'relatorio_publico#destroy', as: 'delete_relat_publico'
   get '/delete_relat_particular', to: 'relatorio_particular#destroy', as: 'delete_relat_particular'
-  get '/delete_relat_naoformal', to: 'relatorio_naoformal#destroy', as: 'delete_relat_naoformal'
   get '/delete_relat_aditivocentro', to: 'relatorio_aditivocentro#destroy', as: 'delete_relat_aditivocentro'
   get '/delete_relat_campiaditivo', to: 'relatorio_campiaditivo#destroy', as: 'delete_relat_campiaditivo'
   get '/delete_relat_estadualaditivo', to: 'relatorio_estadualaditivo#destroy', as: 'delete_relat_estadualaditivo'
