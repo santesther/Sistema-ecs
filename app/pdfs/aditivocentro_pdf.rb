@@ -4,7 +4,7 @@ class AditivocentroPdf < Prawn::Document
       @relatorio = relatorio
       @usuario_matricula = usuario_matricula
         fill_color "40464e"
-        font_size 12
+        font_size 9
 
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-50, 680], :width => 550
         move_down 60        
@@ -16,7 +16,7 @@ class AditivocentroPdf < Prawn::Document
 
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
-              draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [200, 600], :inline_format => true
+              draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], :inline_format => true
               move_down 20
               text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u><b>IFFluminense <i>campus</i> Campos Centro/DAEBPCC<b></u>", align: :left, size: 15, :inline_format => true, :leading => 10
               move_down 20
@@ -28,9 +28,12 @@ class AditivocentroPdf < Prawn::Document
               text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, :inline_format => true, :leading => 10
 
               %i[center].each do |position|
+                draw_text "Atenciosamente,", at: [200,170], :inline_format => true
+                move_down 25
                 image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
-                move_down 10
+                move_down 50
                 end
+
       if relatorio.avaliador == "Edina Lacerda"
                 bounding_box([-10, cursor], width: 150, height: 100) do
                   transparent(0) { stroke_bounds }
@@ -104,12 +107,12 @@ class AditivocentroPdf < Prawn::Document
 
 
             text "<b>TERMO ADITIVO DE ESTÁGIO</b> (Período letivo: <b><u>#{relatorio.periodo_letivo})</u></b>", align: :center, size: 15, :inline_format => true, :leading => 10
-            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, :leading => 10
-            text "<b>Apólice de seguro nº: </b><u>#{relatorio.apolice}</u> ", align: :center, :inline_format => true, :leading => 10
+            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, size:12, :leading => 10
+            text "<b>Apólice de seguro nº: </b><u>#{relatorio.apolice}</u> ", align: :center, :inline_format => true, size:12, :leading => 10
             move_down 20
             text "Aditamento ao Termo de Compromisso de Estágio, Ato representado pela  <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E CONCEDENTE</b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
             move_down 10
-            text "<u>#{relatorio.aluno_apresentacao}</u>", align: :center, :inline_format => true, :leading => 10 
+            text "<u>#{relatorio.aluno_apresentacao}</u>", align: :center, size:12, :inline_format => true, :leading => 10 
             text "matrícula nº <u>#{relatorio.matricula_aluno}</u> do <u>#{relatorio.periodo}</u> do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>.", align: :justify, :inline_format => true, :leading => 10
             move_down 10
             text "<b>Cláusula Primeira:</b>", align: :left, :inline_format => true, :leading => 10
@@ -117,7 +120,7 @@ class AditivocentroPdf < Prawn::Document
             text "(<b>X</b>) O período do término do estágio para: <b><u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true, :leading => 10
             text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado <u>#{relatorio.periodo_dirlic}</u> período no Campus Campos Centro do IFFluminense, no <u>#{relatorio.semestre_dirlic}</u> semestre letivo de <u>#{relatorio.ano}</u>.", align: :justify, :inline_format => true, :leading => 10
     
-            move_down 50
+            move_down 180
             text "CLÁUSULA SEGUNDA", align: :center, size: 16
             move_down 20
             text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.

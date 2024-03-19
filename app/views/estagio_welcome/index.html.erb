@@ -244,6 +244,30 @@
                </span>
                 <span class="col btn2"> <%= button_tag "Rede de Ensino Estadual, Municipal ou Particular", :class => 'btn btn-outline-primary' %></span>
               <br>
+               <style type='text/css'>
+              <% if current_user.licenciatura == 'Educação Física' && current_user.periodo == '5.º' %>
+                .div_federal {
+                  margin-left: 55px!important;
+                  font-style: italic;
+                }
+                .div_federal2 {
+                  margin-left: 410px;
+                }
+                .voltar {
+                  margin-top:120px;
+                }
+              <% else %>
+                .div_federal {
+                  margin-left: 200px!important;
+                }
+                .div_federal2 {
+                  margin-left: 540px;
+                }
+                .voltar {
+                  margin-top:120px;
+                }
+              <% end %>
+            </style>
             </div>
 
             <div class="div_federal" style="display:none">
