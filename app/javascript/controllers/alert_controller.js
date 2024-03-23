@@ -18,9 +18,24 @@ export default class extends Controller {
                 this.showAlert(userId, relatorioType);
             });
         });
+
+        // Adiciona o ouvinte de evento aos botões de liberar
+        const liberarBtns = document.querySelectorAll('.liberar-btn');
+        liberarBtns.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                event.preventDefault();
+                
+                const userId = btn.dataset.userId;
+                
+                console.log("Clique no botão de liberar. ID do usuário:", userId);
+                
+                // Realiza a liberação
+                this.showLiberarAlert(userId);
+            });
+        });
     }
 
-    showAlert(userId, relatorioType) {
+    showAlert = (userId, relatorioType) => {
         Swal.fire({
             title: "Você tem certeza? O Termo do aluno será excluído!",
             showCancelButton: true,
@@ -32,14 +47,53 @@ export default class extends Controller {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                const deleteUrl = `/delete_relat_${relatorioType}?id=${userId}`;
+                const deleteUrl = this.generateDeleteUrl(userId, relatorioType);
                 console.log("Redirecionando para:", deleteUrl);
                 window.location.href = deleteUrl;
             }
         }).catch(error => console.error(error)); // Tratar erros, se houver
     }
+
+    showLiberarAlert = (userId) => {
+        Swal.fire({
+            title: "Você tem certeza que deseja liberar este usuário?",
+            text: "Esta ação não pode ser desfeita!",
+            showCancelButton: true,
+            confirmButtonText: "Liberar",
+            cancelButtonText: "Cancelar",
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-alert'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log("Liberando usuário com ID:", userId);
+                // Faz uma requisição GET para a rota de liberação
+                fetch(`/users/${userId}/liberar`)
+                    .then(response => {
+                        if (response.ok) {
+                            console.log("Usuário liberado com sucesso!");
+                            // Aqui você pode adicionar a lógica para tratar o sucesso da liberação
+                            Swal.fire("Sucesso!", "Usuário liberado com sucesso!", "success");
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 1000);
+                        } else {
+                            console.error("Erro ao liberar usuário:", response.statusText);
+                            // Aqui você pode adicionar a lógica para tratar o erro da liberação
+                            Swal.fire("Erro!", "Ocorreu um erro ao liberar o usuário.", "error");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Erro ao liberar usuário:", error);
+                        // Aqui você pode adicionar a lógica para tratar o erro da liberação
+                        Swal.fire("Erro!", "Ocorreu um erro ao liberar o usuário.", "error");
+                    });
+            }
+        }).catch(error => console.error(error)); // Tratar erros, se houver
+    }
     
-    generateDeleteUrl(userId, relatorioType) {
+    generateDeleteUrl = (userId, relatorioType) => {
         let deleteUrl = '';
         
         switch (relatorioType) {

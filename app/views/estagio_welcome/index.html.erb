@@ -110,7 +110,7 @@
             <td><%= link_to 'Modificar', pdf_geral_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <% if user.status_impressao == true %>
             <td><%= link_to "Excluir PDF", delete_relat_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "municipalouparticularaditivo" } %></td>
-            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
+            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), data: { controller: 'alert', "user-id" => user.id}, :class => 'btn btn-secondary liberar-btn'  %></td>
             <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
             <% end %>
             <% end %>
@@ -120,7 +120,7 @@
             <td><%= link_to 'Modificar', pdf_geral_estadualaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <% if user.status_impressao == true %>
             <td><%= link_to "Excluir PDF", delete_relat_estadualaditivo_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "estadualaditivo" } %></td>
-            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary' %></td>
+            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), data: { controller: 'alert', "user-id" => user.id}, :class => 'btn btn-secondary liberar-btn'  %></td>
             <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
             <% end %>
             <% end %>
@@ -130,7 +130,7 @@
             <td><%= link_to 'Modificar', pdf_geral_campiaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <% if user.status_impressao == true %>
             <td><%= link_to "Excluir PDF", delete_relat_campiaditivo_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "campiaditivo" } %></td>
-            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
+            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), data: { controller: 'alert', "user-id" => user.id}, :class => 'btn btn-secondary liberar-btn'  %></td>
             <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
             <% end %>
             <% end %>
@@ -140,7 +140,7 @@
             <td><%= link_to 'Modificar', pdf_geral_aditivocentro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <% if user.status_impressao == true %>
             <td><%= link_to "Excluir PDF", delete_relat_aditivocentro_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "aditivocentro" } %></td>
-            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
+            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), data: { controller: 'alert', "user-id" => user.id}, :class => 'btn btn-secondary liberar-btn'  %></td>
             <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
             <% end %>
             <% end %>
@@ -150,7 +150,7 @@
             <td><%= link_to 'Modificar', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <% if user.status_impressao != false %>
             <td><%= link_to "Excluir PDF", delete_relat_centro_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "centro" } %></td>
-            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary prosseguir'  %></td>
+            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), data: { controller: 'alert', "user-id" => user.id}, :class => 'btn btn-secondary liberar-btn'  %></td>
             <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
             <% end %>
             <% end %>
@@ -160,7 +160,7 @@
             <td><%= link_to 'Modificar', pdf_geral_campi_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <% if user.status_impressao == true %>
             <td><%= link_to "Excluir PDF", delete_relat_campi_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "campi" } %></td>
-            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
+            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), data: { controller: 'alert', "user-id" => user.id}, :class => 'btn btn-secondary liberar-btn'  %></td>
             <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
             <% end %>                  
             <% end %>
@@ -170,7 +170,7 @@
             <td><%= link_to 'Modificar', pdf_geral_publico_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <% if user.status_impressao == true %>
             <td><%= link_to "Excluir PDF", delete_relat_publico_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "publico" } %></td>
-            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
+            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), data: { controller: 'alert', "user-id" => user.id}, :class => 'btn btn-secondary liberar-btn'  %></td>
             <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
             <% end %>
             <% end %>
@@ -180,7 +180,7 @@
             <td><%= link_to 'Modificar', pdf_geral_particular_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <% if user.status_impressao == true %>
             <td><%= link_to "Excluir PDF", delete_relat_particular_path(:id => user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "particular" } %></td>
-            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), :class => 'btn btn-secondary'  %></td>
+            <td><%= link_to "Liberar", liberar_user_path(:id => user.id, :action => "liberar"), data: { controller: 'alert', "user-id" => user.id}, :class => 'btn btn-secondary liberar-btn'  %></td>
             <td><button type="button" class="btn btn-success">Termo impresso pelo usuário!</button></td>
             <% end %> 
             <% end %>
