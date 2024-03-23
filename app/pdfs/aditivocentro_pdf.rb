@@ -113,14 +113,39 @@ class AditivocentroPdf < Prawn::Document
             text "Aditamento ao Termo de Compromisso de Estágio, Ato representado pela  <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E CONCEDENTE</b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
             move_down 10
             text "<u>#{relatorio.aluno_apresentacao}</u>", align: :center, size:12, :inline_format => true, :leading => 10 
-            text "matrícula nº <u>#{relatorio.matricula_aluno}</u> do <u>#{relatorio.periodo}</u> do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>.", align: :justify, :inline_format => true, :leading => 10
             move_down 10
+            text "matrícula nº <u>#{relatorio.matricula_aluno}</u> do <u>#{relatorio.periodo}</u> do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>.", align: :justify, :inline_format => true, :leading => 10
+            move_down 20
             text "<b>Cláusula Primeira:</b>", align: :left, :inline_format => true, :leading => 10
             text "O PRESENTE TERMO ADITIVO ALTERA:", align: :left, :inline_format => true, :leading => 10 
             text "(<b>X</b>) O período do término do estágio para: <b><u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true, :leading => 10
             text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado <u>#{relatorio.periodo_dirlic}</u> período no Campus Campos Centro do IFFluminense, no <u>#{relatorio.semestre_dirlic}</u> semestre letivo de <u>#{relatorio.ano}</u>.", align: :justify, :inline_format => true, :leading => 10
     
-            move_down 180
+            if relatorio.avaliador == "Edina Lacerda"
+              move_down 10
+                  %i[left].each do |position|
+                    image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
+                    end
+              elsif relatorio.avaliador == "Elizabeth Freitas"
+              move_down 10
+                  %i[left].each do |position|
+                    image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+                end
+            elsif relatorio.avaliador == "Virginia Ribeiro"
+              move_down 10
+                  %i[left].each do |position|
+                    image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
+            end
+            elsif relatorio.avaliador == "Marlúcia Cereja"
+              move_down 10
+                  %i[left].each do |position|
+                    image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
+            end
+            else 
+              text "Avaliador não foi selecionado"
+            end  
+
+            move_down 110
             text "CLÁUSULA SEGUNDA", align: :center, size: 16
             move_down 20
             text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.

@@ -120,7 +120,31 @@ class ParticularPdf < Prawn::Document
             move_down 30
             text "<b>Período do Estágio: de <u>#{relatorio.periodo_de}</u> a <u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true
   
-            move_down 290
+            if relatorio.avaliador == "Edina Lacerda"
+              %i[left].each do |position|
+                move_down 30
+                image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
+                end
+          elsif relatorio.avaliador == "Elizabeth Freitas"
+              %i[left].each do |position|
+                move_down 30
+                image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+            end
+        elsif relatorio.avaliador == "Virginia Ribeiro"
+              %i[left].each do |position|
+                move_down 30
+                image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
+        end
+        elsif relatorio.avaliador == "Marlúcia Cereja"
+              %i[left].each do |position|
+                move_down 30
+                image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
+        end
+        else 
+          text "Avaliador não foi selecionado"
+        end
+
+            move_down 90
             text "CLÁUSULA PRIMEIRA - DA FINALIDADE", align: :center, size: 16
             move_down 20
             text "Estágio Curricular Supervisionado compreende um conjunto de atividades que propiciam aos licenciandos situações e oportunidades reais de trabalho. É ato educativo escolar, supervisionado, desenvolvido em ambiente profissional correlato à área de atuação acadêmica do aluno em conformidade com a Lei N.º 11.788/08.
@@ -156,8 +180,31 @@ class ParticularPdf < Prawn::Document
             9. comunicar à parte CONCEDENTE, no início do estágio, o período de realização de avaliações escolares ou acadêmicas, justificando-se assim, um possível impedimento de cumprimento de horário pré-fixado;
   
             10. expedir Declaração de Conclusão de Prática Profissional, na qual o Estágio Curricular Supervisionado se encontra inserido como parte integrante, para fins de Colação de Grau.", align: :justify
-            move_down 20
-  
+            
+            if relatorio.avaliador == "Edina Lacerda"
+              %i[left].each do |position|
+                move_down 20
+                image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
+                end
+          elsif relatorio.avaliador == "Elizabeth Freitas"
+              %i[left].each do |position|
+                move_down 10
+                image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+            end
+        elsif relatorio.avaliador == "Virginia Ribeiro"
+              %i[left].each do |position|
+                move_down 20
+                image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
+        end
+        elsif relatorio.avaliador == "Marlúcia Cereja"
+              %i[left].each do |position|
+                move_down 40
+                image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
+        end
+        else 
+          text "Avaliador não foi selecionado"
+        end
+
             text "CLÁUSULA TERCEIRA - DA CONCEDENTE", align: :center, size: 16
             move_down 20
             text "A CONCEDENTE se compromete a:
@@ -194,9 +241,31 @@ class ParticularPdf < Prawn::Document
   
             3. cumprir a jornada estabelecida no presente Termo e registrar as atividades desenvolvidas, diariamente, na Ficha de Registro de Atividades (FRA);
   
-            4. executar as atividades que lhe forem atribuídas e zelar pelos equipamentos e materiais que venha utilizar no desenvolvimento do seu estágio;
+            4. executar as atividades que lhe forem atribuídas e zelar pelos equipamentos e materiais que venha utilizar no desenvolvimento do seu estágio;"
   
-            5. informar por escrito e, em tempo hábil, à CONCEDENTE, qualquer fato que o impossibilite de cumprir a programação do estágio, quer quanto ao horário, duração ou aspectos técnicos;
+            
+              if relatorio.avaliador == "Edina Lacerda"
+                %i[left].each do |position|
+                  image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
+                  end
+            elsif relatorio.avaliador == "Elizabeth Freitas"
+                %i[left].each do |position|
+                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+              end
+          elsif relatorio.avaliador == "Virginia Ribeiro"
+                %i[left].each do |position|
+                  image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
+          end
+          elsif relatorio.avaliador == "Marlúcia Cereja"
+                %i[left].each do |position|
+                  move_down 20
+                  image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
+          end
+          else 
+            text "Avaliador não foi selecionado"
+          end  
+              move_down 20
+              text "5. informar por escrito e, em tempo hábil, à CONCEDENTE, qualquer fato que o impossibilite de cumprir a programação do estágio, quer quanto ao horário, duração ou aspectos técnicos;
   
             6. utilizar equipamento de segurança que for disponibilizado pela CONCEDENTE, em ambientes de aprendizagem específicos, principalmente na área de Ciências da Natureza.", align: :justify
             move_down 20
@@ -233,14 +302,35 @@ class ParticularPdf < Prawn::Document
   
             g) por desempenho insuficiente das atividades propostas, nas avaliações a que for submetido (a), pelos supervisores orientadores das partes conveniadas;
   
-            h) por conduta incompatível do estagiário em relação às normas exigidas pela Instituição Concedente.
-  
-  
-            4. Fica eleito o foro da Comarca da cidade de Campos dos Goytacazes, Estado do Rio de Janeiro para dirimir qualquer questão que se originar deste termo.
+            h) por conduta incompatível do estagiário em relação às normas exigidas pela Instituição Concedente."
+              
+              if relatorio.avaliador == "Edina Lacerda"
+                %i[left].each do |position|
+                  image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
+                  end
+            elsif relatorio.avaliador == "Elizabeth Freitas"
+                %i[left].each do |position|
+                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+              end
+          elsif relatorio.avaliador == "Virginia Ribeiro"
+                %i[left].each do |position|
+                  image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
+          end
+          elsif relatorio.avaliador == "Marlúcia Cereja"
+                %i[left].each do |position|
+                  move_down 20
+                  image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
+          end
+          else 
+            text "Avaliador não foi selecionado"
+          end  
+
+            move_down 20
+            text "4. Fica eleito o foro da Comarca da cidade de Campos dos Goytacazes, Estado do Rio de Janeiro para dirimir qualquer questão que se originar deste termo.
   
             E por estarem de pleno e comum acordo com o exposto no presente Termo de Compromisso, firmam em 03 (três) vias de igual teor, cabendo a 1.ª via à Instituição de Ensino PROMOTORA, a 2.ª, à CONCEDENTE e a 3.ª via, ao ESTAGIÁRIO.", align: :justify
   
-            move_down 120
+            move_down 50
             text "Campos dos Goytacazes, RJ, <u>#{relatorio.data}</u>", align: :center, :inline_format => true
   
             move_down 50
@@ -317,7 +407,7 @@ class ParticularPdf < Prawn::Document
             move_down 30
             text "Estagiário: ______________________________________________________________", :inline_format => true
 
-            move_down 205
+            move_down 50
             %i[center].each do |position|
               image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
               end

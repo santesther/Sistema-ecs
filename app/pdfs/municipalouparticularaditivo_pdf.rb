@@ -115,12 +115,35 @@ class MunicipalouparticularaditivoPdf< Prawn::Document
             move_down 10
             text "matrícula nº <u>#{relatorio.matricula_aluno}</u> do <u>#{relatorio.periodo}</u> do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>.", align: :justify, :inline_format => true, :leading => 10
             
-            move_down 40
+            move_down 30
             text "<b>Cláusula Primeira:</b>", align: :left, :inline_format => true, :leading => 10
             text "O PRESENTE TERMO ADITIVO ALTERA:", align: :left, :inline_format => true, :leading => 10 
             text "(<b>X</b>) O período do término do estágio para: <b><u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true, :leading => 10
             text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado <u>#{relatorio.periodo_dirlic}</u> período no Campus Campos Centro do IFFluminense, no <u>#{relatorio.semestre_dirlic}</u> semestre letivo de <u>#{relatorio.ano}</u>.", align: :justify, :inline_format => true, :leading => 10
-    
+              
+            if relatorio.avaliador == "Edina Lacerda"
+              move_down 10
+                  %i[left].each do |position|
+                    image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
+                    end
+              elsif relatorio.avaliador == "Elizabeth Freitas"
+              move_down 10
+                  %i[left].each do |position|
+                    image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+                end
+            elsif relatorio.avaliador == "Virginia Ribeiro"
+              move_down 10
+                  %i[left].each do |position|
+                    image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
+            end
+            elsif relatorio.avaliador == "Marlúcia Cereja"
+              move_down 10
+                  %i[left].each do |position|
+                    image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
+            end
+            else 
+              text "Avaliador não foi selecionado"
+            end  
             
             move_down 90
             text "CLÁUSULA SEGUNDA", align: :center, size: 16
