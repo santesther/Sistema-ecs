@@ -21,51 +21,19 @@ export { application } // abre a interface do admin
 jQuery(function() { 
   var tam = $(window).width();
 
+  // Verificar o tamanho da tela ao carregar a página
   if (tam >= 1024){
     $("nav").show();
     $(".exibir_menu").hide();
     $(".navbar_mobile").hide();
   } else {
     $(".exibir_menu").show();
-    $(".navbar_mobile").hide();  // Garante que a barra de navegação móvel não seja exibida na inicialização
+    $(".navbar_mobile").show();  // Exibe a barra de navegação móvel em dispositivos móveis
     $("nav").css("position", "fixed");
   }
 
   $(document).on('click', '.exibir_menu', function() {
      $(".navbar_mobile").toggle(500);
-  });
-
-  $(document).on('click', '.edit_form', function() {
-     $(".editar_atividade").show(800);
-     $(".edit_form").hide();
-  });
-});
-
-jQuery(function() { 
-  $('#tipo').hide();
-  $(document).on('change', '#grupo', function(){
-      ValidaTipo();
-  });
-  ValidaTipo();
-});
-
-function ValidaTipo() {
-  if ($('#grupo').val() == 0 || $('#grupo').val() == 10) {
-      $('#tipo').show();
-  } else {
-      $('#tipo').hide();
-  }
-}
-
-jQuery(function() { 
-  $(document).on('mouseover', '.info_concedente', function() {
-      $('.rotate_info').show(400);
-      $('.div_concedente').show(400);
-  });
-
-  $(document).on('mouseleave', '.info_concedente', function() {
-      $('.rotate_info').hide(200);
-      $('.div_concedente').hide(200);
   });
 });
 
