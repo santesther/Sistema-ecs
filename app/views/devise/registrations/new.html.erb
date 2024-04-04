@@ -25,14 +25,16 @@
 
    <div class="form-group row">
      <small style="color: red; font-size:1.3rem">(Dados completos e sem abreviaturas)</small>
+     <small style="color: red; font-size:1.2rem">Os asteriscos * caracterizam obrigatoriedade de preenchimento</small>
+          <small style="color: green; font-size:1.0rem">Caso não haja dados a serem inseridos, colocar dois traços (--)</small>
           <label class="col-sm-2 col-form-label">Nome civil*</label> 
           <div class="col-sm-4">
             <%= f.text_field :nome_civil, required: true, class: "form-control" %> 
           </div>
 
-          <label class="col-sm-2 col-form-label">Nome social*</label>
+          <label class="col-sm-2 col-form-label">Nome social</label>
           <div class="col-sm-4">
-            <%= f.text_field :nome_social, class: "form-control" %> 
+            <%= f.text_field :nome_social, required: false, class: "form-control" %> 
           </div>
 
         </div>
@@ -71,7 +73,7 @@
             <%= f.text_field :telefone, required: true, class: "form-control", onkeypress:"$(this).mask('(00) 00000-0000')" %>
           </div>
 
-      <label class="col-sm-2 col-form-label">Foto de perfil*</label>
+      <label class="col-sm-2 col-form-label">Foto de perfil</label>
         <div class="col-sm-4">
         <%= f.file_field :avatar, accept: 'image/gif, image/jpg, image/jpeg, image/png' %>
         </div>
