@@ -46,6 +46,18 @@ Rails.application.routes.draw do
 
   get 'relatorio_publico/index'
 
+  get 'carta_apresentacao/index'
+  get 'carta_apresentacao/edit'
+
+  get 'carta_apresentacao/create'
+  post 'carta_apresentacao/create'
+
+  get 'carta_apresentacao/edit'
+  post 'carta_apresentacao/edit'
+
+  get 'carta_apresentacao/update'
+  post 'carta_apresentacao/update'
+
   get 'relatorio_particular/index'
   get 'relatorio_particular/edit'
 
@@ -128,6 +140,7 @@ Rails.application.routes.draw do
   post 'relatorio_publico/update'
 
  
+  get 'pdf_geral/carta'
   get 'pdf_geral/particular'
   get 'pdf_geral/publico'
   get 'pdf_geral/centro'
@@ -182,6 +195,12 @@ Rails.application.routes.draw do
  resources :users do
   member do
     get 'liberar'
+   end
+end
+
+resources :users do
+  member do
+    get 'refazer'
    end
 end
 end

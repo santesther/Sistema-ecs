@@ -13,7 +13,7 @@
             <h2>Termo de Compromisso de Estágio - TCE</h2>
             <h5><b>Data:</b><%=f.text_field :data, required: true, value: relatorio.data, onkeypress:"$(this).mask('00/00/0000')" %></h5>
             <h5><b>Seguradora:</b> <%= f.text_field :seguradora, value: relatorio.seguradora, required:true %></h5>
-            <h4><b>Apólice de seguro:</b> <%= f.text_field :apolice, value: relatorio.apolice, required:true %></h4>
+            <h4><b>Apólice de seguro:</b> <%= current_user.apolice %></h4>
 
             <br />
 

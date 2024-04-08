@@ -66,6 +66,7 @@ class RelatorioCampiaditivoController < ApplicationController
         @relatorios.cep_da_instituicao = current_user.cep_da_instituicao
         @relatorios.telefone_da_instituicao = current_user.telefone_da_instituicao
         @relatorios.representante_da_instituicao = @relatorios.representante_da_instituicao
+        @relatorios.apolice = current_user.apolice
     
     
         ContactMailer.contact_message(current_user).deliver

@@ -19,9 +19,6 @@ class RelatorioCentroController < ApplicationController
   
         pdf = CentroPdf.new(@relatorio, current_user, @usuario_matricula)
   
-        # Adiciona uma página em branco apenas se o número total de páginas for ímpar
-        pdf.start_new_page if pdf.page_count.odd?
-  
         # Renderiza o PDF
         send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
   
@@ -66,6 +63,7 @@ class RelatorioCentroController < ApplicationController
     @relatorios.municipio = current_user.municipio
     @relatorios.cep = current_user.cep
     @relatorios.telefone = current_user.telefone
+    @relatorios.apolice = current_user.apolice
 
     ContactMailer.contact_message(current_user).deliver
 

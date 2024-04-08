@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_01_182805) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_08_191658) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -629,7 +629,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_01_182805) do
     t.string "status", default: "Revisando", null: false
     t.string "signature"
     t.string "feedback_situacao"
+    t.string "avatar"
     t.string "situacao", default: "Pendente"
+    t.boolean "carta_apresentacao", default: false
     t.boolean "pdf_centro", default: false
     t.boolean "pdf_campi", default: false
     t.boolean "pdf_publico", default: false
@@ -642,7 +644,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_01_182805) do
     t.string "finalizacao", default: "Revisando"
     t.boolean "pdf_naoformal", default: false
     t.string "liberacao", default: "Reprovado"
-    t.string "avatar"
+    t.string "apolice"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

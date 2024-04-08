@@ -13,7 +13,7 @@
              <h2><b>Termo de Compromisso de Estágio - TCE</b></h2>
             <h5><b>Data:</b><%=f.text_field :data, required: true, value: relatorio.data %></h5>
             <h5><b>Seguradora:</b> <%= f.text_field :seguradora, value: relatorio.seguradora, required:true %></h5>
-            <h4><b>Apólice de seguro nº:</b> <%= f.text_field :apolice, value: relatorio.apolice, required:true %></h4>
+            <h4><b>Apólice de seguro nº:</b> <%= current_user.apolice %></h4>
 
             <br />
             <p>O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua 
