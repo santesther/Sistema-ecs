@@ -24,9 +24,11 @@
 <%= render "devise/shared/error_messages", resource: resource %>
 
    <div class="form-group row">
-     <small style="color: red; font-size:1.3rem">(Dados completos e sem abreviaturas)</small>
-     <small style="color: red; font-size:1.2rem">Os asteriscos * caracterizam obrigatoriedade de preenchimento</small>
-          <small style="color: green; font-size:1.0rem">Caso não haja dados a serem inseridos, colocar dois traços (--)</small>
+         <div class="small-message-container">
+          <small style="color:red">Dados completos e sem abreviações</small><br>
+          <small style="color:red">Os asteriscos (*) indicam campos obrigatórios</small><br>
+          <small style="color:red">Use dois traços (--) para campos vazios</small>
+         </div>
           <label class="col-sm-2 col-form-label">Nome civil*</label> 
           <div class="col-sm-4">
             <%= f.text_field :nome_civil, required: true, class: "form-control" %> 

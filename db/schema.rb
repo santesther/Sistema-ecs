@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_08_191658) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_10_205706) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -52,6 +52,44 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_08_191658) do
   end
 
   create_table "avaliadors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carta_apresentacoes", force: :cascade do |t|
+    t.string "instituicao_apresentacao"
+    t.string "aluno_apresentacao"
+    t.string "aluno_apresentacao_dois"
+    t.string "periodo"
+    t.string "licenciatura"
+    t.string "semestre_apresentacao"
+    t.string "ano_apresentacao"
+    t.string "matricula_aluno"
+    t.string "aluno_semestre"
+    t.string "ano"
+    t.string "endereco"
+    t.string "numero"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "municipio"
+    t.string "estado"
+    t.string "cep"
+    t.string "telefone"
+    t.string "periodo_de"
+    t.string "periodo_a"
+    t.string "estado_da_instituicao"
+    t.string "cnpj"
+    t.string "endereco_da_instituicao"
+    t.string "numero_da_instituicao"
+    t.string "bairro_da_instituicao"
+    t.string "municipio_da_instituicao"
+    t.string "cep_da_instituicao"
+    t.string "telefone_da_instituicao"
+    t.string "representante"
+    t.string "apolice"
+    t.string "seguradora"
+    t.string "data"
+    t.string "avaliador"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -630,6 +668,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_08_191658) do
     t.string "signature"
     t.string "feedback_situacao"
     t.string "avatar"
+    t.string "apolice"
     t.string "situacao", default: "Pendente"
     t.boolean "carta_apresentacao", default: false
     t.boolean "pdf_centro", default: false
@@ -644,7 +683,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_08_191658) do
     t.string "finalizacao", default: "Revisando"
     t.boolean "pdf_naoformal", default: false
     t.string "liberacao", default: "Reprovado"
-    t.string "apolice"
+    t.boolean "status_carta", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

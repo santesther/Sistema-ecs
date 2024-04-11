@@ -95,7 +95,7 @@ export default class extends Controller {
     
     generateDeleteUrl = (userId, relatorioType) => {
         let deleteUrl = '';
-        
+    
         switch (relatorioType) {
             case 'centro':
                 deleteUrl = `/delete_relat_centro?id=${userId}`;
@@ -124,10 +124,14 @@ export default class extends Controller {
             case 'municipalouparticularaditivo':
                 deleteUrl = `/delete_relat_municipalouparticularaditivo?id=${userId}`;
                 break;
+            case 'cartaapresentacao':
+                deleteUrl = `/delete_carta_apresentacao?id=${userId}`;
+                break;
             default:
                 console.error("Tipo de relatório não reconhecido:", relatorioType);
+                break;
         }
-        
+    
         return deleteUrl;
-    }
+    }    
 }

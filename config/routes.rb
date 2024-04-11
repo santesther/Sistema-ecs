@@ -140,7 +140,7 @@ Rails.application.routes.draw do
   post 'relatorio_publico/update'
 
  
-  get 'pdf_geral/carta'
+  get 'pdf_geral/carta_apresentacao'
   get 'pdf_geral/particular'
   get 'pdf_geral/publico'
   get 'pdf_geral/centro'
@@ -170,6 +170,9 @@ Rails.application.routes.draw do
   get 'pdf_geral/update_publico'
   post 'pdf_geral/update_publico'
 
+  get 'pdf_geral/update_carta'
+  post 'pdf_geral/update_carta'
+
   get 'pdf_geral/update_centro'
   post 'pdf_geral/update_centro'
 
@@ -178,6 +181,9 @@ Rails.application.routes.draw do
 
   get 'pdf_geral/update_naoformal'
   post 'pdf_geral/update_naoformal'
+
+  #delete cartaapresentacao
+  get 'delete_carta_apresentacao', to: 'carta_apresentacao#destroy', as: 'delete_carta_apresentacao'
 
   #deletes relats
   get '/delete_relat_centro', to: 'relatorio_centro#destroy', as: 'delete_relat_centro'

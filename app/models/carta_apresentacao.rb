@@ -1,0 +1,2 @@
+class CartaApresentacao < ApplicationRecord
+end
