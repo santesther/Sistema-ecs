@@ -18,7 +18,7 @@
   	<div class="row">
     	<div class="col-md-12 ">
 			<ul class="list-group">
-			<li class=list-group-item><%= link_to "NOVO PREENCHIMENTO", refazer_user_path(:id => @user.id, :action => "refazer"), :class => 'btn btn-secondary refazer-btn'  %></td></li>
+			<li class=list-group-item><%= link_to "NOVO PREENCHIMENTO", refazer_user_path(:id => @user.id, :action => "refazer"), :class => 'btn btn-secondary refazer-btn'  %></td>--- Só clicar após APAGAR todos os PDFs do aluno!</li>
 				<li class=list-group-item><%= link_to 'Enviar e-mail', mensagens_path(:user_id => @user.id), :target => '_blank', :class => "btn btn-success btn-block" %></li>
 				<li class="list-group-item"><b>Nome civil:</b> <%= @user.nome_civil %></li>
 				<% if not @user.nome_social.blank? %>
