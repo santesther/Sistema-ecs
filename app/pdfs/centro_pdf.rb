@@ -15,8 +15,7 @@ class CentroPdf < Prawn::Document
 
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
-
-            
+            draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], :inline_format => true
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 20
             text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, :leading => 10

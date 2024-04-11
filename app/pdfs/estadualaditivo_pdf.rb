@@ -15,6 +15,7 @@ class EstadualaditivoPdf< Prawn::Document
 
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
+            draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], :inline_format => true
             text "<b>TERMO ADITIVO DE ESTÁGIO</b> (Período letivo: <b><u>#{relatorio.periodo_letivo})</u></b>", align: :center, size: 15, :inline_format => true, :leading => 10
             text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, size: 12, :leading => 10
             text "<b>Apólice de seguro nº: </b><u>#{current_user.apolice}</u> ", align: :center, :inline_format => true, size: 12, :leading => 10
