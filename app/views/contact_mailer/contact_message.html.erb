@@ -19,6 +19,10 @@
     <p><strong>Mensagem:</strong></p>
    
 
+     <% if @current_user.carta_apresentacao != false %>
+      <p><b>A Carta de Apresentação foi preenchida!</b></p>
+    <% end %>
+
     <% if @current_user.pdf_aditivo_centro != false %>
       <p><b>O relatório <b>aditivo</b> referente ao estágio do <u>IFF Centro</u> foi preenchido!</b></p>
     <% end %>

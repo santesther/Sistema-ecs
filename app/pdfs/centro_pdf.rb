@@ -42,7 +42,7 @@ class CentroPdf < Prawn::Document
                   transparent(0) { stroke_bounds }
                   %i[center].each do |vposition|
                   image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150,
-                  position: :left, vposition: -70
+                  position: :left, vposition: -60
               end
             end
           end
@@ -51,7 +51,7 @@ class CentroPdf < Prawn::Document
                 transparent(0) { stroke_bounds }
                 %i[left].each do |vposition|
                 image "#{Rails.root}/app/assets/images/carimbo_Elizabeth.png", :width => 250,
-                position: :left, vposition: 30
+                position: :left, vposition: 40
                 end
                 bounding_box([55, cursor], width: 400, height: 450) do
                   transparent(0) { stroke_bounds }
@@ -61,41 +61,41 @@ class CentroPdf < Prawn::Document
               end
             end
           end
-          elsif relatorio.avaliador == "Virginia Ribeiro"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                image "#{Rails.root}/app/assets/images/carimbo_virginia_certo.png", :width => 200,
-                position: :left, vposition: 40
-                end
-                bounding_box([0, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 220,
-                  position: :left, vposition: -110
-              end
+        elsif relatorio.avaliador == "Virginia Ribeiro"
+          bounding_box([-10, cursor], width: 150, height: 100) do
+            transparent(0) { stroke_bounds }
+            %i[left].each do |vposition|
+            image "#{Rails.root}/app/assets/images/carimbo_virginia_certo.png", :width => 200,
+            position: :left, vposition: 40
             end
+            bounding_box([0, cursor], width: 400, height: 450) do
+              transparent(0) { stroke_bounds }
+              %i[center].each do |vposition|
+              image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 220,
+              position: :left, vposition: -90
           end
-          elsif relatorio.avaliador == "Marlúcia Cereja"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                image "#{Rails.root}/app/assets/images/carimbo_marlucia_ok.png", :width => 185,
-                position: :left, vposition: 40
-                end
-                bounding_box([55, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 140,
-                  position: :left, vposition: -70
-              end
+        end
+      end
+      elsif relatorio.avaliador == "Marlúcia Cereja"
+          bounding_box([-10, cursor], width: 150, height: 100) do
+            transparent(0) { stroke_bounds }
+            %i[left].each do |vposition|
+            image "#{Rails.root}/app/assets/images/carimbo_marlucia_ok.png", :width => 185,
+            position: :left, vposition: 40
             end
+            bounding_box([55, cursor], width: 400, height: 450) do
+              transparent(0) { stroke_bounds }
+              %i[center].each do |vposition|
+              image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 140,
+              position: :left, vposition: -80
           end
-          else 
-            text "Usuário não cadastrado"
-          end
+        end
+      end
+      else 
+        text "Usuário não cadastrado"
+      end
             
-            move_down 20
+            move_down 40
             text "CLÁUSULA PRIMEIRA - DA FINALIDADE", align: :center, size: 16
             move_down 20
             text "Estágio Curricular Supervisionado compreende um conjunto de atividades que propiciam aos licenciandos situações e oportunidades reais de trabalho. É ato educativo escolar, supervisionado, desenvolvido em ambiente profissional correlato à área de atuação acadêmica do aluno em conformidade com a Lei N.º 11.788/08.
@@ -138,8 +138,8 @@ class CentroPdf < Prawn::Document
                 end
           elsif relatorio.avaliador == "Elizabeth Freitas"
               %i[left].each do |position|
-                move_down -17
-                image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+                move_down -8
+                image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 130, position: position
             end
         elsif relatorio.avaliador == "Virginia Ribeiro"
               %i[left].each do |position|
@@ -198,8 +198,8 @@ class CentroPdf < Prawn::Document
                   end
             elsif relatorio.avaliador == "Elizabeth Freitas"
                 %i[left].each do |position|
-                  move_down -17
-                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+                  move_down -8
+                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 130, position: position
               end
           elsif relatorio.avaliador == "Virginia Ribeiro"
                 %i[left].each do |position|
@@ -261,8 +261,8 @@ class CentroPdf < Prawn::Document
                   end
             elsif relatorio.avaliador == "Elizabeth Freitas"
                 %i[left].each do |position|
-                  move_down -15
-                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 150, position: position
+                  move_down -5
+                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 130, position: position
               end
           elsif relatorio.avaliador == "Virginia Ribeiro"
                 %i[left].each do |position|

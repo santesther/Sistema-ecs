@@ -19,7 +19,7 @@ class CartaApresentacaoController < ApplicationController
         send_data pdf.render, filename: 'carta.pdf', type: 'application/pdf', disposition: 'inline'
   
         if current_user.role == "normal_user"
-          #ContactMailer.confirmacao_impressao(current_user).deliver
+          ContactMailer.confirmacao_impressao(current_user).deliver
         end
       end
     end
@@ -59,7 +59,7 @@ class CartaApresentacaoController < ApplicationController
         @relatorios.telefone = current_user.telefone
         @relatorios.apolice = current_user.apolice
     
-        #ContactMailer.contact_message(current_user).deliver
+        ContactMailer.contact_message(current_user).deliver
     
         flash[:notice] = 'Mensagem enviada com sucesso'
     
