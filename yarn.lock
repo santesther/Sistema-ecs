@@ -465,9 +465,9 @@
   "version" "1.4.1"
 
 "punycode@^2.1.0":
-  "integrity" "sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA=="
-  "resolved" "https://registry.npmjs.org/punycode/-/punycode-2.3.0.tgz"
-  "version" "2.3.0"
+  "integrity" "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg=="
+  "resolved" "https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz"
+  "version" "2.3.1"
 
 "rails_admin@3.1.2":
   "integrity" "sha512-uIQHN27lBvlav6s5ppmOtVxKN8GIxyhHuDFc9ZbvWgFknR4zgG4/xEUGzKzQ9R34AEsfZ/t8cZbvtvgj+aXp4A=="
@@ -608,9 +608,9 @@
     "ansi-regex" "^5.0.1"
 
 "strip-ansi@^7.0.1":
-  "integrity" "sha512-cXNxvT8dFNRVfhVME3JAe98mkXDYN2O1l7jmcwMnOslDeESg1rF/OZMtK0nRAhiari1unG5cD4jG3rapUAkLbw=="
-  "resolved" "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.0.1.tgz"
-  "version" "7.0.1"
+  "integrity" "sha512-iq6eVVI64nQQTRYq2KtEg2d2uU7LElhTJwsH4YzIHZshxlgZms/wIc4VoDQTlG/IvVIrBKG06CrZnp0qv7hkcQ=="
+  "resolved" "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.0.tgz"
+  "version" "7.1.0"
   dependencies:
     "ansi-regex" "^6.0.1"
 
@@ -632,9 +632,9 @@
     "has-flag" "^4.0.0"
 
 "sweetalert2@^11.6.13":
-  "integrity" "sha512-n5yVF0FNx1lm4XzpPyb1HIaiptzODfVyeCzmB809tpK+1bPdoKoevKOxYjrtId75DV7xuIp4r6cjn8xUAB8dPQ=="
-  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.6.13.tgz"
-  "version" "11.6.13"
+  "integrity" "sha512-5Jlzrmaitay6KzU+2+LhYu9q+L4v/dZ8oZyEDH14ep0C/QilCnFLHmqAyD/Lhq/lm5DiwsOs6Tr58iv8k3wyGg=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.10.7.tgz"
+  "version" "11.10.7"
 
 "type-fest@^2.13.0":
   "integrity" "sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA=="
