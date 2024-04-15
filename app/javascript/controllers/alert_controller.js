@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 
 export default class extends Controller {
     connect() {
-        // Adiciona o ouvinte de evento aos links de exclusão de PDF
         const excluirPdfLinks = document.querySelectorAll('.delete-pdf-btn');
         excluirPdfLinks.forEach(link => {
             link.addEventListener('click', (event) => {
@@ -18,8 +17,7 @@ export default class extends Controller {
                 this.showAlert(userId, relatorioType);
             });
         });
-
-        // Adiciona o ouvinte de evento aos botões de liberar
+    
         const liberarBtns = document.querySelectorAll('.liberar-btn');
         liberarBtns.forEach(btn => {
             btn.addEventListener('click', (event) => {
@@ -29,11 +27,24 @@ export default class extends Controller {
                 
                 console.log("Clique no botão de liberar. ID do usuário:", userId);
                 
-                // Realiza a liberação
                 this.showLiberarAlert(userId);
             });
         });
+    
+        const refazerBtns = document.querySelectorAll('.refazer-btn'); // Alteração aqui
+        refazerBtns.forEach(btn => { // Alteração aqui
+            btn.addEventListener('click', (event) => {
+                event.preventDefault();
+                
+                const userId = btn.dataset.userId;
+                
+                console.log("Clique no botão de novo preenchimento. ID do usuário:", userId);
+                
+                this.showRefazerAlert(userId);
+            });
+        });
     }
+    
 
     showAlert = (userId, relatorioType) => {
         Swal.fire({
@@ -70,6 +81,45 @@ export default class extends Controller {
                 console.log("Liberando usuário com ID:", userId);
                 // Faz uma requisição GET para a rota de liberação
                 fetch(`/users/${userId}/liberar`)
+                    .then(response => {
+                        if (response.ok) {
+                            console.log("Usuário liberado com sucesso!");
+                            // Aqui você pode adicionar a lógica para tratar o sucesso da liberação
+                            Swal.fire("Sucesso!", "Usuário liberado com sucesso!", "success");
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 1000);
+                        } else {
+                            console.error("Erro ao liberar usuário:", response.statusText);
+                            // Aqui você pode adicionar a lógica para tratar o erro da liberação
+                            Swal.fire("Erro!", "Ocorreu um erro ao liberar o usuário.", "error");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Erro ao liberar usuário:", error);
+                        // Aqui você pode adicionar a lógica para tratar o erro da liberação
+                        Swal.fire("Erro!", "Ocorreu um erro ao liberar o usuário.", "error");
+                    });
+            }
+        }).catch(error => console.error(error)); // Tratar erros, se houver
+    }
+
+    showRefazerAlert = (userId) => {
+        Swal.fire({
+            title: "Você tem certeza que deseja liberar este usuário?",
+            text: "Esta ação não pode ser desfeita!",
+            showCancelButton: true,
+            confirmButtonText: "Liberar",
+            cancelButtonText: "Cancelar",
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-alert'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log("Liberando usuário com ID:", userId);
+                // Faz uma requisição GET para a rota de liberação
+                fetch(`/users/${userId}/refazer`)
                     .then(response => {
                         if (response.ok) {
                             console.log("Usuário liberado com sucesso!");
