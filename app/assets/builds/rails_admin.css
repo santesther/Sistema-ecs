@@ -1,0 +1,65 @@
+/*
+Error: File to import not found or unreadable: flatpickr/dist/flatpickr.
+       Load path: /home/esther/porfavor/node_modules
+        on line 10 of /home/esther/porfavor/node_modules/rails_admin/src/rails_admin/styles/base.scss
+        from line 2 of ./app/assets/stylesheets/rails_admin.scss
+
+Backtrace:
+/home/esther/porfavor/node_modules/rails_admin/src/rails_admin/styles/base.scss:10
+./app/assets/stylesheets/rails_admin.scss:2
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/import_node.rb:37:in `css_import?'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:310:in `visit_import'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `block (2 levels) in visit_import'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `map'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `block in visit_import'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:88:in `block in with_import'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:88:in `with_import'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/plugin.rb:82:in `update_stylesheets'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:338:in `watch_or_update'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+/home/esther/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+/home/esther/.rvm/gems/ruby-3.1.2/bin/sass:25:in `load'
+/home/esther/.rvm/gems/ruby-3.1.2/bin/sass:25:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: flatpickr/dist/flatpickr.\A        Load path: /home/esther/porfavor/node_modules\A         on line 10 of /home/esther/porfavor/node_modules/rails_admin/src/rails_admin/styles/base.scss\A         from line 2 of ./app/assets/stylesheets/rails_admin.scss"; }
