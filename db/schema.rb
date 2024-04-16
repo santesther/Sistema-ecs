@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_04_10_205706) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -40,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_205706) do
   end
 
   create_table "archives", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nome_usuario"
@@ -112,8 +115,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_205706) do
 
   create_table "mensagens", force: :cascade do |t|
     t.text "texto"
-    t.integer "destinatario_id"
-    t.integer "remetente_id"
+    t.bigint "destinatario_id"
+    t.bigint "remetente_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["destinatario_id"], name: "index_mensagens_on_destinatario_id"
@@ -128,8 +131,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_205706) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "id_archive"
-    t.integer "archive_id", null: false
-    t.integer "responsavel_avaliacao_id"
+    t.bigint "archive_id", null: false
+    t.bigint "responsavel_avaliacao_id"
     t.index ["archive_id"], name: "index_registro_avaliacaos_on_archive_id"
     t.index ["responsavel_avaliacao_id"], name: "index_registro_avaliacaos_on_responsavel_avaliacao_id"
   end
