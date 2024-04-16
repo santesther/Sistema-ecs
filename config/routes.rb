@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   root "welcome#index"
   resources :mensagens
   get "/welcome", to: "welcome#index"
-  
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   get 'users/index'
   get 'users/show'
