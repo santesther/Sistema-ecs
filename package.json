@@ -18,7 +18,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "type": "module",
-    "eject": "react-scripts eject",
-    "build:css": "sass ./app/assets/stylesheets/rails_admin.scss:./app/assets/builds/rails_admin.css --load-path=node_modules"
+    "eject": "react-scripts eject"
   }
 }
