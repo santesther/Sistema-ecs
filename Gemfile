@@ -8,6 +8,9 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'mailcatcher'
 
 gem 'devise'
+
+gem 'rails_admin'
+
 gem 'cancancan'
 
 gem 'sass-rails'
@@ -17,8 +20,6 @@ gem 'bootstrap'
 gem 'carrierwave', '~> 2.2', '>= 2.2.4'
 
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
-
-gem 'materialize-sass', '~> 0.100.2'
 
 gem 'material_icons', '~> 2.2'
 

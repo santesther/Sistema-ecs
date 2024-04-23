@@ -7,12 +7,13 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "welcome"%>
     <%= javascript_include_tag 'jquery-3.6.1' %> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <%= javascript_importmap_tags %> 
-    <%= favicon_link_tag 'iconIffPequeno.png' %>    
+    <%= favicon_link_tag 'iconIffPequeno.png' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %> 
+    <%= stylesheet_link_tag "welcome", "data-turbo-track": "reload" %>    
     
   </head>
 

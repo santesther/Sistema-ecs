@@ -1,10 +1,14 @@
 {
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "flatpickr": "^4.6.13",
     "jquery": "^3.7.1",
     "jquery-mask-plugin": "^1.14.16",
     "rails_admin": "3.1.2",
+    "sass": "^1.75.0",
     "serve": "^14.2.1",
     "signature_pad": "^4.2.0",
     "sweetalert2": "^11.6.13",
@@ -14,10 +18,9 @@
     "node": "20.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "type": "module",
-    "eject": "react-scripts eject"
+    "build": "webpack",
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css ./app/assets/stylesheets/rails_admin.scss:./app/assets/builds/rails_admin.css --no-source-map --load-path=node_modules"
   }
 }
