@@ -15,6 +15,9 @@ gem 'cancancan'
 
 gem 'sass-rails'
 
+gem 'sass'
+
+
 gem 'bootstrap'
 
 gem 'carrierwave', '~> 2.2', '>= 2.2.4'
