@@ -19,6 +19,8 @@ gem 'sass'
 
 gem 'flatpickr'
 
+gem 'uglifier'
+
 gem 'bootstrap'
 
 gem 'carrierwave', '~> 2.2', '>= 2.2.4'
