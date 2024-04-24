@@ -17,6 +17,7 @@ gem 'sass-rails'
 
 gem 'sass'
 
+gem 'flatpickr'
 
 gem 'bootstrap'
 
