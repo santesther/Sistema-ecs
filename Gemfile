@@ -19,7 +19,7 @@ gem 'sass'
 
 gem 'flatpickr'
 
-gem 'uglifier'
+gem 'terser'
 
 gem 'bootstrap'
 
