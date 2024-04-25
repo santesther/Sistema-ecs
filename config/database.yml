@@ -3,7 +3,7 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  user: dirlic
+  user: esther
   password: 123456
 
   
@@ -20,5 +20,5 @@ test:
 production:
   <<: *default
   database: ecs_production
-  username: dirlic
+  username: esther
   password: <%= ENV['IACHEI_APP_DATABASE_PASSWORD'] %>
