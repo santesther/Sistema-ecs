@@ -18,20 +18,20 @@ class AditivocentroPdf < Prawn::Document
               move_down 90
 
 
-            text "<b>TERMO ADITIVO DE ESTÁGIO</b> (Período letivo: <b><u>#{relatorio.periodo_letivo})</u></b>", align: :center, size: 15, :inline_format => true, :leading => 10
-            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, size:12, :leading => 10
-            text "<b>Apólice de seguro nº: </b><u>#{current_user.apolice}</u> ", align: :center, :inline_format => true, size:12, :leading => 10
+            text "<b>TERMO ADITIVO DE ESTÁGIO</b> (Período letivo: <b>#{relatorio.periodo_letivo})</b>", align: :center, size: 15, :inline_format => true, :leading => 10
+            text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, size:12, :leading => 10
+            text "<b>Apólice de seguro nº: </b>#{current_user.apolice} ", align: :center, :inline_format => true, size:12, :leading => 10
             move_down 20
             text "Aditamento ao Termo de Compromisso de Estágio, Ato representado pela  <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E CONCEDENTE</b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
             move_down 10
-            text "<u>#{relatorio.aluno_apresentacao}</u>", align: :center, size:12, :inline_format => true, :leading => 10 
+            text "#{relatorio.aluno_apresentacao}", align: :center, size:12, :inline_format => true, :leading => 10 
             move_down 10
-            text "matrícula nº <u>#{relatorio.matricula_aluno}</u> do <u>#{relatorio.periodo}</u> do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>.", align: :justify, :inline_format => true, :leading => 10
+            text "matrícula nº #{relatorio.matricula_aluno} do #{relatorio.periodo} do Curso Superior de Licenciatura em #{relatorio.licenciatura}.", align: :justify, :inline_format => true, :leading => 10
             move_down 20
             text "<b>Cláusula Primeira:</b>", align: :left, :inline_format => true, :leading => 10
             text "O PRESENTE TERMO ADITIVO ALTERA:", align: :left, :inline_format => true, :leading => 10 
-            text "(<b>X</b>) O período do término do estágio para: <b><u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true, :leading => 10
-            text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado <u>#{relatorio.periodo_dirlic}</u> período no Campus Campos Centro do IFFluminense, no <u>#{relatorio.semestre_dirlic}</u> semestre letivo de <u>#{relatorio.ano}</u>.", align: :justify, :inline_format => true, :leading => 10
+            text "(<b>X</b>) O período do término do estágio para: <b>#{relatorio.periodo_a}</b>", align: :justify, :inline_format => true, :leading => 10
+            text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado #{relatorio.periodo_dirlic} período no Campus Campos Centro do IFFluminense, no #{relatorio.semestre_dirlic} semestre letivo de #{relatorio.ano}.", align: :justify, :inline_format => true, :leading => 10
     
             if relatorio.avaliador == "Edina Lacerda"
               bounding_box([-10, cursor], width: 150, height: 100) do
@@ -106,7 +106,7 @@ class AditivocentroPdf < Prawn::Document
             move_down 20
   
             
-            text "Campos dos Goytacazes, RJ, <u>#{relatorio.data}</u>", align: :center, :inline_format => true
+            text "Campos dos Goytacazes, RJ, #{relatorio.data}", align: :center, :inline_format => true
   
             move_down 50
             text "Concedente: _________________________________________________", :inline_format => true

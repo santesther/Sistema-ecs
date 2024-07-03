@@ -18,17 +18,17 @@ class CentroPdf < Prawn::Document
             draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], :inline_format => true
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 20
-            text "<b>Seguradora: </b><u>#{relatorio.seguradora}</u>",align: :center, :inline_format => true, :leading => 10
-            text "<b>Apólice de seguro nº: </b><u>#{current_user.apolice}</u> ",align: :center, :inline_format => true, :leading => 10
+            text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro nº: </b>#{current_user.apolice} ",align: :center, :inline_format => true, :leading => 10
             move_down 10
 
             text "O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E CONCEDENTE<b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
             move_down 10
-            text "<b><u>#{relatorio.aluno_apresentacao}</u></b>", align: :center, size: 20, :inline_format => true, :leading => 10
+            text "<b>#{relatorio.aluno_apresentacao}</b>", align: :center, size: 20, :inline_format => true, :leading => 10
             move_down 10
-            text "matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <u>#{relatorio.matricula_aluno}</u>, no <u>#{relatorio.aluno_semestre}</u> semestre do ano letivo de <u>#{relatorio.ano}</u>, no Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, <u>#{relatorio.periodo}</u> período. Residente no(a) <u>#{relatorio.endereco}</u>, nº <u>#{relatorio.numero}</u>, Complemento: <u>#{relatorio.complemento}</u>, Bairro: <u>#{relatorio.bairro}</u>, município: <u>#{relatorio.municipio}</u>, UF: <u>#{relatorio.estado}</u>, CEP: <u>#{relatorio.cep}<u>, telefone/contato: nº <u>#{relatorio.telefone}</u>", align: :justify, :inline_format => true, :leading => 10
+            text "matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº #{relatorio.matricula_aluno}, no #{relatorio.aluno_semestre} semestre do ano letivo de #{relatorio.ano}, no Curso Superior de Licenciatura em #{relatorio.licenciatura}, #{relatorio.periodo} período. Residente no(a) #{relatorio.endereco}, nº #{relatorio.numero}, Complemento: #{relatorio.complemento}, Bairro: #{relatorio.bairro}, município: #{relatorio.municipio}, UF: #{relatorio.estado}, CEP: #{relatorio.cep}, telefone/contato: nº #{relatorio.telefone}", align: :justify, :inline_format => true, :leading => 10
             move_down 40
-            text "<b>Período de Estágio: de <u>#{relatorio.periodo_de}</u> a <u>#{relatorio.periodo_a}</u></b>", align: :justify, :inline_format => true
+            text "<b>Período de Estágio: de #{relatorio.periodo_de} a #{relatorio.periodo_a}</b>", align: :justify, :inline_format => true
             
            
             if relatorio.avaliador == "Edina Lacerda"
@@ -282,7 +282,7 @@ class CentroPdf < Prawn::Document
             E por estarem de pleno e comum acordo com o exposto no presente Termo de Compromisso, firmam em 03 (três) vias de igual teor, cabendo a 1.ª via à Instituição de Ensino PROMOTORA, a 2.ª, à CONCEDENTE e a 3.ª via, ao ESTAGIÁRIO.", align: :justify
   
             move_down 50
-            text "Campos dos Goytacazes, RJ, <u>#{relatorio.data}</u>", align: :center, :inline_format => true
+            text "Campos dos Goytacazes, RJ, #{relatorio.data}", align: :center, :inline_format => true
   
             move_down 50
             text "Concedente: _________________________________________________", :inline_format => true

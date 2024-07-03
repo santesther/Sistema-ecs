@@ -16,15 +16,15 @@ class CartaapresentacaoPdf< Prawn::Document
           if relatorio.matricula_aluno == @usuario_matricula
             draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], inline_format: true
             move_down 20
-            text "<b>DA:</b><u> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profissional (NAPP) do IFFluminense campus Campos Centro</u>", align: :left, size: 12, inline_format: true
+            text "<b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profissional (NAPP) do IFFluminense campus Campos Centro", align: :left, size: 12, inline_format: true
             move_down 20
-            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> <u>#{relatorio.instituicao_apresentacao}</u>", align: :left, size: 12, inline_format: true
+            text "<b>À:</b><b>Direção da Instituição de Ensino:</b> #{relatorio.instituicao_apresentacao}", align: :left, size: 12, inline_format: true
             move_down 10
-            text "<b>Assunto: Apresentação do Discente-Estagiário:</b> <u>#{relatorio.aluno_apresentacao}</u>", align: :left, size: 12, inline_format: true, leading: 10
+            text "<b>Assunto: Apresentação do Discente-Estagiário:</b> #{relatorio.aluno_apresentacao}", align: :left, size: 12, inline_format: true, leading: 10
             move_down 10
             text "Prezado Gestor.", align: :justify, inline_format: true, leading: 10
             move_down 5
-            text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u>#{relatorio.aluno_apresentacao_dois}</u>, matriculado(a), neste instituto, no <u>#{relatorio.periodo}</u> período do Curso Superior de Licenciatura em <u>#{relatorio.licenciatura}</u>, no <u>#{relatorio.semestre_apresentacao}</u> semestre letivo de <u>#{relatorio.ano_apresentacao}</u>, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, inline_format: true, leading: 10
+            text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): #{relatorio.aluno_apresentacao_dois}, matriculado(a), neste instituto, no #{relatorio.periodo} período do Curso Superior de Licenciatura em #{relatorio.licenciatura}, no #{relatorio.semestre_apresentacao} semestre letivo de #{relatorio.ano_apresentacao}, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, inline_format: true, leading: 10
             move_down 10
             text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, inline_format: true, leading: 10
             move_down 20
