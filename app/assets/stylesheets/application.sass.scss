@@ -1,1 +1,48 @@
 // Entry point for your Sass build
+@import 'bootstrap';
+@import 'welcome';
+
+.row{
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .introducao{
+    background-color: rgba(240,240,240,0.7);
+    padding:10px;
+    border-radius:10px;
+    border:2px solid black;
+  }
+  
+  .page-header {
+    border-bottom: 2px solid black;
+  }
+  
+
+.formulario_login {
+    border: 1px solid rgba(200,200,200,0.6);
+    box-shadow: -2px 2px 15px rgba(200,200,300,0.9);
+    padding:15px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .inicio{
+    border: 1px solid rgba(200,200,200,0.6);
+    box-shadow: -2px 2px 15px rgba(200,200,300,0.9);
+    padding:15px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+  }
+  
+  
+  .imagem_topo img {
+    margin-top: -30px;
+  }
+
+  .container {
+    border-left:none!important;
+  }
