@@ -1,4 +1,7 @@
 // Entry point for your Sass build
+@import "~bootstrap/scss/bootstrap";
+@import 'welcome';
+
 .row{
     margin-right: 0px;
     margin-left: 0px;
