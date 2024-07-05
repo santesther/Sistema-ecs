@@ -2,6 +2,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@popperjs/core": "^2.11.8",
+    "@rails/webpacker": "5.4.4",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "flatpickr": "^4.6.13",
@@ -12,7 +13,9 @@
     "serve": "^14.2.1",
     "signature_pad": "^4.2.0",
     "sweetalert2": "^11.6.13",
-    "type": "^2.7.2"
+    "type": "^2.7.2",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   },
   "engines": {
     "node": "20.x"
@@ -22,5 +25,8 @@
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css ./app/assets/stylesheets/rails_admin.scss:./app/assets/builds/rails_admin.css --load-path=node_modules"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3"
   }
 }
