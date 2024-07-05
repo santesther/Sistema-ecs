@@ -1,17 +1,15 @@
-import { Application } from "@hotwired/stimulus"
-import HelloController from './hello_controller';
+import { Application } from "@hotwired/stimulus";
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 
-const application = Application.start()
-import { definitionsFromContext } from 'stimulus/webpack-helpers';
-application.register('hello', HelloController);
+const application = Application.start();
+const context = require.context("controllers", true, /\.js$/);
+application.load(definitionsFromContext(context));
 
 // Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
+application.debug = false;
+window.Stimulus = application;
 
-export { application } // abre a interface do admin
-const context = require.context('./', true, /\.js$/);
-application.load(definitionsFromContext(context));
+export { application };
 
 
 //= require jquery
