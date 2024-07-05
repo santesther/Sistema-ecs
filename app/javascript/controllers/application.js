@@ -2,6 +2,7 @@ import { Application } from "@hotwired/stimulus"
 import HelloController from './hello_controller';
 
 const application = Application.start()
+import { definitionsFromContext } from 'stimulus/webpack-helpers';
 application.register('hello', HelloController);
 
 // Configure Stimulus development experience
@@ -9,6 +10,8 @@ application.debug = false
 window.Stimulus   = application
 
 export { application } // abre a interface do admin
+const context = require.context('./', true, /\.js$/);
+application.load(definitionsFromContext(context));
 
 
 //= require jquery
