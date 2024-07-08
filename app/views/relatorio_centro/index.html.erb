@@ -19,7 +19,7 @@
           abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em
           atendimento à Lei N.º 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>
           <div class="d-flex align-items-center justify-content-center">
-          <b><%= current_user.nome_civil%></b>
+          <b><%= f.text_field :aluno_apresentacao, required: true  %></b>
           </div></p>
           <p style="text-align: justify;font-size: 16px;" >matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o n.º <%= current_user.matricula %>, no 
           <%= f.select :aluno_semestre,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre do ano letivo de <%= f.select :ano,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>

@@ -42,18 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_205706) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "archives", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "nome_usuario"
-    t.json "documents"
-    t.string "status"
-    t.string "edited_by"
-    t.text "feedback"
-    t.index ["user_id"], name: "index_archives_on_user_id"
-  end
-
   create_table "avaliadors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -131,9 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_205706) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "id_archive"
-    t.bigint "archive_id", null: false
     t.bigint "responsavel_avaliacao_id"
-    t.index ["archive_id"], name: "index_registro_avaliacaos_on_archive_id"
     t.index ["responsavel_avaliacao_id"], name: "index_registro_avaliacaos_on_responsavel_avaliacao_id"
   end
 
@@ -693,10 +679,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_205706) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "archives", "users"
   add_foreign_key "mensagens", "users", column: "destinatario_id"
   add_foreign_key "mensagens", "users", column: "remetente_id"
-  add_foreign_key "registro_avaliacaos", "archives"
-  add_foreign_key "registro_avaliacaos", "users", column: "aluno_id"
   add_foreign_key "registro_avaliacaos", "users", column: "responsavel_avaliacao_id"
 end
