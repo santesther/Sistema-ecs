@@ -131,3 +131,19 @@ margin-bottom: 10px;
     padding: 1rem; 
   }
 }
+
+@media (max-width: 375px) {
+  .form {
+    font-size: 14px; /* Reduz ainda mais a fonte para dispositivos menores */
+  }
+  
+  .arrow-down {
+    font-size: 24px; /* Reduz ainda mais o tamanho da seta para dispositivos menores */
+  }
+
+  .styleImage {
+    width: 40px; /* Ajusta o tamanho da imagem ainda mais para dispositivos menores */
+    height: 40px;
+  }
+}
+

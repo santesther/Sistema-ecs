@@ -73,3 +73,17 @@
       font-size: 14px;
     }
   }
+
+  @media (max-width: 375px) {
+    .introducao {
+      padding: 3px; /* Reduz o espaçamento interno para dispositivos menores */
+      font-size: 12px; /* Reduz a fonte para dispositivos menores */
+    }
+  
+    .formulario_login,
+    .inicio {
+      padding: 5px; /* Reduz o espaçamento interno para dispositivos menores */
+      font-size: 12px; /* Reduz a fonte para dispositivos menores */
+    }
+  }
+  
