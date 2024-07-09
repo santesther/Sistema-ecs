@@ -80,5 +80,32 @@ border: 3px solid lightgray;
 .small-message-container {
 display: flex;
 justify-content: space-between;
-margin-bottom: 10px; /* Ajuste conforme necessário */
+margin-bottom: 10px; 
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    display: flex !important; 
+    justify-content: space-between; 
+    align-items: center; 
+  }
+  .navbar-brand {
+    margin-right: auto; 
+  }
+  .navbar-nav {
+    flex-direction: row; 
+    width: 100%; 
+    justify-content: space-between;
+  }
+  .nav-link {
+    padding: 0.5rem 1rem; 
+    text-align: center;
+    white-space: nowrap; 
+  }
+  .navbar {
+    padding: 0;
+  }
+  .container-fluid {
+    padding: 0;
+  }
 }
