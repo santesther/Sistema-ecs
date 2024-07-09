@@ -95,7 +95,7 @@ margin-bottom: 10px;
   .navbar-nav {
     flex-direction: row; 
     width: 100%; 
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   .nav-link {
     padding: 0.5rem 1rem; 
@@ -111,7 +111,7 @@ margin-bottom: 10px;
   }
 }
 /* Adaptação para dispositivos com largura menor que 400px */
-@media (max-width: 400px) {
+@media (max-width: 375px) {
   .navbar-collapse {
     flex-direction: column;
     justify-content: center;
