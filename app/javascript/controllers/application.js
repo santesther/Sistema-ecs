@@ -19,25 +19,6 @@ export { application } // abre a interface do admin
 
 
 jQuery(function() { 
-  var tam = $(window).width();
-
-  // Verificar o tamanho da tela ao carregar a página
-  if (tam >= 1024){
-    $("nav").show();
-    $(".exibir_menu").hide();
-    $(".navbar_mobile").hide();
-  } else {
-    $(".exibir_menu").show();
-    $(".navbar_mobile").show();  // Exibe a barra de navegação móvel em dispositivos móveis
-    $("nav").css("position", "fixed");
-  }
-
-  $(document).on('click', '.exibir_menu', function() {
-     $(".navbar_mobile").toggle(500);
-  });
-});
-
-jQuery(function() { 
   $('.clausulas').hide();
   $('.conteudo').show();
 
