@@ -1,20 +1,21 @@
-<div class="d-flex align-items-center justify-content-center">
-    <h1>Estágio Curricular Supervisionado</h1>
-</div>
-<div class="d-flex align-items-center justify-content-center">
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
     <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
 </div>
+</div>
 <br>
-      <div class="clausulas_conteudo">
-        <div class="confirmacao_preenchimento">
-        <div class="alert alert-secondary">
-          <p style="color:red;font-weight:bold; font-size:2rem;" ><b>Atenção</b> aos preenchimentos dos dados!</p>
-          <p style="color:red;"><b>As informações serão utilizadas nos seus Documentos ao Campo do Estágio.</b>(Termo de Compromisso, Termo Aditivo)</p>
-          <p style="color:red;font-weight:bold;">Preencha corretamente!</p>
-          <div class="btn btn-info confirma_preenchimento">Entendi!</div>
-        </div>
-        </div>
+
+    <div class="clausulas_conteudo">
+    <div class="confirmacao_preenchimento">
+      <div class="alert alert-secondary">
+        <p style="color:red;font-weight:bold; font-size:2rem;"><b>Atenção</b> aos preenchimentos dos dados!</p>
+        <p style="color:red;"><b>As informações serão utilizadas nos seus Documentos ao Campo do Estágio.</b>(Termo de Compromisso, Termo Aditivo)</p>
+        <p style="color:red;font-weight:bold;">Preencha corretamente!</p>
+        <div class="btn btn-info confirma_preenchimento">Entendi!</div>
       </div>
+    </div>
+  </div>
 
 <div class="container">
   <div class="card">
@@ -213,22 +214,4 @@
         </div>  
     <% end %>
   </div>
-  <style type="text/css">
-    .clausulas_conteudo {
-      height:145%;
-      width:100%;
-      position:absolute;
-      top:0;
-      left:0;
-    }
-    .confirmacao_preenchimento{
-      color: white;
-      text-align:center;
-      font-size: 1.5rem;
-      padding-top: 3.5rem;
-      padding-left: 60rem;
-      padding-right: 3rem;
-      font-family: "Times New Roman"
-    }
-  </style>
 </div>
