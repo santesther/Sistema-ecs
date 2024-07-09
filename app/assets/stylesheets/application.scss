@@ -60,3 +60,16 @@
   .container {
     border-left:none!important;
   }
+
+  @media (max-width: 768px) {
+    .introducao {
+      padding: 5px;
+      font-size: 14px;
+    }
+  
+    .formulario_login,
+    .inicio {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
