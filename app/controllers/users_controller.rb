@@ -37,7 +37,6 @@ class UsersController < ApplicationController
 
   def liberar
     @user = User.find(params[:id])
-    @relatorios = Relatorio.find_by(params[:id])
   
     if @user.liberacao == "Aprovado" && @relatorio.blank? && @user.status_impressao
       if @user.carta_apresentacao
@@ -106,7 +105,6 @@ class UsersController < ApplicationController
 
   def refazer
     @user = User.find(params[:id])
-    @relatorios = Relatorio.find_by(params[:id])
 
     if @relatorio.blank?
       if @user.carta_apresentacao
