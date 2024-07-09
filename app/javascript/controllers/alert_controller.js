@@ -148,35 +148,35 @@ export default class extends Controller {
     
         switch (relatorioType) {
             case 'centro':
-                deleteUrl = `/delete_relat_centro?id=${userId}`;
+                deleteUrl = `/delete_relat_centro/${userId}`;
                 break;
             case 'campi':
-                deleteUrl = `/delete_relat_campi?id=${userId}`;
+                deleteUrl = `/delete_relat_campi/${userId}`;
                 break;
             case 'publico':
-                deleteUrl = `/delete_relat_publico?id=${userId}`;
+                deleteUrl = `/delete_relat_publico/${userId}`;
                 break;
             case 'particular':
-                deleteUrl = `/delete_relat_particular?id=${userId}`;
+                deleteUrl = `/delete_relat_particular/${userId}`;
                 break;
             case 'naoformal':
-                deleteUrl = `/delete_relat_naoformal?id=${userId}`;
+                deleteUrl = `/delete_relat_naoformal/${userId}`;
                 break;
             case 'aditivocentro':
-                deleteUrl = `/delete_relat_aditivocentro?id=${userId}`;
+                deleteUrl = `/delete_relat_aditivocentro/${userId}`;
                 break;
             case 'campiaditivo':
-                deleteUrl = `/delete_relat_campiaditivo?id=${userId}`;
+                deleteUrl = `/delete_relat_campiaditivo/${userId}`;
                 break;
             case 'estadualaditivo':
-                deleteUrl = `/delete_relat_estadualaditivo?id=${userId}`;
+                deleteUrl = `/delete_relat_estadualaditivo/${userId}`;
                 break;
             case 'municipalouparticularaditivo':
-                deleteUrl = `/delete_relat_municipalouparticularaditivo?id=${userId}`;
+                deleteUrl = `/delete_relat_municipalouparticularaditivo/${userId}`;
                 break;
             case 'cartaapresentacao':
-                deleteUrl = `/delete_carta_apresentacao?id=${userId}`;
-                break;
+                deleteUrl = `/delete_carta_apresentacao/${userId}`;
+                break;                
             default:
                 console.error("Tipo de relatório não reconhecido:", relatorioType);
                 break;

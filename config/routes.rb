@@ -182,17 +182,18 @@ Rails.application.routes.draw do
   post 'pdf_geral/update_naoformal'
 
   #delete cartaapresentacao
-  get 'delete_carta_apresentacao', to: 'carta_apresentacao#destroy', as: 'delete_carta_apresentacao'
+  get 'delete_carta_apresentacao/:user_id', to: 'carta_apresentacao#destroy', as: 'delete_carta_apresentacao'
+  #get 'delete_carta_apresentacao/delete_by_matricula/:matricula_aluno', to: 'carta_apresentacao#destroy_by_matricula', as: 'delete_carta_by_matricula'
 
   #deletes relats
-  get '/delete_relat_centro', to: 'relatorio_centro#destroy', as: 'delete_relat_centro'
-  get '/delete_relat_campi', to: 'relatorio_campi#destroy', as: 'delete_relat_campi'
-  get '/delete_relat_publico', to: 'relatorio_publico#destroy', as: 'delete_relat_publico'
-  get '/delete_relat_particular', to: 'relatorio_particular#destroy', as: 'delete_relat_particular'
-  get '/delete_relat_aditivocentro', to: 'relatorio_aditivocentro#destroy', as: 'delete_relat_aditivocentro'
-  get '/delete_relat_campiaditivo', to: 'relatorio_campiaditivo#destroy', as: 'delete_relat_campiaditivo'
-  get '/delete_relat_estadualaditivo', to: 'relatorio_estadualaditivo#destroy', as: 'delete_relat_estadualaditivo'
-  get '/delete_relat_municipalouparticularaditivo', to: 'relatorio_municipalouparticularaditivo#destroy', as: 'delete_relat_municipalouparticularaditivo'
+  get '/delete_relat_centro/:user_id', to: 'relatorio_centro#destroy', as: 'delete_relat_centro'
+  get '/delete_relat_campi/:user_id', to: 'relatorio_campi#destroy', as: 'delete_relat_campi'
+  get '/delete_relat_publico/:user_id', to: 'relatorio_publico#destroy', as: 'delete_relat_publico'
+  get '/delete_relat_particular/:user_id', to: 'relatorio_particular#destroy', as: 'delete_relat_particular'
+  get '/delete_relat_aditivocentro/:user_id', to: 'relatorio_aditivocentro#destroy', as: 'delete_relat_aditivocentro'
+  get '/delete_relat_campiaditivo/:user_id', to: 'relatorio_campiaditivo#destroy', as: 'delete_relat_campiaditivo'
+  get '/delete_relat_estadualaditivo/:user_id', to: 'relatorio_estadualaditivo#destroy', as: 'delete_relat_estadualaditivo'
+  get '/delete_relat_municipalouparticularaditivo/:user_id', to: 'relatorio_municipalouparticularaditivo#destroy', as: 'delete_relat_municipalouparticularaditivo'
 
 
   devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
