@@ -104,8 +104,30 @@ margin-bottom: 10px;
   }
   .navbar {
     padding: 0;
+    width: 100%;
   }
   .container-fluid {
-    padding: 0;
+    padding: 0; 
+  }
+}
+/* Adaptação para dispositivos com largura menor que 400px */
+@media (max-width: 400px) {
+  .navbar-collapse {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .navbar-brand {
+    margin-right: 0;
+    margin-bottom: 1rem; 
+    text-align: center; 
+  }
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+    text-align: center; 
+  }
+  .nav-link {
+    padding: 1rem; 
   }
 }
