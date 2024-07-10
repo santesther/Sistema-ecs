@@ -110,7 +110,7 @@ margin-bottom: 10px;
     padding: 0; 
   }
 }
-/* Adaptação para dispositivos com largura menor que 400px */
+
 @media (max-width: 375px) {
   .navbar-collapse {
     flex-direction: column;
@@ -134,15 +134,15 @@ margin-bottom: 10px;
 
 @media (max-width: 375px) {
   .form {
-    font-size: 14px; /* Reduz ainda mais a fonte para dispositivos menores */
+    font-size: 14px;
   }
   
   .arrow-down {
-    font-size: 24px; /* Reduz ainda mais o tamanho da seta para dispositivos menores */
+    font-size: 24px;
   }
 
   .styleImage {
-    width: 40px; /* Ajusta o tamanho da imagem ainda mais para dispositivos menores */
+    width: 40px;
     height: 40px;
   }
 }
