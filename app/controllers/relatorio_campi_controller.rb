@@ -83,7 +83,7 @@ class RelatorioCampiController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:apolice, :seguradora, :data, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :representante_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador)
+    params.permit(:apolice, :seguradora, :data, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :representante_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio)
   end
 end
 
