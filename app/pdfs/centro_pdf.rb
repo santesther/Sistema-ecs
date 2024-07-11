@@ -19,83 +19,21 @@ class CentroPdf < Prawn::Document
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 20
             text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, :leading => 10
+            move_down 10
             text "<b>Apólice de seguro nº: </b>#{current_user.apolice} ",align: :center, :inline_format => true, :leading => 10
-            move_down 10
+            move_down 20
 
-            text "O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ, CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E CONCEDENTE<b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
-            move_down 10
+            text "O <b>INSTITUTO FEDERAL FLUMINENSE CAMPOS <i>CAMPUS</i> CENTRO</b> neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura - INSTITUIÇÃO PROMOTORA E CONCEDENTE</b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
+            move_down 15
             text "<b>#{relatorio.aluno_apresentacao}</b>", align: :center, size: 20, :inline_format => true, :leading => 10
-            move_down 10
-            text "matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº #{relatorio.matricula_aluno}, no #{relatorio.aluno_semestre} semestre do ano letivo de #{relatorio.ano}, no Curso Superior de Licenciatura em #{relatorio.licenciatura}, #{relatorio.periodo} período. Residente no(a) #{relatorio.endereco}, nº #{relatorio.numero}, Complemento: #{relatorio.complemento}, Bairro: #{relatorio.bairro}, município: #{relatorio.municipio}, UF: #{relatorio.estado}, CEP: #{relatorio.cep}, telefone/contato: nº #{relatorio.telefone}", align: :justify, :inline_format => true, :leading => 10
+            move_down 15
+            text "matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº #{relatorio.matricula_aluno}, no #{relatorio.aluno_semestre} semestre do ano letivo de #{relatorio.ano}, no Curso Superior de Licenciatura em #{relatorio.licenciatura}, no componente curricular #{relatorio.estagio}, residente no(a) #{relatorio.endereco}, nº #{relatorio.numero}, Complemento: #{relatorio.complemento}, Bairro: #{relatorio.bairro}, município: #{relatorio.municipio}, UF: #{current_user.UF}, CEP: #{relatorio.cep}, telefone/contato: nº #{relatorio.telefone}.", align: :justify, :inline_format => true, :leading => 10
             move_down 40
             text "<b>Período de Estágio: de #{relatorio.periodo_de} a #{relatorio.periodo_a}</b>", align: :justify, :inline_format => true
             
            
-            if relatorio.avaliador == "Edina Lacerda"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                image "#{Rails.root}/app/assets/images/carimbo_edina.png", :width => 300,
-                position: :left, vposition: 40
-                end
-                bounding_box([10, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150,
-                  position: :left, vposition: -60
-              end
-            end
-          end
-            elsif relatorio.avaliador == "Elizabeth Freitas"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                image "#{Rails.root}/app/assets/images/carimbo_Elizabeth.png", :width => 250,
-                position: :left, vposition: 40
-                end
-                bounding_box([55, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 140,
-                  position: :left, vposition: -90
-              end
-            end
-          end
-        elsif relatorio.avaliador == "Virginia Ribeiro"
-          bounding_box([-10, cursor], width: 150, height: 100) do
-            transparent(0) { stroke_bounds }
-            %i[left].each do |vposition|
-            image "#{Rails.root}/app/assets/images/carimbo_virginia_certo.png", :width => 200,
-            position: :left, vposition: 40
-            end
-            bounding_box([0, cursor], width: 400, height: 450) do
-              transparent(0) { stroke_bounds }
-              %i[center].each do |vposition|
-              image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 220,
-              position: :left, vposition: -90
-          end
-        end
-      end
-      elsif relatorio.avaliador == "Marlúcia Cereja"
-          bounding_box([-10, cursor], width: 150, height: 100) do
-            transparent(0) { stroke_bounds }
-            %i[left].each do |vposition|
-            image "#{Rails.root}/app/assets/images/carimbo_marlucia_ok.png", :width => 185,
-            position: :left, vposition: 40
-            end
-            bounding_box([55, cursor], width: 400, height: 450) do
-              transparent(0) { stroke_bounds }
-              %i[center].each do |vposition|
-              image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 140,
-              position: :left, vposition: -80
-          end
-        end
-      end
-      else 
-        text "Usuário não cadastrado"
-      end
             
-            move_down 40
+            move_down 100
             text "CLÁUSULA PRIMEIRA - DA FINALIDADE", align: :center, size: 16
             move_down 20
             text "Estágio Curricular Supervisionado compreende um conjunto de atividades que propiciam aos licenciandos situações e oportunidades reais de trabalho. É ato educativo escolar, supervisionado, desenvolvido em ambiente profissional correlato à área de atuação acadêmica do aluno em conformidade com a Lei N.º 11.788/08.
@@ -131,31 +69,10 @@ class CentroPdf < Prawn::Document
             9. comunicar à parte CONCEDENTE, no início do estágio, o período de realização de avaliações escolares ou acadêmicas, justificando-se assim, um possível impedimento de cumprimento de horário pré-fixado;
   
             10. expedir Declaração de Conclusão de Prática Profissional, na qual o Estágio Curricular Supervisionado se encontra inserido como parte integrante, para fins de Colação de Grau.", align: :justify
-
-            if relatorio.avaliador == "Edina Lacerda"
-              %i[left].each do |position|
-                image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
-                end
-          elsif relatorio.avaliador == "Elizabeth Freitas"
-              %i[left].each do |position|
-                move_down -8
-                image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 130, position: position
-            end
-        elsif relatorio.avaliador == "Virginia Ribeiro"
-              %i[left].each do |position|
-                move_down -10
-                image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
-        end
-        elsif relatorio.avaliador == "Marlúcia Cereja"
-              %i[left].each do |position|
-                image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
-        end
-        else 
-          text "Avaliador não foi selecionado"
-        end
+            move_down 40
   
             text "CLÁUSULA TERCEIRA - DA CONCEDENTE", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "A CONCEDENTE se compromete a:
   
             1. disponibilizar, ao ESTAGIÁRIO, oportunidades de aplicabilidade dos conhecimentos pertinentes à sua área profissional, em ambiente condizente com as exigências legais à formação;
@@ -178,7 +95,7 @@ class CentroPdf < Prawn::Document
             9. Indicar, enquanto perdurar o Estágio Curricular Supervisionado, a forma de contraprestação ao estagiário (quando houver): ..............................................;
   
             10. assegurar ao estagiário, em caso de estágio com duração igual ou superior a 01 (um) ano ininterrupto, período de recesso de 30 (trinta) dias, ou de maneira proporcional, naquele em que a duração for inferior ao período acima mencionado. O recesso de que trata este item, deverá ser gozado, preferencialmente, durante as férias escolares.", align: :justify
-            move_down 10
+            move_down 200
   
             text "CLÁUSULA QUARTA - DO ESTAGIÁRIO", align: :center, size: 16
             move_down 20
@@ -191,29 +108,6 @@ class CentroPdf < Prawn::Document
             3. cumprir a jornada estabelecida no presente Termo e registrar as atividades desenvolvidas, diariamente, na Ficha de Registro de Atividades (FRA);
   
             4. executar as atividades que lhe forem atribuídas e zelar pelos equipamentos e materiais que venha utilizar no desenvolvimento do seu estágio;"
-            
-              if relatorio.avaliador == "Edina Lacerda"
-                %i[left].each do |position|
-                  image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
-                  end
-            elsif relatorio.avaliador == "Elizabeth Freitas"
-                %i[left].each do |position|
-                  move_down -8
-                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 130, position: position
-              end
-          elsif relatorio.avaliador == "Virginia Ribeiro"
-                %i[left].each do |position|
-                  move_down -9
-                  image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
-          end
-          elsif relatorio.avaliador == "Marlúcia Cereja"
-                %i[left].each do |position|
-                  move_down 10
-                  image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
-          end
-          else 
-            text "Avaliador não foi selecionado"
-          end  
   
            text "5. informar por escrito e, em tempo hábil, à CONCEDENTE, qualquer fato que o impossibilite de cumprir a programação do estágio, quer quanto ao horário, duração ou aspectos técnicos;
   
@@ -253,29 +147,6 @@ class CentroPdf < Prawn::Document
             g) por desempenho insuficiente das atividades propostas, nas avaliações a que for submetido (a), pelos supervisores orientadores das partes conveniadas;
   
             h) por conduta incompatível do estagiário em relação às normas exigidas pela Instituição Concedente."
-              
-              if relatorio.avaliador == "Edina Lacerda"
-                %i[left].each do |position|
-                  move_down 5
-                  image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150, position: position
-                  end
-            elsif relatorio.avaliador == "Elizabeth Freitas"
-                %i[left].each do |position|
-                  move_down -5
-                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 130, position: position
-              end
-          elsif relatorio.avaliador == "Virginia Ribeiro"
-                %i[left].each do |position|
-                  image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 150, position: position
-          end
-          elsif relatorio.avaliador == "Marlúcia Cereja"
-                %i[left].each do |position|
-                  move_down 15
-                  image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 150, position: position
-          end
-          else 
-            text "Avaliador não foi selecionado"
-          end
   
             text "4. Fica eleito o foro da Comarca da cidade de Campos dos Goytacazes, Estado do Rio de Janeiro para dirimir qualquer questão que se originar deste termo.
   
@@ -288,72 +159,9 @@ class CentroPdf < Prawn::Document
             text "Concedente: _________________________________________________", :inline_format => true
   
             move_down 60
-            text "IFFluminense <i>campus</i> Campos Centro: "
+            text "IFFluminense campus Campos Centro: "
             stroke_horizontal_rule
             pad_top(20) { }
-              if relatorio.avaliador == "Edina Lacerda"
-                bounding_box([65, cursor], width: 150, height: 100) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_edina.png", :width => 300,
-                  position: :center, vposition: -10
-                  end
-                  bounding_box([55, cursor], width: 400, height: 450) do
-                    transparent(0) { stroke_bounds }
-                    %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150,
-                    position: :center, vposition: -120
-                end
-              end
-            end
-          elsif relatorio.avaliador == "Elizabeth Freitas"
-            bounding_box([50, cursor], width: 150, height: 100) do
-              transparent(0) { stroke_bounds }
-              %i[center].each do |vposition|
-              image "#{Rails.root}/app/assets/images/carimbo_Elizabeth.png", :width => 250,
-              position: :center, vposition: 5
-              end
-              bounding_box([55, cursor], width: 400, height: 450) do
-                transparent(0) { stroke_bounds }
-                %i[center].each do |vposition|
-                image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 140,
-                position: :center, vposition: -150
-            end
-          end
-        end
-              elsif relatorio.avaliador == "Virginia Ribeiro"
-                bounding_box([50, cursor], width: 150, height: 100) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_virginia_certo.png", :width => 200,
-                  position: :center, vposition: 5
-                  end
-                  bounding_box([85, cursor], width: 400, height: 450) do
-                    transparent(0) { stroke_bounds }
-                    %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 200,
-                    position: :center, vposition: -160
-                end
-              end
-            end
-          elsif relatorio.avaliador == "Marlúcia Cereja"
-            bounding_box([50, cursor], width: 150, height: 100) do
-              transparent(0) { stroke_bounds }
-              %i[center].each do |vposition|
-              image "#{Rails.root}/app/assets/images/carimbo_marlucia_ok.png", :width => 185,
-              position: :center, vposition: 5
-              end
-              bounding_box([80, cursor], width: 400, height: 450) do
-                transparent(0) { stroke_bounds }
-                %i[center].each do |vposition|
-                image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 140,
-                position: :center, vposition: -150
-            end
-          end
-        end
-            else 
-              text "Usuário não cadastrado"
-            end
 
             move_down 30
             text "Estagiário: ______________________________________________________________", :inline_format => true
