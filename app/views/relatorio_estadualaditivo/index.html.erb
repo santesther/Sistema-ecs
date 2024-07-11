@@ -7,13 +7,11 @@
         <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
 
         <hr />
-        <h2><b>TERMO ADITIVO DE ESTÁGIO (Período letivo: <%= f.text_field :periodo_letivo, required: true  %>)</b></h2>
+        <h2><b>TERMO ADITIVO DE ESTÁGIO</b></h2>
         
         <br />
 
-        <p style="text-align: justify; font-size: 16px;">O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07,
-        situado à Rua Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos Goytacazes/RJ,
-        CEP: 28080-565, neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do <i>CAMPUS</i> 
+        <p style="text-align: justify; font-size: 16px;">O <b>INSTITUTO FEDERAL FLUMINENSE</b>, neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas do <i>CAMPUS</i> 
         CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
         Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone 
         (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a 
@@ -25,10 +23,12 @@
         <div class="d-flex align-items-center justify-content-center">
           <b><%= f.text_field :aluno_apresentacao, required: true  %></b>
           </div></p>
-          matrícula nº <%= current_user.matricula %> do <%= current_user.periodo %> do Curso Superior de Licenciatura em
+           matrícula nº <%= current_user.matricula %> do semestre <%= f.select :semestre_apresentacao,['1º', '2º'], {include_blank:"Selecione"}, required:true %> do ano letivo <%= f.select :ano,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %> do Curso Superior de Licenciatura em
           <%= current_user.licenciatura %>.<br>
+          <p><b>Cláusula Primeira:</b><br>
+          O PRESENTE TERMO ADITIVO INCLUI:<br>
+          (<b>X</b>) O componente curricular <%= f.select :estagio,['Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV'], {include_blank:"Selecione"}, required:true %> no semestre do ano letivo <%= f.select :ano,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %><br></p>
           <hr />
-        <br />
         <br />
 
         <%= link_to "Voltar", :back, :class => 'btn btn-primary' %>
