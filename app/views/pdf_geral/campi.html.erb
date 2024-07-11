@@ -16,8 +16,8 @@
             <h4><b>Apólice de seguro nº:</b> <%= current_user.apolice %></h4>
 
             <br />
-            <p>O <b>INSTITUTO FEDERAL FLUMINENSE CAMPUS CAMPOS CENTRO</b> neste Ato representado pela <b>Diretoria de Ensino dos Cursos
-            Superiores de Licenciatura - INSTITUIÇÃO PROMOTORA -</b>, 
+            <p>O <b>INSTITUTO FEDERAL FLUMINENSE CAMPUS CAMPOS CENTRO</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino
+            Superior das Licenciaturas (DIRESLCC) - INSTITUIÇÃO PROMOTORA -</b>, 
             inscrita no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor
             Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP:
             28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de
@@ -34,6 +34,9 @@
             Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= @users.UF %>,
             CEP: <%= @users.cep %>, telefone/contato nº <%= @users.telefone %>.  
           </p>
+           <div class="periodo_div">
+              <b>Período de Vigência: <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de %></b>
+            </div>
           <% end %>
         <% end %>
 
