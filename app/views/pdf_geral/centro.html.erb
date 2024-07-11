@@ -36,7 +36,9 @@
             Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= @users.UF %>,
             CEP: <%= @users.cep %>, telefone/contato nº <%= @users.telefone %>. 
             </p>
-
+             <div class="periodo_div">
+              <b>Período de Vigência: <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de %></b>
+            </div>
           <% end %>
         <% end %>
 

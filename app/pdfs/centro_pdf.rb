@@ -29,7 +29,7 @@ class CentroPdf < Prawn::Document
             move_down 15
             text "matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº #{relatorio.matricula_aluno}, no #{relatorio.aluno_semestre} semestre do ano letivo de #{relatorio.ano}, no Curso Superior de Licenciatura em #{relatorio.licenciatura}, no componente curricular #{relatorio.estagio}, residente no(a) #{relatorio.endereco}, nº #{relatorio.numero}, Complemento: #{relatorio.complemento}, Bairro: #{relatorio.bairro}, município: #{relatorio.municipio}, UF: #{current_user.UF}, CEP: #{relatorio.cep}, telefone/contato: nº #{relatorio.telefone}.", align: :justify, :inline_format => true, :leading => 10
             move_down 40
-            text "<b>Período de Estágio: de #{relatorio.periodo_de} a #{relatorio.periodo_a}</b>", align: :justify, :inline_format => true
+            text "<b>Período de Vigência: #{relatorio.periodo_de}", align: :justify, :inline_format => true
             
            
             
@@ -48,13 +48,13 @@ class CentroPdf < Prawn::Document
   
             text "CLÁUSULA SEGUNDA - DA PROMOTORA", align: :center, size: 16
             move_down 20
-            text "O Instituto Federal Fluminense campus Campos Centro se compromete a:
+            text "O Instituto Federal Fluminense Campus Campos Centro se compromete a:
   
             1. avaliar as instalações da parte CONCEDENTE do estágio e sua adequação à formação cultural e profissional do educando;
   
             2. contratar, em benefício do estagiário, caso não esteja amparado pela Instituição CONCEDENTE, seguro de acidentes pessoais, vigente durante todo o período do estágio;
   
-            3. orientar o estagiário quanto ao planejamento e desenvolvimento das atividades do estágio e quanto a sua participação nas diversas etapas;
+            3. orientar o estagiário quanto ao planejamento e desenvolvimento das atividades do estágio e quanto à sua participação nas diversas etapas;
   
             4. indicar professor orientador como responsável pelo acompanhamento e avaliação das atividades de estágio e do desempenho do licenciando, de forma progressiva;
   
@@ -66,9 +66,7 @@ class CentroPdf < Prawn::Document
   
             8. zelar pelo cumprimento do termo de compromisso, reorientando o estagiário para outra Instituição, em caso de descumprimento das presentes normas;
   
-            9. comunicar à parte CONCEDENTE, no início do estágio, o período de realização de avaliações escolares ou acadêmicas, justificando-se assim, um possível impedimento de cumprimento de horário pré-fixado;
-  
-            10. expedir Declaração de Conclusão de Prática Profissional, na qual o Estágio Curricular Supervisionado se encontra inserido como parte integrante, para fins de Colação de Grau.", align: :justify
+            9. comunicar à parte CONCEDENTE, no início do estágio, o período de realização de avaliações escolares ou acadêmicas, justificando-se assim, um possível impedimento de cumprimento de horário pré-fixado;", align: :justify
             move_down 40
   
             text "CLÁUSULA TERCEIRA - DA CONCEDENTE", align: :center, size: 16
@@ -105,7 +103,7 @@ class CentroPdf < Prawn::Document
   
             2. manter relacionamento de cordialidade e respeito no ambiente de trabalho;
   
-            3. cumprir a jornada estabelecida no presente Termo e registrar as atividades desenvolvidas, diariamente, na Ficha de Registro de Atividades (FRA);
+            3. cumprir a jornada estabelecida no plano de estágio e registrar as atividades desenvolvidas, diariamente, na Ficha de Registro de Atividades (FRA);
   
             4. executar as atividades que lhe forem atribuídas e zelar pelos equipamentos e materiais que venha utilizar no desenvolvimento do seu estágio;"
   
@@ -116,12 +114,12 @@ class CentroPdf < Prawn::Document
   
             text "CLÁUSULA QUINTA - DA SUPERVISÃO E AVALIAÇÃO", align: :center, size: 16
             move_down 20
-            text "O Estágio, como ato educativo escolar supervisionado, será acompanhado pelo professor orientador da Instituição de Ensino PROMOTORA e pelo supervisor da parte CONCEDENTE, em conformidade com as Normas Técnicas do Instituto Federal Fluminense (IFFluminense) e a legislação vigente, ficando, o estagiário, sujeito a essa regulamentação.", align: :justify
+            text "O Estágio, como ato educativo escolar supervisionado, será acompanhado pelo professor orientador da Instituição de Ensino PROMOTORA e pelo supervisor da parte CONCEDENTE, em conformidade com a legislação vigente, ficando, o estagiário, sujeito a essa regulamentação.", align: :justify
             move_down 20
   
             text "CLÁUSULA SEXTA - DO PRAZO DO ESTÁGIO", align: :center, size: 16
             move_down 20
-            text "A duração do estágio é estabelecida pelas Normas Técnicas e Processuais de Estágio do Instituto Federal de Educação, Ciência e Tecnologia Fluminense, aprovadas pelo Conselho Superior do IFFluminense.", align: :justify
+            text "A duração do Estágio é estabelecida em conformidade com legislação específico vigente.", align: :justify
             move_down 20
   
             text "CLÁUSULA SÉTIMA - DAS DISPOSIÇÕES GERAIS:", align: :center, size: 16
@@ -130,7 +128,9 @@ class CentroPdf < Prawn::Document
   
             2. O Estágio Curricular Supervisionado poderá ser interrompido pelas partes contratantes, mediante comunicação por escrito, com antecedência mínima de 10 (dez) dias.
   
-            3. O compromisso estagiário/Instituição será rescindido:
+            3. A jornada de Atividade de Estágio será definida em comum acordo entre a instituição de Ensino, a parte concedente e o estudante devendo ser compatível com as atividades escolares e não ultrapassar 6h diárias e 30h semanais.
+
+            4. O compromisso estagiário/Instituição será rescindido:
   
             a) automaticamente, ao término do prazo de validade do Termo de Compromisso;
   
@@ -148,7 +148,7 @@ class CentroPdf < Prawn::Document
   
             h) por conduta incompatível do estagiário em relação às normas exigidas pela Instituição Concedente."
   
-            text "4. Fica eleito o foro da Comarca da cidade de Campos dos Goytacazes, Estado do Rio de Janeiro para dirimir qualquer questão que se originar deste termo.
+            text "5. Fica eleito o foro da Comarca da cidade de Campos dos Goytacazes, Estado do Rio de Janeiro para dirimir qualquer questão que se originar deste termo.
   
             E por estarem de pleno e comum acordo com o exposto no presente Termo de Compromisso, firmam em 03 (três) vias de igual teor, cabendo a 1.ª via à Instituição de Ensino PROMOTORA, a 2.ª, à CONCEDENTE e a 3.ª via, ao ESTAGIÁRIO.", align: :justify
   
@@ -159,7 +159,7 @@ class CentroPdf < Prawn::Document
             text "Concedente: _________________________________________________", :inline_format => true
   
             move_down 60
-            text "IFFluminense campus Campos Centro: "
+            text "IFFluminense campus Campos Centro/DIRESLCC: "
             stroke_horizontal_rule
             pad_top(20) { }
 
