@@ -17,14 +17,12 @@
 
             <br />
 
-            <p>O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07, situado à Rua 
-            Coronel Walter Kramer, nº 357, bairro: Parque Santo Antônio, município: Campos dos
-            Goytacazes/RJ, CEP: 28080-565, neste Ato representado neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do <i>CAMPUS</i> CAMPOS CENTRO -
+            <p>O <b>INSTITUTO FEDERAL FLUMINENSE <i>CAMPUS</i> CAMPOS CENTRO</b> neste Ato representado neste Ato representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura -
             INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor
-            Siqueira, n.º 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP:
+            Siqueira, n.º 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP:
             28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de
             25/09/2008, com o(a) <b><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required:true %> -
-            Instituição de Ensino CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº <%= @users.cnpj %>,
+            Instituição de Ensino CONCEDENTE -</b> inscrita no CNPJ/MF sob o nº <%= @users.cnpj %>,
             situado no(a) <%= @users.endereco_da_instituicao %>, nº <%= @users.numero_da_instituicao %>, Bairro: <%= @users.bairro_da_instituicao%>,
             no municipio de <%= @users.municipio_da_instituicao %>, estado do Rio de Janeiro,
             CEP: <%= @users.cep_da_instituicao %>, telefone <%= @users.telefone_da_instituicao %>,
@@ -35,17 +33,12 @@
             </div></p>
             <p style="text-align: justify;font-size: 16px; font-style 'Calibri'"> Matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.numero %>, no 
             <%= f.select :aluno_semestre,['1.º', '2.º'], {selected: relatorio.aluno_semestre} %> semestre do ano letivo de <%= f.select :ano,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {selected: relatorio.ano}, required:true %>
-            no curso Superior de Licenciatura em <%= @users.licenciatura %>, <%= @users.periodo %> periodo.
+            no curso Superior de Licenciatura em <%= @users.licenciatura %>, no componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %>
             Residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
-            Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: Rj,
+            Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= @users.UF %>,
             CEP: <%= @users.cep %>, telefone/contato nº <%= @users.telefone %>.  
             </p>
 
-            <div class="periodo_div">
-              <b>Período do Estágio: de <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de, onkeypress:"$(this).mask('00/00/0000')" %> a <%= f.text_field :periodo_a, required: true, value: relatorio.periodo_a, onkeypress:"$(this).mask('00/00/0000')" %></b>
-              <br><br>
-              Avaliador: <%= f.select :avaliador, ['Edina Lacerda', 'Elizabeth Freitas', 'Virginia Ribeiro', 'Marlúcia Cereja'], {selected: relatorio.avaliador}, required:true %>
-            </div>
           <% end %>
         <% end %>
 
