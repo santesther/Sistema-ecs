@@ -26,7 +26,7 @@ class CartaapresentacaoPdf< Prawn::Document
             move_down 5
             text "O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): #{relatorio.aluno_apresentacao_dois}, matriculado(a), neste instituto, no #{relatorio.periodo} período do Curso Superior de Licenciatura em #{relatorio.licenciatura}, no #{relatorio.semestre_apresentacao} semestre letivo de #{relatorio.ano_apresentacao}, para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente, prescristas no Plano de Atividades de Estágio(PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso.", align: :left, inline_format: true, leading: 10
             move_down 10
-            text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu", align: :left, inline_format: true, leading: 10
+            text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu.", align: :left, inline_format: true, leading: 10
             move_down 20
     
             %i[center].each do |position|
@@ -34,64 +34,7 @@ class CartaapresentacaoPdf< Prawn::Document
               image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
               move_down 50
             end
-    
-            if relatorio.avaliador == "Edina Lacerda"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_edina.png", width: 300, position: :left, vposition: -60
-                end
-                bounding_box([10, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_edina.png", width: 150, position: :left, vposition: -165
-                  end
-                end
-              end
-            elsif relatorio.avaliador == "Elizabeth Freitas"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_Elizabeth.png", width: 250, position: :left, vposition: -75
-                end
-                bounding_box([55, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", width: 140, position: :left, vposition: -195
-                  end
-                end
-              end
-            elsif relatorio.avaliador == "Virginia Ribeiro"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_virginia_certo.png", width: 200, position: :left, vposition: -75
-                end
-                bounding_box([0, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", width: 220, position: :left, vposition: -210
-                  end
-                end
-              end
-            elsif relatorio.avaliador == "Marlúcia Cereja"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_marlucia_ok.png", width: 185, position: :left, vposition: -75
-                end
-                bounding_box([55, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", width: 140, position: :left, vposition: -195
-                  end
-                end
-              end
-            else
-              text "Usuário não cadastrado"
             end
-            move_down 10
-          end
         end
       end
     end
