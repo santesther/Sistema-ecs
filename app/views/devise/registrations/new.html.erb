@@ -118,17 +118,21 @@
           <div class="col-sm-4">
             <%= f.text_field :cep, class: "form-control", onkeypress:"$(this).mask('00000-000')" %> 
           </div>
-
+          
+        <label class="col-sm-2 col-form-label">UF*</label>
+          <div class="col-sm-4">
+            <%= f.text_field :UF, class: "form-control", onkeypress:"$(this).mask('00000-000')" %> 
+          </div>
         </div>
+        
 
         <div class="form-group row">
           <label class="col-sm-2 col-form-label">Nova senha*</label>
           <div class="col-sm-4">
             <%= f.password_field :password, require: true, class: "form-control", placeholder: "No mínimo " + @minimum_password_length.to_s + ' caracteres' %>
           </div>
-
-          <label class="col-sm-2 col-form-label">Confirmar Senha*</label>
           
+          <label class="col-sm-2 col-form-label">Confirmar Senha*</label>
           <div class="col-sm-4">
             <%= f.password_field :password_confirmation,  require: true, class: "form-control", placeholder: "Repetir senha" %>
           </div>
