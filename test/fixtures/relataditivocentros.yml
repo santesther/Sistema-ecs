@@ -34,9 +34,9 @@ one:
   licenciatura: MyString
   periodo: MyString
   avaliador: MyString
-  periodo_letivo: MyString
-  periodo_dirlic: MyString
+  periodo_letivoperiodo_dirlic: MyString
   semestre_dirlic: MyString
+  estagio: MyString
 
 two:
   data: MyString
@@ -72,6 +72,6 @@ two:
   licenciatura: MyString
   periodo: MyString
   avaliador: MyString
-  periodo_letivo: MyString
-  periodo_dirlic: MyString
+  periodo_letivoperiodo_dirlic: MyString
   semestre_dirlic: MyString
+  estagio: MyString

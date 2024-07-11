@@ -38,6 +38,7 @@ one:
   periodo_dirlic: MyString
   semestre_dirlic: MyString
   representante_da_instituicao: MyString
+  estagio: MyString
 
 two:
   data: MyString
@@ -77,3 +78,4 @@ two:
   periodo_dirlic: MyString
   semestre_dirlic: MyString
   representante_da_instituicao: MyString
+  estagio: MyString

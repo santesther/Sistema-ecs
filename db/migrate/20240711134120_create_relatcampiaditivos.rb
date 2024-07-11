@@ -1,6 +1,6 @@
-class CreateRelatorios < ActiveRecord::Migration[7.0]
+class CreateRelatcampiaditivos < ActiveRecord::Migration[7.0]
   def change
-    create_table :relatorios do |t|
+    create_table :relatcampiaditivos do |t|
       t.string :data
       t.string :seguradora
       t.string :apolice
@@ -34,6 +34,11 @@ class CreateRelatorios < ActiveRecord::Migration[7.0]
       t.string :licenciatura
       t.string :periodo
       t.string :avaliador
+      t.string :periodo_letivo
+      t.string :periodo_dirlic
+      t.string :semestre_dirlic
+      t.string :representante_da_instituicao
+      t.string :estagio
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
-class CreateRelatestadualaditivos < ActiveRecord::Migration[7.0]
+class CreateRelatmunicipalouparticularaditivos < ActiveRecord::Migration[7.0]
   def change
-    create_table :relatestadualaditivos do |t|
+    create_table :relatmunicipalouparticularaditivos do |t|
       t.string :data
       t.string :seguradora
       t.string :apolice
@@ -38,6 +38,7 @@ class CreateRelatestadualaditivos < ActiveRecord::Migration[7.0]
       t.string :periodo_dirlic
       t.string :semestre_dirlic
       t.string :representante_da_instituicao
+      t.string :estagio
 
       t.timestamps
     end

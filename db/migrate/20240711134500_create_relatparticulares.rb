@@ -37,6 +37,7 @@ class CreateRelatparticulares < ActiveRecord::Migration[7.0]
       t.string :cep
       t.string :telefone
       t.string :avaliador
+      t.string :estagio
 
       t.timestamps
     end

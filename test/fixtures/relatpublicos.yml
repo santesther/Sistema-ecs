@@ -37,6 +37,7 @@ one:
   avaliador: MyString
   periodo: MyString
   representante_da_instituicao: MyString
+  estagio: MyString
 
 two:
   data: MyString
@@ -75,3 +76,4 @@ two:
   avaliador: MyString
   periodo: MyString
   representante_da_instituicao: MyString
+  estagio: MyString

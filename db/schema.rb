@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_11_134557) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -157,9 +157,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "licenciatura"
     t.string "periodo"
     t.string "avaliador"
-    t.string "periodo_letivo"
-    t.string "periodo_dirlic"
+    t.string "periodo_letivoperiodo_dirlic"
     t.string "semestre_dirlic"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -202,6 +202,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "periodo_dirlic"
     t.string "semestre_dirlic"
     t.string "representante_da_instituicao"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -241,6 +242,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "periodo"
     t.string "avaliador"
     t.string "representante_da_instituicao"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -283,6 +285,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "periodo_dirlic"
     t.string "semestre_dirlic"
     t.string "representante_da_instituicao"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -325,32 +328,40 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "periodo_dirlic"
     t.string "semestre_dirlic"
     t.string "representante_da_instituicao"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "relatnaoformais", force: :cascade do |t|
+    t.string "data"
+    t.string "seguradora"
+    t.string "apolice"
     t.string "instituicao_apresentacao"
+    t.string "representante_da_instituicao"
     t.string "aluno_apresentacao"
     t.string "aluno_apresentacao_dois"
-    t.string "periodo"
-    t.string "licenciatura"
     t.string "semestre_apresentacao"
     t.string "ano_apresentacao"
+    t.string "estado_da_instituicao"
+    t.string "aluno_apresentacao_tres"
+    t.string "aluno_periodo"
+    t.string "aluno_semestre"
+    t.string "periodo_de"
+    t.string "periodo_a"
+    t.string "matricula_aluno"
+    t.string "periodo"
+    t.string "licenciatura"
     t.string "reitor"
     t.string "cnpj"
     t.string "endereco_da_instituicao"
     t.string "numero_da_instituicao"
     t.string "bairro_da_instituicao"
     t.string "municipio_da_instituicao"
-    t.string "estado_da_instituicao"
     t.string "cep_da_instituicao"
     t.string "telefone_da_instituicao"
     t.string "representante"
-    t.string "representante_da_instituicao"
     t.string "numero"
-    t.string "aluno_semestre"
-    t.string "aluno_periodo"
     t.string "ano"
     t.string "endereco"
     t.string "complemento"
@@ -359,12 +370,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "estado"
     t.string "cep"
     t.string "telefone"
-    t.string "periodo_de"
-    t.string "periodo_a"
-    t.string "matricula_aluno"
-    t.string "apolice"
-    t.string "seguradora"
-    t.string "data"
+    t.string "avaliador"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -445,6 +452,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "licenciatura"
     t.string "periodo"
     t.string "avaliador"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -526,6 +534,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "cep"
     t.string "telefone"
     t.string "avaliador"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -609,6 +618,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_125558) do
     t.string "avaliador"
     t.string "periodo"
     t.string "representante_da_instituicao"
+    t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
