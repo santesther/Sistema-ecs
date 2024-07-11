@@ -10,7 +10,7 @@
 
             <hr />
 
-            <h2><b>TERMO ADITIVO DE ESTÁGIO (Período letivo: <%= f.text_field :periodo_letivo, value: relatorio.periodo_letivo, required:true %>)</b></h2>
+            <h2><b>TERMO ADITIVO DE ESTÁGIO</b></h2>
             <h5><b>Seguradora:</b> <%= f.text_field :seguradora, value: relatorio.seguradora, required:true %></h5>
             <h4><b>Apólice de seguro nº:</b> <%= current_user.apolice %></h4>
         <br />
@@ -29,16 +29,9 @@
           <%= @users.licenciatura %><br>
           <b>Cláusula Primeira:</b><br>
           O PRESENTE TERMO ADITIVO ALTERA:<br>
-            (<b>X</b>) O período do término do estágio para: <b><%= f.text_field :periodo_a, value: relatorio.periodo_a, required:true %></b><br>
-            <b>Observação:</b> Termo Aditivo - justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular 
-            Supervisionado <%= f.select :periodo_dirlic,['1.º','2.º'], {selected: relatorio.periodo_dirlic}, required:true %> período no Campus Campos Centro do IFFluminense, no <%= f.select :semestre_dirlic, ['1.º','2.º'], {selected: relatorio.semestre_dirlic}, required:true %> 
-            semestre letivo de <%= f.select :ano,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {selected: relatorio.ano}, required:true %>.
+            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no semestre do ano letivo <%= f.number_field :ano, min:23, value: relatorio.ano, required:true %><br>
           <hr />
-          <br>
-          <b>Data:</b><%=f.text_field :data, required: true, value: relatorio.data %>
-              <br><br>
-              Avaliador: <%= f.select :avaliador, ['Edina Lacerda', 'Elizabeth Freitas', 'Virginia Ribeiro', 'Marlúcia Cereja'], {selected: relatorio.avaliador}, required:true %>
-            </div>
+          Data: <b><%= f.text_field :data, value: relatorio.data, required:true %></b>
           <% end %>
         <% end %>
 

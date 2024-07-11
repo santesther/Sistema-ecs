@@ -14,11 +14,9 @@ class AditivocentroPdf < Prawn::Document
 
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
-              draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], :inline_format => true
-              move_down 90
-
-
-            text "<b>TERMO ADITIVO DE ESTÁGIO</b> (Período letivo: <b>#{relatorio.periodo_letivo})</b>", align: :center, size: 15, :inline_format => true, :leading => 10
+              move_down 40
+            text "<b>TERMO ADITIVO DE ESTÁGIO</b>", align: :center, size: 15, :inline_format => true, :leading => 10
+            move_down 40
             text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, size:12, :leading => 10
             text "<b>Apólice de seguro nº: </b>#{current_user.apolice} ", align: :center, :inline_format => true, size:12, :leading => 10
             move_down 20
@@ -29,76 +27,11 @@ class AditivocentroPdf < Prawn::Document
             text "matrícula nº #{relatorio.matricula_aluno} do #{relatorio.periodo} do Curso Superior de Licenciatura em #{relatorio.licenciatura}.", align: :justify, :inline_format => true, :leading => 10
             move_down 20
             text "<b>Cláusula Primeira:</b>", align: :left, :inline_format => true, :leading => 10
-            text "O PRESENTE TERMO ADITIVO ALTERA:", align: :left, :inline_format => true, :leading => 10 
-            text "(<b>X</b>) O período do término do estágio para: <b>#{relatorio.periodo_a}</b>", align: :justify, :inline_format => true, :leading => 10
-            text "<b>Observação:</b> Termo Aditivo => justifica-se pelo(a) discente ter desenvolvido as atividades do Estágio Curricular Supervisionado #{relatorio.periodo_dirlic} período no Campus Campos Centro do IFFluminense, no #{relatorio.semestre_dirlic} semestre letivo de #{relatorio.ano}.", align: :justify, :inline_format => true, :leading => 10
-    
-            if relatorio.avaliador == "Edina Lacerda"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                image "#{Rails.root}/app/assets/images/carimbo_edina.png", :width => 300,
-                position: :left, vposition: 40
-                end
-                bounding_box([10, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150,
-                  position: :left, vposition: -60
-              end
-            end
-          end
-            elsif relatorio.avaliador == "Elizabeth Freitas"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                image "#{Rails.root}/app/assets/images/carimbo_Elizabeth.png", :width => 250,
-                position: :left, vposition: 40
-                end
-                bounding_box([55, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 140,
-                  position: :left, vposition: -80
-              end
-            end
-          end
-          elsif relatorio.avaliador == "Virginia Ribeiro"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                image "#{Rails.root}/app/assets/images/carimbo_virginia_certo.png", :width => 200,
-                position: :left, vposition: 40
-                end
-                bounding_box([0, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 220,
-                  position: :left, vposition: -90
-              end
-            end
-          end
-          elsif relatorio.avaliador == "Marlúcia Cereja"
-              bounding_box([-10, cursor], width: 150, height: 100) do
-                transparent(0) { stroke_bounds }
-                %i[left].each do |vposition|
-                image "#{Rails.root}/app/assets/images/carimbo_marlucia_ok.png", :width => 185,
-                position: :left, vposition: 40
-                end
-                bounding_box([55, cursor], width: 400, height: 450) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 140,
-                  position: :left, vposition: -80
-              end
-            end
-          end
-          else 
-            text "Usuário não cadastrado"
-          end
+            text "O PRESENTE TERMO ADITIVO INCLUI:", align: :left, :inline_format => true, :leading => 10 
+            text "<b>(X)</b> O componente curricular #{relatorio.estagio} no semestre do ano letivo #{relatorio.ano}.", align: :justify, :inline_format => true, :leading => 10
   
 
-            move_down 110
+            move_down 180
             text "CLÁUSULA SEGUNDA", align: :center, size: 16
             move_down 20
             text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.
@@ -115,69 +48,6 @@ class AditivocentroPdf < Prawn::Document
             text "IFFluminense <i>campus</i> Campos Centro: "
             stroke_horizontal_rule
             pad_top(20) { }
-              if relatorio.avaliador == "Edina Lacerda"
-                bounding_box([65, cursor], width: 150, height: 100) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_edina.png", :width => 300,
-                  position: :center, vposition: -10
-                  end
-                  bounding_box([55, cursor], width: 400, height: 450) do
-                    transparent(0) { stroke_bounds }
-                    %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_edina.png", :width => 150,
-                    position: :center, vposition: -120
-                end
-              end
-            end
-              elsif relatorio.avaliador == "Elizabeth Freitas"
-                bounding_box([50, cursor], width: 150, height: 100) do
-                  transparent(0) { stroke_bounds }
-                  %i[center].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_Elizabeth.png", :width => 250,
-                  position: :center, vposition: 5
-                  end
-                  bounding_box([55, cursor], width: 400, height: 450) do
-                    transparent(0) { stroke_bounds }
-                    %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_elizabeth.png", :width => 140,
-                    position: :center, vposition: -150
-                end
-              end
-            end
-           elsif relatorio.avaliador == "Virginia Ribeiro"
-                bounding_box([-10, cursor], width: 150, height: 100) do
-                  transparent(0) { stroke_bounds }
-                  %i[left].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_virginia_certo.png", :width => 200,
-                  position: :left, vposition: -5
-                  end
-                  bounding_box([280, cursor], width: 400, height: 450) do
-                    transparent(0) { stroke_bounds }
-                    %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_virginia_ok.png", :width => 220,
-                    position: :left, vposition: -170
-                end
-              end
-            end
-            elsif relatorio.avaliador == "Marlúcia Cereja"
-                bounding_box([-10, cursor], width: 150, height: 100) do
-                  transparent(0) { stroke_bounds }
-                  %i[left].each do |vposition|
-                  image "#{Rails.root}/app/assets/images/carimbo_marlucia_ok.png", :width => 185,
-                  position: :left, vposition: -5
-                  end
-                  bounding_box([280, cursor], width: 400, height: 450) do
-                    transparent(0) { stroke_bounds }
-                    %i[center].each do |vposition|
-                    image "#{Rails.root}/app/assets/images/assinatura_marlucia.png", :width => 140,
-                    position: :left, vposition: -150
-                end
-              end
-            end
-            else 
-              text "Usuário não cadastrado"
-            end
 
             move_down 30
             text "Licenciando(a) Estagiário(a): ______________________________________________________________", :inline_format => true
