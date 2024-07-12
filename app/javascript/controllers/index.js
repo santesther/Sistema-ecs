@@ -6,7 +6,7 @@ import { application } from "../controllers/application"
 
 import { application } from "./application"
 
-import AlertController from "../controllersalert_controller"
+import AlertController from "../controllers/alert_controller"
 application.register("alert", AlertController)
 
 import AlertController from "./alert_controller"
