@@ -20,7 +20,7 @@ class CentroPdf < Prawn::Document
             move_down 20
             text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, :leading => 10
             move_down 10
-            text "<b>Apólice de seguro nº: </b>#{current_user.apolice} ",align: :center, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro nº: </b>#{relatorio.apolice} ",align: :center, :inline_format => true, :leading => 10
             move_down 20
 
             text "O <b>INSTITUTO FEDERAL FLUMINENSE CAMPOS <i>CAMPUS</i> CENTRO</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas (DIRESLCC) - INSTITUIÇÃO PROMOTORA E CONCEDENTE</b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10

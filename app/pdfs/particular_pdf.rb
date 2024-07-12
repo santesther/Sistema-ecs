@@ -20,7 +20,7 @@ class ParticularPdf < Prawn::Document
             move_down 10
             text "<b>Seguradora: </b>#{relatorio.seguradora}", align: :center, size: 12, :inline_format => true, :leading => 10
             move_down 10
-            text "<b>Apólice de seguro: </b>#{current_user.apolice}",align: :center, size: 12, :inline_format => true, :leading => 10
+            text "<b>Apólice de seguro: </b>#{relatorio.apolice}",align: :center, size: 12, :inline_format => true, :leading => 10
             move_down 10
 
             text "O <b>INSTITUTO FEDERAL FLUMINENSE <i>CAMPUS</i> CAMPOS CENTRO</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas (DIRESLCC) - INSTITUIÇÃO PROMOTORA -</b>, inscrita no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a Instituição de Ensino <b>#{relatorio.instituicao_apresentacao} - CONCEDENTE -</b> inscrita no CNPJ/MF sob o nº #{relatorio.cnpj}, situada no(a) #{relatorio.endereco_da_instituicao}, nº #{relatorio.numero_da_instituicao}, Bairro #{relatorio.bairro_da_instituicao}, no munícipio de #{relatorio.municipio_da_instituicao}, Estado do #{relatorio.estado_da_instituicao}, CEP: #{relatorio.cep_da_instituicao}, telefone #{relatorio.telefone_da_instituicao}, representada por <b>#{relatorio.representante_da_instituicao}, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
