@@ -209,14 +209,6 @@
             <%= f.text_field :telefone_da_instituicao, required: true, class: "form-control", onkeypress:"$(this).mask('(00) 00000-0000')" %> 
           </div>
 
-          <% if current_user.role != "normal_user"%>
-           <label class="col-sm-2 col-form-label">Apólice de Seguro*</label>
-          <div class="col-sm-4">
-            <%= f.text_field :apolice, require: true, class: "form-control" %>
-          </div>
-        </div>
-        <% end %>
-
         </div>
 
 
