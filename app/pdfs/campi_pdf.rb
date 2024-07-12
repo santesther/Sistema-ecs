@@ -3,6 +3,7 @@ class CampiPdf < Prawn::Document
       super(top_margin: 85.0393, left_margin: 85.0393, right_margin: 56.6929, bottom_margin: 56.6929)
       @relatorio = relatorio
       @usuario_matricula = usuario_matricula
+      Prawn::Fonts::AFM.hide_m17n_warning = true
       fill_color "40464e"
       font_size 9
 
