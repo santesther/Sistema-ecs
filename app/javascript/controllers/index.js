@@ -4,7 +4,12 @@
 
 import { application } from "../controllers/application"
 
-import AlertController from "../controllers/alert_controller"
+import { application } from "./application"
+
+import AlertController from "../controllersalert_controller"
+application.register("alert", AlertController)
+
+import AlertController from "./alert_controller"
 application.register("alert", AlertController)
 
 //import HelloController from "./hello_controller"

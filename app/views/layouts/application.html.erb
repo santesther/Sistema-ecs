@@ -9,11 +9,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'jquery-3.6.1' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag 'iconIffPequeno.png' %>
     <%= stylesheet_link_tag "welcome", "data-turbo-track": "reload" %>  
   </head>
+
+  
 
   <body data-turbo="<%= @turbo.present? %>">
     <%= render partial: "shared/navbar" %>
