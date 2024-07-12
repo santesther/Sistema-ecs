@@ -3,4 +3,4 @@
 //import Swal from 'sweetalert2';
 //window.Swal = Swal;
 
-import { Turbo } from "@hotwired/turbo-rails"
+//import { Turbo } from "@hotwired/turbo-rails"
