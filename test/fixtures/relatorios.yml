@@ -35,6 +35,7 @@ one:
   periodo: MyString
   avaliador: MyString
   estagio: MyString
+  UF: MyString
 
 two:
   data: MyString
@@ -71,3 +72,4 @@ two:
   periodo: MyString
   avaliador: MyString
   estagio: MyString
+  UF: MyString

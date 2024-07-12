@@ -38,6 +38,7 @@ one:
   telefone: MyString
   avaliador: MyString
   estagio: MyString
+  UF: MyString
 
 two:
   data: MyString
@@ -77,3 +78,4 @@ two:
   telefone: MyString
   avaliador: MyString
   estagio: MyString
+  UF: MyString

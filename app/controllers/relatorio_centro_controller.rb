@@ -64,6 +64,7 @@ class RelatorioCentroController < ApplicationController
     @relatorios.cep = current_user.cep
     @relatorios.telefone = current_user.telefone
     @relatorios.apolice = current_user.apolice
+    @relatorios.UF = current_user.UF
 
     ContactMailer.contact_message(current_user).deliver
 

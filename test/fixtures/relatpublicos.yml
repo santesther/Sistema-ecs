@@ -38,6 +38,7 @@ one:
   periodo: MyString
   representante_da_instituicao: MyString
   estagio: MyString
+  UF: MyString
 
 two:
   data: MyString
@@ -77,3 +78,4 @@ two:
   periodo: MyString
   representante_da_instituicao: MyString
   estagio: MyString
+  UF: MyString

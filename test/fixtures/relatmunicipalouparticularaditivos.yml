@@ -39,6 +39,7 @@ one:
   semestre_dirlic: MyString
   representante_da_instituicao: MyString
   estagio: MyString
+  UF: MyString
 
 two:
   data: MyString
@@ -79,3 +80,4 @@ two:
   semestre_dirlic: MyString
   representante_da_instituicao: MyString
   estagio: MyString
+  UF: MyString

@@ -64,6 +64,7 @@ class RelatorioParticularController < ApplicationController
     @relatorios.telefone_da_instituicao = current_user.telefone_da_instituicao
     @relatorios.representante_da_instituicao = @relatorios.representante_da_instituicao
     @relatorios.apolice = current_user.apolice
+    @relatorios.UF = current_user.UF
 
 
     if @relatorios.save
