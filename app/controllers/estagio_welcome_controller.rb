@@ -44,8 +44,6 @@ class EstagioWelcomeController < ApplicationController
     @id_user = session[:id_user]
     user = User.find(@id_user)
   
-    ContactMailer.mudanca_status(user).deliver
-  
     user.update(situacao_params)
   
     redirect_to estagio_welcome_index_path, notice: 'Status do usuário atualizado com sucesso!'
