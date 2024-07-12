@@ -339,85 +339,79 @@
          
           <% if  current_user.pdf_aditivo_centro != false || current_user.pdf_aditivo_municipalouparticular != false || current_user.pdf_aditivo_estadual != false || current_user.pdf_aditivo_campi != false || current_user.pdf_centro != false || current_user.pdf_campi != false || current_user.pdf_publico != false || current_user.pdf_particular != false %>
             <div class="pdf_btn">
-            <span>Recarregar a página após gerar seu PDF!</span>
 
               <div class="aviso_impressao">
                 <span style="font-size:1.2em;"><b><u>Avisos!</u></b></span> <br />
-                <span style="font-size:1.2em;">Lembre-se que o formulários só poderão ser acessados uma vez para impressão!</span><br />
                 <span style="font-size:1.2em;">Sugerimos que você faça o download do arquivo.</span><br />
-                <span style="font-size:1.2em;">Caso não seja possível, o documento somente será impresso no NAPP/DIRLIC, localizado no bloco G, sala 411, 4.° andar.</span><br />
+                <span style="font-size:1.2em;">Recarregue a página para acessar os Pdfs novamente!</span><br />
               </div>
-              
-              <% if current_user.carta_apresentacao == true && current_user.status_carta == false && current_user.status_impressao == false %>
-                <span>Clique aqui e imprima sua Carta de Apresentação!</span><br />
-              <%= link_to 'Gerar PDF', carta_apresentacao_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <br>
-              <% elsif current_user.status_carta == true && current_user.status_impressao == false && current_user.carta_apresentacao == true %>
-              <div class="carta-contato">
-                Você imprimiu sua Carta de Apresentação! Para nova impressão, entre em contato com a DIRLIC/NAPP.<br>
-                Agora imprima seu Termo!
-                <% if current_user.pdf_aditivo_municipalouparticular != false && current_user.status_impressao == false %>
-              <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br />
-                <%= link_to 'Gerar PDF', relatorio_municipalouparticularaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <% end %>
-              
-              <% if current_user.pdf_aditivo_estadual != false && current_user.status_impressao == false %>
-              <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br />
-                <%= link_to 'Gerar PDF', relatorio_estadualaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <% end %>
 
-              <% if current_user.pdf_aditivo_campi != false && current_user.status_impressao == false %>
-              <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br />
-                <%= link_to 'Gerar PDF', relatorio_campiaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <% end %>
+            <div class="button-container">
+            <% if current_user.carta_apresentacao == true %>
+                <span>Clique aqui e imprima sua Carta de Apresentação!</span><br /><br>
+                <%= link_to 'Gerar Carta de Apresentação', carta_apresentacao_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                  <br>
+                    <% if current_user.pdf_aditivo_municipalouparticular != false %>
+                      <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br><br>
+                      <%= link_to 'Gerar PDF', relatorio_municipalouparticularaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                    <% end %>
+                    
+                    <% if current_user.pdf_aditivo_estadual != false %>
+                      <span>Clique aqui e imprima o formulário em 03 (três) vias!</span>
+                      <%= link_to 'Gerar PDF', relatorio_estadualaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                    <% end %>
 
-               <% if current_user.pdf_aditivo_centro != false && current_user.status_impressao == false %>
-              <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br />
-                <%= link_to 'Gerar PDF', relatorio_aditivocentro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <% end %>
+                    <% if current_user.pdf_aditivo_campi != false %>
+                      <span>Clique aqui e imprima o formulário em 03 (três) vias!</span>
+                      <%= link_to 'Gerar PDF', relatorio_campiaditivo_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                    <% end %>
 
-              <% if current_user.pdf_centro != false && current_user.status_impressao == false %>
-              <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br />
-                <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <% end %>
+                    <% if current_user.pdf_aditivo_centro != false %>
+                      <span>Clique aqui e imprima o formulário em 03 (três) vias!</span>
+                      <%= link_to 'Gerar PDF', relatorio_aditivocentro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                    <% end %>
 
-              <% if current_user.pdf_campi != false && current_user.status_impressao == false %>
-              <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br />
-                <%= link_to 'Gerar PDF', relatorio_campi_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <% end %>
+                    <% if current_user.pdf_centro != false %>
+                      <span>Clique aqui e imprima o formulário em 03 (três) vias!</span>
+                      <%= link_to 'Gerar PDF', relatorio_centro_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                    <% end %>
 
-              <% if current_user.pdf_publico != false && current_user.status_impressao == false %>
-              <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br />
-                <%= link_to 'Gerar PDF', relatorio_publico_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <% end %>
+                    <% if current_user.pdf_campi != false %>
+                      <span>Clique aqui e imprima o formulário em 03 (três) vias!</span>
+                      <%= link_to 'Gerar PDF', relatorio_campi_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                    <% end %>
 
-              <% if current_user.pdf_particular != false && current_user.status_impressao == false %>
-              <span>Clique aqui e imprima o formulário em 03 (três) vias!</span><br />
-                <%= link_to 'Gerar PDF', relatorio_particular_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao'%>
-              <% end %>
-              </div>
-            <% end %>
+                    <% if current_user.pdf_publico != false %>
+                      <span>Clique aqui e imprima o formulário em 03 (três) vias!</span>
+                      <%= link_to 'Gerar PDF', relatorio_publico_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                    <% end %>
 
-            
-            <% if current_user.status_carta == true && current_user.status_impressao == true %>
-            <div class="contato_napp border p-1 mt-4">
-              Para novas impressões, entre em contato com a DIRLIC/NAPP
-            </div>
-          <% end %>
+                    <% if current_user.pdf_particular != false %>
+                      <span>Clique aqui e imprima o formulário em 03 (três) vias!</span>
+                      <%= link_to 'Gerar PDF', relatorio_particular_index_path(@relatorio, current_user, :format => :pdf), :target => '_blank', :class => 'btn btn-dark desaparece_botao' %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
             </div>
           <% end %>
           <% end %>
         <% end %>
       <% end %>
-
-     
-      </div>
-       <div class='contato_dirlic_pdf border mt-4 pt-3 col-md-12'>
-      <p><b>CONTATO: IFFluminense <i>Campus</i> Campos Centro/DIRLIC/NAPP: <u>(22) 2726-2897</u></b></p>
-      </div>
     <% end %>
 
   <style type="text/css">
+    .button-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaçamento entre os botões */
+    }
+
+  .button-container .btn {
+    margin-top: 10px; /* Margem superior para os botões */
+    }
+
   .conteudo p {
       line-height: 2.5;
       text-align: justify;
