@@ -32,8 +32,8 @@
             <p>
             matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.matricula %>, no 
             <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo de  <%= f.select :ano,[relatorio.ano], value: relatorio.ano, required:true %>
-            no curso Superior de Licenciatura em <%= @users.licenciatura %>, no componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %>
-            Residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
+            no curso Superior de Licenciatura em <%= @users.licenciatura %>, no componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %>,
+            residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
             Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= @users.UF %>,
             CEP: <%= @users.cep %>, telefone/contato nº <%= @users.telefone %>. 
             </p>

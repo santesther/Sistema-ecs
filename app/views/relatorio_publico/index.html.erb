@@ -8,7 +8,7 @@
 
         <hr />
         <h2><b>Termo de Compromisso de Estágio - TCE -</b></h2>
-
+        <br>
          <p style="text-align: justify;font-size: 16px; font-style 'Calibri'" >O <b>INSTITUTO FEDERAL FLUMINENSE <i>CAMPUS</i> CAMPOS CENTRO </b> neste Ato representado por Marlúcia de Cereja Alencar <b>Diretora de Ensino
           Superior das Licenciaturas (DIRESLCC) - INSTITUIÇÃO PROMOTORA -</b>, 
           inscrita no CNPJ/MF sob o n.º 10.779.511/0002-98, situada na Rua Doutor
@@ -19,15 +19,15 @@
           situada no(a) <%= current_user.endereco_da_instituicao %>, nº <%= current_user.numero_da_instituicao %>, Bairro: <%= current_user.bairro_da_instituicao%>,
           no municipio de <%= current_user.municipio_da_instituicao %>, estado do <%= f.text_field :estado_da_instituicao, required:true %>,
           CEP: <%= current_user.cep_da_instituicao %>, telefone <%= current_user.telefone_da_instituicao %>,
-          representado por <b><%= f.text_field :representante_da_instituicao, required:true %>, para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
+          representado por <%= f.text_field :representante_da_instituicao, required:true %>, <b>para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
           ao(à) <b>LICENCIANDO(A)</b>
            <div class="d-flex align-items-center justify-content-center">
           <b><%= f.text_field :aluno_apresentacao, required: true  %></b>
           </div></p>
-          <p style="text-align: justify;font-size: 16px; font-style 'Calibri'"> Matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= current_user.matricula %>, no 
+          <p style="text-align: justify;font-size: 16px; font-style 'Calibri'"> matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= current_user.matricula %>, no 
           <%= f.select :aluno_semestre,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre do ano letivo de <%= f.select :ano,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>
-          no curso Superior de Licenciatura em <%= current_user.licenciatura %>, no componente curricular <%= f.select :estagio,['Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV'], {include_blank:"Selecione"}, required:true %>
-          Residente no(a) <%= current_user.endereco %>, nº <%= current_user.numero %>, Complemento: <%= current_user.complemento %>
+          no curso Superior de Licenciatura em <%= current_user.licenciatura %>, no componente curricular <%= f.select :estagio,['Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV'], {include_blank:"Selecione"}, required:true %>,
+          residente no(a) <%= current_user.endereco %>, nº <%= current_user.numero %>, Complemento: <%= current_user.complemento %>
           Bairro: <%= current_user.bairro %>, município: <%= current_user.municipio %>, UF: <%= current_user.UF%>,
           CEP: <%= current_user.cep %>, telefone/contato nº <%= current_user.telefone %>.  
         </p>

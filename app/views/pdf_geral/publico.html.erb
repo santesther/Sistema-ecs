@@ -26,7 +26,7 @@
             situado no(a) <%= @users.endereco_da_instituicao %>, nº <%= @users.numero_da_instituicao %>, Bairro: <%= @users.bairro_da_instituicao%>,
             no municipio de <%= @users.municipio_da_instituicao %>, estado do Rio de Janeiro,
             CEP: <%= @users.cep_da_instituicao %>, telefone <%= @users.telefone_da_instituicao %>,
-            representado por <b><%= @users.representante%>, para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
+            representado por <b><%= f.text_field :representante_da_instituicao, value: relatorio.representante_da_instituicao, required: true  %>, para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
             ao(à) <b>LICENCIANDO(A)</b>
             <div class="d-flex align-items-center justify-content-center">
             <b><%= @users.nome_civil%></b>

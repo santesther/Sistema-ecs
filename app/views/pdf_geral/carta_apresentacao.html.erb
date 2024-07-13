@@ -16,9 +16,9 @@
             <br />
             <p>
             <b>DA:</b><u> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profissional (NAPP) do IFFluminense campus Campos Centro</u>
-            <b>À:</b><b>Direção da Instituição de Ensino:</b> <u><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %></u>
-            <b>Assunto: Apresentação do Discente-Estagiário:</b> <u><%= f.text_field :aluno_apresentacao, value: relatorio.aluno_apresentacao, required: true  %></u>
-            Prezado Gestor.
+            <br><b>À:</b><b>Direção da Instituição de Ensino:</b> <u><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %></u>
+            <br><b>Assunto: Apresentação do Discente-Estagiário:</b> <u><%= f.text_field :aluno_apresentacao, value: relatorio.aluno_apresentacao, required: true  %></u><br>
+            Prezado Gestor.<br>
             O IFFluminense <i>campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a): <u><%= f.text_field :aluno_apresentacao_dois, value: relatorio.aluno_apresentacao_dois, required: true  %></u>, 
             matriculado(a), neste instituto, no <u><%= @users.periodo %></u> período do Curso Superior de Licenciatura em 
             <u><%= @users.licenciatura %></u>, no <u><%= f.select :semestre_apresentacao,[relatorio.semestre_apresentacao], value: relatorio.semestre_apresentacao, required:true %></u> semestre letivo de 
