@@ -2,9 +2,13 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
+import { application } from "../controllers/application"
+
 import { application } from "./application"
+application.register("application", Application)
 
 import AlertController from "./alert_controller"
+import { Application } from "@hotwired/stimulus"
 application.register("alert", AlertController)
 
 //import HelloController from "./hello_controller"
