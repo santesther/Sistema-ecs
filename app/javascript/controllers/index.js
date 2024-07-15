@@ -2,9 +2,13 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "controllers/application"
 
-import AlertController from "./alert_controller"
+// Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
+import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
+lazyLoadControllersFrom("controllers", application)
+
+import AlertController from "../controllers/alert_controller"
 application.register("alert", AlertController)
 
 //import HelloController from "./hello_controller"
