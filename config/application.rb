@@ -14,17 +14,6 @@ module SistemaAtividdes
     config.assets.initialize_on_precompile = false
     config.time_zone = 'Brasilia'
     config.active_record.default_timezone = :utc
-    config.action_mailer.default_url_options = { host: 'ecs-dirlic.centro.iff.edu.br' }
-    config.action_mailer.smtp_settings = {
-      :address => "mail.iff.edu.br",
-      :port => 587,
-      :domain => "iff.edu.br",
-      :authentication => :login,
-      :user_name => "ecs-dirlic.centro@mail.iff.edu.br",
-      :password => "licenciatura2024#",
-      :enable_starttls_auto => true,
-      :openssl_verify_mode  => 'none'
-    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

@@ -1,7 +1,5 @@
-import { Controller } from 'stimulus';
 
-export default class extends Controller {
-  connect() {
-    console.log('Hello, Stimulus!');
-  }
-}
+//import { application } from "./application"
+
+//import HelloController from "./hello_controller"
+//application.register("hello", HelloController)
