@@ -1,12 +1,12 @@
-// app/assets/javascript/controllers/application.js
-
-import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
+import { Application } from "@hotwired/stimulus"
 
 const application = Application.start()
-const context = require.context(".", true, /\.js$/)
-application.load(definitionsFromContext(context))
 
+// Configure Stimulus development experience
+application.debug = false
+window.Stimulus   = application
+
+export { application } // abre a interface do admin
 
 
 //= require jquery
