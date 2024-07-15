@@ -12,5 +12,8 @@ application.register("alert", AlertController)
 import AlertController from "./alert_controller"
 application.register("alert", AlertController)
 
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+eagerLoadControllersFrom("controllers", application)
+
 //import HelloController from "./hello_controller"
 //application.register("hello", HelloController)
