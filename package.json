@@ -2,7 +2,6 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@popperjs/core": "^2.11.8",
-    "@rails/webpacker": "5.4.4",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "flatpickr": "^4.6.13",

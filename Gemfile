@@ -121,5 +121,3 @@ end
 gem 'pg', '~> 1.4', '>= 1.4.6', group: :production
 
 gem "cssbundling-rails"
-
-gem 'webpacker'
