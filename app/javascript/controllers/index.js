@@ -2,7 +2,10 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "../controllers"
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+eagerLoadControllersFrom("controllers", application)
+
+import { application } from "./application"
 
 import AlertController from "./alert_controller"
 application.register("alert", AlertController)
