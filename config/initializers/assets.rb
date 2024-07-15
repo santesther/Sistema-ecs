@@ -7,6 +7,7 @@ Rails.application.config.assets.precompile += %w( registration.js )
 Rails.application.config.assets.precompile += %w( jquery-1.9.1.js )
 Rails.application.config.assets.precompile += %w( application.js )
 Rails.application.config.assets.precompile += %w( alert_controller.js )
+Rails.application.config.assets.precompile += %w( index.js )
 
 
 # Add additional assets to the asset load path.
