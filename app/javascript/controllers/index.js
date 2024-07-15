@@ -8,7 +8,7 @@ import { application } from "controllers/application"
 import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 lazyLoadControllersFrom("controllers", application)
 
-import AlertController from "../controllers/alert_controller"
+import AlertController from "./alert_controller"
 application.register("alert", AlertController)
 
 //import HelloController from "./hello_controller"
