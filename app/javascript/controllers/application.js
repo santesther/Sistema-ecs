@@ -16,6 +16,7 @@ export { application } // abre a interface do admin
 //= require bootstrap
 //= require_tree .
 //= require bootstrap-sprockets
+//= require application
 
 
 jQuery(function() { 
