@@ -411,6 +411,7 @@ DEPENDENCIES
   rest_pki (~> 1.0.0)
   rexml
   selenium-webdriver
+  sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
   terser
