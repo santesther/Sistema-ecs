@@ -13,6 +13,10 @@ gem 'rails_admin'
 
 gem 'cancancan'
 
+gem 'sass-rails'
+
+gem 'sass'
+
 gem 'flatpickr'
 
 gem 'terser'

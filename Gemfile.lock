@@ -286,6 +286,9 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
     rake (13.2.1)
+    rb-fsevent (0.11.2)
+    rb-inotify (0.11.1)
+      ffi (~> 1.0)
     rdoc (6.7.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
@@ -309,6 +312,13 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    sass-rails (6.0.0)
+      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -412,6 +422,8 @@ DEPENDENCIES
   rails_admin
   rest_pki (~> 1.0.0)
   rexml
+  sass
+  sass-rails
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
