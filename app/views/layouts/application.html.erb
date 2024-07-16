@@ -6,18 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-    <%= javascript_importmap_tags %> 
-    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'jquery-3.6.1' %> 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <%= javascript_importmap_tags %> 
     <%= favicon_link_tag 'iconIffPequeno.png' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %> 
     <%= stylesheet_link_tag "welcome", "data-turbo-track": "reload" %>    
     
   </head>
 
-  <body> <%# nao funciona o entendi%>
+  <body data-turbo="<%= @turbo.present? %>"> <%# nao funciona o entendi%>
     <%= render partial: "shared/navbar" %>
     <div class="container">
     <div class="panel container-fluid">

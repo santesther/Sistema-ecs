@@ -1,9 +1,6 @@
-import { Application } from "@hotwired/stimulus"
+import "@hotwired/turbo-rails"
+import "controllers"
+import Swal from 'sweetalert2';
+window.Swal = Swal;
 
-const application = Application.start()
-
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
-
-export { application } // abre a interface do admin
+import { Turbo } from "@hotwired/turbo-rails"
