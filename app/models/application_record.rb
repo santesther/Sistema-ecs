@@ -1,3 +1,5 @@
 class ApplicationRecord < ActiveRecord::Base
-  primary_abstract_class
+  self.abstract_class = true
+  # Remove or comment out the following line if it exists
+  # primary_abstract_class
 end
