@@ -13,7 +13,7 @@ gem 'rails_admin'
 
 gem 'cancancan'
 
-gem 'sass-rails', '~> 5'
+gem 'sass-rails'
 
 gem 'sass'
 

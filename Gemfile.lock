@@ -408,7 +408,7 @@ DEPENDENCIES
   rest_pki (~> 1.0.0)
   rexml
   sass
-  sass-rails (~> 5)
+  sass-rails
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
