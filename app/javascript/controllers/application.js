@@ -6,7 +6,7 @@ const application = Application.start()
 application.debug = false
 window.Stimulus   = application
 
-export { application }
+export { application } // abre a interface do admin
 
 jQuery(function() { 
     $('.clausulas').hide();
