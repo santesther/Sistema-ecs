@@ -15,6 +15,7 @@ export { application } // abre a interface do admin
 //= require 'apexcharts'
 //= require bootstrap
 //= require_tree .
+//= require bootstrap-sprockets
 
 
 jQuery(function() { 

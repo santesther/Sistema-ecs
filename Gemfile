@@ -13,9 +13,9 @@ gem 'rails_admin'
 
 gem 'cancancan'
 
-gem 'sass-rails'
+gem "dartsass-sprockets"
 
-gem 'sass'
+gem 'ffi'
 
 gem 'flatpickr'
 
