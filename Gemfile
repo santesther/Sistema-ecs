@@ -13,10 +13,6 @@ gem 'rails_admin'
 
 gem 'cancancan'
 
-gem "dartsass-sprockets"
-
-gem 'ffi'
-
 gem 'flatpickr'
 
 gem 'terser'
