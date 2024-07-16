@@ -11,6 +11,8 @@ gem 'devise'
 
 gem 'rails_admin'
 
+gem 'webpacker' 
+
 gem 'cancancan'
 
 gem "dartsass-sprockets"
