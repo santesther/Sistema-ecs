@@ -8,6 +8,15 @@ window.Stimulus   = application
 
 export { application } // abre a interface do admin
 
+//= require jquery
+//= require jquery3
+//= require jquery_ujs
+//= require popper
+//= require 'apexcharts'
+//= require bootstrap
+//= require_tree .
+
+
 jQuery(function() { 
     $('.clausulas').hide();
     $('.conteudo').show();
