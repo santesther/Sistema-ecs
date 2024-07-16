@@ -4,5 +4,7 @@
 
 import { application } from "controllers/application"
 
+import { application } from "./application"
+
 import AlertController from "./alert_controller"
 application.register("alert", AlertController)
