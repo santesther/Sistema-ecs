@@ -15,7 +15,7 @@
 	    	 <li class="list-group-item"><b>Destinatário:</b> <%= User.find(@mensagem.destinatario_id).nome_civil %></li>
 	        <li class="list-group-item"><b>Texto:</b> <%= @mensagem.texto %></li>
 	        
-	        <li class="list-group-item"><b>Remetente:</b> <%= current_user.nome_civil %></li>
+	        <li class="list-group-item"><b>Remetente:</b><%= User.find(@mensagem.remetente_id).nome_civil %></li>
 	        <li class="list-group-item"><b>Cadastrado em:</b> <%= @mensagem.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></li>
 	    </ul>
     </div>

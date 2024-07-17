@@ -28,7 +28,7 @@
       <tbody>
         <% @mensagens.each do |mensagem| %>
           <tr>
-            <td><%= current_user.nome_civil %></td>
+            <td><%= mensagem.remetente.nome_civil %></td>
             <td><%= mensagem.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></td>
             <td><%= link_to 'Visualizar', mensagem %></td>
           </tr>
