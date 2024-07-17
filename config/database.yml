@@ -2,9 +2,6 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: localhost
-  user: esther
-  password: 123456
 
   
 development:
@@ -19,6 +16,5 @@ test:
 
 production:
   <<: *default
-  database: ecs_production
-  username: esther
-  password: <%= ENV['IACHEI_APP_DATABASE_PASSWORD'] %>
+  username: dirlic
+  password: <%= ENV['ECS_PRODUCTION_DATABASE_PASSWORD'] %>
