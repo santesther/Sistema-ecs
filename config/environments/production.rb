@@ -10,6 +10,20 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  config.action_mailer.default_url_options = { host: 'ecs-dirlic.centro.iff.edu.br' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "mail.iff.edu.br",
+    :port => 587,
+    :domain => "iff.edu.br",
+    :authentication => :login,
+    :user_name => "ecs-dirlic.centro@iff.edu.br",
+    :password => "licenciatura2024#",
+    :enable_starttls_auto => true,
+    :openssl_verify_mode  => 'none'
+  }
+
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
