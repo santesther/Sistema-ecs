@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
+ActiveRecord::Schema.define(version: 2024_07_12_143712) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: 6, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -32,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum"
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: 6, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -43,8 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
   end
 
   create_table "avaliadors", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "carta_apresentacoes", force: :cascade do |t|
@@ -81,8 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "seguradora"
     t.string "data"
     t.string "avaliador"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "instituicaos", force: :cascade do |t|
@@ -97,16 +98,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "telefone_da_instituicao"
     t.string "representante"
     t.string "tipo_da_instituicao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "mensagens", force: :cascade do |t|
     t.text "texto"
     t.bigint "destinatario_id"
     t.bigint "remetente_id"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["destinatario_id"], name: "index_mensagens_on_destinatario_id"
     t.index ["remetente_id"], name: "index_mensagens_on_remetente_id"
   end
@@ -116,8 +117,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "nome_aluno", null: false
     t.string "status", null: false
     t.string "avaliador", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "id_archive"
     t.bigint "responsavel_avaliacao_id"
     t.index ["responsavel_avaliacao_id"], name: "index_registro_avaliacaos_on_responsavel_avaliacao_id"
@@ -160,8 +161,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "periodo_letivoperiodo_dirlic"
     t.string "semestre_dirlic"
     t.string "estagio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatcampiaditivos", force: :cascade do |t|
@@ -203,8 +204,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "semestre_dirlic"
     t.string "representante_da_instituicao"
     t.string "estagio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatcampis", force: :cascade do |t|
@@ -244,8 +245,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "representante_da_instituicao"
     t.string "estagio"
     t.string "UF"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatestadualaditivos", force: :cascade do |t|
@@ -287,8 +288,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "semestre_dirlic"
     t.string "representante_da_instituicao"
     t.string "estagio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatmunicipalouparticularaditivos", force: :cascade do |t|
@@ -331,8 +332,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "representante_da_instituicao"
     t.string "estagio"
     t.string "UF"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatnaoformais", force: :cascade do |t|
@@ -374,8 +375,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "telefone"
     t.string "avaliador"
     t.string "estagio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatnaoformals", force: :cascade do |t|
@@ -416,8 +417,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "cep"
     t.string "telefone"
     t.string "avaliador"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatorios", force: :cascade do |t|
@@ -456,8 +457,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "avaliador"
     t.string "estagio"
     t.string "UF"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatoutros", force: :cascade do |t|
@@ -496,8 +497,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "apolice"
     t.string "seguradora"
     t.string "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatparticulares", force: :cascade do |t|
@@ -539,8 +540,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "avaliador"
     t.string "estagio"
     t.string "UF"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatparticulars", force: :cascade do |t|
@@ -581,8 +582,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "telefone"
     t.string "avaliador"
     t.string "representante_da_instituicao_dois"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relatpublicos", force: :cascade do |t|
@@ -624,18 +625,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "representante_da_instituicao"
     t.string "estagio"
     t.string "UF"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "reset_password_sent_at", precision: 6
+    t.datetime "remember_created_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "role", default: 0
     t.string "licenciatura"
     t.string "nome"
