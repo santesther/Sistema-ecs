@@ -18,4 +18,4 @@ production:
   <<: *default
   database: ecs_production
   username: dirlic
-  password: <%= ENV['ECS_PRODUCTION_DATABASE_PASSWORD'] %>
+  password: ecs2024#
