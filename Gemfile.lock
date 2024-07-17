@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/ffi/ffi.git
+  revision: ecfb225096ae76ba2a5e8115f046bd0ac23095e6
+  specs:
+    ffi (1.17.0-x86_64-linux-gnu)
+
+GIT
   remote: https://github.com/galetahub/ckeditor.git
   revision: 6a4f526333f007561ef6507504c5e17f7a466bad
   specs:
@@ -126,7 +132,6 @@ GEM
     faye-websocket (0.11.3)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
-    ffi (1.17.0-x86_64-linux-gnu)
     flatpickr (4.6.13.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -403,6 +408,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  ffi!
   flatpickr
   image_processing (~> 1.12, >= 1.12.2)
   importmap-rails

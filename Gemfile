@@ -17,6 +17,8 @@ gem 'sass-rails'
 
 gem 'sass'
 
+gem "ffi", github: "ffi/ffi"
+
 gem 'flatpickr'
 
 gem 'terser'
