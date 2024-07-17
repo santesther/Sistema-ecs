@@ -30,11 +30,6 @@ class CartaapresentacaoPdf< Prawn::Document
             text "Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e de importância significativa para a formação dos futuros formadores. Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP (22) 2726-2897 // dirlicenciatura.camposcentro@iff.edu.br, bem como o site licenciaturas.centro.iff.edu.", align: :left, inline_format: true, leading: 10
             move_down 20
     
-            %i[center].each do |position|
-              draw_text "Atenciosamente,", at: [200, 170], inline_format: true
-              image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
-              move_down 50
-            end
             end
         end
       end

@@ -52,10 +52,6 @@ class CampiaditivoPdf< Prawn::Document
             move_down 30
             text "Licenciando(a) Estagiário(a): ______________________________________________________________", :inline_format => true
 
-            move_down 135
-            %i[center].each do |position|
-              image "#{Rails.root}/app/assets/images/logo_dirlic.png", position: position
-              end
           end
         end
     end
