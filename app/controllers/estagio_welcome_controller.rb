@@ -44,7 +44,7 @@ class EstagioWelcomeController < ApplicationController
     @id_user = session[:id_user]
     user = User.find(@id_user)
   
-    ContactMailer.mudanca_status(user).deliver
+    #ContactMailer.mudanca_status(user).deliver
   
     user.update(situacao_params)
   
@@ -55,7 +55,7 @@ class EstagioWelcomeController < ApplicationController
   def pendente
     session[:id] = params[:id]
 
-    ContactMailer.ingresso_estagio(current_user).deliver
+    #ContactMailer.ingresso_estagio(current_user).deliver
 
     @user = current_user.update(:situacao => "Revisar")
 
