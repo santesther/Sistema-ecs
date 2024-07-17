@@ -30,7 +30,7 @@ class MensagensController < ApplicationController
         if @mensagem.save
           format.html { redirect_to @mensagem, notice: 'Mensagem enviada com sucesso!' }
           format.json { render :show, status: :created, location: @mensagem }
-          #ApplicationMailer.mensagem_enviada(@mensagem).deliver
+          ApplicationMailer.mensagem_enviada(@mensagem).deliver
         else
           format.html { render :new }
           format.json { render json: @mensagem.errors, status: :unprocessable_entity }
