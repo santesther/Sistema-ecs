@@ -15,8 +15,6 @@ gem 'cancancan'
 
 gem 'sass-rails'
 
-gem 'sass-embedded'
-
 gem 'sass'
 
 gem "ffi", github: "ffi/ffi"

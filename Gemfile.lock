@@ -2,7 +2,7 @@ GIT
   remote: https://github.com/ffi/ffi.git
   revision: ecfb225096ae76ba2a5e8115f046bd0ac23095e6
   specs:
-    ffi (1.17.0)
+    ffi (1.17.0-x86_64-linux-gnu)
 
 GIT
   remote: https://github.com/galetahub/ckeditor.git
@@ -141,9 +141,6 @@ GEM
     flatpickr (4.6.13.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (4.27.2-x86_64-linux)
-      bigdecimal
-      rake (>= 13)
     http-accept (1.7.0)
     http-cookie (1.0.6)
       domain_name (~> 0.5)
@@ -315,9 +312,6 @@ GEM
     rubyzip (2.3.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
-    sass-embedded (1.77.8)
-      google-protobuf (~> 4.26)
-      rake (>= 13)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -427,7 +421,6 @@ DEPENDENCIES
   rest_pki (~> 1.0.0)
   rexml
   sass
-  sass-embedded
   sass-rails
   selenium-webdriver
   sprockets-rails
