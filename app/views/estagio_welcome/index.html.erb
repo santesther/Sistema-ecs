@@ -253,13 +253,13 @@
         <% if current_user.situacao == "Aprovado"%>
           <h5>DEFERIDO.<h5>
           <h5>Parabéns, seu perfil foi aprovado com sucesso!</h5>
-          <h6 style="color:blue;">Após preenchidos, seus Documentos referentes ao campo de Estágio serão avaliados pela DIRLIC/NAPP e disponibilizado à impressão, quando DEFERIDO.</h6>
+          <h6 style="color:blue;">Após preenchidos, seus Documentos referentes ao campo de Estágio serão avaliados pela DIRLIC e disponibilizado à impressão, quando DEFERIDO.</h6>
 
           <hr />
 
           <% if current_user.pdf_aditivo_centro == false && current_user.pdf_aditivo_municipalouparticular == false && current_user.pdf_aditivo_estadual == false && current_user.pdf_centro == false && current_user.pdf_campi == false && current_user.pdf_publico == false && current_user.pdf_particular == false && current_user.pdf_aditivo_campi == false  %>
             <p class="escolha_um_formulario">Preencha a Carta de Apresentação e depois escolha a rede de ensino e preencha atentamente. </u></p>
-            <p class="escolha_um_formulario2"> Lembre-se de que após o envio, caso haja erro no preenchimento, comparecer à DIRLIC/NAPP para autorização de novo acesso.</u></u></p>
+            <p class="escolha_um_formulario2"> Lembre-se de que após o envio, caso haja erro no preenchimento, comparecer à DIRLIC para autorização de novo acesso.</u></u></p>
         
         <% if current_user.carta_apresentacao == false %>
             <div class="botoes">
@@ -342,7 +342,8 @@
 
               <div class="aviso_impressao">
                 <span style="font-size:1.2em;"><b><u>Avisos!</u></b></span> <br />
-                <span style="font-size:1.2em;">Sugerimos que você faça o download do arquivo.</span><br />
+                <span style="font-size:1.2em;">Sugerimos que você faça o download dos arquivos.</span><br />
+                <span style="font-size:1.2em;">Imprima o termo em <b>03 (três) vias</b> e a Carta de Apresentação <b>em uma única via</b> que deverá ser entregue, junto ao Termo, na <b>Instituição Concedente</b>.</span><br />
               </div>
 
            <div class="table-responsive" style="overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
