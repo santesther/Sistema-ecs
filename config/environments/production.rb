@@ -18,7 +18,7 @@ Rails.application.configure do
     :address => "mail.iff.edu.br",
     :port => 587,
     :domain => "iff.edu.br",
-    :authentication => :login,
+    :authentication => "plain",
     :user_name => "ecs-dirlic.centro@iff.edu.br",
     :password => "licenciatura2024#",
     :enable_starttls_auto => true,
