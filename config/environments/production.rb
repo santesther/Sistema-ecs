@@ -1,6 +1,9 @@
 Rails.application.configure do
   #config.action_mailer.default_url_options = { :host => ENV['ecs-dirlic.centro@iff.edu.br'], only_path: false }
   # Settings specified here will take precedence over those in config/application.rb.
+  def after_sign_out_path_for scope
+    root_path
+  end
 
   # Code is not reloaded between requests.
   config.cache_classes = true
