@@ -11,6 +11,7 @@ export { application } // abre a interface do admin
 
 //= require jquery
 //= require jquery3
+//= require rails-ujs
 //= require jquery_ujs
 //= require popper
 //= require 'apexcharts'
