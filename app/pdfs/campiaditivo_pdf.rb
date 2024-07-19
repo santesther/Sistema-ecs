@@ -4,9 +4,18 @@ class CampiaditivoPdf< Prawn::Document
       @relatorio = relatorio
       @usuario_matricula = usuario_matricula
       Prawn::Fonts::AFM.hide_m17n_warning = true
-        fill_color "40464e"
-        font_size 9
+      fill_color(0,0,0,100)
+      font_size 12
 
+      font_path = "##{Rails.root}/app/assets/Fonts/Calibri"
+      font_families.update(
+        'Calibri' => {
+          normal: { file: font_path, font: 'Calibri' },
+          italic: { file: font_path, font: 'Calibri-Italic' },
+          bold: { file: font_path, font: 'Calibri-Bold' },
+          bold_italic: { file: font_path, font: 'Calibri-BoldItalic' },
+        },
+      )
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-50, 680], :width => 550
         move_down 60        
         
@@ -20,9 +29,9 @@ class CampiaditivoPdf< Prawn::Document
             text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, size: 12, :inline_format => true, :leading => 10
             text "<b>Apólice de seguro nº: </b>#{relatorio.apolice} ", align: :center, size: 12, :inline_format => true, :leading => 10
             move_down 10
-            text "O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07 neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas - INSTITUIÇÃO PROMOTORA -</b>, inscrita no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com o <b>Instituto Federal Fluminense <i>Campus<i> #{relatorio.instituicao_apresentacao} - Instituição de Ensino CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº #{relatorio.cnpj}, situado no(a) #{relatorio.endereco_da_instituicao}, Bairro: #{relatorio.bairro_da_instituicao}, no município de #{relatorio.municipio_da_instituicao}, Estado do Rio de Janeiro, CEP: #{relatorio.cep_da_instituicao}, telefone #{relatorio.telefone_da_instituicao}, representado por <b>#{relatorio.representante_da_instituicao}, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
+            text "O <b>INSTITUTO FEDERAL FLUMINENSE</b>, CNPJ/MF nº 10.779.511/0001-07 neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas - INSTITUIÇÃO PROMOTORA -</b>, inscrita no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com o <b>Instituto Federal Fluminense <i>Campus</i> #{relatorio.instituicao_apresentacao} - Instituição de Ensino CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº #{relatorio.cnpj}, situado no(a) #{relatorio.endereco_da_instituicao}, Bairro: #{relatorio.bairro_da_instituicao}, no município de #{relatorio.municipio_da_instituicao}, Estado do Rio de Janeiro, CEP: #{relatorio.cep_da_instituicao}, telefone #{relatorio.telefone_da_instituicao}, representado por <b>#{relatorio.representante_da_instituicao}, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
             move_down 10
-            text "#{relatorio.aluno_apresentacao}", align: :center, size: 16, :inline_format => true, :leading => 10 
+            text "<b>#{relatorio.aluno_apresentacao}</b>", align: :center, size: 16, :inline_format => true, :leading => 10 
             move_down 10
             text "matrícula nº #{relatorio.matricula_aluno} do #{relatorio.semestre_apresentacao } semestre do ano letivo #{relatorio.ano} do Curso Superior de Licenciatura em #{relatorio.licenciatura}.", align: :justify, :inline_format => true, :leading => 10
             
@@ -45,7 +54,7 @@ class CampiaditivoPdf< Prawn::Document
             text "Concedente: _________________________________________________", :inline_format => true
   
             move_down 60
-            text "IFFluminense <i>campus</i> Campos Centro: "
+            text "IFFluminense campus Campos Centro: "
             stroke_horizontal_rule
             pad_top(20) { }
 

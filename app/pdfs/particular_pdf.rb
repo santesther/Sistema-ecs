@@ -4,8 +4,18 @@ class ParticularPdf < Prawn::Document
       @relatorio = relatorio
       @usuario_matricula = usuario_matricula
       Prawn::Fonts::AFM.hide_m17n_warning = true
-        fill_color "40464e"
-        font_size 9
+      fill_color(0,0,0,100)
+      font_size 12
+
+      font_path = "##{Rails.root}/app/assets/Fonts/Calibri"
+      font_families.update(
+        'Calibri' => {
+          normal: { file: font_path, font: 'Calibri' },
+          italic: { file: font_path, font: 'Calibri-Italic' },
+          bold: { file: font_path, font: 'Calibri-Bold' },
+          bold_italic: { file: font_path, font: 'Calibri-BoldItalic' },
+        },
+      )
 
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-50, 680], :width => 550
         move_down 60
@@ -17,10 +27,11 @@ class ParticularPdf < Prawn::Document
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
             draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], :inline_format => true
+            move_down 5
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 10
             text "<b>Seguradora: </b>#{relatorio.seguradora}", align: :center, size: 12, :inline_format => true, :leading => 10
-            move_down 10
+            move_down 5
             text "<b>Apólice de seguro: </b>#{relatorio.apolice}",align: :center, size: 12, :inline_format => true, :leading => 10
             move_down 10
 
@@ -29,12 +40,12 @@ class ParticularPdf < Prawn::Document
             text "<b>#{relatorio.aluno_apresentacao}</b>", align: :center, size: 16, :inline_format => true, :leading => 10
             move_down 10
             text "matriculado(a) no Campus Campos Centro do IFFluminense, sob o nº #{relatorio.matricula_aluno}, no #{relatorio.aluno_semestre} semestre do ano letivo de #{relatorio.ano}, no Curso Superior de Licenciatura em #{relatorio.licenciatura}, no componente curricular #{relatorio.estagio}. Residente no(a) #{relatorio.endereco}, nº #{relatorio.numero}, Complemento: #{relatorio.complemento}, Bairro: #{relatorio.bairro}, município: #{relatorio.municipio}, UF: #{relatorio.UF}, CEP: #{relatorio.cep}, telefone/contato: nº #{relatorio.telefone}", align: :justify, :inline_format => true, :leading => 10
-            move_down 40
+            move_down 20
             text "<b>Período de Vigência: #{relatorio.periodo_de}", align: :justify, :inline_format => true
             
             move_down 140
             text "CLÁUSULA PRIMEIRA - DA FINALIDADE", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "Estágio Curricular Supervisionado compreende um conjunto de atividades que propiciam aos licenciandos situações e oportunidades reais de trabalho. É ato educativo escolar, supervisionado, desenvolvido em ambiente profissional correlato à área de atuação acadêmica do aluno em conformidade com a Lei N.º 11.788/08.
   
   
@@ -46,7 +57,7 @@ class ParticularPdf < Prawn::Document
             move_down 20
   
             text "CLÁUSULA SEGUNDA - DA PROMOTORA", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "O Instituto Federal Fluminense campus Campos Centro se compromete a:
   
             1. avaliar as instalações da parte CONCEDENTE do estágio e sua adequação à formação cultural e profissional do educando;
@@ -69,9 +80,9 @@ class ParticularPdf < Prawn::Document
   
             10. expedir Declaração de Conclusão de Prática Profissional, na qual o Estágio Curricular Supervisionado se encontra inserido como parte integrante, para fins de Colação de Grau.", align: :justify
             
-            move_down 80
-            text "CLÁUSULA TERCEIRA - DA CONCEDENTE", align: :center, size: 16
             move_down 20
+            text "CLÁUSULA TERCEIRA - DA CONCEDENTE", align: :center, size: 16
+            move_down 40
             text "A CONCEDENTE se compromete a:
   
             1. disponibilizar, ao ESTAGIÁRIO, oportunidades de aplicabilidade dos conhecimentos pertinentes à sua área profissional, em ambiente condizente com as exigências legais à formação;
@@ -97,7 +108,7 @@ class ParticularPdf < Prawn::Document
             move_down 20
   
             text "CLÁUSULA QUARTA - DO ESTAGIÁRIO", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "O ESTAGIÁRIO se compromete à:
   
             1. atender às normas e procedimentos da CONCEDENTE como estagiário;
@@ -114,17 +125,17 @@ class ParticularPdf < Prawn::Document
             move_down 20
   
             text "CLÁUSULA QUINTA - DA SUPERVISÃO E AVALIAÇÃO", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "O Estágio, como ato educativo escolar supervisionado, será acompanhado pelo professor orientador da Instituição de Ensino PROMOTORA e pelo supervisor da parte CONCEDENTE, em conformidade com as Normas Técnicas do Instituto Federal Fluminense (IFFluminense) e a legislação vigente, ficando, o estagiário, sujeito a essa regulamentação.", align: :justify
             move_down 20
   
             text "CLÁUSULA SEXTA - DO PRAZO DO ESTÁGIO", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "A duração do estágio é estabelecida pelas Normas Técnicas e Processuais de Estágio do Instituto Federal de Educação, Ciência e Tecnologia Fluminense, aprovadas pelo Conselho Superior do IFFluminense.", align: :justify
             move_down 20
   
             text "CLÁUSULA SÉTIMA - DAS DISPOSIÇÕES GERAIS:", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "1. A realização do Estágio Curricular Supervisionado não acarretará vínculo empregatício entre o ESTAGIÁRIO e a CONCEDENTE, em razão da legislação vigente e do presente termo.
   
             2. O Estágio Curricular Supervisionado poderá ser interrompido pelas partes contratantes, mediante comunicação por escrito, com antecedência mínima de 10 (dez) dias.

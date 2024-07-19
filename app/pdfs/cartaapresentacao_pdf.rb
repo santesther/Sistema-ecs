@@ -4,8 +4,18 @@ class CartaapresentacaoPdf< Prawn::Document
         @relatorio = relatorio
         @usuario_matricula = usuario_matricula
         Prawn::Fonts::AFM.hide_m17n_warning = true
-        fill_color "40464e"
-        font_size 9
+        fill_color(0,0,0,100)
+        font_size 12
+
+        font_path = "##{Rails.root}/app/assets/Fonts/Calibri"
+        font_families.update(
+          'Calibri' => {
+            normal: { file: font_path, font: 'Calibri' },
+            italic: { file: font_path, font: 'Calibri-Italic' },
+            bold: { file: font_path, font: 'Calibri-Bold' },
+            bold_italic: { file: font_path, font: 'Calibri-BoldItalic' },
+          },
+        )
     
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-30, 680], width: 500
         move_down 60
@@ -17,7 +27,7 @@ class CartaapresentacaoPdf< Prawn::Document
           if relatorio.matricula_aluno == @usuario_matricula
             draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], inline_format: true
             move_down 20
-            text "<b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura/Núcleo de Apoio à Prática Profissional (NAPP) do IFFluminense campus Campos Centro", align: :left, size: 12, inline_format: true
+            text "<b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura do IFFluminense <i>campus</i> Campos Centro (DIRESLCC)", align: :left, size: 12, inline_format: true
             move_down 20
             text "<b>À:</b><b>Direção da Instituição de Ensino:</b> #{relatorio.instituicao_apresentacao}", align: :left, size: 12, inline_format: true
             move_down 10

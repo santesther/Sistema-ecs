@@ -4,19 +4,30 @@ class CentroPdf < Prawn::Document
       @relatorio = relatorio
       @usuario_matricula = usuario_matricula
       Prawn::Fonts::AFM.hide_m17n_warning = true
-        fill_color "40464e"
-        font_size 9
+      fill_color(0,0,0,100)
+        font_size 12
+
+        font_path = "##{Rails.root}/app/assets/Fonts/Calibri"
+        font_families.update(
+          'Calibri' => {
+            normal: { file: font_path, font: 'Calibri' },
+            italic: { file: font_path, font: 'Calibri-Italic' },
+            bold: { file: font_path, font: 'Calibri-Bold' },
+            bold_italic: { file: font_path, font: 'Calibri-BoldItalic' },
+          },
+        )
 
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-30, 680], :width => 500
         move_down 60
 
-        repeat(1..5, dynamic: true) do
+        repeat(1..6, dynamic: true) do
           draw_text "#{page_number}", at: [490, 700]
          end
 
         @relatorio.each do |relatorio|
           if(relatorio.matricula_aluno == @usuario_matricula)
             draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], :inline_format => true
+            move_down 5
             text "Termo de Compromisso de Estágio - TCE", align: :center, size: 24
             move_down 20
             text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, :leading => 10
@@ -29,14 +40,14 @@ class CentroPdf < Prawn::Document
             text "<b>#{relatorio.aluno_apresentacao}</b>", align: :center, size: 20, :inline_format => true, :leading => 10
             move_down 15
             text "matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº #{relatorio.matricula_aluno}, no #{relatorio.aluno_semestre} semestre do ano letivo de #{relatorio.ano}, no Curso Superior de Licenciatura em #{relatorio.licenciatura}, no componente curricular #{relatorio.estagio}, residente no(a) #{relatorio.endereco}, nº #{relatorio.numero}, Complemento: #{relatorio.complemento}, Bairro: #{relatorio.bairro}, município: #{relatorio.municipio}, UF: #{relatorio.UF}, CEP: #{relatorio.cep}, telefone/contato: nº #{relatorio.telefone}.", align: :justify, :inline_format => true, :leading => 10
-            move_down 40
+            move_down 20
             text "<b>Período de Vigência: #{relatorio.periodo_de}", align: :justify, :inline_format => true
             
            
             
             move_down 100
             text "CLÁUSULA PRIMEIRA - DA FINALIDADE", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "Estágio Curricular Supervisionado compreende um conjunto de atividades que propiciam aos licenciandos situações e oportunidades reais de trabalho. É ato educativo escolar, supervisionado, desenvolvido em ambiente profissional correlato à área de atuação acadêmica do aluno em conformidade com a Lei N.º 11.788/08.
   
   
@@ -48,7 +59,7 @@ class CentroPdf < Prawn::Document
             move_down 20
   
             text "CLÁUSULA SEGUNDA - DA PROMOTORA", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "O Instituto Federal Fluminense Campus Campos Centro se compromete a:
   
             1. avaliar as instalações da parte CONCEDENTE do estágio e sua adequação à formação cultural e profissional do educando;
@@ -68,7 +79,7 @@ class CentroPdf < Prawn::Document
             8. zelar pelo cumprimento do termo de compromisso, reorientando o estagiário para outra Instituição, em caso de descumprimento das presentes normas;
   
             9. comunicar à parte CONCEDENTE, no início do estágio, o período de realização de avaliações escolares ou acadêmicas, justificando-se assim, um possível impedimento de cumprimento de horário pré-fixado;", align: :justify
-            move_down 40
+            move_down 20
   
             text "CLÁUSULA TERCEIRA - DA CONCEDENTE", align: :center, size: 16
             move_down 40
@@ -94,10 +105,10 @@ class CentroPdf < Prawn::Document
             9. Indicar, enquanto perdurar o Estágio Curricular Supervisionado, a forma de contraprestação ao estagiário (quando houver): ..............................................;
   
             10. assegurar ao estagiário, em caso de estágio com duração igual ou superior a 01 (um) ano ininterrupto, período de recesso de 30 (trinta) dias, ou de maneira proporcional, naquele em que a duração for inferior ao período acima mencionado. O recesso de que trata este item, deverá ser gozado, preferencialmente, durante as férias escolares.", align: :justify
-            move_down 200
+            move_down 20
   
             text "CLÁUSULA QUARTA - DO ESTAGIÁRIO", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "O ESTAGIÁRIO se compromete à:
   
             1. atender às normas e procedimentos da CONCEDENTE como estagiário;
@@ -114,17 +125,17 @@ class CentroPdf < Prawn::Document
             move_down 20
   
             text "CLÁUSULA QUINTA - DA SUPERVISÃO E AVALIAÇÃO", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "O Estágio, como ato educativo escolar supervisionado, será acompanhado pelo professor orientador da Instituição de Ensino PROMOTORA e pelo supervisor da parte CONCEDENTE, em conformidade com a legislação vigente, ficando, o estagiário, sujeito a essa regulamentação.", align: :justify
             move_down 20
   
             text "CLÁUSULA SEXTA - DO PRAZO DO ESTÁGIO", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "A duração do Estágio é estabelecida em conformidade com legislação específico vigente.", align: :justify
             move_down 20
   
             text "CLÁUSULA SÉTIMA - DAS DISPOSIÇÕES GERAIS:", align: :center, size: 16
-            move_down 20
+            move_down 40
             text "1. A realização do Estágio Curricular Supervisionado não acarretará vínculo empregatício entre o ESTAGIÁRIO e a CONCEDENTE, em razão da legislação vigente e do presente termo.
   
             2. O Estágio Curricular Supervisionado poderá ser interrompido pelas partes contratantes, mediante comunicação por escrito, com antecedência mínima de 10 (dez) dias.
