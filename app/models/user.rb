@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  validates_presence_of :nome_social, :email, :licenciatura, :periodo, :matricula
+  validates_presence_of :nome_civil, :email, :licenciatura, :periodo, :matricula
 
   validates_uniqueness_of :matricula, :email
 
