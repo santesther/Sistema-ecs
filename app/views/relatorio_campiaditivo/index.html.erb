@@ -25,11 +25,11 @@
         <div class="d-flex align-items-center justify-content-center">
           <b><%= f.text_field :aluno_apresentacao, required: true  %></b>
           </div></p>
-          matrícula nº <%= current_user.matricula %> do semestre <%= f.select :semestre_apresentacao,['1º', '2º'], {include_blank:"Selecione"}, required:true %> do ano letivo <%= f.select :ano,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %> do Curso Superior de Licenciatura em
+          matrícula nº <%= current_user.matricula %> do semestre <%= f.select :semestre_apresentacao,['1º', '2º'], {include_blank:"Selecione"}, required:true %> do ano letivo <%= f.select :ano,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %> do Curso Superior de Licenciatura em
           <%= current_user.licenciatura %>.<br>
           <p><b>Cláusula Primeira:</b><br>
           O PRESENTE TERMO ADITIVO INCLUI:<br>
-          (<b>X</b>) O componente curricular <%= f.select :estagio,['Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV'], {include_blank:"Selecione"}, required:true %> no semestre do ano letivo <%= f.select :ano_apresentacao,['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %><br></p>
+          (<b>X</b>) O componente curricular <%= f.select :estagio,['Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV'], {include_blank:"Selecione"}, required:true %> no semestre do ano letivo <%= f.select :ano_apresentacao,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %><br></p>
           <hr />
         <br />
         <br />
