@@ -20,7 +20,7 @@ class ParticularPdf < Prawn::Document
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-50, 680], :width => 550
         move_down 60
      
-        repeat(1..5, dynamic: true) do
+        repeat(1..7, dynamic: true) do
           draw_text "#{page_number}", at: [490, 700]
          end
   
