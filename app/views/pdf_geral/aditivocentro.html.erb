@@ -11,6 +11,7 @@
             <hr />
 
             <h2><b>TERMO ADITIVO DE ESTÁGIO</b></h2>
+            <h5>Data: <b><%= f.text_field :data, value: relatorio.data, required:true %></b></h5>
             <h5><b>Seguradora:</b> <%= f.text_field :seguradora, value: relatorio.seguradora, required:true %></h5>
             <h4><b>Apólice de seguro nº:</b> <%= f.text_field :apolice, value: relatorio.apolice, required:true %></h4>
         <br />
@@ -31,7 +32,6 @@
           O PRESENTE TERMO ADITIVO ALTERA:<br>
             (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no semestre do ano letivo <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %><br>
           <hr />
-          Data: <b><%= f.text_field :data, value: relatorio.data, required:true %></b>
           <% end %>
         <% end %>
 

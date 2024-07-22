@@ -20,7 +20,7 @@ class EstadualaditivoPdf< Prawn::Document
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-50, 680], :width => 550
         move_down 60        
         
-        repeat(2..5, dynamic: true) do
+        repeat(1..5, dynamic: true) do
           draw_text "#{page_number}", at: [490, 700]
          end
 
@@ -28,7 +28,7 @@ class EstadualaditivoPdf< Prawn::Document
           if(relatorio.matricula_aluno == @usuario_matricula)
             draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], :inline_format => true
             move_down 5
-            text "<b>TERMO ADITIVO DE ESTÁGIO</b> (Período letivo: <b>#{relatorio.periodo_letivo})</b>", align: :center, size: 15, :inline_format => true, :leading => 10
+            text "<b>TERMO ADITIVO DE ESTÁGIO</b>", align: :center, size: 15, :inline_format => true, :leading => 10
             text "<b>Seguradora: </b>#{relatorio.seguradora}",align: :center, :inline_format => true, size: 12, :leading => 10
             text "<b>Apólice de seguro nº: </b>#{relatorio.apolice} ", align: :center, :inline_format => true, size: 12, :leading => 10
             move_down 10
