@@ -47,7 +47,7 @@ class AditivocentroPdf < Prawn::Document
             text "<b>(X)</b> O componente curricular #{relatorio.estagio} no semestre do ano letivo #{relatorio.ano}.", align: :justify, :inline_format => true, :leading => 10
   
 
-            move_down 90
+            move_down 120
             text "CLÁUSULA SEGUNDA", align: :center, size: 16
             move_down 20
             text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.
