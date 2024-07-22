@@ -6,16 +6,19 @@ class MunicipalouparticularaditivoPdf< Prawn::Document
       Prawn::Fonts::AFM.hide_m17n_warning = true
       fill_color(0,0,0,100)
       font_size 12
-
-      font_path = Rails.root.join("app/assets/Fonts/Calibri.ttf")
       font_families.update(
-        'Calibri' => {
-          normal: { file: font_path, font: 'Calibri' },
-          italic: { file: font_path, font: 'Calibri-Italic' },
-          bold: { file: font_path, font: 'Calibri-Bold' },
-          bold_italic: { file: font_path, font: 'Calibri-BoldItalic' },
-        },
+        "Calibri" => {
+          normal: Rails.root.join('app', 'assets', 'Fonts', 'Calibri Regular.ttf'),
+          bold: Rails.root.join('app', 'assets', 'Fonts', 'Calibri Bold.TTF'),
+          italic: Rails.root.join('app', 'assets', 'Fonts', 'Calibri Italic.ttf'),
+          bold_italic: Rails.root.join('app', 'assets', 'Fonts', 'Calibri Bold Italic.ttf'),
+          light: Rails.root.join('app', 'assets', 'Fonts', 'Calibri Light.ttf'),
+          light_italic: Rails.root.join('app', 'assets', 'Fonts', 'Calibri Light Italic.ttf')
+        }
       )
+  
+      # Use a fonte Calibri
+      font "Calibri"
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-50, 680], :width => 550
         move_down 60        
         
