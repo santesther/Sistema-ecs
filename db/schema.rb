@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "avaliador"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_carta_apresentacoes_on_user_id"
   end
 
   create_table "instituicaos", force: :cascade do |t|
@@ -162,6 +164,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relataditivocentros_on_user_id"
   end
 
   create_table "relatcampiaditivos", force: :cascade do |t|
@@ -205,6 +209,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relatcampiaditivos_on_user_id"
   end
 
   create_table "relatcampis", force: :cascade do |t|
@@ -246,6 +252,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "UF"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relatcampis_on_user_id"
   end
 
   create_table "relatestadualaditivos", force: :cascade do |t|
@@ -289,6 +297,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relatestadualaditivos_on_user_id"
   end
 
   create_table "relatmunicipalouparticularaditivos", force: :cascade do |t|
@@ -333,6 +343,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "UF"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relatmunicipalouparticularaditivos_on_user_id"
   end
 
   create_table "relatnaoformais", force: :cascade do |t|
@@ -376,6 +388,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "estagio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relatnaoformais_on_user_id"
   end
 
   create_table "relatnaoformals", force: :cascade do |t|
@@ -458,6 +472,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "UF"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relatorios_on_user_id"
   end
 
   create_table "relatoutros", force: :cascade do |t|
@@ -541,6 +557,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "UF"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relatparticulares_on_user_id"
   end
 
   create_table "relatparticulars", force: :cascade do |t|
@@ -626,14 +644,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_143712) do
     t.string "UF"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_relatpublicos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: nil
-    t.datetime "remember_created_at", precision: nil
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0
