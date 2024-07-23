@@ -4,7 +4,7 @@
   <%= form_with(model: @relatorio, url: {action: "create"}, local: true) do |f| %>
     <% if user_signed_in? %>
       <div class="conteudo">
-        <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
+        <span>Usuário(a): <strong><%= current_user.nome_civil %></strong></span>
 
         <hr />
         <h2><b>TERMO ADITIVO DE ESTÁGIO</b></h2>
