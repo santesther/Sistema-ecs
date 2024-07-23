@@ -44,9 +44,6 @@ class RelatorioCampiaditivoController < ApplicationController
         end
         redirect_to estagio_welcome_index_path
       end
-        
-        redirect_to estagio_welcome_index_path
-      end
     
       def create
         @relatorios = Relatcampiaditivo.new(relatorio_params)
