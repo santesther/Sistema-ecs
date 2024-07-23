@@ -32,12 +32,18 @@ class RelatorioParticularController < ApplicationController
   end
 
   def destroy
-    @relatorios = Relatparticular.all
-    if @relatorios.present?
-      @relatorios.destroy_by(params[:id])
+    Rails.logger.info("Parâmetro user_id recebido: #{params[:user_id]}")
+    @relatorio_particular = Relatparticular.find_by(user_id: params[:user_id])
+    if @relatorio_particular
+      Rails.logger.info("Encontrou a carta de apresentação com ID: #{@relatorio_particular.id}")
+      @relatorio_particular.destroy
+      flash[:notice] = "Carta de apresentação excluída com sucesso."
+    else
+      Rails.logger.info("Relatorio aditivo centro não encontrada para user_id: #{params[:user_id]}")
+      flash[:alert] = "Relatorio aditivo centro não encontrada."
     end
-      redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
-    end
+    redirect_to estagio_welcome_index_path
+  end
 
   def create
     @relatorios = Relatparticular.new(relatorio_params)
@@ -88,6 +94,6 @@ class RelatorioParticularController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio)
+    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio, :user_id)
   end
 end

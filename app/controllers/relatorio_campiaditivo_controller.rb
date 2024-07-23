@@ -32,12 +32,21 @@ class RelatorioCampiaditivoController < ApplicationController
       end
 
       def destroy
-        @relatorios = Relatcampiaditivo.all
-        if @relatorios.present?
-          @relatorios.destroy_by(params[:id])
+        Rails.logger.info("Parâmetro user_id recebido: #{params[:user_id]}")
+        @relatorio_campiaditivo = Relatcampiaditivo.find_by(user_id: params[:user_id])
+        if @relatorio_campiaditivo
+          Rails.logger.info("Encontrou a carta de apresentação com ID: #{@relatorio_campiaditivo.id}")
+          @relatorio_campiaditivo.destroy
+          flash[:notice] = "Carta de apresentação excluída com sucesso."
+        else
+          Rails.logger.info("Relatorio aditivo centro não encontrada para user_id: #{params[:user_id]}")
+          flash[:alert] = "Relatorio aditivo centro não encontrada."
         end
-          redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
-        end
+        redirect_to estagio_welcome_index_path
+      end
+        
+        redirect_to estagio_welcome_index_path
+      end
     
       def create
         @relatorios = Relatcampiaditivo.new(relatorio_params)
@@ -85,6 +94,6 @@ class RelatorioCampiaditivoController < ApplicationController
       end
     
       def relatorio_params
-        params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :periodo_de, :periodo_a, :matricula_aluno, :ano, :endereco, :numero, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :estado_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante_da_instituicao, :representante, :licenciatura, :periodo, :avaliador, :periodo_letivo, :periodo_dirlic, :semestre_dirlic, :UF, :estagio)
+        params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :periodo_de, :periodo_a, :matricula_aluno, :ano, :endereco, :numero, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :estado_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante_da_instituicao, :representante, :licenciatura, :periodo, :avaliador, :periodo_letivo, :periodo_dirlic, :semestre_dirlic, :UF, :estagio, :user_id)
       end
 end

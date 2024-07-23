@@ -23,7 +23,7 @@
             Sem mais, colocamo-nos à disposição para quaisquer esclarecimentos e registramos, nesta, os contatos com DIRLIC/NAPP - (22) 2726-2897 // <i>dirlicenciatura.camposcentro@iff.edu.br</i>, bem como o <i>site</i> <a href="http://licenciaturas.centro.iff.edu.br/" target="_blank">licenciaturas.centro.iff.edu</a>.
             <span style="opacity: 0;">matrícula nº <%= current_user.matricula %></span>
           <hr />
-          
+          <%= f.hidden_field :user_id, value: current_user.id %>
           <br>
 
         <%= link_to "Voltar", :back, :class => 'btn btn-primary' %>

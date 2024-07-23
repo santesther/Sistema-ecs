@@ -33,12 +33,18 @@ class CartaApresentacaoController < ApplicationController
       end
     
       def destroy
-        @relatorios = CartaApresentacao.all
-        if @relatorios.present?
-          @relatorios.destroy_by(params[:id])
+        Rails.logger.info("Parâmetro user_id recebido: #{params[:user_id]}")
+        @carta_apresentacao = CartaApresentacao.find_by(user_id: params[:user_id])
+        if @carta_apresentacao
+          Rails.logger.info("Encontrou a carta de apresentação com ID: #{@carta_apresentacao.id}")
+          @carta_apresentacao.destroy
+          flash[:notice] = "Carta de apresentação excluída com sucesso."
+        else
+          Rails.logger.info("Carta de apresentação não encontrada para user_id: #{params[:user_id]}")
+          flash[:alert] = "Carta de apresentação não encontrada."
         end
-          redirect_to estagio_welcome_index_path, notice: 'Carta excluída com sucesso.'
-        end
+        redirect_to estagio_welcome_index_path
+      end
     
     
       def create
@@ -75,6 +81,6 @@ class CartaApresentacaoController < ApplicationController
       end
     
       def relatorio_params
-        params.permit(:data, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :avaliador)
+        params.permit(:data, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :avaliador, :user_id)
       end
 end

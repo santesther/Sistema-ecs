@@ -39,12 +39,18 @@ class RelatorioPublicoController < ApplicationController
   end
 
   def destroy
-    @relatorios = Relatpublico.all
-    if @relatorios.present?
-      @relatorios.destroy_by(params[:id])
+    Rails.logger.info("Parâmetro user_id recebido: #{params[:user_id]}")
+    @relatorio_publico = Relatpublico.find_by(user_id: params[:user_id])
+    if @relatorio_publico
+      Rails.logger.info("Encontrou a carta de apresentação com ID: #{@relatorio_publico.id}")
+      @relatorio_publico.destroy
+      flash[:notice] = "Carta de apresentação excluída com sucesso."
+    else
+      Rails.logger.info("Relatorio aditivo centro não encontrada para user_id: #{params[:user_id]}")
+      flash[:alert] = "Relatorio aditivo centro não encontrada."
     end
-      redirect_to estagio_welcome_index_path, notice: 'Termo excluído com sucesso.'
-    end
+    redirect_to estagio_welcome_index_path
+  end
 
   def create
     @relatorios = Relatpublico.new(relatorio_params)
@@ -93,7 +99,7 @@ class RelatorioPublicoController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :reitor, :periodo_de, :periodo_a, :matricula_aluno, :licenciatura, :cnpj, :endereco_da_instituicao, :complemento_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :representante_da_instituicao, :municipio_da_instituicao, :estado_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante, :numero, :aluno_semestre, :ano, :endereco, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :avaliador, :periodo, :UF, :estagio)
+    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :reitor, :periodo_de, :periodo_a, :matricula_aluno, :licenciatura, :cnpj, :endereco_da_instituicao, :complemento_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :representante_da_instituicao, :municipio_da_instituicao, :estado_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante, :numero, :aluno_semestre, :ano, :endereco, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :avaliador, :periodo, :UF, :estagio, :user_id)
   end
 end
 

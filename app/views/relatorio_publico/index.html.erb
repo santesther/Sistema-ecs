@@ -31,6 +31,7 @@
           Bairro: <%= current_user.bairro %>, município: <%= current_user.municipio %>, UF: <%= current_user.UF%>,
           CEP: <%= current_user.cep %>, telefone/contato nº <%= current_user.telefone %>.  
         </p>
+          <%= f.hidden_field :user_id, value: current_user.id %>
         <div class="periodo_div">
         Período de Vigência: <%= f.text_field :periodo_de, required:true %> 
         </div>

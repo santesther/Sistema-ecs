@@ -47,6 +47,7 @@ export default class extends Controller {
     
 
     showAlert = (userId, relatorioType) => {
+        console.log(`Exclusão solicitada: userId=${userId}, relatorioType=${relatorioType}`);
         Swal.fire({
             title: "Você tem certeza? O Termo do aluno será excluído!",
             showCancelButton: true,
@@ -62,7 +63,7 @@ export default class extends Controller {
                 console.log("Redirecionando para:", deleteUrl);
                 window.location.href = deleteUrl;
             }
-        }).catch(error => console.error(error)); // Tratar erros, se houver
+        }).catch(error => console.error("Erro ao exibir alerta:", error));
     }
 
     showLiberarAlert = (userId) => {
