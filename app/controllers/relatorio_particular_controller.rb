@@ -37,10 +37,10 @@ class RelatorioParticularController < ApplicationController
     if @relatorio_particular
       Rails.logger.info("Encontrou a carta de apresentação com ID: #{@relatorio_particular.id}")
       @relatorio_particular.destroy
-      flash[:notice] = "Carta de apresentação excluída com sucesso."
+      flash[:notice] = "Termo Particular excluído com sucesso."
     else
       Rails.logger.info("Relatorio aditivo centro não encontrada para user_id: #{params[:user_id]}")
-      flash[:alert] = "Relatorio aditivo centro não encontrada."
+      flash[:alert] = "Termo Particular não encontrado."
     end
     redirect_to estagio_welcome_index_path
   end

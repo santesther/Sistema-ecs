@@ -34,12 +34,12 @@ class RelatorioEstadualaditivoController < ApplicationController
         Rails.logger.info("Parâmetro user_id recebido: #{params[:user_id]}")
         @relatorio_estadualaditivo = Relatestadualaditivo.find_by(user_id: params[:user_id])
         if @relatorio_estadualaditivo
-          Rails.logger.info("Encontrou a carta de apresentação com ID: #{@relatorio_estadualaditivo.id}")
+          Rails.logger.info("Encontrou o relatorio estadual aditivo com ID: #{@relatorio_estadualaditivo.id}")
           @relatorio_estadualaditivo.destroy
-          flash[:notice] = "Carta de apresentação excluída com sucesso."
+          flash[:notice] = "Termo Estadual Aditivo excluído com sucesso."
         else
           Rails.logger.info("Relatorio aditivo centro não encontrada para user_id: #{params[:user_id]}")
-          flash[:alert] = "Relatorio aditivo centro não encontrada."
+          flash[:alert] = "Termo Estadul Aditivo não encontrado."
         end
         redirect_to estagio_welcome_index_path
       end
