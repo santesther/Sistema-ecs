@@ -38,7 +38,7 @@ class AditivocentroPdf < Prawn::Document
             move_down 10
             text "Aditamento ao Termo de Compromisso de Estágio, Ato representado pela  <b>Diretoria de Ensino Superior das Licenciaturas do CAMPUS CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA E CONCEDENTE</b> -, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de Ensino da Educação Básica e Profissional, para fins de continuidade do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
             move_down 10
-            text "<b>#{relatorio.aluno_apresentacao}</b>", align: :center, size:12, :inline_format => true, size: 16, :leading => 10 
+            text "<b>#{relatorio.aluno_apresentacao}</b>", align: :center, :inline_format => true, size: 16, :leading => 10 
             move_down 10
             text "matrícula nº #{relatorio.matricula_aluno} do #{relatorio.periodo} período do Curso Superior de Licenciatura em #{relatorio.licenciatura}.", align: :justify, :inline_format => true, :leading => 10
             move_down 20
