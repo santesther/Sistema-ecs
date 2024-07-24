@@ -17,7 +17,7 @@
         (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a 
         <b><%= f.text_field :instituicao_apresentacao, required: true  %></b> - <b>Instituição de Ensino CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº 
         <%= current_user.cnpj %>, situado no(a) <%= current_user.endereco_da_instituicao %>, nº: <%= current_user.numero_da_instituicao %>, Bairro: <%= current_user.bairro_da_instituicao %>, 
-        no município de <%= current_user.municipio_da_instituicao %>, Estado do <%= f.text_field :estado, required: true  %>, CEP: <%= current_user.cep_da_instituicao %>, telefone 
+        no município de <%= current_user.municipio_da_instituicao %>, Estado do <%= current_user.estado_da_instituicao %>, CEP: <%= current_user.cep_da_instituicao %>, telefone 
         <%= current_user.telefone_da_instituicao %>, representado por <%= f.text_field :representante_da_instituicao, required: true  %>, para fins de continuidade 
         do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>
         <div class="d-flex align-items-center justify-content-center">
@@ -28,7 +28,7 @@
           <%= f.hidden_field :user_id, value: current_user.id %>
           <p><b>Cláusula Primeira:</b><br>
           O PRESENTE TERMO ADITIVO INCLUI:<br>
-          (<b>X</b>) O componente curricular <%= f.select :estagio,['Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV'], {include_blank:"Selecione"}, required:true %> no semestre do ano letivo <%= f.select :ano_apresentacao,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %><br></p>
+          (<b>X</b>) O componente curricular <%= f.select :estagio,['Estágio Curricular Supervisionado I', 'Estágio Curricular Supervisionado II', 'Estágio Curricular Supervisionado III', 'Estágio Curricular Supervisionado IV'], {include_blank:"Selecione"}, required:true %> no semestre do ano letivo <%= f.select :ano_apresentacao,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %><br></p>
           <hr />
         <br />
 

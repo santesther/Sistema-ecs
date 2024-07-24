@@ -35,7 +35,7 @@
             <%= f.text_field :nome_civil, required: true, class: "form-control" %> 
           </div>
 
-          <label class="col-sm-2 col-form-label">Nome social*</label>
+          <label class="col-sm-2 col-form-label">Nome social</label>
           <div class="col-sm-4">
             <%= f.text_field :nome_social, required: false, class: "form-control" %> 
           </div>
@@ -62,7 +62,7 @@
           'Matemática','Teatro', 'Pedagogo/TAE-DIRLIC'], f.object.licenciatura), :include_blank => "Selecione", class: "form-control" %>
           </div>
 
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Período do Componente Curricular*</label>
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Período*</label>
           <div class="col-sm-2">
             <%= f.select :periodo, options_for_select(['5.º', '6.º', '7.º', '8.º', 'Pedagoga/TAE'], f.object.periodo), include_blank: "Selecione", class: "form-control" %>
           </div>
@@ -169,6 +169,7 @@
           <div class="col-sm-4">
             <%= f.text_field :endereco_da_instituicao, required: true, class: "form-control" %>
           </div>
+          
 
           <label class="col-sm-2 col-form-label">Número da instituição*</label>
           <div class="col-sm-4">
@@ -201,17 +202,22 @@
           </div>
         </div>
 
-      <div class="form-group row">
+        <div class="form-group row">
           <label class="col-sm-2 col-form-label">Telefone da instituição*</label>
           <div class="col-sm-4">
             <%= f.text_field :telefone_da_instituicao, required: true, class: "form-control", onkeypress:"$(this).mask('(00) 00000-0000')" %> 
           </div>
+
+          <label class="col-sm-2 col-form-label">Estado da Instituição*</label>
+          <div class="col-sm-4">
+            <%= f.text_field :estado_da_instituicao, required: true, class: "form-control" %> 
+          </div>
           </div>
 
-      <div class="card-footer text-muted">
-      <div class="col-sm-12">
-      <div class="text-center">
-      <br>
+          <div class="card-footer text-muted">
+          <div class="col-sm-12">
+          <div class="text-center">
+          <br>
               <%= f.submit "Salvar", class: 'btn btn-success btn-block' %> &nbsp
               <%= link_to "Voltar", welcome_path, :class => "btn btn-primary btn-block" %>
       </div>

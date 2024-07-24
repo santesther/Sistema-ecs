@@ -70,6 +70,7 @@ class RelatorioCampiaditivoController < ApplicationController
         @relatorios.municipio_da_instituicao = current_user.municipio_da_instituicao
         @relatorios.cep_da_instituicao = current_user.cep_da_instituicao
         @relatorios.telefone_da_instituicao = current_user.telefone_da_instituicao
+        @relatorios.estado_da_instituicao = @relatorios.estado_da_instituicao
         @relatorios.representante_da_instituicao = @relatorios.representante_da_instituicao
         @relatorios.apolice = current_user.apolice
     
@@ -91,6 +92,6 @@ class RelatorioCampiaditivoController < ApplicationController
       end
     
       def relatorio_params
-        params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :periodo_de, :periodo_a, :matricula_aluno, :ano, :endereco, :numero, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :estado_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante_da_instituicao, :representante, :licenciatura, :periodo, :avaliador, :periodo_letivo, :periodo_dirlic, :semestre_dirlic, :UF, :estagio, :user_id)
+        params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :estado_da_instituicao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :periodo_de, :periodo_a, :matricula_aluno, :ano, :endereco, :numero, :complemento, :bairro, :municipio, :estado, :cep, :telefone, :estado_da_instituicao, :cnpj, :endereco_da_instituicao, :numero_da_instituicao, :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :representante_da_instituicao, :representante, :licenciatura, :periodo, :avaliador, :periodo_letivo, :periodo_dirlic, :semestre_dirlic, :UF, :estagio, :user_id)
       end
 end

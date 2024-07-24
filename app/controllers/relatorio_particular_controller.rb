@@ -69,6 +69,7 @@ class RelatorioParticularController < ApplicationController
     @relatorios.cep_da_instituicao = current_user.cep_da_instituicao
     @relatorios.telefone_da_instituicao = current_user.telefone_da_instituicao
     @relatorios.representante_da_instituicao = @relatorios.representante_da_instituicao
+    @relatorios.estado_da_instituicao = @relatorios.estado_da_instituicao
     @relatorios.apolice = current_user.apolice
     @relatorios.UF = current_user.UF
 
@@ -94,6 +95,6 @@ class RelatorioParticularController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio, :user_id)
+    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :estado_da_instituicao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio, :user_id)
   end
 end

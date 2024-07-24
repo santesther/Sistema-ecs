@@ -24,6 +24,7 @@ class EstagioWelcomeController < ApplicationController
 
   def edit
     session[:id_user] = params['id']
+    session[:nome_social] = params['nome_social']
     session[:nome_user] = params['nome_civil']
     session[:matricula_user] = params['matricula']
     session[:curso_user] = params['curso']
