@@ -61,11 +61,11 @@ class ParticularPdf < Prawn::Document
           move_down 40
           text "O Instituto Federal Fluminense Campus Campos Centro se compromete a:
   
-            1. avaliar as instalações da parte CONCEDENTE do estágio e as possibilidades de adequação à formação cultural e profissional do licenciando;
+            1. avaliar as instalações da Instituição CONCEDENTE do estágio e as possibilidades de adequação à formação cultural e profissional do licenciando;
             
             2. contratar, em benefício do estagiário, caso não esteja amparado pela Instituição CONCEDENTE, seguro de acidentes pessoais, vigente durante todo o período do estágio;
               
-            3. orientar o estagiário quanto ao planejamento e desenvolvimento das atividades do estágio e quanto a sua participação nas diversas etapas previstas para a ação no campo;
+            3. orientar o estagiário quanto ao planejamento e desenvolvimento das atividades do estágio e quanto à sua participação nas diversas etapas previstas para a ação no campo;
               
             4. indicar professor orientador como responsável pelo acompanhamento e desempenho do licenciando, avaliando paralelamente com o Supervisor de campo, as atividades desenvolvidas;
             
@@ -113,11 +113,11 @@ class ParticularPdf < Prawn::Document
               
             2. manter relacionamento de cordialidade e respeito no ambiente de trabalho;
               
-            3. cumprir a jornada estabelecida no Plano de Estágio e registrar as atividades desenvolvidas, diariamente, na Ficha de Registro de Atividades (FRA);
+            3. cumprir a jornada estabelecida no Plano de Estágio e registrar as atividades desenvolvidas, diariamente, no Formulário de Registro de Atividades (FRA);
               
             4. executar as atividades que lhe forem atribuídas e zelar pelos equipamentos e materiais que venha utilizar no desenvolvimento do seu Estágio;
               
-            5. contribuir com a Instituição CONCEDENTE, com os recursos didáticos pedagógicos elaborados por ele e utilizados na prática docente quando do desenvolvimento de projetos alternativos de aprendizagem oua atividades específicas em sala de aula;
+            5. contribuir com a Instituição CONCEDENTE, com os recursos didáticos pedagógicos elaborados por ele e utilizados na prática docente quando do desenvolvimento de projetos alternativos de aprendizagem ou atividades específicas em sala de aula;
               
             6. informar por escrito e, em tempo hábil, à CONCEDENTE, qualquer fato que o impossibilite de cumprir a programação do estágio, quer quanto ao horário, duração ou aspectos técnicos;
               
@@ -127,7 +127,7 @@ class ParticularPdf < Prawn::Document
   
           text "CLÁUSULA QUINTA - DA SUPERVISÃO E AVALIAÇÃO", align: :center, size: 16
           move_down 40
-          text " O Estágio, como ato educativo escolar supervisionado, será acompanhado e avaliado pelo professor orientador da Instituição de Ensino PROMOTORA e pelo supervisor(es) indicado pela parte CONCEDENTE, em conformidade com a  legislação vigente, ficando, o(a) Estagiário(a), sujeito a essa Regulamentação.", align: :justify
+          text " O Estágio, como ato educativo escolar supervisionado, será acompanhado, e avaliado pelo professor orientador da Instituição de Ensino PROMOTORA e pelo supervisor(es) indicado pela parte CONCEDENTE, em conformidade com a legislação vigente, ficando o(a) Estagiário(a), sujeito a essa Regulamentação.", align: :justify
           move_down 20
   
           text "CLÁUSULA SEXTA - DO PRAZO DO ESTÁGIO", align: :center, size: 16
@@ -143,11 +143,11 @@ class ParticularPdf < Prawn::Document
               
             3. A jornada de Atividade de Estágio será definida em comum acordo entre a Instituição de Ensino, a parte concedente e o estudante, devendo ser compatível com as atividades escolares e não ultrapassar 6h diárias e 30h semanais.
               
-            4. O compromisso estagiário/Instituição será rescindido:
+            4. O compromisso Estagiário/Instituição será rescindido:
               
             a) automaticamente, ao término do prazo de validade do Termo de Compromisso;
               
-            b) por abandono do() Estagiário(a), caracterizado por ausência não justificada por 30 (trinta) dias consecutivos;
+            b) por abandono do(a) Estagiário(a), caracterizado por ausência não justificada por 30 (trinta) dias consecutivos;
               
             c) a partir da interrupção do Curso na Instituição Promotora, pelo(a) Aluno(a)/Estagiário(a), nos casos de trancamento da matrícula;
             
@@ -157,13 +157,13 @@ class ParticularPdf < Prawn::Document
               
             f) por interesse e conveniência de uma das partes, que deverá apresentar à parte contrária, por escrito, justificativa do fato;
               
-            g) por desempenho insuficiente das atividades propostas, nas avaliações a que for submetido (a), pelos Supervisores e Orientadores das partes parceiras;
+            g) por desempenho insuficiente das atividades propostas, nas avaliações a que for submetido(a), pelos Supervisores e Orientadores das partes parceiras;
               
             h) por conduta incompatível do(o) Estagiário(a) em relação às normas exigidas pela Instituição Concedente.
 
             5. Fica eleito o foro da Comarca da cidade de Campos dos Goytacazes, Estado do Rio de Janeiro para dirimir qualquer questão que se originar deste termo.
               
-            E por estarem de pleno e comum acordo com o exposto no presente Termo de Compromisso, firmam em 03 (três) vias de igual teor, cabendo a 1.ª via à Instituição de Ensino PROMOTORA, a 2.ª, à CONCEDENTE e a 3.ª via, ao ESTAGIÁRIO.", align: :justify
+            E por estarem de pleno e comum acordo com o exposto no presente Termo de Compromisso, firmam parceria em 03 (três) vias de igual teor, cabendo a 1.ª via à Instituição de Ensino PROMOTORA, a 2.ª, à CONCEDENTE e a 3.ª via, ao ESTAGIÁRIO.", align: :justify
   
             move_down 50
             text "Campos dos Goytacazes, RJ, #{relatorio.data}", align: :center, :inline_format => true
