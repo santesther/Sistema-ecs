@@ -61,7 +61,7 @@ class ParticularPdf < Prawn::Document
   
             text "CLÁUSULA SEGUNDA - DA PROMOTORA", align: :center, size: 16
             move_down 40
-            text "O Instituto Federal Fluminense campus Campos Centro se compromete a:
+            text "O Instituto Federal Fluminense Campus Campos Centro se compromete a:
   
             1. avaliar as instalações da parte CONCEDENTE do estágio e sua adequação à formação cultural e profissional do educando;
   
