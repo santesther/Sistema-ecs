@@ -10,7 +10,7 @@
         <table class="table table-bordered">
             <tbody>
               <tr>
-                <td>Usuário(a): <b><%= session[:nome_user] %></b></td>
+               <td>Usuário(a): <b><%= @nome_civil %></b></td>
               </tr>
 
               <tr>
@@ -43,16 +43,16 @@
       
          <hr />
 
-         <h3>Finalização do Documento de Estágio </h3>
+         <h3>Impressão do Documento de Estágio </h3>
           <div class="field">
-          <%= f.label :liberação_para_impressão_do_termo %><br />
+          <%= f.label :impressao_do_documento_de_Estágio %><br />
           <%= f.select :finalizacao, @values_finalizacao, selected: @id_user.finalizacao %>
           </div>
 
           <br>
           <hr />
 
-           <h3>Liberação para novo preenchimento</h3>
+           <h3>Finalização para Novo Preenchimento</h3>
           <div class="field">
           <%= f.label :liberacao_do_usuário_para_preencher_outro_termo %><br />
           <%= f.select :liberacao, @values_liberacao, selected: @id_user.liberacao %>
