@@ -12,15 +12,15 @@
         
         <br />
 
-           <p style="text-align: justify; font-size: 16px;"><b>DA:</b> Diretoria de Ensino Superior dos Cursos de Licenciatura do IFFluminense <i>Campus</i> Campos Centro (DIRESLCC).<br>
+           <p style="text-align: justify; font-size: 16px;"><b>DA:</b> Diretoria de Ensino Superior da Licenciaturas do IFFluminense Campus Campos Centro (DIRESLCC).<br>
             <b>À: </b>Direção da Instituição de Ensino: </b><%= f.text_field :instituicao_apresentacao, required: true  %></u><br>
-            <b>Assunto: <i>Apresentação de discente-estagiário. <br>
+            <b>Assunto: <i>Apresentação de licenciando(a)-estagiário. <br>
             Prezado Gestor.<br>
-            O IFFluminense <i>Campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste Instituto, no </b> <u><%= current_user.periodo %></u> período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre letivo de <%= f.select :ano_apresentacao,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>, 
-            <b>para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente</b>, previstas no Plano de Atividades de Estágio (PAE), conforme Calendário Acadêmico deste <i>Campus</i>, em atendimento a carga horária total destinada ao período em curso. 
-            <br>Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório e não remunerado, e de importância significativa para a formação dos futuros formadores.<br>
+            O IFFluminense <i>Campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a), </b> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a), neste Instituto, no </b> <u><%= current_user.periodo %></u> período do Curso Superior de Licenciatura em </b> <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre letivo de <%= f.select :ano_apresentacao,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>, 
+            <b>para fins de cumprimento das atividades do Estágio Curricular Supervisionado no campo de estágio dessa Instituição Concedente</b>, previstas no Plano de Atividades de Estágio (PAE), em atendimento à carga horária total destinada ao período em curso. 
+            <br>Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório, e não remunerado, e de importância significativa para a formação docente.<br>
             Agradecemos a atenção sempre nos concedida e a seriedade com que os profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as).<br> 
-            Estamos à disposição para quaisquer esclarecimentos por meio dos contatos: (22) 2726-2897  e dirlicenciatura.camposcentro@iff.edu.br</a>.
+            Estamos à disposição para quaisquer esclarecimentos por meio dos contatos: (22) 2726-2897  e dirlicenciatura.camposcentro@iff.edu.br.
             <span style="opacity: 0;">matrícula nº <%= current_user.matricula %></span>
           <hr />
           <%= f.hidden_field :user_id, value: current_user.id %>
