@@ -11,9 +11,9 @@
     <div class="introducao">
         <div class="page-header text-center">
 			<% if current_user.nome_social.blank? %>
-        	<li class="list-group-item"><b><h3>Seja bem vindo(a):</b> <%= current_user.nome_civil %></h3></li>
+        	<li class="list-group-item"><b><h3>Seja bem-vindo(a):</b> <%= current_user.nome_civil %></h3></li>
             <% else %>
-				<li class="list-group-item"><b><h3>Nome social:</b> <%= current_user.nome_civil %></h3></li>
+				<li class="list-group-item"><b><h3>Seja bem-vindo(a):</b> <%= current_user.nome_civil %></h3></li>
 			<% end %>
         </div>
 
