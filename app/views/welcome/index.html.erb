@@ -13,13 +13,17 @@
 			<% if current_user.nome_social.blank? %>
         	<li class="list-group-item"><b><h3>Seja bem-vindo(a):</b> <%= current_user.nome_civil %></h3></li>
             <% else %>
-				<li class="list-group-item"><b><h3>Seja bem-vindo(a):</b> <%= current_user.nome_civil %></h3></li>
+				<li class="list-group-item"><b><h3>Seja bem-vindo(a):</b> <%= current_user.nome_social %></h3></li>
 			<% end %>
         </div>
 
         <% if current_user.role == "normal_user" %>
             <div class="alert alert-primary">
+            <% if current_user.nome_social.blank? %>
                 <p style="font-size: 1.1rem;">Olá <%= current_user.nome_civil %>!</p>
+            <% else %>
+                <p style="font-size: 1.1rem;">Olá <%= current_user.nome_social %>!</p>
+			<% end %>
                 <p style="font-size:1.2rem;"><b>No início de cada semestre letivo, lembre-se de atualizar seu período no curso e demais dados, se necessário.</b></p>
             </div>
             <p>
