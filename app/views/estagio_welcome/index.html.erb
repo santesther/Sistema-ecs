@@ -58,8 +58,8 @@
             <th scope="col">Período</th>
             <th scope="col">Email</th>
             <th scope="col">Situação</th>
+            <th scope="col">Impressão</th>
             <th scope="col">Finalização</th>
-            <th scope="col">Liberação</th>
             <th scope="col">Role</th>
             <th></th>
             <th></th>
@@ -80,7 +80,7 @@
             <% if user.situacao == "Revisar" %>
             <td style="color:blue;font-weight:bold;"><%= user.situacao %></td>
             <% else %>
-            <% if user.situacao == "Reprovado" %>
+            <% if user.situacao == "Indeferido" %>
             <td style="color:red;font-weight:bold;"><%= user.situacao %></td>
             <% else %>
             <td style="color:green;font-weight:bold;"><%= user.situacao %></td>
@@ -90,7 +90,7 @@
             <% if user.finalizacao == "Revisando" %>
             <td style="color:blue;font-weight:bold;"><%= user.finalizacao %></td>
             <% else %>
-            <% if user.finalizacao == "Negado" %>
+            <% if user.finalizacao == "Indeferido" %>
             <td style="color:red;font-weight:bold;"><%= user.finalizacao %></td>
             <% else %>
             <td style="color:green;font-weight:bold;"><%= user.finalizacao %></td>
@@ -112,8 +112,8 @@
             <% if user.pdf_aditivo_municipalouparticular != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
             <td><%= link_to 'Termo PDF', relatorio_municipalouparticularaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
-            <td><%= link_to 'Modificar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
-            <td><%= link_to 'Modificar Termo', pdf_geral_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Termo', pdf_geral_municipalouparticularaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <td><%= link_to "Excluir Carta", delete_carta_apresentacao_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "cartaapresentacao" } %></td>
             <td><%= link_to "Excluir Termo", delete_relat_municipalouparticularaditivo_path(user_id: user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "municipalouparticularaditivo" } %></td>
             <% if user.status_impressao == true %>
@@ -125,8 +125,8 @@
             <% if user.pdf_aditivo_estadual != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
             <td><%= link_to 'Termo PDF', relatorio_estadualaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
-            <td><%= link_to 'Modificar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
-            <td><%= link_to 'Modificar Termo', pdf_geral_estadualaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Termo', pdf_geral_estadualaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
            <td><%= link_to "Excluir Carta", delete_carta_apresentacao_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "cartaapresentacao" } %></td>
             <td><%= link_to "Excluir Termo", delete_relat_estadualaditivo_path(user_id: user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "estadualaditivo" } %></td>
             <% if user.status_impressao == true %>
@@ -138,8 +138,8 @@
             <% if user.pdf_aditivo_campi != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
             <td><%= link_to 'Termo PDF', relatorio_campiaditivo_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
-            <td><%= link_to 'Modificar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
-            <td><%= link_to 'Modificar Termo', pdf_geral_campiaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Termo', pdf_geral_campiaditivo_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <td><%= link_to "Excluir Carta", delete_carta_apresentacao_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "cartaapresentacao" } %></td>
             <td><%= link_to "Excluir Termo", delete_relat_campiaditivo_path(user_id: user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "campiaditivo" } %></td>
             <% if user.status_impressao == true %>
@@ -151,8 +151,8 @@
             <% if user.pdf_aditivo_centro != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
             <td><%= link_to 'Termo PDF', relatorio_aditivocentro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
-            <td><%= link_to 'Modificar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
-            <td><%= link_to 'Modificar Termo', pdf_geral_aditivocentro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Termo', pdf_geral_aditivocentro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
            <td><%= link_to "Excluir Carta", delete_carta_apresentacao_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "cartaapresentacao" } %></td>
             <td><%= link_to "Excluir Termo", delete_relat_aditivocentro_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "aditivocentro" } %></td>
             <% if user.status_impressao == true %>
@@ -164,8 +164,8 @@
             <% if user.pdf_centro != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
             <td><%= link_to 'Termo PDF', relatorio_centro_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
-            <td><%= link_to 'Modificar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
-            <td><%= link_to 'Modificar Termo', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Termo', pdf_geral_centro_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <td><%= link_to "Excluir Carta", delete_carta_apresentacao_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "cartaapresentacao" } %></td>
             <td><%= link_to "Excluir Termo", delete_relat_centro_path(user_id: user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "centro" } %></td>
             <% if user.status_impressao != false %>
@@ -177,8 +177,8 @@
             <% if user.pdf_campi != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
             <td><%= link_to 'Termo PDF', relatorio_campi_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
-            <td><%= link_to 'Modificar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
-            <td><%= link_to 'Modificar Termo', pdf_geral_campi_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Termo', pdf_geral_campi_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <td><%= link_to "Excluir Carta", delete_carta_apresentacao_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "cartaapresentacao" } %></td>
             <td><%= link_to "Excluir Termo", delete_relat_campi_path(user_id: user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "campi" } %></td>
             <% if user.status_impressao == true %>
@@ -190,8 +190,8 @@
             <% if user.pdf_publico != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
             <td><%= link_to 'Termo PDF', relatorio_publico_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
-            <td><%= link_to 'Modificar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
-            <td><%= link_to 'Modificar Termo', pdf_geral_publico_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Termo', pdf_geral_publico_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
            <td><%= link_to "Excluir Carta", delete_carta_apresentacao_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "cartaapresentacao" } %></td>
             <td><%= link_to "Excluir Termo", delete_relat_publico_path(user_id: user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "publico" } %></td>
             <% if user.status_impressao == true %>
@@ -203,8 +203,8 @@
             <% if user.pdf_particular != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
             <td><%= link_to 'Termo PDF', relatorio_particular_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
-            <td><%= link_to 'Modificar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
-            <td><%= link_to 'Modificar Termo', pdf_geral_particular_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Carta', pdf_geral_carta_apresentacao_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
+            <td><%= link_to 'Editar Termo', pdf_geral_particular_path(:id => user.id), :class => 'btn btn-primary texto_branco' %></td>
             <td><%= link_to "Excluir Carta", delete_carta_apresentacao_path(user_id: user.id), class: 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "cartaapresentacao" } %></td>
             <td><%= link_to "Excluir Termo", delete_relat_particular_path(user_id: user.id), :class => 'btn btn-vermelho delete-pdf-btn', method: :delete, data: { controller: 'alert', "user-id" => user.id, "relatorio-type" => "particular" } %></td>
             <% if user.status_impressao == true %>
@@ -241,7 +241,7 @@
         <% end %>
         
 
-        <% if current_user.situacao == "Reprovado" %>
+        <% if current_user.situacao == "Indeferido" %>
           <h5>INDEFERIDO.<h5>
            <h5>NOTA: nesse caso, você comparecerá ao setor DIRLIC/NAPP - <i>Bloco G, 4.º andar, sala 411</i> - para solicitação de novo acesso ao preenchimento dos documentos exigidos ao campo de Estágio <span style="color: #f00;"> <i>(o acesso será permitido uma única vez)</i></span>.</h5>
 
@@ -254,7 +254,7 @@
           </div>
         <% end %>
 
-        <% if current_user.situacao == "Aprovado"%>
+        <% if current_user.situacao == "Deferido"%>
           <h5>DEFERIDO.<h5>
           <h5>Parabéns, seu perfil foi aprovado com sucesso!</h5>
           <h6 style="color:blue;">Após preenchidos, seus Documentos referentes ao campo de Estágio serão avaliados pela DIRLIC e disponibilizado à impressão, quando DEFERIDO.</h6>
@@ -323,7 +323,7 @@
             </div>
           <% end %>
 
-        <% if current_user.finalizacao == "Negado" %>
+        <% if current_user.finalizacao == "Indeferido" %>
           <h5>Parece que a administração está com dificuldades na validação do seu Documento de Estágio!</h5>
 
           <hr />
@@ -335,7 +335,7 @@
           </div>
         <% end %>
 
-        <% if current_user.finalizacao == "Finalizado"%>
+        <% if current_user.finalizacao == "Deferido"%>
 
           <h5 style="color:green;font-weight:bold;" >Parabéns, seu Documento de Estágio foi aprovado com sucesso!</h5>
 
