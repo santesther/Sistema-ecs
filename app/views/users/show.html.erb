@@ -31,7 +31,8 @@
 				<% if @user.nome_social.blank? %>
         		<li class="list-group-item"><b>Nome Civil:</b> <%= @user.nome_civil %></li>
            		 <% else %>
-				<li class="list-group-item"><b>Nome Social:</b> <%= @user.nome_civil %></li>
+				<li class="list-group-item"><b>Nome Civil:</b> <%= @user.nome_civil %></li>
+				<li class="list-group-item"><b>Nome Social:</b> <%= @user.nome_social %></li>
 				<% end %>
 				<li class="list-group-item"><b>E-mail:</b> <%= @user.email %></li>
 				<li class="list-group-item"><b>Licenciatura:</b> <%= @user.licenciatura %></li>
