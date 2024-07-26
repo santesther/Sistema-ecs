@@ -44,7 +44,7 @@ class AditivocentroPdf < Prawn::Document
             move_down 20
             text "<b>Cláusula Primeira:</b>", align: :left, :inline_format => true, :leading => 10
             text "O PRESENTE TERMO ADITIVO INCLUI:", align: :left, :inline_format => true, :leading => 10 
-            text "<b>(X)</b> O componente curricular #{relatorio.estagio} no semestre do ano letivo #{relatorio.ano}.", align: :justify, :inline_format => true, :leading => 10
+            text "<b>(X)</b> O componente curricular #{relatorio.estagio} no #{relatorio.aluno_semestre} semestre do ano letivo #{relatorio.ano}.", align: :justify, :inline_format => true, :leading => 10
   
 
             move_down 120

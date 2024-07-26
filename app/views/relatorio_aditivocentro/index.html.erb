@@ -25,7 +25,7 @@
           <%= current_user.licenciatura %>.<br>
           <p><b>Cláusula Primeira:</b><br>
           O PRESENTE TERMO ADITIVO INCLUI:<br>
-          (<b>X</b>) O componente curricular <%= f.select :estagio,['Estágio Curricular Supervisionado I', 'Estágio Curricular Supervisionado II', 'Estágio Curricular Supervisionado III', 'Estágio Curricular Supervisionado IV'], {include_blank:"Selecione"}, required:true %> no semestre do ano letivo <%= f.select :ano,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %><br></p>
+          (<b>X</b>) O componente curricular <%= f.select :estagio,['Estágio Curricular Supervisionado I', 'Estágio Curricular Supervisionado II', 'Estágio Curricular Supervisionado III', 'Estágio Curricular Supervisionado IV'], {include_blank:"Selecione"}, required:true %> no <%= f.select :aluno_semestre,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre do ano letivo <%= f.select :ano,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %><br></p>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <hr />
         <br />

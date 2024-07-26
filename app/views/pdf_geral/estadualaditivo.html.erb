@@ -35,7 +35,7 @@
         <br />
           <b>Cláusula Primeira:</b><br>
           O PRESENTE TERMO ADITIVO ALTERA:<br>
-            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no semestre do ano letivo <%= f.number_field :ano_apresentacao, min:23, value: relatorio.ano_apresentacao, required:true %><br>
+            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo <%= f.number_field :ano_apresentacao, min:23, value: relatorio.ano_apresentacao, required:true %><br>
           <hr />
           <br>
           <% end %>
