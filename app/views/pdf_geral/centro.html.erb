@@ -17,6 +17,7 @@
 
 
             <br />
+            <% if relatorio.nome_social_termo.blank? %>
             <p>
             O <b>INSTITUTO FEDERAL FLUMINENSE <i>CAMPUS</i> CAMPOS CENTRO</b>, neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino
             Superior das Licenciaturas (DIRESLCC), firma parceria com a <b>Diretoria de Ensino da Educação Básica e Profissional deste <i>campus</i>, para fins de
@@ -40,8 +41,33 @@
              <div class="periodo_div">
               <b>Período de Vigência: <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de %></b>
             </div>
+            <% else %>
+             <p>
+            O <b>INSTITUTO FEDERAL FLUMINENSE <i>CAMPUS</i> CAMPOS CENTRO</b>, neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino
+            Superior das Licenciaturas (DIRESLCC), firma parceria com a <b>Diretoria de Ensino da Educação Básica e Profissional deste <i>campus</i>, para fins de
+            abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,  - INSTITUIÇÃO PROMOTORA E
+            CONCEDENTE -</b>, inscrita no CNPJ/MF sob o n.º 10.779.511/0002-98, situada na Rua Doutor
+            Siqueira, n.º 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP:
+            28.030-130, telefone (22) 27262897, <b>firma parceria</b> com a <b>Diretoria de Ensino da Educação Básica e Profissional,
+            para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, , em atendimento à Lei N.º 11.788, de 25/09/2008, 
+            ao(à) <b>LICENCIANDO(A)</b><p>
+            <div class="d-flex align-items-center justify-content-center">
+            <b><%= f.text_field :nome_social_termo, value: relatorio.nome_social_termo, required:true, value: relatorio.nome_social_termo %>(<%= @users.nome_civil %>)</b>
+            </div><br>
+            <p>
+            matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.matricula %>, no 
+            <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo de  <%= f.select :ano,[relatorio.ano], value: relatorio.ano, required:true %>
+            no curso Superior de Licenciatura em <%= @users.licenciatura %>, no componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %>,
+            residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
+            Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= @users.UF %>,
+            CEP: <%= @users.cep %>, telefone/contato nº <%= @users.telefone %>. 
+            </p>
+             <div class="periodo_div">
+              <b>Período de Vigência: <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de %></b>
+            </div>
           <% end %>
         <% end %>
+      <% end %>
 
         <br />
 

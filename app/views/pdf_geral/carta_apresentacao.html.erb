@@ -14,6 +14,7 @@
             <h5><b>Data:</b><%=f.text_field :data, required: true, value: relatorio.data %></h5>
 
             <br />
+            <% if relatorio.nome_social_termo.blank? %>
             <p>
             <b>DA:</b><u> Diretoria de Ensino Superior da Licenciaturas do IFFluminense Campus Campos Centro (DIRESLCC).</u>
             <br><b>À:</b><b>Direção da Instituição de Ensino:</b> <u><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %></u>
@@ -31,6 +32,25 @@
             quaisquer esclarecimentos por meio dos contatos: (22) 2726-2897  e dirlicenciatura.camposcentro@iff.edu.br
             </div><br>
             </p>
+            <% else %>
+            <p>
+            <b>DA:</b><u> Diretoria de Ensino Superior da Licenciaturas do IFFluminense Campus Campos Centro (DIRESLCC).</u>
+            <br><b>À:</b><b>Direção da Instituição de Ensino:</b> <u><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %></u>
+            <br><b>Assunto:</b> Apresentação do licenciando(a)-estagiário.
+            Prezado Gestor.<br>
+            O IFFluminense <i>Campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) <u><%= f.text_field :aluno_apresentacao_dois, value: relatorio.aluno_apresentacao_dois, required: true  %></u>(<%= @users.nome_civil %>), 
+            matriculado(a) neste instituto, no <u><%= @users.periodo %></u> período do Curso Superior de Licenciatura em 
+            <u><%= @users.licenciatura %></u>, no <u><%= f.select :semestre_apresentacao,[relatorio.semestre_apresentacao], value: relatorio.semestre_apresentacao, required:true %></u> semestre letivo de 
+            <u><%= f.select :ano_apresentacao,[relatorio.ano_apresentacao], value: relatorio.ano_apresentacao, required:true %></u>, para fins de cumprimento das atividades do Estágio Curricular 
+            Supervisionado no campo de estágio dessa Instituição Concedente, previstas no Plano de Atividades de Estágio(PAE),
+            em atendimento a carga horária total destinada ao período em curso.
+            Ressaltamos que o Estágio Curricular Supervisionado é componente obrigatório, e não remunerado, e de importância significativa 
+            para a formação docente. Agradecemos a atenção sempre nos concedida e a seriedade com que os 
+            profissionais da educação têm acolhido e acompanhado nossos(as) licenciados(as). Estamos à disposição para 
+            quaisquer esclarecimentos por meio dos contatos: (22) 2726-2897  e dirlicenciatura.camposcentro@iff.edu.br
+            </div><br>
+            </p>
+          <% end %>
           <% end %>
         <% end %>
 

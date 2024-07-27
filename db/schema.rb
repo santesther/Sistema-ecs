@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_carta_apresentacoes_on_user_id"
   end
 
@@ -165,6 +166,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_relataditivocentros_on_user_id"
   end
 
@@ -210,6 +212,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_relatcampiaditivos_on_user_id"
   end
 
@@ -253,6 +256,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_relatcampis_on_user_id"
   end
 
@@ -298,6 +302,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_relatestadualaditivos_on_user_id"
   end
 
@@ -344,6 +349,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_relatmunicipalouparticularaditivos_on_user_id"
   end
 
@@ -473,6 +479,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_relatorios_on_user_id"
   end
 
@@ -558,6 +565,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_relatparticulares_on_user_id"
   end
 
@@ -645,6 +653,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "nome_social_termo"
     t.index ["user_id"], name: "index_relatpublicos_on_user_id"
   end
 
@@ -709,6 +718,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_214046) do
     t.string "liberacao", default: "Reprovado"
     t.boolean "status_carta", default: false
     t.string "UF"
+    t.string "nomeSocialTermo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

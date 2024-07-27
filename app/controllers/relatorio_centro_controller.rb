@@ -58,6 +58,7 @@ class RelatorioCentroController < ApplicationController
    
 
     @relatorios.ano = @relatorios.ano
+    @relatorios.nome_social_termo = @relatorios.nome_social_termo
     @relatorios.matricula_aluno = current_user.matricula
     @relatorios.licenciatura = current_user.licenciatura
     @relatorios.periodo = current_user.periodo
@@ -70,6 +71,7 @@ class RelatorioCentroController < ApplicationController
     @relatorios.telefone = current_user.telefone
     @relatorios.apolice = current_user.apolice
     @relatorios.UF = current_user.UF
+    @relatorios.aluno_apresentacao_dois = current_user.nome_civil
 
     ContactMailer.contact_message(current_user).deliver
 
@@ -87,7 +89,7 @@ class RelatorioCentroController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio, :user_id)
+    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio, :user_id, :nome_social_termo)
   end
 end
 

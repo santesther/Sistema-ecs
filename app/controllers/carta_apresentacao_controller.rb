@@ -53,6 +53,7 @@ class CartaApresentacaoController < ApplicationController
         @users = current_user.update(:carta_apresentacao => true)
        
         @relatorios.ano = @relatorios.ano
+        @relatorios.nome_social_termo = @relatorios.nome_social_termo
         @relatorios.matricula_aluno = current_user.matricula
         @relatorios.licenciatura = current_user.licenciatura
         @relatorios.periodo = current_user.periodo
@@ -64,6 +65,7 @@ class CartaApresentacaoController < ApplicationController
         @relatorios.cep = current_user.cep
         @relatorios.telefone = current_user.telefone
         @relatorios.apolice = current_user.apolice
+        @relatorios.aluno_apresentacao = current_user.nome_civil
     
         ContactMailer.contact_message(current_user).deliver
     
@@ -81,6 +83,6 @@ class CartaApresentacaoController < ApplicationController
       end
     
       def relatorio_params
-        params.permit(:data, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :avaliador, :user_id)
+        params.permit(:data, :instituicao_apresentacao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :avaliador, :user_id, :nomeSocialTermo, :nome_social_termo)
       end
 end
