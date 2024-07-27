@@ -70,7 +70,7 @@ class RelatorioEstadualaditivoController < ApplicationController
         @relatorios.municipio_da_instituicao = current_user.municipio_da_instituicao
         @relatorios.cep_da_instituicao = current_user.cep_da_instituicao
         @relatorios.telefone_da_instituicao = current_user.telefone_da_instituicao
-        @relatorios.estado_da_instituicao = @relatorios.estado_da_instituicao
+        @relatorios.estado_da_instituicao = current_user.estado_da_instituicao
         @relatorios.representante_da_instituicao = @relatorios.representante_da_instituicao
         @relatorios.apolice = current_user.apolice
     
