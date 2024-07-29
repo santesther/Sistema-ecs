@@ -71,6 +71,8 @@ class RelatorioCampiController < ApplicationController
     @relatorios.estado_da_instituicao = @relatorios.estado_da_instituicao
     @relatorios.representante_da_instituicao = @relatorios.representante_da_instituicao
     @relatorios.apolice = current_user.apolice
+    @relatorios.nome_social_termo = @relatorios.nome_social_termo
+    @relatorios.aluno_apresentacao_dois = current_user.nome_civil
     @relatorios.UF = current_user.UF
 
 
@@ -91,7 +93,7 @@ class RelatorioCampiController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:apolice, :seguradora, :data, :instituicao_apresentacao, :estado_da_instituicao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :representante_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio, :user_id)
+    params.permit(:apolice, :seguradora, :data, :instituicao_apresentacao, :estado_da_instituicao, :aluno_apresentacao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :representante_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio, :user_id, :nome_social_termo)
   end
 end
 

@@ -16,6 +16,8 @@
             <h4><b>Apólice de seguro nº:</b> <%= f.text_field :apolice, value: relatorio.apolice, required:true %></h4>
         <br />
 
+          <% if relatorio.nome_social_termo.blank? %>
+
         <p style="text-align: justify; font-size: 16px;">Aditamento ao Termo de Compromisso de Estágio, Ato 
         representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - 
         INSTITUIÇÃO PROMOTORA E CONCEDENTE -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
@@ -32,8 +34,26 @@
           O PRESENTE TERMO ADITIVO ALTERA:<br>
             (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %><br>
           <hr />
+          <% else %>
+           <p style="text-align: justify; font-size: 16px;">Aditamento ao Termo de Compromisso de Estágio, Ato 
+          representado pela <b>Diretoria de Ensino dos Cursos Superiores de Licenciatura do CAMPUS CAMPOS CENTRO - 
+          INSTITUIÇÃO PROMOTORA E CONCEDENTE -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
+          Siqueira, nº 273, Bairro: Parque Dom Bosco, município: Campos dos Goytacazes/RJ, CEP: 28.030-130, 
+          telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Diretoria de 
+          Ensino da Educação Básica e Profissional, para fins de continuidade do Estágio Curricular Supervisionado dos 
+          Cursos de Licenciatura</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, ao(à) <b>LICENCIANDO(A)</b>
+          <div class="d-flex align-items-center justify-content-center">
+          <b><%= f.text_field :nome_social_termo, value: relatorio.nome_social_termo, required:true, value: relatorio.nome_social_termo %>(<%= @users.nome_civil %>)</b>
+          </div></p>
+          matrícula nº <%= @users.matricula %> do <%= @users.periodo %> do Curso Superior de Licenciatura em
+          <%= @users.licenciatura %><br>
+          <b>Cláusula Primeira:</b><br>
+          O PRESENTE TERMO ADITIVO ALTERA:<br>
+            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %><br>
+          <hr />
           <% end %>
         <% end %>
+      <% end %>
 
         <br />
         <br />

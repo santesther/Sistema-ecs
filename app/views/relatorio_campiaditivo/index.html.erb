@@ -8,6 +8,11 @@
 
         <hr />
         <h2><b>TERMO ADITIVO DE ESTÁGIO</b></h2>
+        <div class="nome-social">
+          <label for="nome_social_termo">Você usa nome social? Se sim, preencha abaixo e o utilize no preenchimento:</label>
+          <%= f.text_field :nome_social_termo, placeholder: "Digite seu nome social (opcional)" %>
+        </div>
+        <br />
         
         <br />
 
@@ -141,6 +146,23 @@
       top:0;
       left:0;
       display:none;
+    }
+    .nome-social {
+     margin-top: 20px;
+    }
+
+    .nome-social label {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 10px;
+    }
+
+    .nome-social input {
+    width: 50%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     }
   </style>
 </div>

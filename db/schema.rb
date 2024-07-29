@@ -718,7 +718,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
     t.string "liberacao", default: "Reprovado"
     t.boolean "status_carta", default: false
     t.string "UF"
-    t.string "nomeSocialTermo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -16,6 +16,7 @@
             <h4><b>Apólice de seguro nº:</b> <%= f.text_field :apolice, value: relatorio.apolice, required:true %></h4>
 
         <br />
+            <% if relatorio.nome_social_termo.blank? %>
 
         <p style="text-align: justify; font-size: 16px;">O <b>INSTITUTO FEDERAL FLUMINENSE</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas do <i>CAMPUS</i> 
         CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
@@ -23,7 +24,7 @@
         (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Instituição de Ensino CONCEDENTE -
         <%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %> -</b> inscrita no CNPJ/MF sob o nº 
         <%= @users.cnpj %>, situado no(a) <%= @users.endereco_da_instituicao %>, Bairro: <%= @users.bairro_da_instituicao %>, 
-        no município de <%= @users.municipio_da_instituicao %>, Estado do <%= f.text_field :estado, value: relatorio.estado, required: true  %>, CEP: <%= @users.cep_da_instituicao %>, telefone 
+        no município de <%= @users.municipio_da_instituicao %>, Estado do <%= @users.estado_da_instituicao %>, CEP: <%= @users.cep_da_instituicao %>, telefone 
         <%= @users.telefone_da_instituicao %>, representado por <%= f.text_field :representante_da_instituicao, value: relatorio.representante_da_instituicao, required: true  %>, para fins de continuidade 
         do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>
         <div class="d-flex align-items-center justify-content-center">
@@ -38,6 +39,29 @@
             (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo <%= f.number_field :ano_apresentacao, min:24, value: relatorio.ano_apresentacao, required:true %><br>
           <hr />
           <br>
+          <% else %>
+          <p style="text-align: justify; font-size: 16px;">O <b>INSTITUTO FEDERAL FLUMINENSE</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas do <i>CAMPUS</i> 
+        CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
+        Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone 
+        (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Instituição de Ensino CONCEDENTE -
+        <%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %> -</b> inscrita no CNPJ/MF sob o nº 
+        <%= @users.cnpj %>, situado no(a) <%= @users.endereco_da_instituicao %>, Bairro: <%= @users.bairro_da_instituicao %>, 
+        no município de <%= @users.municipio_da_instituicao %>, Estado do <%= @users.estado_da_instituicao %>, CEP: <%= @users.cep_da_instituicao %>, telefone 
+        <%= @users.telefone_da_instituicao %>, representado por <%= f.text_field :representante_da_instituicao, value: relatorio.representante_da_instituicao, required: true  %>, para fins de continuidade 
+        do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>
+        <div class="d-flex align-items-center justify-content-center">
+          <b><%= f.text_field :nome_social_termo, value: relatorio.nome_social_termo, required:true, value: relatorio.nome_social_termo %>(<%= @users.nome_civil %>)</b>
+          </div></p>
+           matrícula nº <%= @users.matricula %> do  <%= f.select :semestre_apresentacao,[relatorio.semestre_apresentacao], value: relatorio.semestre_apresentacao, required:true %>  semestre do ano letivo <%= f.select :ano,[relatorio.ano], value: relatorio.ano, required:true %> do Curso Superior de Licenciatura em
+          <%=  @users.licenciatura %>.<br>
+          <hr />
+        <br />
+           <b>Cláusula Primeira:</b><br>
+          O PRESENTE TERMO ADITIVO ALTERA:<br>
+            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo <%= f.number_field :ano_apresentacao, min:24, value: relatorio.ano_apresentacao, required:true %><br>
+          <hr />
+          <br>
+          <% end %>
           <% end %>
         <% end %>
 
