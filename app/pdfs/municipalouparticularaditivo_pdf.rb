@@ -45,7 +45,7 @@ class MunicipalouparticularaditivoPdf< Prawn::Document
             text "<b>(X)</b> O componente curricular #{relatorio.estagio} no #{relatorio.aluno_semestre} semestre do ano letivo #{relatorio.ano_apresentacao}.", align: :justify, :inline_format => true, :leading => 10
             
             move_down 90
-            text "CLÁUSULA SEGUNDA", align: :center, size: 16
+            text "Cláusula Segunda", align: :center, size: 16
             move_down 20
             text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.
             E, por estarem justas e contratadas, assinam as partes, o presente Termo Aditivo em 03 (três) vias de igual teor e forma.", align: :justify
@@ -83,7 +83,7 @@ class MunicipalouparticularaditivoPdf< Prawn::Document
             text "<b>(X)</b> O componente curricular #{relatorio.estagio} no #{relatorio.aluno_semestre} semestre do ano letivo #{relatorio.ano_apresentacao}.", align: :justify, :inline_format => true, :leading => 10
             
             move_down 90
-            text "CLÁUSULA SEGUNDA", align: :center, size: 16
+            text "Cláusula Segunda", align: :center, size: 16
             move_down 20
             text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.
             E, por estarem justas e contratadas, assinam as partes, o presente Termo Aditivo em 03 (três) vias de igual teor e forma.", align: :justify

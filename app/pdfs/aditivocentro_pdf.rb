@@ -49,7 +49,7 @@ class AditivocentroPdf < Prawn::Document
   
 
             move_down 120
-            text "CLÁUSULA SEGUNDA", align: :center, size: 16
+            text "Claúsula Segunda", align: :center, size: 16
             move_down 20
             text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.
             E, por estarem justas e contratadas, assinam as partes, o presente Termo Aditivo em 03 (três) vias de igual teor e forma.", align: :justify
@@ -88,7 +88,7 @@ class AditivocentroPdf < Prawn::Document
         
       
                   move_down 120
-                  text "CLÁUSULA SEGUNDA", align: :center, size: 16
+                  text "Cláusula Segunda", align: :center, size: 16
                   move_down 20
                   text "Permanecem válidas todas as demais disposições do Termo de Compromisso celebrado, do qual passa a ser integrante este Termo Aditivo.
                   E, por estarem justas e contratadas, assinam as partes, o presente Termo Aditivo em 03 (três) vias de igual teor e forma.", align: :justify
