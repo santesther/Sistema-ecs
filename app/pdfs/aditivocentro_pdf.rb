@@ -62,7 +62,7 @@ class AditivocentroPdf < Prawn::Document
             text "Concedente: _________________________________________________", :inline_format => true
   
             move_down 60
-            text "IFFluminense campus Campos Centro: "
+            text "IFFluminense Campus Campos Centro: "
             stroke_horizontal_rule
             pad_top(20) { }
 
@@ -101,7 +101,7 @@ class AditivocentroPdf < Prawn::Document
                   text "Concedente: _________________________________________________", :inline_format => true
         
                   move_down 60
-                  text "IFFluminense campus Campos Centro: "
+                  text "IFFluminense Campus Campos Centro: "
                   stroke_horizontal_rule
                   pad_top(20) { }
       

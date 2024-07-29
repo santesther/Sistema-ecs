@@ -46,7 +46,8 @@ class CartaapresentacaoPdf< Prawn::Document
             move_down 20
     
             text "Atenciosamente,", align: :center, inline_format: true, leading: 10
-            text "Marlúcia Cereja de Alencar.", align: :center, inline_format: true, leading: 10
+            text "MARLUCIA CEREJA DE ALENCAR", align: :center, inline_format: true, leading: 10
+            text "Diretora de Ensino Superior das Licenciaturas", align: :center, inline_format: true, leading: 10
             else 
               draw_text "Campos dos Goytacazes, RJ, #{relatorio.data}", at: [240, 600], inline_format: true
             move_down 20
@@ -64,7 +65,8 @@ class CartaapresentacaoPdf< Prawn::Document
             move_down 20
     
             text "Atenciosamente,", align: :center, inline_format: true, leading: 10
-            text "Marlúcia Cereja de Alencar.", align: :center, inline_format: true, leading: 10
+            text "MARLUCIA CEREJA DE ALENCAR", align: :center, inline_format: true, leading: 10
+            text "Diretora de Ensino Superior das Licenciaturas", align: :center, inline_format: true, leading: 100
 
             end
         end
