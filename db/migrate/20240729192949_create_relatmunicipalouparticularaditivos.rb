@@ -39,7 +39,7 @@ class CreateRelatmunicipalouparticularaditivos < ActiveRecord::Migration[7.0]
       t.string :semestre_dirlic
       t.string :representante_da_instituicao
       t.string :estagio
-      t.string :UF
+      t.string :uf
 
       t.timestamps
     end
