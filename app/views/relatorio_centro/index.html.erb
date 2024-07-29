@@ -29,7 +29,7 @@
           <%= f.select :aluno_semestre,['1.º', '2.º'], {include_blank:"Selecione"} %> semestre do ano letivo de <%= f.select :ano,['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank:"Selecione"}, required:true %>
           no curso Superior de Licenciatura em <%= current_user.licenciatura %>, no componente curricular <%= f.select :estagio,['Estágio Curricular Supervisionado I', 'Estágio Curricular Supervisionado II', 'Estágio Curricular Supervisionado III', 'Estágio Curricular Supervisionado IV'], {include_blank:"Selecione"}, required:true %>
           residente no(a) <%= current_user.endereco %>, n.º <%= current_user.numero %>, Complemento: <%= current_user.complemento %>,
-          Bairro: <%= current_user.bairro %>, município: <%= current_user.municipio %>, UF: <%= current_user.UF %>,
+          Bairro: <%= current_user.bairro %>, município: <%= current_user.municipio %>, UF: <%= current_user.uf %>,
           CEP: <%= current_user.cep %>, telefone/contato n.º <%= current_user.telefone %>. 
         </p>
           <%= f.hidden_field :user_id, value: current_user.id %>

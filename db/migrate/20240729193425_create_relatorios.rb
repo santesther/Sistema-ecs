@@ -35,7 +35,7 @@ class CreateRelatorios < ActiveRecord::Migration[7.0]
       t.string :periodo
       t.string :avaliador
       t.string :estagio
-      t.string :UF
+      t.string :uf
 
       t.timestamps
     end
