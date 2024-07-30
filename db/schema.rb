@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_30_135021) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -252,7 +252,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
     t.string "avaliador"
     t.string "representante_da_instituicao"
     t.string "estagio"
-    t.string "UF"
+    t.string "uf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -345,7 +345,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
     t.string "semestre_dirlic"
     t.string "representante_da_instituicao"
     t.string "estagio"
-    t.string "UF"
+    t.string "uf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -475,7 +475,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
     t.string "periodo"
     t.string "avaliador"
     t.string "estagio"
-    t.string "UF"
+    t.string "uf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -561,7 +561,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
     t.string "telefone"
     t.string "avaliador"
     t.string "estagio"
-    t.string "UF"
+    t.string "uf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -649,7 +649,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
     t.string "periodo"
     t.string "representante_da_instituicao"
     t.string "estagio"
-    t.string "UF"
+    t.string "uf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -718,6 +718,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_231026) do
     t.string "liberacao", default: "Reprovado"
     t.boolean "status_carta", default: false
     t.string "UF"
+    t.string "uf"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

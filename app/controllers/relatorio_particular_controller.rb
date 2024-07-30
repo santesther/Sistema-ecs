@@ -69,11 +69,11 @@ class RelatorioParticularController < ApplicationController
     @relatorios.cep_da_instituicao = current_user.cep_da_instituicao
     @relatorios.telefone_da_instituicao = current_user.telefone_da_instituicao
     @relatorios.representante_da_instituicao = @relatorios.representante_da_instituicao
-    @relatorios.estado_da_instituicao = @relatorios.estado_da_instituicao
+    @relatorios.estado_da_instituicao = current_user.estado_da_instituicao
     @relatorios.apolice = current_user.apolice
     @relatorios.nome_social_termo = @relatorios.nome_social_termo
     @relatorios.aluno_apresentacao_dois = current_user.nome_civil
-    @relatorios.UF = current_user.UF
+    @relatorios.uf = current_user.uf
 
 
     if @relatorios.save
@@ -97,6 +97,6 @@ class RelatorioParticularController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :estado_da_instituicao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :UF, :estagio, :user_id, :nome_social_termo)
+    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :estado_da_instituicao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :uf, :estagio, :user_id, :nome_social_termo)
   end
 end
