@@ -1,0 +1,2 @@
+class Relataditivocentro < ApplicationRecord
+end

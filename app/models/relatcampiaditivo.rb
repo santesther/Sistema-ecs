@@ -1,0 +1,2 @@
+class Relatcampiaditivo < ApplicationRecord
+end
