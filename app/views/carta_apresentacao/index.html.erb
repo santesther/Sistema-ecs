@@ -20,7 +20,7 @@
 
         <p style="text-align: justify; font-size: 16px;">
           <b>DA:</b> Diretoria de Ensino Superior da Licenciaturas do IFFluminense Campus Campos Centro (DIRESLCC).<br>
-          <b>À:</b> Direção da Instituição de Ensino: <%= f.text_field :instituicao_apresentacao, required: true %><br>
+          <b>À:</b> Direção da Instituição de Ensino: <%= f.text_field :instituicao_apresentacao, class: "custom-text-field", required: true %><br>
           <b>Assunto:</b> <i>Apresentação de licenciando(a)-estagiário.<br>
           Prezado Gestor,<br>
           O IFFluminense <i>Campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a),</i> <u><%= f.text_field :aluno_apresentacao_dois, required: true %></u>, matriculado(a) neste Instituto, no <u><%= current_user.periodo %></u> período do Curso Superior de Licenciatura em <u><%= current_user.licenciatura %></u>, no <%= f.select :semestre_apresentacao, ['1.º', '2.º'], {include_blank: "Selecione"} %> semestre letivo de <%= f.select :ano_apresentacao, ['2024', '2025', '2026', '2027', '2028', '2029', '2030'], {include_blank: "Selecione"}, required: true %>, 
@@ -136,7 +136,11 @@
     display: block;
     margin-bottom: 10px;
     }
-
+    .custom-text-field {
+    width: 400px;
+    border: none;
+    border-bottom: 2px dashed black;
+    }
     .nome-social input {
     width: 50%;
     padding: 8px;
