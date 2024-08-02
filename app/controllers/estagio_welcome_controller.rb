@@ -1,6 +1,6 @@
 class EstagioWelcomeController < ApplicationController
   def index
-    @users = User.where("role = ? AND situacao != ?", '0', 'Pendente').order(nome_civil: :ASC)
+    @users = User.where("situacao != ?", 'Pendente').order(nome_civil: :ASC)
   
     if params[:nome_civil].present?
       @users = @users.where("lower(nome_civil) LIKE ?", "%#{params[:nome_civil].downcase}%")
@@ -18,7 +18,7 @@ class EstagioWelcomeController < ApplicationController
       @users = @users.where("lower(email) LIKE ?", "%#{params[:email].downcase}%")
     end
   
-    @will_paginate = User.where("situacao != 'Pendente'").order(nome_civil: :ASC).paginate(page: params[:page], per_page: 30)
+    @will_paginate = @users.distinct.paginate(page: params[:page], per_page: 30)
   end
   
 
