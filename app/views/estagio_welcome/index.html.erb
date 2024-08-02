@@ -107,7 +107,7 @@
 
             <td><%= user.role %></td>
 
-            <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome_social => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :class => 'btn btn-info revisar_btn' %></td>
+            <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome_social => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :target => '_blank', :class => 'btn btn-info revisar_btn' %></td>
 
             <% if user.pdf_aditivo_municipalouparticular != false %>
             <td><%= link_to 'Carta PDF', carta_apresentacao_index_path(@relatorio, @users, :matricula => user.matricula, :format => :pdf), :target => '_blank', :class => 'btn btn-dark pdf_admin' %></td>
