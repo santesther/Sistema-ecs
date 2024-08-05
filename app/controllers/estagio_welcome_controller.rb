@@ -24,7 +24,7 @@ class EstagioWelcomeController < ApplicationController
       @users = @users.where(finalizacao: params[:finalizacao])
     end
     if params[:status_impressao].present?
-      @users = @users.where(status_impressao: true)
+      @users = @users.where(status_impressao: ActiveModel::Type::Boolean.new.cast(params[:status_impressao]))
     end
     
     # Define @will_paginate using the filtered @users collection
