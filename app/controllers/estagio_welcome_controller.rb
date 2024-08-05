@@ -23,6 +23,9 @@ class EstagioWelcomeController < ApplicationController
     if params[:finalizacao].present?
       @users = @users.where(finalizacao: params[:finalizacao])
     end
+    if params[:status_impressao].present?
+      @users = @users.where(status_impressao: true)
+    end
     
     # Define @will_paginate using the filtered @users collection
     @will_paginate = @users.paginate(page: params[:page], per_page: 30)

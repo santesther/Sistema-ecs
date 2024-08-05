@@ -49,7 +49,16 @@
       <div class="col-md-3">
         <%= select_tag :periodo, options_for_select([["5.º", "5.º"], ["6.º", "6.º"], ["7.º", "7.º"], ["8.º", "8.º"]], params[:periodo]), prompt: "Selecione o período", class: "form-control" %>
       </div>
+    <div class="col-md-3">
+      <div class="form-check">
+        <%= radio_button_tag :status_impressao, 'true', params[:status_impressao] == 'true', class: 'form-check-input', id: 'status_impressao_true' %>
+        <%= label_tag :status_impressao_true, "Impressão realizada", class: 'form-check-label' %>
       </div>
+      <div class="form-check">
+        <%= radio_button_tag :status_impressao, 'false', params[:status_impressao] == 'false', class: 'form-check-input', id: 'status_impressao_false' %>
+        <%= label_tag :status_impressao_false, "Impressão não realizada", class: 'form-check-label' %>
+      </div>
+    </div>
   <% end %>
 
   <br>
