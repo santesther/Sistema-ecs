@@ -35,14 +35,21 @@
       <div class="col-md-6">
         <%= text_field_tag :matricula, params[:matricula], class: "form-control", placeholder: 'Matrícula do aluno' %>
       </div>
-      <div class="col-md-3">
-        <%= select_tag :periodo, options_for_select([["5.º", "5.º"], ["6.º", "6.º"], ["7.º", "7.º"], ["8.º", "8.º"]], params[:periodo]), prompt: "Selecione o período", class: "form-control" %>
+       <div class="col-md-3">
+        <%= select_tag :finalizacao, options_for_select([["Revisando", "Revisando"], ["Deferido", "Deferido"], ["Indeferido", "Indeferido"]], params[:finalizacao]), prompt: "Selecione o status de impressão", class: "form-control" %>
       </div>
-
       <div class="col-md-2">
       <%= link_to "Limpar Pesquisa", estagio_welcome_index_path, class: "btn btn-secondary"  %>
       </div>
     </div>
+    <div class="form-group row">
+     <div class="col-md-6">
+        <%= select_tag :situacao, options_for_select([["Revisar", "Revisar"], ["Deferido", "Deferido"], ["Indeferido", "Indeferido"]], params[:situacao]), prompt: "Selecione a situação", class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= select_tag :periodo, options_for_select([["5.º", "5.º"], ["6.º", "6.º"], ["7.º", "7.º"], ["8.º", "8.º"]], params[:periodo]), prompt: "Selecione o período", class: "form-control" %>
+      </div>
+      </div>
   <% end %>
 
   <br>

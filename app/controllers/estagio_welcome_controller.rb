@@ -17,6 +17,12 @@ class EstagioWelcomeController < ApplicationController
     if params[:email].present?
       @users = @users.where("lower(email) LIKE ?", "%#{params[:email].downcase}%")
     end
+    if params[:situacao].present?
+      @users = @users.where(situacao: params[:situacao])
+    end
+    if params[:finalizacao].present?
+      @users = @users.where(finalizacao: params[:finalizacao])
+    end
     
     # Define @will_paginate using the filtered @users collection
     @will_paginate = @users.paginate(page: params[:page], per_page: 30)
