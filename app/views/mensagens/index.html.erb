@@ -2,7 +2,11 @@
     <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
     </div>
     <div class="container container_estagio">
-      <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
+      <% if current_user.nome_social.blank? %>
+        	<li class="list-group-item"><b><h3>Usuário(a):</b> <%= current_user.nome_civil %></h3></li>
+            <% else %>
+				<li class="list-group-item"><b><h3>Usuário(a):</b> <%= current_user.nome_social %></h3></li>
+			<% end %>
       <hr />
 
 <div class="card">

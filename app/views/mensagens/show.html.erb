@@ -2,7 +2,11 @@
     <%= image_tag("DirlicOficial.png", size: "220x220", :alt => "logo estágio curricular supervisonado") -%>   
     </div>
     <div class="container container_estagio">
-      <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
+     <% if current_user.nome_social.blank? %>
+        	<li class="list-group-item"><b><h3>Usuário(a):</b> <%= current_user.nome_civil %></h3></li>
+            <% else %>
+				<li class="list-group-item"><b><h3>Usuário(a):</b> <%= current_user.nome_social %></h3></li>
+			<% end %>
       <hr />
 
 <div class="card">
@@ -12,7 +16,11 @@
    <div class="row">
       <div class="col-md-12 ">
 	    <ul class="list-group">
-	    	 <li class="list-group-item"><b>Destinatário:</b> <%= User.find(@mensagem.destinatario_id).nome_civil %></li>
+	    <li class="list-group-item">
+        <b>Destinatário:</b>
+        <% destinatario = User.find(@mensagem.destinatario_id) %>
+        <%= "#{destinatario.nome_civil}#{' (' + destinatario.nome_social + ')' if destinatario.nome_social.present? && destinatario.nome_social != destinatario.nome_civil && destinatario.nome_social != '--' && destinatario.nome_social != '-'}" %>
+      </li>
 	        <li class="list-group-item"><b>Texto:</b> <%= @mensagem.texto %></li>
 	        
 	        <li class="list-group-item"><b>Remetente:</b><%= User.find(@mensagem.remetente_id).nome_civil %></li>

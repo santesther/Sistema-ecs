@@ -71,7 +71,15 @@
         <tbody>
           <% @users.each do |user| %>
           <tr>
-            <td><%= link_to user.nome_civil, users_show_path(id: user.id), :target => '_blank', :class => "btn btn-outline-dark" %></td>
+         <td>
+              <% if user.nome_social.present? && user.nome_social != user.nome_civil && user.nome_social != '--' && user.nome_social != '-' %>
+                <%= link_to "#{user.nome_civil} (#{user.nome_social})", users_show_path(id: user.id), target: '_blank', class: "btn btn-outline-dark" %>
+              <% elsif user.nome_social.present? && (user.nome_social == '--' || user.nome_social == '-') %>
+                <%= link_to user.nome_civil, users_show_path(id: user.id), target: '_blank', class: "btn btn-outline-dark" %>
+              <% else %>
+                <%= link_to user.nome_civil, users_show_path(id: user.id), target: '_blank', class: "btn btn-outline-dark" %>
+              <% end %>
+            </td>
             <td><%= user.matricula %></td>
             <td><%= user.licenciatura %></td>
             <td><%= user.periodo %></td>

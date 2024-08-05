@@ -77,7 +77,11 @@
                   <%= image_tag("DirlicOficial.png", size: "100x100", alt: "logo estágio curricular supervisionado") %>
                 <% end %>
               </td>
-              <td><%= user.nome_civil if user.nome_civil.present? %></td>
+            <% if user.nome_social.present? && user.nome_social != user.nome_civil && user.nome_social != '--' && user.nome_social != '-' %>
+              <td><%= "#{user.nome_civil} (#{user.nome_social})" %></td>
+            <% else %>
+              <td><%= user.nome_civil %></td>
+            <% end %>
               <td>
                 <% if user.nome_civil.present? %>
                   <%= link_to "Acessar perfil", user, target: '_blank', class: "btn btn-primary" %>
