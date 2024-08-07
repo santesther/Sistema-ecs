@@ -6,7 +6,11 @@
       <div class="conteudo">
         <% @relatorios.each do |relatorio| %>
           <% if (@users.matricula == relatorio.matricula_aluno) %>
-            <span>Usuário(a): <strong><%= @users.nome_social %></strong></span>
+             <% if @users.nome_social.present? && @users.nome_social != @users.nome_civil && @users.nome_social != '--' && @users.nome_social != '-' %>
+              <td><b>Usuário(a):</b> <%="#{@users.nome_civil} (#{@users.nome_social})" %></td>
+            <% else %>
+              <td> <b>Usuário(a):</b> <%= @users.nome_civil %></td>
+            <% end %>
 
             <hr />
 
