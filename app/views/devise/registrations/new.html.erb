@@ -116,12 +116,12 @@
 
           <label class="col-sm-2 col-form-label">CEP*</label>
           <div class="col-sm-4">
-            <%= f.text_field :cep, class: "form-control", onkeypress:"$(this).mask('00000-000')" %> 
+            <%= f.text_field :cep, required: true, class: "form-control", onkeypress:"$(this).mask('00000-000')" %> 
           </div>
           
         <label class="col-sm-2 col-form-label">UF*</label>
           <div class="col-sm-4">
-            <%= f.text_field :uf, class: "form-control", onkeypress:"$(this).mask('00000-000')" %> 
+            <%= f.text_field :uf, required: true, class: "form-control" %> 
           </div>
         </div>
         
@@ -152,7 +152,7 @@
 
           <label class="col-sm-2 col-form-label">CNPJ*</label>
           <div class="col-sm-4">
-            <%= f.text_field :cnpj, class: "form-control", onkeypress:"$(this).mask('00.000.000/0000-00')" %> 
+            <%= f.text_field :cnpj, required: true, class: "form-control", onkeypress:"$(this).mask('00.000.000/0000-00')" %> 
           </div>
 
         </div>
@@ -173,7 +173,7 @@
 
           <label class="col-sm-2 col-form-label">Número da instituição*</label>
           <div class="col-sm-4">
-            <%= f.text_field :numero_da_instituicao, require: true, class: "form-control" %>
+            <%= f.text_field :numero_da_instituicao, required: true, class: "form-control" %>
           </div>
         </div>
 
@@ -186,7 +186,7 @@
 
           <label class="col-sm-2 col-form-label">Bairro da instituição*</label>
           <div class="col-sm-4">
-            <%= f.text_field :bairro_da_instituicao, require: true, class: "form-control" %>
+            <%= f.text_field :bairro_da_instituicao, required: true, class: "form-control" %>
           </div>
         </div>
 

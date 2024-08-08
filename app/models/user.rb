@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
-  validates_presence_of :nome_civil, :email, :licenciatura, :periodo, :matricula
+  validates_presence_of :nome_civil, :email, :licenciatura, :periodo, :matricula, :telefone, :endereco, :numero, :bairro, 
+  :municipio, :cep, :uf, :nome_da_instituicao, :cnpj, :tipo_da_instituicao, :endereco_da_instituicao, :numero_da_instituicao, :complemento_da_instituicao,
+  :bairro_da_instituicao, :municipio_da_instituicao, :cep_da_instituicao, :telefone_da_instituicao, :estado_da_instituicao
 
   validates_uniqueness_of :matricula, :email
 
