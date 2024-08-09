@@ -1,30 +1,31 @@
 class RelatorioParticularController < ApplicationController
   def index
     @relatorios = Relatparticular.all
-
+  
     if current_user.licenciatura == 'Ciências da Natureza'
-      redirect_to action: "edit"
+      redirect_to action: "edit" and return
     end
-
+  
     respond_to do |format|
-     format.html
-     format.pdf do
-       @relatorio = Relatparticular.all
-       if current_user.role != "normal_user"
-         @usuario_matricula = params['matricula']
-       else
-         @usuario_matricula = current_user.matricula
-       end
-       @users = current_user.update(:status_impressao => true)
-       pdf = ParticularPdf.new(@relatorio, current_user, @usuario_matricula)
-       send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
-
-       if current_user.role == "normal_user"
-         ContactMailer.confirmacao_impressao(current_user).deliver
-       end
-     end
+      format.html
+      format.pdf do
+        @relatorio = Relatparticular.all
+        if current_user.role != "normal_user"
+          @usuario_matricula = params['matricula']
+        else
+          @usuario_matricula = current_user.matricula
+        end
+        @users = current_user.update(status_impressao: true)
+        pdf = ParticularPdf.new(@relatorio, current_user, @usuario_matricula)
+        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
+  
+        if current_user.role == "normal_user"
+          ContactMailer.confirmacao_impressao(current_user).deliver
+        end
+      end
     end
   end
+  
 
   def update
     @relatorios = current_user.update(user_params)
