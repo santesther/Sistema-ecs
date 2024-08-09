@@ -1,30 +1,25 @@
 class RelatorioCampiaditivoController < ApplicationController
-    def index
-        @relatorios = Relatcampiaditivo.all
-    
-        if current_user.licenciatura == 'Ciências da Natureza'
-          redirect_to action: "edit"
-        end
-    
-        respond_to do |format|
-         format.html
-         format.pdf do
-           @relatorio = Relatcampiaditivo.all
-           if current_user.role != "normal_user"
-             @usuario_matricula = params['matricula']
-           else
-             @usuario_matricula = current_user.matricula
-           end
-           @users = current_user.update(:status_impressao => true)
-           pdf = CampiaditivoPdf.new(@relatorio, current_user, @usuario_matricula)
-           send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
-    
-           if current_user.role == "normal_user"
-             ContactMailer.confirmacao_impressao(current_user).deliver
-           end
-         end
-        end
+  def index
+    @relatorios = Relatcampiaditivo.all
+  
+    if current_user.licenciatura == 'Ciências da Natureza'
+      return redirect_to action: "edit"
+    end
+  
+    respond_to do |format|
+      format.html
+      format.pdf do
+        @relatorio = Relatcampiaditivo.all
+        @usuario_matricula = current_user.role != "normal_user" ? params['matricula'] : current_user.matricula
+        current_user.update(status_impressao: true)
+        pdf = CampiaditivoPdf.new(@relatorio, current_user, @usuario_matricula)
+        send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
+  
+        ContactMailer.confirmacao_impressao(current_user).deliver if current_user.role == "normal_user"
       end
+    end
+  end
+  
     
       def update
         @relatorios = current_user.update(user_params)
