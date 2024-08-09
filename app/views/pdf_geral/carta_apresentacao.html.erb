@@ -25,7 +25,7 @@
             Prezado Gestor.<br>
             O IFFluminense <i>Campus</i> Campos Centro apresenta o(a) licenciando(a)-estagiário(a) <u><%= f.text_field :aluno_apresentacao_dois, value: relatorio.aluno_apresentacao_dois, required: true  %></u>, 
             matriculado(a) neste instituto, no <u><%= @users.periodo %></u> período do Curso Superior de Licenciatura em 
-            <u><%= @users.licenciatura %></u>, no <u><%= f.select :semestre_apresentacao,[relatorio.semestre_apresentacao], value: relatorio.semestre_apresentacao, required:true %></u> semestre letivo de 
+            <u><%= @users.licenciatura %></u>, no <u><%= f.select :semestre_apresentacao, options_for_select([["1.º", "1.º"], ["2.º", "2.º"]], selected: relatorio.semestre_apresentacao), { include_blank: "Selecione um semestre" }, { required: true} %></u> semestre letivo de 
             <u><%= f.select :ano_apresentacao,[relatorio.ano_apresentacao], value: relatorio.ano_apresentacao, required:true %></u>, para fins de cumprimento das atividades do Estágio Curricular 
             Supervisionado no campo de estágio dessa Instituição Concedente, previstas no Plano de Atividades de Estágio(PAE),
             em atendimento a carga horária total destinada ao período em curso.
