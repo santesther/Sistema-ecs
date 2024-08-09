@@ -3,31 +3,26 @@ class RelatorioCentroController < ApplicationController
     @relatorios = Relatorio.all
   
     if current_user.licenciatura == 'Ciências da Natureza'
-      redirect_to action: "edit"
+      return redirect_to action: "edit"
     end
   
     respond_to do |format|
       format.html
       format.pdf do
         @relatorio = Relatorio.all
-        if current_user.role != "normal_user"
-          @usuario_matricula = params['matricula']
-        else
-          @usuario_matricula = current_user.matricula
-        end
-        @users = current_user.update(:status_impressao => true)
+        @usuario_matricula = current_user.role != "normal_user" ? params['matricula'] : current_user.matricula
+        current_user.update(status_impressao: true)
   
         pdf = CentroPdf.new(@relatorio, current_user, @usuario_matricula)
   
         # Renderiza o PDF
         send_data pdf.render, filename: 'relatorio.pdf', type: 'application/pdf', disposition: 'inline'
   
-        if current_user.role == "normal_user"
-          ContactMailer.confirmacao_impressao(current_user).deliver
-        end
+        ContactMailer.confirmacao_impressao(current_user).deliver if current_user.role == "normal_user"
       end
     end
   end
+  
   
 
   def update
