@@ -7,7 +7,10 @@
     <h3>Mensagens Enviadas</h3>
     <%= form_with(url: enviadas_mensagens_path, method: :get, local: true, class: "form-inline") do %>
       <div class="form-group mb-2">
-        <%= text_field_tag :search, params[:search], placeholder: "Buscar pelo nome do destinatário", class: "form-control" %>
+        <%= text_field_tag :nome_search, params[:nome_search], placeholder: "Buscar pelo nome do destinatário", class: "form-control" %>
+      </div>
+      <div class="form-group mb-2">
+        <%= text_field_tag :matricula_search, params[:matricula_search], placeholder: "Buscar pela matrícula do destinatário", class: "form-control" %>
       </div>
       <button type="submit" class="btn btn-primary mb-2">Buscar</button>
       <button type="reset" class="btn btn-secondary mb-2" onclick="window.location.href='<%= enviadas_mensagens_path %>';">Limpar Pesquisa</button>

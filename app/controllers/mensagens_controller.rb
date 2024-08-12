@@ -38,16 +38,23 @@ class MensagensController < ApplicationController
       end
     end
 
-   def enviadas
-    if params[:search].present?
-      # Encontre os IDs dos destinatários cujo nome corresponde à busca
-      user_ids = User.where('nome_civil LIKE ?', "%#{params[:search]}%").pluck(:id)
-      # Encontre mensagens onde o destinatário está na lista de IDs encontrados
-      @mensagens_enviadas = Mensagem.where(destinatario_id: user_ids).paginate(page: params[:page])
-    else
-      @mensagens_enviadas = Mensagem.paginate(page: params[:page])
+    def enviadas
+      if params[:nome_search].present? || params[:matricula_search].present?
+        # Construa uma consulta baseada nos parâmetros de pesquisa
+        query = User.all
+        query = query.where('nome_civil LIKE ?', "%#{params[:nome_search]}%") if params[:nome_search].present?
+        query = query.where('matricula LIKE ?', "%#{params[:matricula_search]}%") if params[:matricula_search].present?
+  
+        # Obtenha os IDs dos usuários que correspondem à busca
+        user_ids = query.pluck(:id)
+  
+        # Encontre mensagens onde o destinatário está na lista de IDs encontrados
+        @mensagens_enviadas = Mensagem.where(destinatario_id: user_ids).paginate(page: params[:page])
+      else
+        @mensagens_enviadas = Mensagem.paginate(page: params[:page])
+      end
     end
-  end
+  
 
     private
       # Use callbacks to share common setup or constraints between actions.
