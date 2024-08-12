@@ -38,10 +38,17 @@ class MensagensController < ApplicationController
       end
     end
 
-    def enviadas
+   def enviadas
+    if params[:search].present?
+      # Encontre os IDs dos destinatários cujo nome corresponde à busca
+      user_ids = User.where('nome_civil LIKE ?', "%#{params[:search]}%").pluck(:id)
+      # Encontre mensagens onde o destinatário está na lista de IDs encontrados
+      @mensagens_enviadas = Mensagem.where(destinatario_id: user_ids).paginate(page: params[:page])
+    else
       @mensagens_enviadas = Mensagem.paginate(page: params[:page])
     end
-    
+  end
+
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_mensagem
