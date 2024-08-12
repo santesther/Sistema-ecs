@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "welcome#index"
-  resources :mensagens
+  resources :mensagens do
+    collection do
+      get 'enviadas'
+    end
+  end
   get "/welcome", to: "welcome#index"
 
   get 'users/index'
