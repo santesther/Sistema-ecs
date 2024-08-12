@@ -39,9 +39,9 @@ class MensagensController < ApplicationController
     end
 
     def enviadas
-      @mensagens_enviadas = Mensagem.where(remetente_id: current_user.id).paginate(page: params[:page])
+      @mensagens_enviadas = Mensagem.paginate(page: params[:page])
     end
-  
+    
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_mensagem
