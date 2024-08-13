@@ -76,7 +76,6 @@
             <th scope="col">Situação</th>
             <th scope="col">Impressão</th>
             <th scope="col">Finalização</th>
-            <th scope="col">Role</th>
             <th></th>
             <th></th>
             <th></th>
@@ -128,8 +127,6 @@
             <td style="color:green;font-weight:bold;"><%= user.liberacao %></td>
             <% end %>
             <% end %>
-
-            <td><%= user.role %></td>
 
             <td><%= link_to "Revisar", estagio_welcome_edit_path(:id => user.id, :nome_social => user.nome_social, :matricula => user.matricula, :curso => user.licenciatura, :periodo => user.periodo, :email => user.email), :target => '_blank', :class => 'btn btn-info revisar_btn' %></td>
 
