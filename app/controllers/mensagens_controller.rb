@@ -44,16 +44,18 @@ class MensagensController < ApplicationController
         query = User.all
         query = query.where('nome_civil LIKE ?', "%#{params[:nome_search]}%") if params[:nome_search].present?
         query = query.where('matricula LIKE ?', "%#{params[:matricula_search]}%") if params[:matricula_search].present?
-  
+    
         # Obtenha os IDs dos usuários que correspondem à busca
         user_ids = query.pluck(:id)
-  
-        # Encontre mensagens onde o destinatário está na lista de IDs encontrados
-        @mensagens_enviadas = Mensagem.where(destinatario_id: user_ids).paginate(page: params[:page])
+    
+        # Encontre mensagens onde o destinatário está na lista de IDs encontrados e ordene por data decrescente
+        @mensagens_enviadas = Mensagem.where(destinatario_id: user_ids).order(created_at: :desc).paginate(page: params[:page])
       else
-        @mensagens_enviadas = Mensagem.paginate(page: params[:page])
+        # Se não houver parâmetros de pesquisa, apenas liste as mensagens ordenadas por data decrescente
+        @mensagens_enviadas = Mensagem.order(created_at: :desc).paginate(page: params[:page])
       end
     end
+    
   
 
     private
