@@ -4,8 +4,11 @@
   <%= form_with(model: @relatorio, url: {action: "create"}, local: true) do |f| %>
     <% if user_signed_in? %>
       <div class="conteudo">
-        <span>Usuário(a): <strong><%= current_user.nome_social %></strong></span>
-
+        <% if current_user.nome_social.present? && current_user.nome_social != current_user.nome_civil && current_user.nome_social != '--' && current_user.nome_social != '-' %>
+              <td><b>Usuário(a):</b> <%="#{current_user.nome_civil} (#{current_user.nome_social})" %></td>
+            <% else %>
+              <td> <b>Usuário(a):</b> <%= current_user.nome_civil %></td>
+            <% end %>
         <hr />
         <h2><b>TERMO ADITIVO DE ESTÁGIO</b></h2>
         <div class="nome-social">
