@@ -31,8 +31,8 @@ export default class extends Controller {
             });
         });
     
-        const refazerBtns = document.querySelectorAll('.refazer-btn'); // Alteração aqui
-        refazerBtns.forEach(btn => { // Alteração aqui
+        const refazerBtns = document.querySelectorAll('.refazer-btn'); 
+        refazerBtns.forEach(btn => { 
             btn.addEventListener('click', (event) => {
                 event.preventDefault();
                 
@@ -80,29 +80,29 @@ export default class extends Controller {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log("Liberando usuário com ID:", userId);
-                // Faz uma requisição GET para a rota de liberação
+                
                 fetch(`/users/${userId}/liberar`)
                     .then(response => {
                         if (response.ok) {
                             console.log("Usuário liberado com sucesso!");
-                            // Aqui você pode adicionar a lógica para tratar o sucesso da liberação
+                            
                             Swal.fire("Sucesso!", "Usuário liberado com sucesso!", "success");
                             setTimeout(() => {
                                 window.location.reload();
                             }, 1000);
                         } else {
                             console.error("Erro ao liberar usuário:", response.statusText);
-                            // Aqui você pode adicionar a lógica para tratar o erro da liberação
+                            
                             Swal.fire("Erro!", "Ocorreu um erro ao liberar o usuário.", "error");
                         }
                     })
                     .catch(error => {
                         console.error("Erro ao liberar usuário:", error);
-                        // Aqui você pode adicionar a lógica para tratar o erro da liberação
+                       
                         Swal.fire("Erro!", "Ocorreu um erro ao liberar o usuário.", "error");
                     });
             }
-        }).catch(error => console.error(error)); // Tratar erros, se houver
+        }).catch(error => console.error(error));
     }
 
     showRefazerAlert = (userId) => {
@@ -119,29 +119,29 @@ export default class extends Controller {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log("Liberando usuário com ID:", userId);
-                // Faz uma requisição GET para a rota de liberação
+                
                 fetch(`/users/${userId}/refazer`)
                     .then(response => {
                         if (response.ok) {
                             console.log("Usuário liberado com sucesso!");
-                            // Aqui você pode adicionar a lógica para tratar o sucesso da liberação
+                            
                             Swal.fire("Sucesso!", "Usuário liberado com sucesso!", "success");
                             setTimeout(() => {
                                 window.location.reload();
                             }, 1000);
                         } else {
                             console.error("Erro ao liberar usuário:", response.statusText);
-                            // Aqui você pode adicionar a lógica para tratar o erro da liberação
+                            
                             Swal.fire("Erro!", "Ocorreu um erro ao liberar o usuário.", "error");
                         }
                     })
                     .catch(error => {
                         console.error("Erro ao liberar usuário:", error);
-                        // Aqui você pode adicionar a lógica para tratar o erro da liberação
+                        
                         Swal.fire("Erro!", "Ocorreu um erro ao liberar o usuário.", "error");
                     });
             }
-        }).catch(error => console.error(error)); // Tratar erros, se houver
+        }).catch(error => console.error(error)); 
     }
     
     generateDeleteUrl = (userId, relatorioType) => {

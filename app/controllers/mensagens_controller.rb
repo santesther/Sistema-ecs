@@ -40,18 +40,14 @@ class MensagensController < ApplicationController
 
     def enviadas
       if params[:nome_search].present? || params[:matricula_search].present?
-        # Construa uma consulta baseada nos parâmetros de pesquisa
         query = User.all
         query = query.where('nome_civil LIKE ?', "%#{params[:nome_search]}%") if params[:nome_search].present?
         query = query.where('matricula LIKE ?', "%#{params[:matricula_search]}%") if params[:matricula_search].present?
     
-        # Obtenha os IDs dos usuários que correspondem à busca
         user_ids = query.pluck(:id)
     
-        # Encontre mensagens onde o destinatário está na lista de IDs encontrados e ordene por data decrescente
         @mensagens_enviadas = Mensagem.where(destinatario_id: user_ids).order(created_at: :desc).paginate(page: params[:page])
       else
-        # Se não houver parâmetros de pesquisa, apenas liste as mensagens ordenadas por data decrescente
         @mensagens_enviadas = Mensagem.order(created_at: :desc).paginate(page: params[:page])
       end
     end
@@ -59,12 +55,10 @@ class MensagensController < ApplicationController
   
 
     private
-      # Use callbacks to share common setup or constraints between actions.
       def set_mensagem
         @mensagem = Mensagem.find(params[:id])
       end
   
-      # Never trust parameters from the scary internet, only allow the white list through.
       def mensagem_params
         params.require(:mensagem).permit(:texto, :remetente_id, :destinatario_id)
       end
