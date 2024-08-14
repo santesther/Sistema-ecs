@@ -48,8 +48,9 @@ class CartaApresentacaoController < ApplicationController
     
     
       def create
-        @relatorios = CartaApresentacao.new(relatorio_params)
-    
+        @relatorios = current_user.carta_apresentacao || CartaApresentacao.new(relatorio_params)
+        @relatorios.attributes = relatorio_params
+
         @users = current_user.update(:carta_apresentacao => true)
        
         @relatorios.ano = @relatorios.ano
@@ -67,14 +68,14 @@ class CartaApresentacaoController < ApplicationController
         @relatorios.apolice = current_user.apolice
         @relatorios.aluno_apresentacao = current_user.nome_civil
     
-        ContactMailer.contact_message(current_user).deliver
-    
-        flash[:notice] = 'Mensagem enviada com sucesso'
-    
+         ContactMailer.contact_message(current_user).deliver
+
         if @relatorios.save
-          redirect_to estagio_welcome_index_path, id: @relatorios.id,  notice: 'Relatório salvo com sucesso!'
+          flash[:notice] = 'Mensagem enviada com sucesso'
+          redirect_to estagio_welcome_index_path, id: @relatorios.id, notice: 'Relatório salvo com sucesso!'
         else
-          redirect_to estagio_welcome_index_path, alert: 'Ocorreu um erro ao salvar o relatório, tente novamente mais tarde!'
+          flash[:alert] = 'Ocorreu um erro ao salvar o relatório, tente novamente mais tarde!'
+          render :new
         end
       end
     
