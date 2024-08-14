@@ -21,7 +21,7 @@ class AditivocentroPdf < Prawn::Document
       # Use a fonte Calibri
       font "Calibri"
         image "#{Rails.root}/app/assets/images/cabecalho.png", at: [-50, 680], :width => 550
-        move_down 20
+        move_down 40
         
         repeat(1..5, dynamic: true) do
           draw_text "#{page_number}", at: [490, 700]
