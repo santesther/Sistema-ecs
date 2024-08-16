@@ -23,13 +23,13 @@
             <br />
             <% if relatorio.nome_social_termo.blank? %>
 
-            <p>O <b>INSTITUTO FEDERAL FLUMINENSE CAMPUS CAMPOS CENTRO</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino
+            <p>O <b>INSTITUTO FEDERAL FLUMINENSE CAMPUS CAMPOS CENTRO</b> neste Ato representado por Marlucia Cereja de Alencar <b>Diretora de Ensino
             Superior das Licenciaturas (DIRESLCC) - INSTITUIÇÃO PROMOTORA -</b>,
             inscrita no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor
             Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP:
             28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de
             25/09/2008, com a Instituição de Ensino <b><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required:true %>
-            - CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº <%= @users.cnpj %>,
+            - CONCEDENTE -</b> inscrita no CNPJ/MF sob o nº <%= @users.cnpj %>,
             situada no(a) <%= @users.endereco_da_instituicao %>, nº <%= @users.numero_da_instituicao %>, Bairro: <%= @users.bairro_da_instituicao%>,
             no municipio de <%= @users.municipio_da_instituicao %>, estado do <%= @users.estado_da_instituicao %>,
             CEP: <%= @users.cep_da_instituicao %>, telefone <%= @users.telefone_da_instituicao %>,
@@ -45,13 +45,13 @@
               <b>Período de Vigência: <%= f.text_field :periodo_de, value: relatorio.periodo_de, required:true, value: relatorio.periodo_de %></b>
             </div>
             <% else %>
-            <p>O <b>INSTITUTO FEDERAL FLUMINENSE CAMPUS CAMPOS CENTRO</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino
+            <p>O <b>INSTITUTO FEDERAL FLUMINENSE CAMPUS CAMPOS CENTRO</b> neste Ato representado por Marlucia Cereja de Alencar <b>Diretora de Ensino
             Superior das Licenciaturas (DIRESLCC) - INSTITUIÇÃO PROMOTORA -</b>,
             inscrita no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor
             Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP:
             28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de
             25/09/2008, com a Instituição de Ensino <b><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required:true %>
-            - CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº <%= @users.cnpj %>,
+            - CONCEDENTE -</b> inscrita no CNPJ/MF sob o nº <%= @users.cnpj %>,
             situada no(a) <%= @users.endereco_da_instituicao %>, nº <%= @users.numero_da_instituicao %>, Bairro: <%= @users.bairro_da_instituicao%>,
             no municipio de <%= @users.municipio_da_instituicao %>, estado do <%= @users.estado_da_instituicao %>,
             CEP: <%= @users.cep_da_instituicao %>, telefone <%= @users.telefone_da_instituicao %>,
