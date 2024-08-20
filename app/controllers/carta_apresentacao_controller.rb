@@ -48,8 +48,9 @@ class CartaApresentacaoController < ApplicationController
     
     
       def create
-        @relatorios = CartaApresentacao.new(relatorio_params)
-    
+        @relatorios = current_user.carta_apresentacao || CartaApresentacao.new(relatorio_params)
+        @relatorios.attributes = relatorio_params
+
         @users = current_user.update(:carta_apresentacao => true)
        
         @relatorios.ano = @relatorios.ano
