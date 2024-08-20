@@ -335,11 +335,11 @@
             </div>
 
             <div class="div_federal2" style="display:none">
-              <%= link_to "Instituição de Ensino Estadual - Carta de Apresentação e TCE", relatorio_publico_index_path, :class => 'btn btn-info publica' %>
-              <%= link_to "Instituição de Ensino Estadual - Carta de Apresentação e TAdE", relatorio_estadualaditivo_index_path, :class => 'btn btn-info publica' %>
-              <span class="municipal">
-              <%= link_to "Instituição de Ensino Municipal ou Particular - Carta de Apresentação e TCE", relatorio_particular_index_path, :class => 'btn btn-info particular' %>
-              <%= link_to "Instituição de Ensino Municipal ou Particular - Carta de Apresentação e TAdE", relatorio_municipalouparticularaditivo_index_path, :class => 'btn btn-info particular' %>
+            <%= link_to "Instituição de Ensino Municipal - Carta de Apresentação e TCE", relatorio_particular_index_path, :class => 'btn btn-info particular' %>
+              <%= link_to "Instituição de Ensino Municipal - Carta de Apresentação e TAdE", relatorio_municipalouparticularaditivo_index_path, :class => 'btn btn-info particular' %>
+              <span class="municipal"ou Particular>
+               <%= link_to "Instituição de Ensino Estadual ou Particular - Carta de Apresentação e TCE", relatorio_publico_index_path, :class => 'btn btn-info publica' %>
+              <%= link_to "Instituição de Ensino Estadual ou Particular - Carta de Apresentação e TAdE", relatorio_estadualaditivo_index_path, :class => 'btn btn-info publica' %>
               </span>
             </div>
           <% end %>

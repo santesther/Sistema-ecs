@@ -24,12 +24,12 @@
           inscrita no CNPJ/MF sob o n.º 10.779.511/0002-98, situada na Rua Doutor
           Siqueira, n.º 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP:
           28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de
-          25/09/2008, com a Instituição de Ensino <b><%= f.text_field :instituicao_apresentacao, required:true %>-
+          25/09/2008, com a Instituição <b><%= f.text_field :prefeitura, required:true %>-
           CONCEDENTE -</b> inscrita no CNPJ/MF sob o nº <%= current_user.cnpj %>,
           situada no(a) <%= current_user.endereco_da_instituicao %>, nº <%= current_user.numero_da_instituicao %>, Bairro: <%= current_user.bairro_da_instituicao%>,
           no municipio de <%= current_user.municipio_da_instituicao %>, estado do <%= current_user.estado_da_instituicao %>,
           CEP: <%= current_user.cep_da_instituicao %>, telefone <%= current_user.telefone_da_instituicao %>,
-          representado por <%= f.text_field :representante_da_instituicao, required:true %>, <b>para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
+          representado por <%= f.text_field :representante_da_instituicao, required:true %>, <b>para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b> na unidade escolar <%= f.text_field :instituicao_apresentacao, required:true %>,
           ao(à) <b>LICENCIANDO(A)</b>
            <div class="d-flex align-items-center justify-content-center">
           <b><%= f.text_field :aluno_apresentacao, required: true  %></b>

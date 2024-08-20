@@ -69,6 +69,7 @@ class RelatorioParticularController < ApplicationController
     @relatorios.nome_social_termo = @relatorios.nome_social_termo
     @relatorios.aluno_apresentacao_dois = current_user.nome_civil
     @relatorios.uf = current_user.uf
+    @relatorios.prefeitura = @relatorios.prefeitura
 
 
     if @relatorios.save
@@ -92,6 +93,6 @@ class RelatorioParticularController < ApplicationController
   end
 
   def relatorio_params
-    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :estado_da_instituicao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :uf, :estagio, :user_id, :nome_social_termo)
+    params.permit(:data, :seguradora, :apolice, :instituicao_apresentacao, :representante_da_instituicao, :aluno_apresentacao, :estado_da_instituicao, :aluno_apresentacao_dois, :semestre_apresentacao, :ano_apresentacao, :estado_da_instituicao, :aluno_semestre, :ano, :estado, :periodo_de, :periodo_a, :avaliador, :uf, :estagio, :user_id, :nome_social_termo, :prefeitura)
   end
 end

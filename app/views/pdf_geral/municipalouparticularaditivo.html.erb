@@ -25,12 +25,12 @@
         <p style="text-align: justify; font-size: 16px;">O <b>INSTITUTO FEDERAL FLUMINENSE</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas do <i>CAMPUS</i> 
         CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
         Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone 
-        (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Instituição de Ensino CONCEDENTE -
-        <%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %> -</b> inscrita no CNPJ/MF sob o nº 
+        (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Instituição CONCEDENTE -
+        <%= f.text_field :prefeitura, value: relatorio.prefeitura, required: true  %> -</b> inscrita no CNPJ/MF sob o nº 
         <%= @users.cnpj %>, situado no(a) <%= @users.endereco_da_instituicao %>, Bairro: <%= @users.bairro_da_instituicao %>, 
         no município de <%= @users.municipio_da_instituicao %>, Estado do <%= @users.estado_da_instituicao %>, CEP: <%= @users.cep_da_instituicao %>, telefone 
         <%= @users.telefone_da_instituicao %>, representado por <%= f.text_field :representante_da_instituicao, value: relatorio.representante_da_instituicao, required: true  %>, para fins de continuidade 
-        do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>
+        do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b> na Unidade Escolar <%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %>, ao(à) <b>LICENCIANDO(A)</b>
         <div class="d-flex align-items-center justify-content-center">
           <b><%= f.text_field :aluno_apresentacao, value: relatorio.aluno_apresentacao, required: true  %></b>
           </div></p>
@@ -47,12 +47,12 @@
           <p style="text-align: justify; font-size: 16px;">O <b>INSTITUTO FEDERAL FLUMINENSE</b> neste Ato representado por Marlúcia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas do <i>CAMPUS</i> 
         CAMPOS CENTRO - INSTITUIÇÃO PROMOTORA -</b>, inscrito no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor 
         Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone 
-        (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Instituição de Ensino CONCEDENTE -
-        <%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %> -</b> inscrita no CNPJ/MF sob o nº 
+        (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a <b>Instituição CONCEDENTE -
+        <%= f.text_field :prefeitura, value: relatorio.prefeitura, required: true  %> -</b> inscrita no CNPJ/MF sob o nº 
         <%= @users.cnpj %>, situado no(a) <%= @users.endereco_da_instituicao %>, Bairro: <%= @users.bairro_da_instituicao %>, 
         no município de <%= @users.municipio_da_instituicao %>, Estado do <%= @users.estado_da_instituicao %>, CEP: <%= @users.cep_da_instituicao %>, telefone 
         <%= @users.telefone_da_instituicao %>, representado por <%= f.text_field :representante_da_instituicao, value: relatorio.representante_da_instituicao, required: true  %>, para fins de continuidade 
-        do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>, ao(à) <b>LICENCIANDO(A)</b>
+        do Estágio Curricular Supervisionado dos Cursos de Licenciatura</b> na Unidade Escolar <%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required: true  %>, ao(à) <b>LICENCIANDO(A)</b>
         <div class="d-flex align-items-center justify-content-center">
           <b><%= f.text_field :nome_social_termo, value: relatorio.nome_social_termo, required:true, value: relatorio.nome_social_termo %>(<%= @users.nome_civil %>)</b>
           </div></p>
