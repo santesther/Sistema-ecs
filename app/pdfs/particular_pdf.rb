@@ -37,14 +37,14 @@ class ParticularPdf < Prawn::Document
             text "<b>Seguradora: </b>#{relatorio.seguradora}", align: :center, size: 12, :inline_format => true, :leading => 10
             move_down 5
             text "<b>Apólice de seguro: </b>#{relatorio.apolice}",align: :center, size: 12, :inline_format => true, :leading => 10
-            move_down 10
+            move_down 5
 
             text "O <b>INSTITUTO FEDERAL FLUMINENSE <i>CAMPUS</i> CAMPOS CENTRO</b> neste Ato representado por Marlucia Cereja de Alencar <b>Diretora de Ensino Superior das Licenciaturas (DIRESLCC) - INSTITUIÇÃO PROMOTORA -</b>, inscrita no CNPJ/MF sob o nº 10.779.511/0002-98, situada na Rua Doutor Siqueira, nº 273, Parque Dom Bosco, Campos dos Goytacazes/RJ, CEP: 28.030-130, telefone (22) 27262897, <b>firma parceria</b>, em atendimento à Lei Nº 11.788, de 25/09/2008, com a Instituição <b>#{relatorio.prefeitura} - CONCEDENTE -</b> inscrita no CNPJ/MF sob o nº #{relatorio.cnpj}, situada no(a) #{relatorio.endereco_da_instituicao}, nº #{relatorio.numero_da_instituicao}, Bairro #{relatorio.bairro_da_instituicao}, no município de #{relatorio.municipio_da_instituicao}, Estado do #{relatorio.estado_da_instituicao}, CEP: #{relatorio.cep_da_instituicao}, telefone #{relatorio.telefone_da_instituicao}, representada por <b>#{relatorio.representante_da_instituicao}, para fins de abertura de campo de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b> na <b>Unidade Escolar #{relatorio.instituicao_apresentacao}</b>, ao(à) <b>LICENCIANDO(A)</b>", align: :justify, :inline_format => true, :leading => 10
-            move_down 10
+            move_down 5
             text "<b>#{relatorio.aluno_apresentacao}</b>", align: :center, size: 16, :inline_format => true, :leading => 10
-            move_down 10
+            move_down 5
             text "matriculado(a) no Campus Campos Centro do IFFluminense, sob o nº #{relatorio.matricula_aluno}, no #{relatorio.aluno_semestre} semestre do ano letivo de #{relatorio.ano}, no Curso Superior de Licenciatura em #{relatorio.licenciatura}, no componente curricular #{relatorio.estagio}. Residente no(a) #{relatorio.endereco}, nº #{relatorio.numero}, Complemento: #{relatorio.complemento}, Bairro: #{relatorio.bairro}, município: #{relatorio.municipio}, UF: #{relatorio.uf}, CEP: #{relatorio.cep}, telefone/contato: nº #{relatorio.telefone}", align: :justify, :inline_format => true, :leading => 10
-            move_down 10
+            move_down 3
             text "<b>Período de Vigência: #{relatorio.periodo_de}", align: :justify, :inline_format => true
             
             move_down 140
