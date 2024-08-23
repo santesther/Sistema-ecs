@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :status, presence: true
 
-  has_one :carta_apresentacoes
+  has_many :carta_apresentacoes
 
   mount_uploader :avatar, AvatarUploader
 
