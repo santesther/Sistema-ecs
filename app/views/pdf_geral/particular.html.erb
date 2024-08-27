@@ -40,7 +40,7 @@
             <b><%= f.text_field :aluno_apresentacao, value: relatorio.aluno_apresentacao, required: true  %></b>
             </div>
             <p>matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.matricula %>, no 
-            <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %>º semestre do ano letivo de <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %>
+            <%= f.select :aluno_semestre, options_for_select([["1.º", "1.º"], ["2.º", "2.º"]], selected: relatorio.aluno_semestre), { include_blank: "Selecione um semestre" }, { required: true} %> semestre do ano letivo de <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %>
             no curso Superior de Licenciatura em <%= @users.licenciatura %>, no componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %>
             Residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
             Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= @users.uf %>,
@@ -64,7 +64,7 @@
             na unidade escolar <b><%= f.text_field :instituicao_apresentacao, value: relatorio.instituicao_apresentacao, required:true %>,
             ao(à) <b>LICENCIANDO(A) <%= f.text_field :nome_social_termo, value: relatorio.nome_social_termo, required:true, value: relatorio.nome_social_termo %>(<%= @users.nome_civil %>)</b> 
             matriculado(a) no <i>Campus</i> Campos Centro do IFFluminense, sob o nº <%= @users.matricula %>, no 
-            <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %>º semestre do ano letivo de <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %>
+           <%= f.select :aluno_semestre, options_for_select([["1.º", "1.º"], ["2.º", "2.º"]], selected: relatorio.aluno_semestre), { include_blank: "Selecione um semestre" }, { required: true} %> semestre do ano letivo de <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %>
             no curso Superior de Licenciatura em <%= @users.licenciatura %>, no componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %>
             Residente no(a) <%= @users.endereco %>, nº <%= @users.numero %>, Complemento: <%= @users.complemento %>
             Bairro: <%= @users.bairro %>, município: <%= @users.municipio %>, UF: <%= @users.uf %>,

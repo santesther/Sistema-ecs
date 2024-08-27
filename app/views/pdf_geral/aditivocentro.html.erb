@@ -35,7 +35,7 @@
           <%= @users.licenciatura %><br>
           <b>Cláusula Primeira:</b><br>
           O PRESENTE TERMO ADITIVO ALTERA:<br>
-            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %><br>
+            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre, options_for_select([["1.º", "1.º"], ["2.º", "2.º"]], selected: relatorio.aluno_semestre), { include_blank: "Selecione um semestre" }, { required: true} %>  semestre do ano letivo <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %><br>
           <hr />
           <% else %>
            <p style="text-align: justify; font-size: 16px;">Aditamento ao Termo de Compromisso de Estágio, Ato 
@@ -52,7 +52,7 @@
           <%= @users.licenciatura %><br>
           <b>Cláusula Primeira:</b><br>
           O PRESENTE TERMO ADITIVO ALTERA:<br>
-            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre,[relatorio.aluno_semestre], value: relatorio.aluno_semestre, required:true %> semestre do ano letivo <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %><br>
+            (<b>X</b>) O componente curricular  <%= f.select :estagio,[relatorio.estagio], value: relatorio.estagio, required:true %> no <%= f.select :aluno_semestre, options_for_select([["1.º", "1.º"], ["2.º", "2.º"]], selected: relatorio.aluno_semestre), { include_blank: "Selecione um semestre" }, { required: true} %> semestre do ano letivo <%= f.number_field :ano, min:24, value: relatorio.ano, required:true %><br>
           <hr />
           <% end %>
         <% end %>
