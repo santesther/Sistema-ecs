@@ -63,6 +63,7 @@ class RelatorioPublicoController < ApplicationController
       @relatorios.telefone = current_user.telefone
       @relatorios.cnpj = current_user.cnpj
       @relatorios.endereco_da_instituicao = current_user.endereco_da_instituicao
+      @relatorios.complemento_da_instituicao = current_user.complemento_da_instituicao
       @relatorios.numero_da_instituicao = current_user.numero_da_instituicao
       @relatorios.bairro_da_instituicao = current_user.bairro_da_instituicao
       @relatorios.municipio_da_instituicao = current_user.municipio_da_instituicao

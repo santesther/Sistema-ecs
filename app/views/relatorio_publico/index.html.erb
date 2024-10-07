@@ -27,6 +27,7 @@
           25/09/2008, com o(a) <b><%= f.text_field :instituicao_apresentacao, required:true %>-
           Instituição de Ensino CONCEDENTE -</b> inscrito no CNPJ/MF sob o nº <%= current_user.cnpj %>,
           situada no(a) <%= current_user.endereco_da_instituicao %>, nº <%= current_user.numero_da_instituicao %>, Bairro: <%= current_user.bairro_da_instituicao%>,
+          Complemento: <%= current_user.complemento_da_instituicao %>,
           no municipio de <%= current_user.municipio_da_instituicao %>, estado do <%= current_user.estado_da_instituicao %>,
           CEP: <%= current_user.cep_da_instituicao %>, telefone <%= current_user.telefone_da_instituicao %>,
           representado por <%= f.text_field :representante_da_instituicao, required:true %>, <b>para fins de abertura de campos de Estágio Curricular Supervisionado dos Cursos de Licenciatura</b>,
