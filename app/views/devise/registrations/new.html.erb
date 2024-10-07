@@ -162,6 +162,11 @@
           <div class="col-sm-4">
         <%= f.select :tipo_da_instituicao, options_for_select(['Federal', 'Estadual', 'Municipal','Particular'], f.object.tipo_da_instituicao), include_blank: "Selecione", class: "form-control" %>
           </div>
+
+          <label class="col-sm-2 col-form-label">Representante*</label>
+          <div class="col-sm-4">
+            <%= f.text_field :representante, required: true, class: "form-control" %> 
+          </div>
           </div>
        
         <div class="form-group row">
